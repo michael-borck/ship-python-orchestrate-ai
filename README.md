@@ -23,6 +23,21 @@ The book follows a "crawl-walk-run" approach, starting with essential practices 
 
 The rendered book is available at: https://book-repositories.github.io/python-dev-book/
 
+## Related Materials
+
+This book is part of a comprehensive series for mastering modern software development in the AI era:
+
+### Foundational Methodology
+- **[Intentional Prompting](https://michaelborck-books.github.io/intentional-prompting)**: Mastering the Human-AI Development Process
+
+### Python Track
+- **[Python Step by Step with AI](https://michaelborck-books.github.io/python-step-by-step-ai)**: Perfect for absolute beginners learning computational thinking
+- **[Python Jumpstart](https://michaelborck-books.github.io/python-jumpstart)**: Coding Fundamentals for the AI Era
+- **[From Zero to Production](https://michaelborck-books.github.io/python-dev-book)** (this book): A Practical Python Development Pipeline
+
+### Web Track
+- **[Web Development Step by Step](https://michaelborck-books.github.io/web-dev-step-by-ste-ai)**: Building Business Solutions with AI
+
 ## Related Resources
 
 - **Case Study Repository**: The book includes a case study building "SimpleBot". The complete implementation can be found at [simplebot-repo-url].

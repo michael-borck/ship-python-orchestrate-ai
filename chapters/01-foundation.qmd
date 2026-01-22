@@ -431,4 +431,22 @@ This approach is ideal for quickly starting new projects when you don't want to 
 
 All these options—the simple script, the cookiecutter template—embody, and GitHub repository templates embody our philosophy of "Simple but not Simplistic." Choose the option that best fits your current needs and comfort level. As your projects grow in complexity, you can gradually adopt more sophisticated practices while maintaining the solid foundation established here.
 
+## Related Materials
+
+This book is part of a comprehensive series for mastering modern software development in the AI era:
+
+**Foundational Methodology**
+
+- [Intentional Prompting: Mastering the Human-AI Development Process](https://michaelborck-books.github.io/intentional-prompting)
+
+**Python Track**
+
+- [Python Step by Step with AI: Learning with AI](https://michaelborck-books.github.io/python-step-by-step-ai) - Perfect for absolute beginners
+- [Python Jumpstart: Coding Fundamentals for the AI Era](https://michaelborck-books.github.io/python-jumpstart) - Focused Python fundamentals
+- [From Zero to Production: A Practical Python Development Pipeline](https://michaelborck-books.github.io/python-dev-book) (this book) - Professional-grade applications
+
+**Web Track**
+
+- [Web Development Step by Step: Building Business Solutions with AI](https://michaelborck-books.github.io/web-dev-step-by-ste-ai) - HTML, CSS, JavaScript, WordPress, React
+
 In Part 2, we'll build on this foundation by exploring robust dependency management, code quality tools, testing strategies, and type checking—the next layers in our Python development pipeline.
