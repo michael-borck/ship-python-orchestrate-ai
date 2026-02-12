@@ -10,3 +10,4 @@ _marketing/
 /.quarto/
 
 _notes/
+**/*.quarto_ipynb
