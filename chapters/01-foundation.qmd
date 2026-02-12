@@ -366,7 +366,7 @@ For those who prefer a transparent, straightforward approach, we've created a si
 
 ```bash
 # Download the script
-curl -O https://example.com/scaffold_python_project.sh
+curl -O https://raw.githubusercontent.com/michael-borck/ship-it-template/main/scripts/scaffold_python_project.sh
 chmod +x scaffold_python_project.sh
 
 # Create a new project
@@ -391,7 +391,7 @@ For more complex projects or when you want a more feature-rich starting point, w
 pip install cookiecutter
 
 # Create a new project from the template
-cookiecutter gh:username/python-dev-pipeline-cookiecutter
+cookiecutter gh:michael-borck/ship-it-cookiecutter
 ```
 
 The cookiecutter template offers more customization options and includes:
@@ -408,7 +408,7 @@ This approach is covered in detail in Appendix C and is recommended when you're 
 
 For the ultimate in simplicity, we also provide a GitHub repository template that requires no local tool installation. GitHub templates offer a frictionless way to create new projects with the same structure and files:
 
-1. Visit the template repository at https://github.com/username/python-project-template
+1. Visit the template repository at https://github.com/michael-borck/ship-it-template
 2. Click the "Use this template" button
 3. Name your new repository and create it
 4. Clone your new repository locally

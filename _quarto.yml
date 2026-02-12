@@ -4,7 +4,7 @@ project:
 
 book:
   title: "Ship It: Python in Production"
-  subtitle: "Professional Tools and Workflows"
+  subtitle: "Architecting for AI-Assisted Development"
   author: "Michael Borck"
   date: "last-modified"
   chapters:
@@ -15,10 +15,12 @@ book:
     - chapters/04-case-study.qmd
     - chapters/05-advanced-techniques.qmd
     - chapters/06-project-management.qmd
+    - chapters/08-distribution.qmd
     - chapters/07-conclusion.qmd
     - acknowledgments.qmd
   appendices:
     - appendices/glossary.qmd
+    - appendices/distribution-templates.qmd
     - appendices/ai-tools.qmd
     - appendices/checklist.qmd
     - appendices/editors.qmd

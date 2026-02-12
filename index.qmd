@@ -12,7 +12,13 @@ Whether you're a beginner taking your first steps beyond basic scripts, an inter
 
 Throughout this journey, we'll introduce tools and practices that scale with your needs. We'll start with simpler approaches and progress to more robust solutions, letting you decide when to adopt more advanced techniques based on your project's complexity. A theme throughout the book is 'Simple but no Simplistic'.
 
-To help you quickly apply these practices, we've created a companion cookiecutter template that automatically sets up a new Python project with the recommended structure and configurations. You can find this template at [GitHub repository URL] and use it to jumpstart your projects with best practices already in place. We'll discuss how to use and customize this template throughout the guide.
+To help you quickly apply these practices, we've created companion templates that automatically set up new Python projects with the recommended structure and configurations:
+
+- **Cookiecutter template**: `cookiecutter gh:michael-borck/ship-it-cookiecutter` for full customization
+- **GitHub template**: [ship-it-template](https://github.com/michael-borck/ship-it-template) for quick starts
+- **Example project**: [ship-it-example](https://github.com/michael-borck/ship-it-example) showing all features in action
+
+We'll discuss how to use and customize these templates throughout the guide.
 
 Importantly, this isn't just about tools—it's about building habits and workflows that make development more enjoyable and productive. The practices we'll explore enhance code quality and team collaboration without unnecessary complexity, creating a foundation you can build upon as your skills and projects grow.
 
@@ -24,7 +30,40 @@ As you progress through this guide, you'll notice references to how AI assistant
 
 The practices we cover remain essential regardless of whether you use AI tools. Understanding project structure, testing principles, and code quality isn't obsolete - if anything, these fundamentals become more important as you leverage AI to accelerate your workflow.
 
-Yes, including a paragraph about editors in the main document would be valuable. I suggest adding a section near the beginning of the book (perhaps in the Introduction or early in Part 1) that acknowledges the role of editors in the development process while emphasizing your focus on editor-agnostic practices.
+## The Human Role: Architect and Orchestrator
+
+This book is built on a key insight: **AI has fundamentally changed what developers do, but not what they need to know.**
+
+AI tools can now write functional code quickly. What they cannot do is:
+
+- Design architecture that scales
+- Choose appropriate tools and patterns
+- Verify that code does what it should
+- Manage the workflow from idea to shipped product
+- Make judgment calls about tradeoffs
+
+This shifts the human role from **code writer** to **architect and orchestrator**:
+
+| Traditional Role | AI-Era Role |
+|-----------------|-------------|
+| Write code line by line | Design structures AI fills in |
+| Debug syntax errors | Verify AI output through tests |
+| Memorize APIs | Understand patterns and architectures |
+| Manual repetitive tasks | Orchestrate automated workflows |
+
+The practices in this book—project structure, testing, type checking, CI/CD—become **verification infrastructure**. They're how you ensure AI-generated code actually works.
+
+### Simple Structures for AI Collaboration
+
+Throughout this book, we emphasize patterns that work well with AI assistance:
+
+1. **Clear project structure**: AI can navigate and modify organized code
+2. **Type hints**: AI generates more accurate code with type information
+3. **Comprehensive tests**: You verify AI output without reading every line
+4. **Documented conventions**: AI follows patterns when you specify them
+5. **API-first design**: Clean interfaces let AI work on isolated components
+
+The goal isn't to replace your judgment with AI—it's to leverage AI for implementation while you focus on architecture, verification, and delivery.
 
 ## Development Environments and Editor Choice
 
@@ -46,13 +85,14 @@ This guide is designed to accommodate different learning styles and experience l
 
 While this guide focuses on Python, it's worth noting that many of the core principles and practices discussed—version control, testing, documentation, CI/CD, code quality—apply across software development in general. We've chosen to demonstrate these concepts through Python due to its popularity and approachable syntax, but the workflow philosophy transcends any specific language. Developers working in other languages will find much of this guidance transferable to their environments, with adjustments for language-specific tools.
 
-The guide is structured into four main parts, followed by appendices for quick reference:
+The guide is structured into five main parts, followed by appendices for quick reference:
 
 - **Part 1: Setting the Foundation** - Covers project structure, version control, and virtual environments
 - **Part 2: Advancing Your Workflow** - Explores dependency management, code quality tools, testing, and type checking
 - **Part 3: Documentation and Deployment** - Discusses documentation options and CI/CD automation
 - **Part 4: Case Study - Building SimpleBot** - Demonstrates applying these practices to a real project
-- **Appendices** - Provide a workflow checklist, tools reference, and glossary of terms
+- **Part 5: Multi-Platform Distribution** - Ship to web, desktop (Windows, macOS, Linux), and PWA from a single codebase
+- **Appendices** - Provide workflow checklists, tools reference, distribution templates, and glossary of terms
 
 Whether you're starting your first serious Python project or looking to professionalize an existing workflow, you'll find relevant guidance throughout. Feel free to focus on the sections most applicable to your current needs and revisit others as your projects evolve.
 
@@ -66,7 +106,7 @@ This guide is part of a 4-book series designed to help you master modern softwar
 
 **Conversation, Not Delegation: Mastering Human-AI Development** - A methodology for effective AI collaboration (human oversight + methodology + LLM = success)
 
-**Ship It: Python in Production** (this book) - Build professional-grade Python applications with modern tools (uv, ruff, mypy, pytest - simple but not simplistic)
+**Ship It: Python in Production** (this book) - Architecting for AI-assisted development with modern tools (uv, ruff, mypy, pytest) and multi-platform distribution
 
 **Book Progression**: Start with "Think Python, Direct AI" if you're a complete beginner, or jump into "Code Python, Consult AI" if you want a more focused approach to Python fundamentals. Both books prepare you for the production-focused content in "Ship It: Python in Production," while "Conversation, Not Delegation" provides the AI collaboration methodology that enhances all your development work.
 

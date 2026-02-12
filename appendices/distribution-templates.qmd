@@ -1,0 +1,1213 @@
+# Distribution Templates
+
+This appendix provides ready-to-use templates and configurations for multi-platform distribution. These templates complement the architecture patterns discussed in Chapter 8: Multi-Platform Distribution.
+
+## Companion Repositories
+
+To quickly start a new project with this architecture, use one of our companion repositories:
+
+### Cookiecutter Template
+
+For full customization with interactive prompts:
+
+```bash
+# Install cookiecutter
+pip install cookiecutter
+
+# Create a new project
+cookiecutter gh:michael-borck/ship-it-cookiecutter
+```
+
+The cookiecutter template prompts for:
+
+- Project name and description
+- Author information
+- Backend options (database choice, authentication)
+- Frontend options (styling framework, state management)
+- Distribution targets (web, PWA, desktop)
+- CI/CD configuration
+
+### GitHub Template
+
+For quick starts without installing tools:
+
+1. Visit https://github.com/michael-borck/ship-it-template
+2. Click "Use this template"
+3. Clone your new repository and customize
+
+### Example Repository
+
+A complete working example with all features:
+
+- https://github.com/michael-borck/ship-it-example
+
+## FastAPI Backend Template
+
+### pyproject.toml
+
+```toml
+[project]
+name = "my-app-backend"
+version = "0.1.0"
+description = "Backend API for My Application"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "sqlalchemy>=2.0.0",
+    "alembic>=1.13.0",
+    "python-multipart>=0.0.6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "pytest-asyncio>=0.23.0",
+    "httpx>=0.26.0",
+    "ruff>=0.1.0",
+    "mypy>=1.8.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/my_app"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.poe.tasks]
+dev = "uvicorn my_app.main:app --reload"
+test = "pytest --cov=my_app"
+lint = "ruff check ."
+format = "ruff format ."
+typecheck = "mypy src/"
+check = ["format", "lint", "typecheck", "test"]
+```
+
+### Application Configuration
+
+```python
+# src/my_app/config.py
+"""Application configuration using pydantic-settings."""
+
+from pydantic_settings import BaseSettings
+from functools import lru_cache
+
+
+class Settings(BaseSettings):
+    """Application settings loaded from environment variables."""
+
+    # Application
+    app_name: str = "My Application"
+    debug: bool = False
+    version: str = "0.1.0"
+
+    # Server
+    host: str = "0.0.0.0"
+    port: int = 8000
+
+    # Database
+    database_url: str = "sqlite:///./app.db"
+
+    # CORS
+    cors_origins: list[str] = ["http://localhost:5173"]
+
+    # Security
+    secret_key: str = "change-me-in-production"
+
+    class Config:
+        env_file = ".env"
+        env_file_encoding = "utf-8"
+
+
+@lru_cache
+def get_settings() -> Settings:
+    """Get cached settings instance."""
+    return Settings()
+```
+
+### Database Setup with SQLAlchemy
+
+```python
+# src/my_app/database.py
+"""Database configuration and session management."""
+
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, DeclarativeBase
+from contextlib import contextmanager
+from typing import Generator
+
+from .config import get_settings
+
+
+class Base(DeclarativeBase):
+    """Base class for SQLAlchemy models."""
+    pass
+
+
+engine = create_engine(
+    get_settings().database_url,
+    connect_args={"check_same_thread": False}  # For SQLite
+)
+
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+
+def get_db() -> Generator:
+    """Dependency for getting database sessions."""
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+
+@contextmanager
+def get_db_context():
+    """Context manager for database sessions outside of FastAPI."""
+    db = SessionLocal()
+    try:
+        yield db
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise
+    finally:
+        db.close()
+
+
+def init_db():
+    """Initialize database tables."""
+    Base.metadata.create_all(bind=engine)
+```
+
+### Backend Dockerfile
+
+```dockerfile
+# backend/Dockerfile
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install uv
+RUN pip install uv
+
+# Copy dependency files
+COPY pyproject.toml uv.lock ./
+
+# Install dependencies
+RUN uv sync --frozen --no-dev
+
+# Copy source code
+COPY src ./src
+
+# Create non-root user
+RUN useradd -m appuser && chown -R appuser:appuser /app
+USER appuser
+
+# Expose port
+EXPOSE 8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"
+
+# Run application
+CMD ["uv", "run", "uvicorn", "my_app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+## React Frontend Template
+
+### package.json
+
+```json
+{
+  "name": "my-app-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.17.0",
+    "axios": "^1.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.0",
+    "typescript": "^5.3.0",
+    "vite": "^5.0.0",
+    "vite-plugin-pwa": "^0.17.0",
+    "vitest": "^1.2.0"
+  }
+}
+```
+
+### Vite Configuration with PWA
+
+```typescript
+// frontend/vite.config.ts
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { VitePWA } from 'vite-plugin-pwa';
+
+export default defineConfig({
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+      manifest: {
+        name: 'My Application',
+        short_name: 'MyApp',
+        description: 'A multi-platform application',
+        theme_color: '#ffffff',
+        background_color: '#ffffff',
+        display: 'standalone',
+        scope: '/',
+        start_url: '/',
+        icons: [
+          {
+            src: 'pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable',
+          },
+        ],
+      },
+      devOptions: {
+        enabled: true,
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/api\..*/i,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'api-cache',
+              expiration: {
+                maxEntries: 100,
+                maxAgeSeconds: 60 * 60 * 24, // 24 hours
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+        ],
+      },
+    }),
+  ],
+  server: {
+    port: 5173,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000',
+        changeOrigin: true,
+      },
+    },
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: true,
+  },
+});
+```
+
+### TypeScript Configuration
+
+```json
+// frontend/tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
+```
+
+### API Client Template
+
+```typescript
+// frontend/src/services/api.ts
+import axios, { AxiosInstance, AxiosError } from 'axios';
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+
+class ApiClient {
+  private client: AxiosInstance;
+
+  constructor() {
+    this.client = axios.create({
+      baseURL: API_BASE_URL,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    // Response interceptor for error handling
+    this.client.interceptors.response.use(
+      (response) => response,
+      (error: AxiosError) => {
+        if (error.response?.status === 401) {
+          // Handle unauthorized
+          window.location.href = '/login';
+        }
+        return Promise.reject(error);
+      }
+    );
+  }
+
+  async get<T>(url: string): Promise<T> {
+    const response = await this.client.get<T>(url);
+    return response.data;
+  }
+
+  async post<T>(url: string, data: unknown): Promise<T> {
+    const response = await this.client.post<T>(url, data);
+    return response.data;
+  }
+
+  async put<T>(url: string, data: unknown): Promise<T> {
+    const response = await this.client.put<T>(url, data);
+    return response.data;
+  }
+
+  async delete(url: string): Promise<void> {
+    await this.client.delete(url);
+  }
+
+  setAuthToken(token: string): void {
+    this.client.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  }
+
+  clearAuthToken(): void {
+    delete this.client.defaults.headers.common['Authorization'];
+  }
+}
+
+export const apiClient = new ApiClient();
+```
+
+## Electron Wrapper Template
+
+### Main Process
+
+```javascript
+// electron/main.js
+const { app, BrowserWindow, Menu, shell, ipcMain } = require('electron');
+const path = require('path');
+const { autoUpdater } = require('electron-updater');
+const log = require('electron-log');
+
+// Configure logging
+log.transports.file.level = 'info';
+autoUpdater.logger = log;
+
+// Handle Squirrel events for Windows
+if (require('electron-squirrel-startup')) {
+  app.quit();
+}
+
+const isDev = process.env.NODE_ENV === 'development';
+let mainWindow;
+
+function createWindow() {
+  mainWindow = new BrowserWindow({
+    width: 1200,
+    height: 800,
+    minWidth: 800,
+    minHeight: 600,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
+      contextIsolation: true,
+      nodeIntegration: false,
+      sandbox: true,
+    },
+    show: false, // Show when ready
+    titleBarStyle: 'hiddenInset', // macOS
+  });
+
+  // Show window when ready
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.show();
+  });
+
+  // Load content
+  if (isDev) {
+    mainWindow.loadURL('http://localhost:5173');
+    mainWindow.webContents.openDevTools();
+  } else {
+    mainWindow.loadFile(path.join(__dirname, '../frontend/dist/index.html'));
+  }
+
+  // Open external links in browser
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+    shell.openExternal(url);
+    return { action: 'deny' };
+  });
+
+  // Build menu
+  const template = [
+    {
+      label: 'File',
+      submenu: [
+        { role: 'quit' }
+      ]
+    },
+    {
+      label: 'Edit',
+      submenu: [
+        { role: 'undo' },
+        { role: 'redo' },
+        { type: 'separator' },
+        { role: 'cut' },
+        { role: 'copy' },
+        { role: 'paste' },
+        { role: 'selectAll' }
+      ]
+    },
+    {
+      label: 'View',
+      submenu: [
+        { role: 'reload' },
+        { role: 'forceReload' },
+        { role: 'toggleDevTools' },
+        { type: 'separator' },
+        { role: 'resetZoom' },
+        { role: 'zoomIn' },
+        { role: 'zoomOut' },
+        { type: 'separator' },
+        { role: 'togglefullscreen' }
+      ]
+    },
+    {
+      label: 'Help',
+      submenu: [
+        {
+          label: 'Documentation',
+          click: async () => {
+            await shell.openExternal('https://example.com/docs');
+          }
+        },
+        {
+          label: 'Check for Updates',
+          click: () => {
+            autoUpdater.checkForUpdatesAndNotify();
+          }
+        }
+      ]
+    }
+  ];
+
+  const menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
+}
+
+// App lifecycle
+app.whenReady().then(() => {
+  createWindow();
+
+  // Check for updates (production only)
+  if (!isDev) {
+    autoUpdater.checkForUpdatesAndNotify();
+  }
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
+  });
+});
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
+
+// IPC handlers
+ipcMain.handle('get-version', () => {
+  return app.getVersion();
+});
+
+ipcMain.handle('check-for-updates', () => {
+  return autoUpdater.checkForUpdatesAndNotify();
+});
+
+// Auto-updater events
+autoUpdater.on('checking-for-update', () => {
+  log.info('Checking for update...');
+});
+
+autoUpdater.on('update-available', (info) => {
+  log.info('Update available:', info);
+});
+
+autoUpdater.on('update-not-available', (info) => {
+  log.info('Update not available:', info);
+});
+
+autoUpdater.on('error', (err) => {
+  log.error('Error in auto-updater:', err);
+});
+
+autoUpdater.on('download-progress', (progressObj) => {
+  log.info(`Download speed: ${progressObj.bytesPerSecond} - Downloaded ${progressObj.percent}%`);
+});
+
+autoUpdater.on('update-downloaded', (info) => {
+  log.info('Update downloaded:', info);
+  // Optionally prompt user and restart
+});
+```
+
+### Preload Script
+
+```javascript
+// electron/preload.js
+const { contextBridge, ipcRenderer } = require('electron');
+
+contextBridge.exposeInMainWorld('electronAPI', {
+  // App info
+  getVersion: () => ipcRenderer.invoke('get-version'),
+  platform: process.platform,
+
+  // Updates
+  checkForUpdates: () => ipcRenderer.invoke('check-for-updates'),
+
+  // Window controls (if using frameless window)
+  minimize: () => ipcRenderer.send('window-minimize'),
+  maximize: () => ipcRenderer.send('window-maximize'),
+  close: () => ipcRenderer.send('window-close'),
+});
+```
+
+### Electron Builder Configuration
+
+```json
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "My Application",
+  "main": "main.js",
+  "author": "Your Name <you@example.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:all": "electron-builder -mwl",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux",
+    "release": "electron-builder --publish always"
+  },
+  "build": {
+    "appId": "com.yourname.myapp",
+    "productName": "My Application",
+    "copyright": "Copyright © 2025 Your Name",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "../frontend/dist/**/*"
+    ],
+    "extraMetadata": {
+      "main": "main.js"
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "build/icon.icns",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        },
+        {
+          "target": "zip",
+          "arch": ["x64", "arm64"]
+        }
+      ]
+    },
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": true
+    },
+    "linux": {
+      "icon": "build/icons",
+      "category": "Utility",
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        },
+        {
+          "target": "deb",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "your-username",
+      "repo": "my-app",
+      "releaseType": "release"
+    }
+  },
+  "dependencies": {
+    "electron-log": "^5.0.0",
+    "electron-updater": "^6.1.0"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.0"
+  }
+}
+```
+
+## Docker Configuration
+
+### Combined Dockerfile (Backend + Frontend)
+
+```dockerfile
+# docker/Dockerfile.combined
+# Build stage for frontend
+FROM node:20-alpine AS frontend-builder
+
+WORKDIR /app/frontend
+COPY frontend/package*.json ./
+RUN npm ci --production=false
+
+COPY frontend/ ./
+RUN npm run build
+
+# Build stage for backend dependencies
+FROM python:3.11-slim AS backend-builder
+
+WORKDIR /app
+RUN pip install uv
+
+COPY backend/pyproject.toml backend/uv.lock ./
+RUN uv sync --frozen --no-dev
+
+# Production stage
+FROM python:3.11-slim AS production
+
+WORKDIR /app
+
+# Install uv for running
+RUN pip install uv
+
+# Copy backend dependencies
+COPY --from=backend-builder /app/.venv /app/.venv
+
+# Copy backend source
+COPY backend/src ./src
+
+# Copy frontend build
+COPY --from=frontend-builder /app/frontend/dist ./static
+
+# Create non-root user
+RUN useradd -m -u 1000 appuser && \
+    chown -R appuser:appuser /app
+USER appuser
+
+# Environment
+ENV PATH="/app/.venv/bin:$PATH"
+ENV PYTHONPATH="/app/src"
+ENV STATIC_FILES_DIR="/app/static"
+
+EXPOSE 8000
+
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"
+
+CMD ["uvicorn", "my_app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+### Docker Compose for Development
+
+```yaml
+# docker/docker-compose.yml
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../backend/src:/app/src:ro
+    environment:
+      - DEBUG=true
+      - DATABASE_URL=sqlite:///./dev.db
+    command: uv run uvicorn my_app.main:app --reload --host 0.0.0.0 --port 8000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ../frontend/src:/app/src:ro
+      - ../frontend/public:/app/public:ro
+    environment:
+      - VITE_API_URL=http://localhost:8000/api
+    command: npm run dev -- --host 0.0.0.0
+    depends_on:
+      - backend
+
+  # Optional: PostgreSQL for production-like development
+  db:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=myapp
+      - POSTGRES_PASSWORD=devpassword
+      - POSTGRES_DB=myapp
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+```
+
+## GitHub Actions Workflows
+
+### Complete CI/CD Workflow
+
+```yaml
+# .github/workflows/ci-cd.yml
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # ============================================
+  # Testing
+  # ============================================
+  test-backend:
+    name: Test Backend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Install dependencies
+        working-directory: ./backend
+        run: uv sync --all-extras
+
+      - name: Run linting
+        working-directory: ./backend
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
+
+      - name: Run type checking
+        working-directory: ./backend
+        run: uv run mypy src/
+
+      - name: Run tests
+        working-directory: ./backend
+        run: uv run pytest --cov --cov-report=xml
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./backend/coverage.xml
+          flags: backend
+
+  test-frontend:
+    name: Test Frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Run linting
+        working-directory: ./frontend
+        run: npm run lint
+
+      - name: Run type checking
+        working-directory: ./frontend
+        run: npm run typecheck
+
+      - name: Run tests
+        working-directory: ./frontend
+        run: npm run test:coverage
+
+      - name: Build
+        working-directory: ./frontend
+        run: npm run build
+
+  # ============================================
+  # Docker Build
+  # ============================================
+  build-docker:
+    name: Build Docker Image
+    needs: [test-backend, test-frontend]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=sha
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./docker/Dockerfile.combined
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # ============================================
+  # Desktop Builds
+  # ============================================
+  build-desktop:
+    name: Build Desktop (${{ matrix.os }})
+    needs: [test-backend, test-frontend]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            platform: linux
+          - os: windows-latest
+            platform: win
+          - os: macos-latest
+            platform: mac
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install frontend dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Build frontend
+        working-directory: ./frontend
+        run: npm run build
+
+      - name: Install Electron dependencies
+        working-directory: ./electron
+        run: npm ci
+
+      - name: Build Electron app
+        working-directory: ./electron
+        run: npm run build:${{ matrix.platform }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: desktop-${{ matrix.platform }}
+          path: |
+            electron/dist/*.dmg
+            electron/dist/*.zip
+            electron/dist/*.exe
+            electron/dist/*.AppImage
+            electron/dist/*.deb
+          if-no-files-found: ignore
+
+  # ============================================
+  # Release
+  # ============================================
+  release:
+    name: Create Release
+    needs: [build-docker, build-desktop]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: artifacts/**/*
+          generate_release_notes: true
+          draft: false
+          prerelease: ${{ contains(github.ref, '-') }}
+```
+
+## CLAUDE.md Template
+
+```markdown
+# Project: [Your Project Name]
+
+## Overview
+[Brief description of what this project does]
+
+## Architecture
+
+### Stack
+- **Backend**: FastAPI (Python 3.11+)
+- **Frontend**: React 18 + TypeScript + Vite
+- **Desktop**: Electron 28
+- **Database**: SQLite (dev) / PostgreSQL (prod)
+- **Deployment**: Docker, GitHub Actions
+
+### Directory Structure
+```
+project/
+├── backend/          # FastAPI application
+│   ├── src/my_app/   # Source code
+│   └── tests/        # Backend tests
+├── frontend/         # React application
+│   └── src/          # Source code
+├── electron/         # Desktop wrapper
+├── docker/           # Container configs
+└── .github/          # CI/CD workflows
+```
+
+## Conventions
+
+### Backend
+- All API routes under `/api/` prefix
+- Pydantic models for all request/response schemas
+- SQLAlchemy for database operations
+- Async handlers where beneficial
+
+### Frontend
+- Functional components with hooks
+- React Query for server state
+- Axios for API calls
+- TypeScript strict mode
+
+### General
+- Semantic versioning (v1.2.3)
+- Conventional commits
+- All code formatted and linted before commit
+
+## Development Commands
+
+### Backend
+```bash
+cd backend
+uv run uvicorn my_app.main:app --reload
+uv run pytest
+uv run ruff check .
+```
+
+### Frontend
+```bash
+cd frontend
+npm run dev
+npm test
+npm run lint
+```
+
+### Docker
+```bash
+docker-compose -f docker/docker-compose.yml up
+```
+
+## API Endpoints
+- `GET /api/health` - Health check
+- `GET /api/items` - List items
+- `POST /api/items` - Create item
+- `GET /api/items/{id}` - Get item
+- `PUT /api/items/{id}` - Update item
+- `DELETE /api/items/{id}` - Delete item
+
+## Environment Variables
+- `DEBUG` - Enable debug mode (default: false)
+- `DATABASE_URL` - Database connection string
+- `SECRET_KEY` - Application secret key
+- `CORS_ORIGINS` - Allowed CORS origins
+
+## Key Decisions
+1. Using uv for Python dependency management (fast, reliable)
+2. Electron over Tauri (more mature, better AI support)
+3. SQLite for development (simple, no setup required)
+4. Single Docker container for deployment (simpler ops)
+5. GitHub Actions for CI/CD (integrated with repo)
+
+## Common Tasks
+
+### Adding a new API endpoint
+1. Define Pydantic models in `backend/src/my_app/models/`
+2. Create route handler in `backend/src/my_app/api/`
+3. Add tests in `backend/tests/`
+4. Update TypeScript types in `frontend/src/services/api.ts`
+
+### Adding a new React component
+1. Create component in `frontend/src/components/`
+2. Use React Query hooks for data fetching
+3. Add to relevant pages/routes
+
+### Creating a release
+1. Update version in relevant package files
+2. Create git tag: `git tag v1.2.3`
+3. Push tag: `git push origin v1.2.3`
+4. GitHub Actions builds and publishes automatically
+```
+
+This appendix provides the essential templates for implementing the multi-platform distribution architecture. For complete, up-to-date templates with all configurations, see the companion repositories listed at the beginning of this appendix.

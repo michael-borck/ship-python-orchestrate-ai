@@ -1,0 +1,1040 @@
+# Multi-Platform Distribution
+
+Moving beyond traditional Python package publishing, this chapter explores how to distribute complete applications to users across web, desktop, and mobile platforms—all from a single codebase. We'll focus on an architecture pattern that works exceptionally well with AI-assisted development: FastAPI backend + React frontend + multiple distribution targets.
+
+## The Modern Distribution Challenge
+
+Today's users expect applications everywhere:
+
+- **Web**: Accessible from any browser, no installation required
+- **Desktop**: Native experience on Windows, macOS, and Linux
+- **Mobile**: Installable apps or Progressive Web Apps (PWAs)
+
+For indie developers and small teams, maintaining separate codebases for each platform is impractical. The solution is an **API-first architecture** where a single backend serves multiple frontends, and those frontends can be packaged for different platforms.
+
+### What We're Building
+
+By the end of this chapter, you'll understand how to structure a project that can ship to:
+
+1. **Web**: Docker container deployable to any cloud platform
+2. **PWA**: Installable web app with offline capabilities
+3. **Desktop**: Native applications for Windows, macOS, and Linux via Electron
+
+All from a single codebase, with automated builds through GitHub Actions.
+
+## Why FastAPI + React?
+
+This isn't about which technologies are theoretically "best"—it's about which combination is most practical for AI-assisted development in 2025 and beyond.
+
+### Training Data Density
+
+Python and JavaScript/React represent the largest pools of training data for AI models. This means:
+
+- **Better code generation**: AI has seen more examples of these patterns
+- **More accurate suggestions**: Edge cases are better handled
+- **Richer ecosystem knowledge**: AI understands popular libraries deeply
+
+When you ask AI to help with a FastAPI endpoint or a React component, you're working with the technologies AI knows best.
+
+### Ecosystem Maturity
+
+Both ecosystems have:
+
+- **Solved most common problems**: Authentication, forms, state management, API design
+- **Extensive documentation**: AI can reference official docs and community resources
+- **Active communities**: Stack Overflow answers, GitHub issues, blog posts
+
+This maturity translates directly to better AI assistance.
+
+### Clean Separation
+
+The API-first approach creates natural boundaries:
+
+```
+┌─────────────────┐         ┌─────────────────┐
+│  React Frontend │  ←───→  │ FastAPI Backend │
+│  (TypeScript)   │   API   │    (Python)     │
+└─────────────────┘         └─────────────────┘
+```
+
+This separation means:
+
+- AI can work on backend or frontend independently
+- Changes to one side don't break the other (if the API contract holds)
+- Different team members (or AI sessions) can work in parallel
+- Testing is straightforward at each boundary
+
+## The Architecture Pattern
+
+### Project Structure for AI Collaboration
+
+Here's the recommended structure for a multi-platform application:
+
+```
+my-app/
+├── backend/                    # FastAPI backend (Python)
+│   ├── src/
+│   │   └── my_app/
+│   │       ├── __init__.py
+│   │       ├── main.py         # FastAPI application
+│   │       ├── api/            # API routes
+│   │       │   ├── __init__.py
+│   │       │   └── routes.py
+│   │       ├── models/         # Pydantic models
+│   │       │   ├── __init__.py
+│   │       │   └── schemas.py
+│   │       └── services/       # Business logic
+│   │           ├── __init__.py
+│   │           └── core.py
+│   ├── tests/
+│   ├── pyproject.toml
+│   └── Dockerfile
+│
+├── frontend/                   # React frontend (TypeScript)
+│   ├── src/
+│   │   ├── components/         # React components
+│   │   ├── hooks/              # Custom hooks
+│   │   ├── services/           # API client
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── public/
+│   ├── package.json
+│   ├── vite.config.ts
+│   └── Dockerfile
+│
+├── electron/                   # Desktop wrapper
+│   ├── main.js                 # Electron main process
+│   ├── preload.js              # Preload script
+│   └── package.json
+│
+├── docker/                     # Container configurations
+│   ├── docker-compose.yml      # Development environment
+│   ├── docker-compose.prod.yml # Production configuration
+│   └── Dockerfile.combined     # Single container for deployment
+│
+├── .github/
+│   └── workflows/
+│       ├── ci.yml              # Test on push
+│       ├── build.yml           # Build all platforms
+│       └── release.yml         # Publish releases
+│
+├── CLAUDE.md                   # AI context file
+└── README.md
+```
+
+This structure provides clear boundaries that both humans and AI can navigate effectively.
+
+### The CLAUDE.md Pattern
+
+A key practice for AI-assisted development is maintaining a `CLAUDE.md` file (or similar context file) at the project root. This file provides AI assistants with project-specific context:
+
+```markdown
+# Project: My Application
+
+## Architecture
+- Backend: FastAPI (Python 3.11+)
+- Frontend: React 18 + TypeScript + Vite
+- Desktop: Electron
+- Database: SQLite (development), PostgreSQL (production)
+
+## Conventions
+- Backend API routes follow RESTful conventions
+- All API responses use Pydantic models
+- Frontend components use functional style with hooks
+- State management via React Query for server state
+
+## Directory Structure
+- `/backend/src/my_app/api/` - API route definitions
+- `/backend/src/my_app/models/` - Pydantic schemas
+- `/frontend/src/components/` - React components
+- `/frontend/src/services/` - API client functions
+
+## Development Commands
+- Backend: `cd backend && uv run uvicorn my_app.main:app --reload`
+- Frontend: `cd frontend && npm run dev`
+- Both: `docker-compose up`
+
+## Key Decisions
+- Using SQLite for simplicity; PostgreSQL in production
+- Electron for desktop instead of Tauri (more mature, better AI support)
+- Single Docker container for deployment (backend serves frontend static files)
+```
+
+This file serves as a "briefing document" for AI assistants, reducing the need to repeatedly explain project context.
+
+## Building the Backend: FastAPI
+
+FastAPI is an excellent choice for this architecture because it's:
+
+- **Type-native**: Pydantic models provide automatic validation and documentation
+- **Self-documenting**: OpenAPI/Swagger docs are generated automatically
+- **Async-capable**: Handles concurrent requests efficiently
+- **AI-friendly**: Extensive training data and clear patterns
+
+### A Minimal FastAPI Backend
+
+```python
+# backend/src/my_app/main.py
+"""Main FastAPI application."""
+
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path
+
+from .api.routes import router
+
+app = FastAPI(
+    title="My Application",
+    description="API for my multi-platform application",
+    version="1.0.0",
+)
+
+# CORS configuration for development
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # Vite dev server
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# API routes
+app.include_router(router, prefix="/api")
+
+# Serve frontend static files in production
+frontend_path = Path(__file__).parent.parent.parent.parent / "frontend" / "dist"
+if frontend_path.exists():
+    app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
+```
+
+### API Routes with Pydantic Models
+
+```python
+# backend/src/my_app/api/routes.py
+"""API route definitions."""
+
+from fastapi import APIRouter, HTTPException
+from typing import List
+
+from ..models.schemas import Item, ItemCreate, ItemUpdate
+
+router = APIRouter()
+
+# In-memory storage for demonstration
+items_db: dict[int, Item] = {}
+next_id = 1
+
+
+@router.get("/items", response_model=List[Item])
+async def list_items():
+    """List all items."""
+    return list(items_db.values())
+
+
+@router.post("/items", response_model=Item, status_code=201)
+async def create_item(item: ItemCreate):
+    """Create a new item."""
+    global next_id
+    new_item = Item(id=next_id, **item.model_dump())
+    items_db[next_id] = new_item
+    next_id += 1
+    return new_item
+
+
+@router.get("/items/{item_id}", response_model=Item)
+async def get_item(item_id: int):
+    """Get a specific item by ID."""
+    if item_id not in items_db:
+        raise HTTPException(status_code=404, detail="Item not found")
+    return items_db[item_id]
+
+
+@router.put("/items/{item_id}", response_model=Item)
+async def update_item(item_id: int, item: ItemUpdate):
+    """Update an existing item."""
+    if item_id not in items_db:
+        raise HTTPException(status_code=404, detail="Item not found")
+
+    stored_item = items_db[item_id]
+    update_data = item.model_dump(exclude_unset=True)
+    updated_item = stored_item.model_copy(update=update_data)
+    items_db[item_id] = updated_item
+    return updated_item
+
+
+@router.delete("/items/{item_id}", status_code=204)
+async def delete_item(item_id: int):
+    """Delete an item."""
+    if item_id not in items_db:
+        raise HTTPException(status_code=404, detail="Item not found")
+    del items_db[item_id]
+```
+
+### Pydantic Models
+
+```python
+# backend/src/my_app/models/schemas.py
+"""Pydantic models for API request/response validation."""
+
+from pydantic import BaseModel, Field
+from datetime import datetime
+from typing import Optional
+
+
+class ItemBase(BaseModel):
+    """Base item schema with common fields."""
+    title: str = Field(..., min_length=1, max_length=100)
+    description: Optional[str] = Field(None, max_length=500)
+    completed: bool = False
+
+
+class ItemCreate(ItemBase):
+    """Schema for creating a new item."""
+    pass
+
+
+class ItemUpdate(BaseModel):
+    """Schema for updating an item (all fields optional)."""
+    title: Optional[str] = Field(None, min_length=1, max_length=100)
+    description: Optional[str] = Field(None, max_length=500)
+    completed: Optional[bool] = None
+
+
+class Item(ItemBase):
+    """Schema for item responses."""
+    id: int
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+
+    class Config:
+        from_attributes = True
+```
+
+The type hints and Pydantic models serve double duty: they validate data at runtime AND they help AI generate more accurate code when working with your API.
+
+## Building the Frontend: React
+
+The frontend consumes the FastAPI backend through a typed API client.
+
+### Project Setup with Vite
+
+```bash
+# Create React project with TypeScript
+npm create vite@latest frontend -- --template react-ts
+cd frontend
+npm install
+npm install @tanstack/react-query axios
+```
+
+### API Client
+
+```typescript
+// frontend/src/services/api.ts
+import axios from 'axios';
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Types matching backend Pydantic models
+export interface Item {
+  id: number;
+  title: string;
+  description: string | null;
+  completed: boolean;
+  created_at: string;
+}
+
+export interface ItemCreate {
+  title: string;
+  description?: string;
+  completed?: boolean;
+}
+
+export interface ItemUpdate {
+  title?: string;
+  description?: string;
+  completed?: boolean;
+}
+
+// API functions
+export const itemsApi = {
+  list: async (): Promise<Item[]> => {
+    const response = await api.get('/items');
+    return response.data;
+  },
+
+  get: async (id: number): Promise<Item> => {
+    const response = await api.get(`/items/${id}`);
+    return response.data;
+  },
+
+  create: async (item: ItemCreate): Promise<Item> => {
+    const response = await api.post('/items', item);
+    return response.data;
+  },
+
+  update: async (id: number, item: ItemUpdate): Promise<Item> => {
+    const response = await api.put(`/items/${id}`, item);
+    return response.data;
+  },
+
+  delete: async (id: number): Promise<void> => {
+    await api.delete(`/items/${id}`);
+  },
+};
+```
+
+### React Component with React Query
+
+```typescript
+// frontend/src/components/ItemList.tsx
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { itemsApi, Item, ItemCreate } from '../services/api';
+import { useState } from 'react';
+
+export function ItemList() {
+  const queryClient = useQueryClient();
+  const [newTitle, setNewTitle] = useState('');
+
+  // Fetch items
+  const { data: items, isLoading, error } = useQuery({
+    queryKey: ['items'],
+    queryFn: itemsApi.list,
+  });
+
+  // Create mutation
+  const createMutation = useMutation({
+    mutationFn: (item: ItemCreate) => itemsApi.create(item),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['items'] });
+      setNewTitle('');
+    },
+  });
+
+  // Toggle completion mutation
+  const toggleMutation = useMutation({
+    mutationFn: ({ id, completed }: { id: number; completed: boolean }) =>
+      itemsApi.update(id, { completed }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['items'] });
+    },
+  });
+
+  // Delete mutation
+  const deleteMutation = useMutation({
+    mutationFn: (id: number) => itemsApi.delete(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['items'] });
+    },
+  });
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error loading items</div>;
+
+  return (
+    <div className="item-list">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (newTitle.trim()) {
+            createMutation.mutate({ title: newTitle });
+          }
+        }}
+      >
+        <input
+          type="text"
+          value={newTitle}
+          onChange={(e) => setNewTitle(e.target.value)}
+          placeholder="Add new item..."
+        />
+        <button type="submit">Add</button>
+      </form>
+
+      <ul>
+        {items?.map((item: Item) => (
+          <li key={item.id}>
+            <input
+              type="checkbox"
+              checked={item.completed}
+              onChange={() =>
+                toggleMutation.mutate({
+                  id: item.id,
+                  completed: !item.completed,
+                })
+              }
+            />
+            <span className={item.completed ? 'completed' : ''}>
+              {item.title}
+            </span>
+            <button onClick={() => deleteMutation.mutate(item.id)}>
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+## Distribution Target: Web with Docker
+
+The simplest distribution target is a containerized web application.
+
+### Single Container Deployment
+
+For simpler deployments, combine backend and frontend in a single container:
+
+```dockerfile
+# docker/Dockerfile.combined
+# Multi-stage build for combined backend + frontend
+
+# Stage 1: Build frontend
+FROM node:20-alpine AS frontend-build
+WORKDIR /app/frontend
+COPY frontend/package*.json ./
+RUN npm ci
+COPY frontend/ ./
+RUN npm run build
+
+# Stage 2: Production image
+FROM python:3.11-slim
+WORKDIR /app
+
+# Install uv
+RUN pip install uv
+
+# Copy backend
+COPY backend/pyproject.toml backend/uv.lock ./
+RUN uv sync --frozen --no-dev
+
+COPY backend/src ./src
+
+# Copy built frontend
+COPY --from=frontend-build /app/frontend/dist ./frontend/dist
+
+# Expose port
+EXPOSE 8000
+
+# Run the application
+CMD ["uv", "run", "uvicorn", "my_app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+### Docker Compose for Development
+
+```yaml
+# docker/docker-compose.yml
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../backend/src:/app/src
+    environment:
+      - DEBUG=true
+    command: uv run uvicorn my_app.main:app --reload --host 0.0.0.0
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ../frontend/src:/app/src
+    environment:
+      - VITE_API_URL=http://localhost:8000/api
+    command: npm run dev -- --host
+```
+
+### Cloud Deployment
+
+The combined container can be deployed to any container platform:
+
+```bash
+# Build the production image
+docker build -f docker/Dockerfile.combined -t my-app:latest .
+
+# Push to registry (example: GitHub Container Registry)
+docker tag my-app:latest ghcr.io/username/my-app:latest
+docker push ghcr.io/username/my-app:latest
+
+# Deploy to fly.io (example)
+flyctl deploy
+```
+
+## Distribution Target: Progressive Web App (PWA)
+
+PWAs provide an app-like experience without requiring app store distribution.
+
+### Vite PWA Configuration
+
+```bash
+npm install vite-plugin-pwa -D
+```
+
+```typescript
+// frontend/vite.config.ts
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { VitePWA } from 'vite-plugin-pwa';
+
+export default defineConfig({
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
+      manifest: {
+        name: 'My Application',
+        short_name: 'MyApp',
+        description: 'A multi-platform application',
+        theme_color: '#ffffff',
+        icons: [
+          {
+            src: 'pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+        ],
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/api\.example\.com\/.*/i,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'api-cache',
+              expiration: {
+                maxEntries: 100,
+                maxAgeSeconds: 60 * 60 * 24, // 24 hours
+              },
+            },
+          },
+        ],
+      },
+    }),
+  ],
+});
+```
+
+### When PWA Is Enough
+
+Consider PWA when:
+
+- Your app is primarily web-based
+- Users have reliable internet (or you implement offline support)
+- You want to avoid app store review processes
+- You need quick deployment and updates
+
+## Distribution Target: Desktop with Electron
+
+For a full native desktop experience, Electron wraps your web application in a native shell.
+
+### Why Electron for Indie Developers
+
+Despite larger bundle sizes compared to alternatives like Tauri, Electron offers advantages for indie developers:
+
+1. **Maturity**: VS Code, Slack, Discord, and Figma prove it scales
+2. **Auto-update**: Built-in update mechanisms via electron-updater
+3. **Training data**: More examples mean better AI assistance
+4. **Community**: Extensive documentation and solved problems
+5. **Consistency**: Same behavior across platforms
+
+### Electron Project Structure
+
+```javascript
+// electron/main.js
+const { app, BrowserWindow, Menu } = require('electron');
+const path = require('path');
+const { autoUpdater } = require('electron-updater');
+
+// Handle creating/removing shortcuts on Windows when installing/uninstalling
+if (require('electron-squirrel-startup')) {
+  app.quit();
+}
+
+let mainWindow;
+
+function createWindow() {
+  mainWindow = new BrowserWindow({
+    width: 1200,
+    height: 800,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
+      contextIsolation: true,
+      nodeIntegration: false,
+    },
+  });
+
+  // In development, load from Vite dev server
+  if (process.env.NODE_ENV === 'development') {
+    mainWindow.loadURL('http://localhost:5173');
+    mainWindow.webContents.openDevTools();
+  } else {
+    // In production, load the built frontend
+    mainWindow.loadFile(path.join(__dirname, '../frontend/dist/index.html'));
+  }
+}
+
+app.whenReady().then(() => {
+  createWindow();
+
+  // Check for updates in production
+  if (process.env.NODE_ENV !== 'development') {
+    autoUpdater.checkForUpdatesAndNotify();
+  }
+});
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow();
+  }
+});
+
+// Auto-updater events
+autoUpdater.on('update-available', () => {
+  console.log('Update available');
+});
+
+autoUpdater.on('update-downloaded', () => {
+  console.log('Update downloaded');
+  // Optionally prompt user to restart
+});
+```
+
+### Preload Script
+
+```javascript
+// electron/preload.js
+const { contextBridge, ipcRenderer } = require('electron');
+
+// Expose protected methods that allow the renderer process to use
+// the ipcRenderer without exposing the entire object
+contextBridge.exposeInMainWorld('electronAPI', {
+  getVersion: () => ipcRenderer.invoke('get-version'),
+  platform: process.platform,
+});
+```
+
+### Electron Package Configuration
+
+```json
+{
+  "name": "my-app-desktop",
+  "version": "1.0.0",
+  "description": "My Application - Desktop",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux"
+  },
+  "build": {
+    "appId": "com.example.myapp",
+    "productName": "My Application",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "../frontend/dist/**/*"
+    ],
+    "win": {
+      "target": ["nsis", "portable"],
+      "icon": "icons/icon.ico"
+    },
+    "mac": {
+      "target": ["dmg", "zip"],
+      "icon": "icons/icon.icns",
+      "category": "public.app-category.productivity"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "icon": "icons",
+      "category": "Utility"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "username",
+      "repo": "my-app"
+    }
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.0"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.0.0"
+  }
+}
+```
+
+### Handling the Backend in Desktop Apps
+
+For desktop apps, you have two options for the backend:
+
+**Option 1: Remote Backend**
+The desktop app connects to a hosted API (same as the web version).
+
+**Option 2: Embedded Backend**
+Bundle the Python backend with the Electron app and run it locally.
+
+```javascript
+// electron/main.js - Embedded backend example
+const { spawn } = require('child_process');
+const path = require('path');
+
+let backendProcess;
+
+function startBackend() {
+  const backendPath = path.join(__dirname, '../backend');
+
+  backendProcess = spawn('python', ['-m', 'uvicorn', 'my_app.main:app', '--port', '8000'], {
+    cwd: backendPath,
+    env: { ...process.env, PYTHONUNBUFFERED: '1' },
+  });
+
+  backendProcess.stdout.on('data', (data) => {
+    console.log(`Backend: ${data}`);
+  });
+
+  backendProcess.stderr.on('data', (data) => {
+    console.error(`Backend error: ${data}`);
+  });
+}
+
+app.whenReady().then(() => {
+  startBackend();
+
+  // Wait for backend to start, then create window
+  setTimeout(createWindow, 2000);
+});
+
+app.on('before-quit', () => {
+  if (backendProcess) {
+    backendProcess.kill();
+  }
+});
+```
+
+For a more robust embedded backend, consider using PyInstaller to bundle Python into a standalone executable.
+
+## CI/CD for Multi-Platform Builds
+
+GitHub Actions can automate building and releasing for all platforms.
+
+### Continuous Integration Workflow
+
+```yaml
+# .github/workflows/ci.yml
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  backend-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Install dependencies
+        working-directory: ./backend
+        run: uv sync --all-extras
+
+      - name: Run tests
+        working-directory: ./backend
+        run: uv run pytest --cov
+
+  frontend-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Run tests
+        working-directory: ./frontend
+        run: npm test
+
+      - name: Build
+        working-directory: ./frontend
+        run: npm run build
+```
+
+### Multi-Platform Build Workflow
+
+```yaml
+# .github/workflows/build.yml
+name: Build
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./docker/Dockerfile.combined
+          push: true
+          tags: ghcr.io/${{ github.repository }}:${{ github.ref_name }}
+
+  build-desktop:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install frontend dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Build frontend
+        working-directory: ./frontend
+        run: npm run build
+
+      - name: Install Electron dependencies
+        working-directory: ./electron
+        run: npm ci
+
+      - name: Build Electron app
+        working-directory: ./electron
+        run: npm run build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: desktop-${{ matrix.os }}
+          path: electron/dist/*
+
+  release:
+    needs: [build-web, build-desktop]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            desktop-ubuntu-latest/*
+            desktop-windows-latest/*
+            desktop-macos-latest/*
+          generate_release_notes: true
+```
+
+## The Human's Role in This Architecture
+
+With this architecture in place, the human developer's role shifts to:
+
+### Architecture Decisions
+- Defining the API contract (endpoints, data models)
+- Choosing the right distribution targets for the use case
+- Making tradeoffs between complexity and capability
+
+### Verification
+- Reviewing AI-generated code for correctness
+- Ensuring tests cover critical paths
+- Validating that the API contract is maintained
+
+### Orchestration
+- Managing the build and release pipeline
+- Coordinating between backend and frontend work
+- Handling platform-specific edge cases
+
+### User Experience
+- Making design decisions AI can't make
+- Understanding user needs and requirements
+- Testing across platforms and environments
+
+The AI handles implementation details—writing the FastAPI routes, React components, Docker configurations—while you focus on the architecture, verification, and delivery.
+
+## Summary
+
+Multi-platform distribution is achievable for indie developers through:
+
+1. **API-first architecture**: FastAPI backend + React frontend with clear boundaries
+2. **Container deployment**: Docker for web distribution
+3. **PWA capabilities**: Installable web apps with offline support
+4. **Electron packaging**: Native desktop apps for Windows, macOS, and Linux
+5. **Automated CI/CD**: GitHub Actions for multi-platform builds
+
+This architecture is deliberately simple—"simple but not simplistic"—because simplicity enables effective AI collaboration. Clear structures, typed interfaces, and well-defined boundaries let you leverage AI for implementation while maintaining control over the architecture and delivery.
+
+In the next chapter, we'll explore how to structure these templates and configurations for maximum reusability across projects.
