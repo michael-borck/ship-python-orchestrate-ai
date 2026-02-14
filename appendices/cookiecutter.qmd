@@ -26,7 +26,7 @@ pip install cookiecutter
 To create a new project using our Python Development Pipeline template:
 
 ```bash
-cookiecutter gh:michael-borck/ship-it-cookiecutter
+cookiecutter gh:michael-borck/ship-python-cookiecutter
 ```
 
 You'll be prompted to provide information about your project, such as:

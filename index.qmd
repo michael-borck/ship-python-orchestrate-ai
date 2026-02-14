@@ -14,9 +14,9 @@ Throughout this journey, we'll introduce tools and practices that scale with you
 
 To help you quickly apply these practices, we've created companion templates that automatically set up new Python projects with the recommended structure and configurations:
 
-- **Cookiecutter template**: `cookiecutter gh:michael-borck/ship-it-cookiecutter` for full customization
-- **GitHub template**: [ship-it-template](https://github.com/michael-borck/ship-it-template) for quick starts
-- **Example project**: [ship-it-example](https://github.com/michael-borck/ship-it-example) showing all features in action
+- **Cookiecutter template**: `cookiecutter gh:michael-borck/ship-python-cookiecutter` for full customization
+- **GitHub template**: [ship-python-template](https://github.com/michael-borck/ship-python-template) for quick starts
+- **Example project**: [ship-python-example](https://github.com/michael-borck/ship-python-example) showing all features in action
 
 We'll discuss how to use and customize these templates throughout the guide.
 

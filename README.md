@@ -40,7 +40,12 @@ This book is part of a 5-book series for mastering modern software development i
 
 ## Related Resources
 
-- **Case Study Repository**: The book includes a case study building "SimpleBot". The complete implementation can be found at [simplebot-repo-url].
+### Companion Repositories
+
+- **[simplebot](https://github.com/michael-borck/simplebot)** - Case study project: A lightweight LLM wrapper for educational settings
+- **[ship-python-cookiecutter](https://github.com/michael-borck/ship-python-cookiecutter)** - Cookiecutter template for multi-platform Python apps
+- **[ship-python-template](https://github.com/michael-borck/ship-python-template)** - GitHub template for quick project starts
+- **[ship-python-example](https://github.com/michael-borck/ship-python-example)** - Complete working example of the multi-platform architecture
 
 ## Building the Book Locally
 

@@ -15,7 +15,7 @@ For full customization with interactive prompts:
 pip install cookiecutter
 
 # Create a new project
-cookiecutter gh:michael-borck/ship-it-cookiecutter
+cookiecutter gh:michael-borck/ship-python-cookiecutter
 ```
 
 The cookiecutter template prompts for:
@@ -31,7 +31,7 @@ The cookiecutter template prompts for:
 
 For quick starts without installing tools:
 
-1. Visit https://github.com/michael-borck/ship-it-template
+1. Visit https://github.com/michael-borck/ship-python-template
 2. Click "Use this template"
 3. Clone your new repository and customize
 
@@ -39,7 +39,7 @@ For quick starts without installing tools:
 
 A complete working example with all features:
 
-- https://github.com/michael-borck/ship-it-example
+- https://github.com/michael-borck/ship-python-example
 
 ## FastAPI Backend Template
 
