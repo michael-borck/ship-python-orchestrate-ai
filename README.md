@@ -1,6 +1,6 @@
-# Ship It: Python in Production
+# Ship Python, Orchestrate AI
 
-This repository contains the source for the book "Ship It: Python in Production - Professional Tools and Workflows" - a comprehensive guide to professional Python development practices.
+This repository contains the source for the book "Ship Python, Orchestrate AI: Professional Python in the AI Era" - a comprehensive guide to professional Python development practices.
 
 ## About the Book
 
@@ -21,22 +21,22 @@ The book follows a "crawl-walk-run" approach, starting with essential practices 
 
 ## Book Website
 
-The rendered book is available at: https://book-repositories.github.io/python-dev-book/
+The rendered book is available at: https://michael-borck.github.io/ship-python-orchestrate-ai
 
 ## Related Materials
 
-This book is part of a comprehensive series for mastering modern software development in the AI era:
+This book is part of a 5-book series for mastering modern software development in the AI era:
 
 ### Foundational Methodology
-- **[Conversation, Not Delegation](https://michaelborck-books.github.io/conversation-not-delegation)**: Mastering Human-AI Development
+- **[Conversation, Not Delegation: Mastering Human-AI Development](https://michael-borck.github.io/conversation-not-delegation)** - A methodology for effective AI collaboration
 
 ### Python Track
-- **[Think Python, Direct AI](https://michaelborck-books.github.io/think-python-direct-ai)**: Computational Thinking for Beginners
-- **[Code Python, Consult AI](https://michaelborck-books.github.io/code-python-consult-ai)**: Python Fundamentals for the AI Era
-- **[Ship It: Python in Production](https://michaelborck-books.github.io/ship-it-python-in-production)** (this book): Professional Tools and Workflows
+- **[Think Python, Direct AI: Computational Thinking for Beginners](https://michael-borck.github.io/think-python-direct-ai)** - Perfect for absolute beginners
+- **[Code Python, Consult AI: Python Fundamentals for the AI Era](https://michael-borck.github.io/code-python-consult-ai)** - Focused introduction to Python fundamentals
+- **[Ship Python, Orchestrate AI: Professional Python in the AI Era](https://michael-borck.github.io/ship-python-orchestrate-ai)** (this book) - Professional Python development practices
 
 ### Web Track
-- **[Build Web, Guide AI](https://michaelborck-books.github.io/build-web-guide-ai)**: Business Web Development with AI
+- **[Build Web, Guide AI: Business Web Development with AI](https://michael-borck.github.io/build-web-guide-ai)** - Modern web development with AI as your partner
 
 ## Related Resources
 

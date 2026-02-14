@@ -437,16 +437,16 @@ This book is part of a comprehensive series for mastering modern software develo
 
 **Foundational Methodology**
 
-- [Conversation, Not Delegation: Mastering Human-AI Development](https://michaelborck-books.github.io/conversation-not-delegation)
+- [Conversation, Not Delegation: Mastering Human-AI Development](https://michael-borck.github.io/conversation-not-delegation)
 
 **Python Track**
 
-- [Think Python, Direct AI: Computational Thinking for Beginners](https://michaelborck-books.github.io/think-python-direct-ai) - Perfect for absolute beginners
-- [Code Python, Consult AI: Python Fundamentals for the AI Era](https://michaelborck-books.github.io/code-python-consult-ai) - Core Python knowledge
-- [Ship It: Python in Production](https://michaelborck-books.github.io/ship-it-python-in-production) (this book) - Professional tools and workflows
+- [Think Python, Direct AI: Computational Thinking for Beginners](https://michael-borck.github.io/think-python-direct-ai) - Perfect for absolute beginners
+- [Code Python, Consult AI: Python Fundamentals for the AI Era](https://michael-borck.github.io/code-python-consult-ai) - Core Python knowledge
+- [Ship Python, Orchestrate AI: Professional Python in the AI Era](https://michael-borck.github.io/ship-python-orchestrate-ai) (this book) - Professional tools and workflows
 
 **Web Track**
 
-- [Build Web, Guide AI: Business Web Development with AI](https://michaelborck-books.github.io/build-web-guide-ai) - HTML, CSS, JavaScript, WordPress, React
+- [Build Web, Guide AI: Business Web Development with AI](https://michael-borck.github.io/build-web-guide-ai) - HTML, CSS, JavaScript, WordPress, React
 
 In Part 2, we'll build on this foundation by exploring robust dependency management, code quality tools, testing strategies, and type checking—the next layers in our Python development pipeline.

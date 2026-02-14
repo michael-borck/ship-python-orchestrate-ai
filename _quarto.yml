@@ -3,8 +3,8 @@ project:
   output-dir: _book
 
 book:
-  title: "Ship It: Python in Production"
-  subtitle: "Architecting for AI-Assisted Development"
+  title: "Ship Python, Orchestrate AI"
+  subtitle: "Professional Python in the AI Era"
   author: "Michael Borck"
   date: "last-modified"
   chapters:
@@ -36,11 +36,11 @@ book:
     - appendices/pdm.qmd
 
   downloads: [pdf, epub]
-  repo-url: https://github.com/michaelborck-books/ship-it-python-in-production
+  repo-url: https://github.com/michael-borck/ship-python-orchestrate-ai
   repo-actions: [edit, issue]
 
 website:
-  site-url: https://michaelborck-books.github.io/ship-it-python-in-production
+  site-url: https://michael-borck.github.io/ship-python-orchestrate-ai
   favicon: assets/favicon.png
   open-graph: true
 
