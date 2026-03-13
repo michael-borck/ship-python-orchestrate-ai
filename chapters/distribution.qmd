@@ -662,7 +662,7 @@ Despite larger bundle sizes compared to alternatives like Tauri, Electron offers
 2. **Auto-update**: Built-in update mechanisms via electron-updater
 3. **Training data**: More examples mean better AI assistance
 4. **Community**: Extensive documentation and solved problems
-5. **Consistency**: Same behavior across platforms
+5. **Consistency**: Same behaviour across platforms
 
 ### Electron Project Structure
 
@@ -1003,6 +1003,153 @@ jobs:
             desktop-windows-latest/*
             desktop-macos-latest/*
           generate_release_notes: true
+```
+
+## End-to-End Testing with Playwright
+
+Once you're distributing across web, PWA, and desktop, you need confidence that the full application works as users experience it. Unit tests verify your Python backend logic; Playwright verifies that buttons click, pages load, and workflows complete.
+
+### Why Playwright
+
+Playwright is a browser automation framework with first-class Python support. Compared to alternatives like Selenium or Cypress:
+
+- **Multi-browser**: Tests run against Chromium, Firefox, and WebKit from a single API
+- **Python-native**: Integrates directly with pytest via `pytest-playwright`
+- **Electron support**: Can test desktop apps, not just web pages
+- **Auto-waiting**: No manual sleep statements—Playwright waits for elements to be ready
+- **Trace viewer**: Built-in debugging tool that records screenshots, DOM snapshots, and network activity
+
+### Installation
+
+```bash
+pip install pytest-playwright
+playwright install
+```
+
+### Testing Your Web Application
+
+A basic test that verifies your FastAPI + React app works end-to-end:
+
+```python
+# tests/e2e/test_web_app.py
+import pytest
+from playwright.sync_api import Page, expect
+
+@pytest.fixture(scope="session")
+def base_url():
+    """URL where your app is running during tests."""
+    return "http://localhost:8000"
+
+def test_homepage_loads(page: Page, base_url):
+    """Verify the app loads and shows expected content."""
+    page.goto(base_url)
+    expect(page).to_have_title("My Application")
+    expect(page.locator("nav")).to_be_visible()
+
+def test_create_item_workflow(page: Page, base_url):
+    """Test a complete user workflow: create and verify an item."""
+    page.goto(base_url)
+
+    # Click the "New Item" button
+    page.click("button:has-text('New Item')")
+
+    # Fill in the form
+    page.fill('input[name="title"]', "Test Item")
+    page.fill('textarea[name="description"]', "Created by Playwright")
+
+    # Submit and verify
+    page.click("button:has-text('Save')")
+    expect(page.locator("text=Test Item")).to_be_visible()
+
+def test_api_error_handling(page: Page, base_url):
+    """Verify the UI handles API errors gracefully."""
+    page.goto(f"{base_url}/items/nonexistent-id")
+    expect(page.locator("text=Not Found")).to_be_visible()
+```
+
+### Testing Electron Desktop Apps
+
+Playwright can connect to Electron applications directly, testing your desktop builds with the same API:
+
+```python
+# tests/e2e/test_desktop.py
+import pytest
+from playwright.sync_api import Playwright
+
+@pytest.fixture
+def electron_app(playwright: Playwright):
+    """Launch the Electron app for testing."""
+    app = playwright.electron.launch(args=["electron/main.js"])
+    yield app
+    app.close()
+
+@pytest.fixture
+def window(electron_app):
+    """Get the main application window."""
+    window = electron_app.first_window
+    window.wait_for_load_state("domcontentloaded")
+    return window
+
+def test_app_launches(window):
+    """Verify the desktop app launches and shows the main view."""
+    expect(window).to_have_title("My Application")
+
+def test_offline_functionality(window, electron_app):
+    """Test that the app works without network access."""
+    # Electron apps with embedded backends should work offline
+    context = window.context
+    context.set_offline(True)
+
+    window.reload()
+    expect(window.locator("nav")).to_be_visible()
+    expect(window.locator("text=Connection Error")).not_to_be_visible()
+```
+
+### Integrating E2E Tests into CI/CD
+
+Add Playwright to your existing GitHub Actions workflow:
+
+```yaml
+# In .github/workflows/ci.yml
+  e2e-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+    - name: Install dependencies
+      run: |
+        pip install uv
+        uv sync
+        uv run playwright install --with-deps chromium
+    - name: Start application
+      run: uv run uvicorn my_app.main:app --host 0.0.0.0 --port 8000 &
+    - name: Run E2E tests
+      run: uv run pytest tests/e2e/ --browser chromium
+    - name: Upload test traces on failure
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: playwright-traces
+        path: test-results/
+```
+
+### E2E Testing Best Practices
+
+1. **Test user workflows, not implementation details**: Click buttons by their text, not by CSS selectors that change with refactors
+2. **Keep E2E tests focused**: A handful of critical path tests is worth more than exhaustive UI coverage
+3. **Use the trace viewer for debugging**: Run `playwright show-trace trace.zip` to step through failures visually
+4. **Run against a real backend**: E2E tests should exercise the full stack—mocking defeats the purpose
+5. **Mark E2E tests separately**: Use `@pytest.mark.e2e` so you can run them independently of unit tests
+
+```python
+# pyproject.toml
+[tool.pytest.ini_options]
+markers = [
+    "e2e: end-to-end browser tests (require running application)",
+]
 ```
 
 ## The Human's Role in This Architecture

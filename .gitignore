@@ -1,13 +1,52 @@
-_book/
-.quarto/
-/.luarc.json
-/.vscode/
+# Quarto
+/.quarto/
+/_book/
+/_freeze/
+*_files/
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+/.luarc.json
+*.swp
+*.swo
+*~
+
+# Node (if using any JS tools)
+node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Secrets
+.env
+.env.local
+*.key
+
+# Build artifacts
+*.log
+*.aux
+*.out
+*.toc
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Quarto ipynb
+**/*.quarto_ipynb
+
+# Book-specific
 marketing/
 _scratchpad/
 _marketing/
-
-/.quarto/
-
 _notes/
-**/*.quarto_ipynb

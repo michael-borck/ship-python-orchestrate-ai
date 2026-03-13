@@ -2,7 +2,7 @@
 
 ## Python Project Structure Best Practices
 
-A well-organized project structure is the cornerstone of maintainable Python code. Even before writing a single line of code, decisions about how to organize your files will impact how easily you can test, document, and expand your project.
+A well-organised project structure is the cornerstone of maintainable Python code. Even before writing a single line of code, decisions about how to organise your files will impact how easily you can test, document, and expand your project.
 
 The structure we recommend follows modern Python conventions, prioritizing clarity and separation of concerns:
 
@@ -30,7 +30,7 @@ my_project/
 The `src` layout (placing your package inside a `src` directory rather than at the project root) provides several advantages:
 
 1. **Enforces proper installation**: When developing, you must install your package to use it, ensuring you're testing the same way users will experience it.
-2. **Prevents accidental imports**: You can't accidentally import from your project without installing it, avoiding confusing behaviors.
+2. **Prevents accidental imports**: You can't accidentally import from your project without installing it, avoiding confusing behaviours.
 3. **Clarifies package boundaries**: Makes it explicit which code is part of your distributable package.
 
 While simpler projects might skip this layout, adopting it early builds good habits and makes future growth easier.
@@ -108,7 +108,7 @@ Understanding whether you're building an **application** or a **package** influe
 
 **Practical example**: A data analysis script (application) might extract its core algorithms into a separate analytics package, while keeping the command-line interface and configuration handling in the main application.
 
-This structure promotes maintainability and follows Python's conventions. It might seem like overkill for tiny scripts, but as your project grows, you'll appreciate having this organization from the start.
+This structure promotes maintainability and follows Python's conventions. It might seem like overkill for tiny scripts, but as your project grows, you'll appreciate having this organisation from the start.
 
 In the next section, we'll build on this foundation by implementing version control best practices.
 
@@ -396,7 +396,7 @@ pip install cookiecutter
 cookiecutter gh:michael-borck/ship-python-cookiecutter
 ```
 
-The cookiecutter template offers more customization options and includes:
+The cookiecutter template offers more customisation options and includes:
 - All the foundational structure from the simple script
 - Comprehensive tool configurations
 - Optional documentation setup with MkDocs
@@ -420,7 +420,7 @@ git clone https://github.com/yourusername/your-new-project.git
 cd your-new-project
 ```
 
-While GitHub templates don't offer the same parameterization as cookiecutter (file contents remain exactly as they were in the template), they provide the lowest barrier to entry for getting started with a well-structured project. After creating your repository from the template, you can manually customize file contents like project name, author information, and other details.
+While GitHub templates don't offer the same parameterization as cookiecutter (file contents remain exactly as they were in the template), they provide the lowest barrier to entry for getting started with a well-structured project. After creating your repository from the template, you can manually customise file contents like project name, author information, and other details.
 
 The GitHub template includes:
 - The recommended `src` layout

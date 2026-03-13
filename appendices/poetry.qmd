@@ -15,7 +15,7 @@ Poetry's dependency resolution is one of its strongest features:
 - **Deterministic builds**: Poetry resolves dependencies considering the entire dependency graph, preventing many common conflicts
 - **Lock file**: The `poetry.lock` file ensures consistent installations across different environments
 - **Easy version specification**: Simple syntax for version constraints
-- **Dependency groups**: Organize dependencies into development, testing, and other logical groups
+- **Dependency groups**: organise dependencies into development, testing, and other logical groups
 
 ### Project Setup and Configuration
 
@@ -193,7 +193,7 @@ poetry shell
 
 ### Dependency Groups
 
-Poetry allows organizing dependencies into logical groups:
+Poetry allows organising dependencies into logical groups:
 
 ```toml
 [tool.poetry.dependencies]

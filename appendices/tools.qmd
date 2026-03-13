@@ -1,6 +1,6 @@
 # Python Development Tools Reference
 
-This reference provides brief descriptions of the development tools mentioned throughout the guide, organized by their primary function.
+This reference provides brief descriptions of the development tools mentioned throughout the guide, organised by their primary function.
 
 ## Environment & Dependency Management
 

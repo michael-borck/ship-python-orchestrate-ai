@@ -13,7 +13,7 @@ Unlike older tools that are written in Python itself, uv's implementation in Rus
 Performance is uv's most distinctive feature:
 
 - **Parallel Downloads**: Downloads and installs packages in parallel
-- **Optimized Dependency Resolution**: Efficiently resolves dependencies with a modern algorithm
+- **optimised Dependency Resolution**: Efficiently resolves dependencies with a modern algorithm
 - **Cached Builds**: Maintains a build artifact cache to avoid redundant work
 - **Rust Implementation**: Low memory usage and high computational efficiency
 
@@ -172,9 +172,9 @@ uv pip install --no-binary :all: numpy  # Force source builds
 uv pip install --only-binary numpy pandas  # Force binary installations
 ```
 
-### Performance Optimization
+### Performance optimisation
 
-To maximize uv's performance:
+To maximise uv's performance:
 
 ```bash
 # Use concurrent installations

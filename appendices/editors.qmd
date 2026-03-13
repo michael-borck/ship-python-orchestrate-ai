@@ -47,7 +47,7 @@ Visual Studio Code (VS Code) has become one of the most popular editors for Pyth
 
 ## Neovim
 
-Neovim is a highly extensible text editor popular among developers who prefer keyboard-centric workflows and extensive customization.
+Neovim is a highly extensible text editor popular among developers who prefer keyboard-centric workflows and extensive customisation.
 
 ### Key Features for Python Development
 
@@ -97,11 +97,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 ## Emacs
 
-Emacs is a highly customizable text editor with a rich ecosystem of packages and a long history in the development community.
+Emacs is a highly customisable text editor with a rich ecosystem of packages and a long history in the development community.
 
 ### Key Features for Python Development
 
-- **Extensibility**: Customizable with Emacs Lisp
+- **Extensibility**: customisable with Emacs Lisp
 - **Org Mode**: Literate programming and documentation
 - **Multiple Modes**: Specialized modes for different file types
 - **Integrated Environment**: Email, shell, and other tools integrated
@@ -151,7 +151,7 @@ Cursor (formerly Warp AI) is built on top of VS Code but focused on AI-assisted 
 - **Code Explanation**: Ask about selected code
 - **Code Generation**: Generate code from natural language descriptions
 - **VS Code Base**: All VS Code features and extensions available
-- **Customized for AI Interaction**: UI designed around AI-assisted workflows
+- **customised for AI Interaction**: UI designed around AI-assisted workflows
 
 #### Integration with Python Tools
 
@@ -181,15 +181,15 @@ Claude Code (Whisper) from Anthropic is an AI-enhanced development environment:
 The best development environment depends on your specific needs:
 
 - **VS Code**: Excellent for most Python developers; balances ease of use with powerful features
-- **Neovim**: Ideal for keyboard-focused developers who value speed and customization
-- **Emacs**: Great for developers who want an all-in-one environment with deep customization
+- **Neovim**: Ideal for keyboard-focused developers who value speed and customisation
+- **Emacs**: Great for developers who want an all-in-one environment with deep customisation
 - **AI-Enhanced Editors**: Valuable for those looking to leverage AI in their workflow
 
 Consider these factors when choosing:
 
 1. **Learning curve**: VS Code has a gentle learning curve, while Neovim and Emacs require more investment
 2. **Performance needs**: Neovim offers the best performance for large files
-3. **Extensibility importance**: Emacs and Neovim offer the deepest customization
+3. **Extensibility importance**: Emacs and Neovim offer the deepest customisation
 4. **Team standards**: Consider what your team uses for easier collaboration
 5. **AI assistance**: If AI-assisted development is important, specialized editors may offer better integration
 
@@ -200,7 +200,7 @@ Regardless of your chosen editor, follow these best practices:
 1. **Learn keyboard shortcuts**: They dramatically increase productivity
 2. **Use extensions for Python tools**: Integrate the tools from this book
 3. **Set up consistent formatting**: Configure your editor to use the same tools as your CI pipeline
-4. **Customize for your workflow**: Adapt your environment to your specific needs
+4. **customise for your workflow**: Adapt your environment to your specific needs
 5. **Version control your configuration**: Track editor settings in Git for consistency
 
 Remember that the editor is just a tool—the development practices in this book can be applied regardless of your chosen environment. The best editor is the one that helps you implement good development practices while staying out of your way during the creative process.

@@ -109,7 +109,7 @@ Some projects benefit from using multiple tools for different purposes:
 The Python packaging ecosystem continues to evolve toward:
 
 1. **Standards Compliance**: Increasing adoption of PEPs 518, 517, 621
-2. **Performance Optimization**: More Rust-based tools like uv
+2. **Performance optimisation**: More Rust-based tools like uv
 3. **Simplified Workflows**: Better integration between tools
 4. **Improved Lock Files**: More secure and deterministic builds
 5. **Better Environment Management**: Alternatives to traditional virtual environments

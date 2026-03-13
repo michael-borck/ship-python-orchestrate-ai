@@ -4,13 +4,13 @@ As your Python projects grow in complexity and requirements, you'll encounter ch
 
 Rather than diving into the specifics of every advanced tool, we'll focus on understanding **when and why** to adopt more complex solutions, maintaining our philosophy of "simple but not simplistic."
 
-## Performance Optimization: Measure First, Optimize Second
+## Performance optimisation: Measure First, optimise Second
 
-Performance optimization often feels compelling, but premature optimization is a common trap. The key principle: **measure before you optimize**. Our development pipeline already includes the foundation for performance work through comprehensive testing and quality gates.
+Performance optimisation often feels compelling, but premature optimisation is a common trap. The key principle: **measure before you optimise**. Our development pipeline already includes the foundation for performance work through comprehensive testing and quality gates.
 
 ### Establishing Performance Baselines
 
-Before optimizing, establish measurable baselines using tools that integrate naturally with your existing workflow:
+Before optimising, establish measurable baselines using tools that integrate naturally with your existing workflow:
 
 ```python
 # performance/benchmarks.py
@@ -29,7 +29,7 @@ class TestPerformance:
         
     @pytest.mark.slow
     def test_memory_usage_under_load(self):
-        """Test memory behavior with large datasets."""
+        """Test memory behaviour with large datasets."""
         import psutil
         import os
         
@@ -58,14 +58,14 @@ profile-view = "python -c 'import pstats; pstats.Stats(\"profile.stats\").sort_s
 
 This approach integrates performance measurement into your existing development workflow rather than introducing entirely new tools.
 
-### Performance Optimization Strategy
+### Performance optimisation Strategy
 
 When benchmarks indicate performance issues, follow a systematic approach:
 
 1. **Profile to identify bottlenecks** - Don't guess where the slowness is
-2. **Optimize the algorithms first** - Better algorithms beat micro-optimizations  
+2. **optimise the algorithms first** - Better algorithms beat micro-optimisations  
 3. **Consider caching strategically** - Cache expensive computations, not everything
-4. **Measure the impact** - Ensure optimizations actually improve performance
+4. **Measure the impact** - Ensure optimisations actually improve performance
 
 ```python
 # Example: Adding strategic caching to expensive operations
@@ -73,7 +73,7 @@ from functools import lru_cache
 from typing import Dict, Any
 
 class DataProcessor:
-    """Example of strategic performance optimization."""
+    """Example of strategic performance optimisation."""
     
     @lru_cache(maxsize=128)
     def expensive_calculation(self, key: str) -> Dict[str, Any]:
@@ -95,7 +95,7 @@ class DataProcessor:
         return results
 ```
 
-The key insight: **optimize within your existing architecture** before considering more complex solutions like Cython or asyncio.
+The key insight: **optimise within your existing architecture** before considering more complex solutions like Cython or asyncio.
 
 ## Containerization: Development Environment Consistency
 
@@ -111,7 +111,7 @@ Containers address the challenge of environment reproducibility across different
 
 **Production containers** prioritize runtime efficiency:
 - Minimal attack surface
-- Optimized for size and startup time
+- optimised for size and startup time
 - No development dependencies
 - Security-focused configurations
 
@@ -508,7 +508,7 @@ The key to advanced techniques is **selective adoption based on actual needs**:
 - You need to integrate with external services during development  
 - Deployment environments differ significantly from development
 
-### Adopt Performance Optimization When:
+### Adopt Performance optimisation When:
 - Benchmarks show actual performance problems
 - Performance requirements are clearly defined
 - You have established baseline measurements

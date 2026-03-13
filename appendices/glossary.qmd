@@ -10,14 +10,14 @@
 - **CI/CD (Continuous Integration/Continuous Deployment)**: Practices where code changes are automatically tested (CI) and deployed to production (CD) when they pass quality checks.
 - **CLI (Command Line Interface)**: A text-based interface for interacting with software using commands.
 - **Code Coverage**: A measure of how much of your code is executed during testing.
-- **Code Linting**: The process of analyzing code for potential errors, style issues, and suspicious constructs.
+- **Code Linting**: The process of analysing code for potential errors, style issues, and suspicious constructs.
 
 ## D
 
 - **Dependency**: An external package or module that your project requires to function properly.
 - **Docstring**: A string literal specified in source code that is used to document a specific segment of code.
 - **Dynamic Typing**: A programming language feature where variable types are checked during runtime rather than compile time.
-- - **Cookiecutter**: A project templating tool that helps developers create new projects with a predefined structure, configuration files, and boilerplate code. Cookiecutter uses Jinja2 templating to customize files based on user inputs during project generation.
+- - **Cookiecutter**: A project templating tool that helps developers create new projects with a predefined structure, configuration files, and boilerplate code. Cookiecutter uses Jinja2 templating to customise files based on user inputs during project generation.
 
 ## E
 
@@ -43,7 +43,7 @@
 
 ## M
 
-- **Mocking**: Simulating the behavior of real objects in controlled ways during testing.
+- **Mocking**: Simulating the behaviour of real objects in controlled ways during testing.
 - **Module**: A file containing Python code that can be imported and used by other Python files.
 - **Monorepo**: A software development strategy where many projects are stored in the same repository.
 
@@ -60,7 +60,7 @@
 
 ## R
 
-- **Refactoring**: Restructuring existing code without changing its external behavior.
+- **Refactoring**: Restructuring existing code without changing its external behaviour.
 - **Repository**: A storage location for software packages and version control.
 - **Requirements File**: A file listing the dependencies required for a Python project.
 - **Reproducible Build**: A build that can be recreated exactly regardless of when or where it's built.
@@ -68,7 +68,7 @@
 ## S
 
 - **Semantic Versioning**: A versioning scheme in the format MAJOR.MINOR.PATCH, where each number increment indicates the type of change.
-- **Static Analysis**: Analyzing code without executing it to find potential issues.
+- **Static Analysis**: analysing code without executing it to find potential issues.
 - **Static Typing**: Specifying variable types at compile time instead of runtime.
 - **Stub Files**: Files that contain type annotations for modules that don't have native typing support.
 

@@ -236,7 +236,7 @@ def get_response(
     Args:
         prompt: The text prompt to send to the language model
         model: The name of the model to use
-        system: System instructions that control the model's behavior
+        system: System instructions that control the model's behaviour
         stream: Whether to stream the response
         api_url: Custom API URL (defaults to local Ollama server)
 
@@ -377,7 +377,7 @@ def teacher_bot(prompt: str, model: Optional[str] = None) -> str:
 
 def coder_bot(prompt: str, model: Optional[str] = None) -> str:
     """
-    Generate a response from a coding assistant optimized for programming help.
+    Generate a response from a coding assistant optimised for programming help.
 
     Args:
         prompt: The user's input programming question or request
@@ -698,7 +698,7 @@ The core function for sending prompts to an LLM and getting responses.
 
 - `prompt`: The text prompt to send to the language model
 - `model`: The name of the model to use (default: "llama3")
-- `system`: System instructions that control the model's behavior
+- `system`: System instructions that control the model's behaviour
 - `stream`: Whether to stream the response (default: False)
 - `api_url`: Custom API URL (defaults to local Ollama server)
 
@@ -913,7 +913,7 @@ twine check dist/*
 By following the Python Development Workflow, we've transformed the SimpleBot concept into a well-structured, tested, and documented Python package that's ready for distribution. Let's review what we've accomplished:
 
 1. **Project Foundation**:
-   - Created a clear, organized directory structure
+   - Created a clear, organised directory structure
    - Set up version control with Git
    - Added essential files (README, LICENSE)
 
@@ -953,7 +953,7 @@ If we were to continue developing SimpleBot, potential next steps might include:
 
 3. **Performance Improvements**:
    - Add caching for responses
-   - Implement Cython optimization for performance-critical sections
+   - Implement Cython optimisation for performance-critical sections
 
 4. **Security Enhancements**:
    - Add API key management

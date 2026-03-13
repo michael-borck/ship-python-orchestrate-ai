@@ -508,7 +508,7 @@ Automated tests provide several key benefits:
 1. **Verification**: Confirm that your code works as expected
 2. **Regression prevention**: Catch when changes break existing functionality
 3. **Documentation**: Tests demonstrate how code is meant to be used
-4. **Refactoring confidence**: Change code structure while ensuring behavior remains correct
+4. **Refactoring confidence**: Change code structure while ensuring behaviour remains correct
 5. **Design feedback**: Difficult-to-test code often indicates design problems
 
 ### Getting Started with pytest
@@ -652,9 +652,9 @@ def test_add_parametrized(a, b, expected):
     assert add(a, b) == expected
 ```
 
-#### 4. Marks for Test Organization
+#### 4. Marks for Test organisation
 
-Organize tests with marks:
+organise tests with marks:
 
 ```python
 @pytest.mark.slow
@@ -702,7 +702,7 @@ TOTAL                               56     17    70%
 
 ### Configuring pytest for Your Project
 
-Set up pytest configuration in your `pyproject.toml` to customize default behavior:
+Set up pytest configuration in your `pyproject.toml` to customise default behaviour:
 
 ```toml
 [tool.pytest.ini_options]
@@ -733,8 +733,8 @@ This configuration provides several benefits:
 
 1. **Automatic coverage**: Every test run includes coverage reporting
 2. **Clean output**: Suppresses unnecessary warnings while still showing errors
-3. **Test organization**: Markers help categorize and selectively run tests
-4. **Consistent behavior**: Same settings for all developers
+3. **Test organisation**: Markers help categorize and selectively run tests
+4. **Consistent behaviour**: Same settings for all developers
 
 With this configuration, running `uv run pytest` automatically:
 - Discovers tests in the `tests/` directory
@@ -746,7 +746,7 @@ With this configuration, running `uv run pytest` automatically:
 
 1. **Write tests as you develop**: Don't wait until the end
 2. **Name tests clearly**: Include the function name and scenario being tested
-3. **One assertion per test**: Focus each test on a single behavior
+3. **One assertion per test**: Focus each test on a single behaviour
 4. **Test edge cases**: Empty input, boundary values, error conditions
 5. **Avoid test interdependence**: Tests should work independently
 6. **Mock external dependencies**: APIs, databases, file systems
@@ -805,13 +805,22 @@ def test_fetch_user_data(mocker):
 
 ### Testing Strategy
 
-As your project grows, organize tests into different categories:
+As your project grows, organise tests into different categories:
 
 1. **Unit tests**: Test individual functions/classes in isolation
 2. **Integration tests**: Test interactions between components
 3. **Functional tests**: Test entire features from a user perspective
+4. **End-to-end (E2E) tests**: Test the full application as a user would interact with it
 
-Most projects should have a pyramid shape: many unit tests, fewer integration tests, and even fewer functional tests.
+Most projects should have a pyramid shape: many unit tests, fewer integration tests, and even fewer functional/E2E tests.
+
+::: {.callout-tip}
+## GUI and End-to-End Testing with Playwright
+
+When your project has a web frontend or a desktop interface (such as an Electron app), consider adding end-to-end tests using [Playwright](https://playwright.dev/python/). Playwright lets you automate real browser interactions—clicking buttons, filling forms, verifying that pages render correctly—giving you confidence that your application works as users will actually experience it.
+
+We cover Playwright in detail in the [Multi-Platform Distribution](distribution.qmd) chapter, where we show how to test web deployments, PWAs, and Electron desktop applications.
+:::
 
 ### Continuous Testing
 
@@ -838,7 +847,7 @@ def greeting(name: str) -> str:
     return f"Hello, {name}!"
 ```
 
-These annotations don't change how Python runs—they're ignored by the interpreter at runtime. However, tools like mypy can analyze them statically to catch potential type errors.
+These annotations don't change how Python runs—they're ignored by the interpreter at runtime. However, tools like mypy can analyse them statically to catch potential type errors.
 
 ### Getting Started with mypy
 

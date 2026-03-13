@@ -49,7 +49,7 @@ The template implements all the best practices discussed throughout this book:
 ### Project Structure
 
 - Uses the recommended `src` layout for better package isolation
-- Properly organized test directory
+- Properly organised test directory
 - Documentation setup with MkDocs (if selected)
 - Clear separation of concerns across files and directories
 
@@ -84,9 +84,9 @@ The template implements all the best practices discussed throughout this book:
 - Publish workflow for PyPI deployment
 - Matrix testing across Python versions
 
-## Customization Options
+## customisation Options
 
-The template offers several customization options during generation:
+The template offers several customisation options during generation:
 
 ### Basic vs. Advanced Setup
 
@@ -144,11 +144,11 @@ The generated `README.md` includes detailed development setup instructions speci
 
 ## Extending the Template
 
-You can extend or customize the template for your specific needs:
+You can extend or customise the template for your specific needs:
 
 ### Adding Custom Components
 
-Fork the template repository and add additional files or configurations specific to your organization or preferences.
+Fork the template repository and add additional files or configurations specific to your organisation or preferences.
 
 ### Modifying Tool Configurations
 

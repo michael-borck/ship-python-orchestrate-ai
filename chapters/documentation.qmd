@@ -68,7 +68,7 @@ For beginner projects, however, it provides a fast way to make documentation ava
 
 ### Simple Script for Basic Documentation Site
 
-For slightly more organized documentation than plain pydoc, you can create a simple script that:
+For slightly more organised documentation than plain pydoc, you can create a simple script that:
 1. Generates pydoc HTML for all modules
 2. Creates a basic index.html linking to them
 
@@ -123,7 +123,7 @@ if __name__ == "__main__":
     generate_docs('my_package')
 ```
 
-This script generates slightly more organized documentation than raw pydoc but still leverages built-in tools.
+This script generates slightly more organised documentation than raw pydoc but still leverages built-in tools.
 
 ### Moving to MkDocs for Comprehensive Documentation
 
@@ -227,7 +227,7 @@ GitHub Pages provides a simple, free hosting solution for your project documenta
 There are two main approaches to hosting documentation on GitHub Pages:
 
 1. **Repository site**: Serves content from a dedicated branch (typically `gh-pages`)
-2. **User/Organization site**: Serves content from a special repository named `username.github.io`
+2. **User/organisation site**: Serves content from a special repository named `username.github.io`
 
 For most Python projects, the repository site approach works best:
 
@@ -404,7 +404,7 @@ Regardless of which documentation tool you choose, follow these best practices:
 |----------|-------------|
 | Docstrings only | For very small, personal projects |
 | pydoc | For simple projects with minimal documentation needs |
-| Custom pydoc script | Small to medium projects needing basic organization |
+| Custom pydoc script | Small to medium projects needing basic organisation |
 | MkDocs | Medium to large projects requiring structured, attractive documentation |
 | Sphinx | Large, complex projects, especially with scientific or mathematical content |
 
@@ -847,7 +847,7 @@ This comprehensive workflow:
 4. **Be selective**: Only run necessary jobs based on changed files
 5. **Test thoroughly**: Include all environments your code supports
 6. **Secure secrets**: Use GitHub's secret storage for tokens and keys
-7. **Monitor performance**: Watch workflow execution times and optimize slow steps
+7. **Monitor performance**: Watch workflow execution times and optimise slow steps
 
 With these CI/CD practices in place, your development workflow becomes more reliable and automatic. Quality checks run on every change, documentation stays up to date, and releases happen smoothly and consistently.
 

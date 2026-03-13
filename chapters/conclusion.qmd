@@ -6,7 +6,7 @@ Throughout this guide, we've built a comprehensive Python development pipeline t
 
 Each component of our development workflow serves a specific purpose:
 
-- **Project structure** provides organization and clarity
+- **Project structure** provides organisation and clarity
 - **Version control** enables collaboration and change tracking
 - **Virtual environments** isolate dependencies
 - **Dependency management** ensures reproducible environments
@@ -28,7 +28,7 @@ The concepts in this book are most valuable when applied systematically. Here's 
 ### For Your Next New Project (Week 1)
 
 **Immediate implementation** - Use these from day one:
-1. **Project structure**: Start with the `src` layout and proper directory organization
+1. **Project structure**: Start with the `src` layout and proper directory organisation
 2. **Version control**: Initialize Git immediately with a proper `.gitignore`
 3. **Virtual environment**: Use `uv` or `pip-tools` for dependency management
 4. **Basic automation**: Set up Poe the Poet with essential tasks (`lint`, `test`, `format`)
@@ -60,13 +60,13 @@ This pace prevents workflow disruption while building better practices.
 **Collaborative workflows** - Focus on consistency and shared practices:
 - **Documentation standards**: Establish README templates and docstring conventions
 - **Code review processes**: Define what automated checks must pass before review
-- **Shared configurations**: Centralize tool configuration in `pyproject.toml`
+- **Shared configurations**: centralise tool configuration in `pyproject.toml`
 - **Development environment parity**: Use containers or detailed setup documentation
 
 ### Advanced Techniques (Month 3+)
 
 Only after mastering the fundamentals:
-- **Performance optimization**: When benchmarks indicate actual problems
+- **Performance optimisation**: When benchmarks indicate actual problems
 - **Advanced architecture**: When code complexity impedes development
 - **Containerization**: When environment consistency becomes problematic
 
@@ -118,7 +118,7 @@ As you implement these practices, you'll likely encounter some common obstacles.
 **Solution**: Use our recommended starting templates
 - Copy configuration from successful projects
 - Use the companion templates to bootstrap correctly
-- Focus on standard configurations before customizing
+- Focus on standard configurations before customising
 
 ### "I Don't Know When to Add Advanced Practices"
 
@@ -175,7 +175,7 @@ The practices in this book form a foundation, not a destination. As you apply th
 
 ### Starting Your Next Project
 
-You now have everything needed to begin any Python project with professional practices from day one. Whether you use our bash script for transparency, GitHub templates for convenience, or cookiecutter templates for customization, you can establish solid foundations in minutes rather than hours.
+You now have everything needed to begin any Python project with professional practices from day one. Whether you use our bash script for transparency, GitHub templates for convenience, or cookiecutter templates for customisation, you can establish solid foundations in minutes rather than hours.
 
 More importantly, you understand **why** these practices matter and **when** to apply them. This knowledge will serve you well as you encounter new challenges and evaluate new tools.
 

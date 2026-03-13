@@ -168,7 +168,7 @@ channels:
 
 This prioritizes conda-forge packages over defaults when both are available.
 
-### Minimizing Environment Size
+### minimising Environment Size
 
 Conda environments can become large. Keep them streamlined by:
 

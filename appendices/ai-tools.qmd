@@ -34,7 +34,7 @@ The integration of AI into software development represents one of the most signi
   - **Access**: Web interface, API, plugins for various platforms
 
 - **Gemini (Google)**:
-  - **Strengths**: Strong code analysis and generation; multimodal capabilities useful for analyzing diagrams
+  - **Strengths**: Strong code analysis and generation; multimodal capabilities useful for analysing diagrams
   - **Best for**: Code support; learning resources; teaching concepts
   - **Access**: Web interface, API, Duet AI integrations
 
@@ -291,7 +291,7 @@ AI tools for Python development are evolving rapidly. Current trends suggest the
 - **More specialized Python-specific models**: Trained specifically on Python codebases with deeper framework understanding
 - **Enhanced IDE integration**: More seamless AI assistance throughout the development workflow
 - **Improved testing capabilities**: AI generating more comprehensive test suites with higher coverage
-- **Custom models for organizations**: Trained on internal codebases to better match company standards
+- **Custom models for organisations**: Trained on internal codebases to better match company standards
 - **Agent-based development**: AI systems that can execute multi-step development tasks with minimal guidance
 
 As these tools evolve, maintaining a balanced approach that leverages AI strengths while preserving human oversight will remain essential for quality Python development.

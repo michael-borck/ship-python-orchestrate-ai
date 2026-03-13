@@ -14,11 +14,11 @@ Throughout this journey, we'll introduce tools and practices that scale with you
 
 To help you quickly apply these practices, we've created companion templates that automatically set up new Python projects with the recommended structure and configurations:
 
-- **Cookiecutter template**: `cookiecutter gh:michael-borck/ship-python-cookiecutter` for full customization
+- **Cookiecutter template**: `cookiecutter gh:michael-borck/ship-python-cookiecutter` for full customisation
 - **GitHub template**: [ship-python-template](https://github.com/michael-borck/ship-python-template) for quick starts
 - **Example project**: [ship-python-example](https://github.com/michael-borck/ship-python-example) showing all features in action
 
-We'll discuss how to use and customize these templates throughout the guide.
+We'll discuss how to use and customise these templates throughout the guide.
 
 Importantly, this isn't just about tools—it's about building habits and workflows that make development more enjoyable and productive. The practices we'll explore enhance code quality and team collaboration without unnecessary complexity, creating a foundation you can build upon as your skills and projects grow.
 
@@ -57,7 +57,7 @@ The practices in this book—project structure, testing, type checking, CI/CD—
 
 Throughout this book, we emphasize patterns that work well with AI assistance:
 
-1. **Clear project structure**: AI can navigate and modify organized code
+1. **Clear project structure**: AI can navigate and modify organised code
 2. **Type hints**: AI generates more accurate code with type information
 3. **Comprehensive tests**: You verify AI output without reading every line
 4. **Documented conventions**: AI follows patterns when you specify them
@@ -71,7 +71,7 @@ Throughout this guide, we focus on practices and workflows that remain consisten
 
 While your choice of editor can significantly impact your productivity, the fundamental aspects of Python development—project structure, version control, dependency management, testing, and deployment—remain consistent across environments. Most modern editors provide integration with the tools we'll discuss, such as virtual environments, linters, formatters, and testing frameworks. Rather than prescribing specific editor configurations, this guide emphasizes the underlying practices that make for effective Python development.
 
-For readers interested in editor-specific setups, Appendix J provides an overview of popular Python development environments and how they integrate with the tools covered in this book. This appendix includes configuration examples for common editors and tips for maximizing productivity in each environment.
+For readers interested in editor-specific setups, Appendix J provides an overview of popular Python development environments and how they integrate with the tools covered in this book. This appendix includes configuration examples for common editors and tips for maximising productivity in each environment.
 
 
 ## How to Use This Guide

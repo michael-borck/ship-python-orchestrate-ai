@@ -14,7 +14,7 @@ Virtual environments are essential in Python development for several reasons:
 2. **Consistent Environments**: Ensures reproducible development and deployment environments
 3. **Clean Testing**: Test against specific package versions without affecting the system Python
 4. **Conflict Prevention**: Avoids "dependency hell" where different projects need different versions of the same package
-5. **Project Organization**: Clearly separates project dependencies from system or global packages
+5. **Project organisation**: Clearly separates project dependencies from system or global packages
 
 ## Getting Started with venv
 
@@ -168,7 +168,7 @@ Common virtual environment directory names include:
 The `.venv` name is increasingly popular as it:
 - Keeps it hidden in file browsers
 - Makes it easy to add to `.gitignore`
-- Is recognized by many IDEs and tools
+- Is recognised by many IDEs and tools
 
 ### Version Control Integration
 

@@ -9,7 +9,7 @@ Scripts aren't the only way to ship Python. This chapter explores notebooks, das
 
 This chapter comes near the end of the book, but that's intentional—not because notebooks are less important. We wanted you to first understand the complete script-based workflow: project structure, testing, documentation, packaging, and distribution. These fundamentals apply whether you're writing scripts OR notebooks.
 
-Now that you understand the "full" workflow, you can appreciate both when notebooks simplify things and when they create limitations. You'll recognize that a `requirements.txt` matters for Binder just as it does for pip installs, that documentation practices transfer to notebook markdown cells, and that nbdev's testing approach builds on pytest concepts you already know.
+Now that you understand the "full" workflow, you can appreciate both when notebooks simplify things and when they create limitations. You'll recognise that a `requirements.txt` matters for Binder just as it does for pip installs, that documentation practices transfer to notebook markdown cells, and that nbdev's testing approach builds on pytest concepts you already know.
 
 Notebooks are a first-class citizen in the Python ecosystem—not an alternative for people who can't handle "real" development. Many professional data scientists, researchers, and educators ship exclusively through notebooks. This chapter gives you the complete picture.
 
@@ -287,7 +287,7 @@ def button_click(self, **event_args):
 
 - Vendor lock-in
 - Less "Pythonic" project structure
-- Limited customization
+- Limited customisation
 
 ## Notebook Best Practices for Shipping
 

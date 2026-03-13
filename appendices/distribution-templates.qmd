@@ -8,7 +8,7 @@ To quickly start a new project with this architecture, use one of our companion 
 
 ### Cookiecutter Template
 
-For full customization with interactive prompts:
+For full customisation with interactive prompts:
 
 ```bash
 # Install cookiecutter
@@ -33,7 +33,7 @@ For quick starts without installing tools:
 
 1. Visit https://github.com/michael-borck/ship-python-template
 2. Click "Use this template"
-3. Clone your new repository and customize
+3. Clone your new repository and customise
 
 ### Example Repository
 
@@ -645,8 +645,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
   checkForUpdates: () => ipcRenderer.invoke('check-for-updates'),
 
   // Window controls (if using frameless window)
-  minimize: () => ipcRenderer.send('window-minimize'),
-  maximize: () => ipcRenderer.send('window-maximize'),
+  minimise: () => ipcRenderer.send('window-minimise'),
+  maximise: () => ipcRenderer.send('window-maximise'),
   close: () => ipcRenderer.send('window-close'),
 });
 ```
