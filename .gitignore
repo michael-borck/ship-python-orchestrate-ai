@@ -52,3 +52,6 @@ _marketing/
 _notes/
 llm.txt
 rag-documents/
+
+# AnythingLLM workspace config
+.anythingllm.yml
