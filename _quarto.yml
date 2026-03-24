@@ -40,14 +40,21 @@ book:
     - appendices/uv.qmd
     - appendices/poetry.qmd
     - appendices/pdm.qmd
-
-  downloads: [pdf, epub]
   repo-url: https://github.com/michael-borck/ship-python-orchestrate-ai
   repo-actions: [edit, issue]
-
-website:
-  site-url: https://michael-borck.github.io/ship-python-orchestrate-ai
-  open-graph: true
+  other-links:
+    - text: Download PDF
+      icon: file-pdf
+      href: ship-python-orchestrate-ai.pdf
+    - text: Download EPUB
+      icon: book
+      href: ship-python-orchestrate-ai.epub
+    - text: Download llm.txt
+      icon: robot
+      href: llm.txt
+    - text: DeepWiki
+      icon: search
+      href: https://deepwiki.com/michael-borck/ship-python-orchestrate-ai
 
 format:
   html:
@@ -57,26 +64,12 @@ format:
     cover-image: images/cover.png
     css: styles.css
     include-after-body: chatbot.html
-    downloads: [pdf, epub]
     code-copy: true
     highlight-style: github
-    sitemap: true
     toc: true
     toc-depth: 3
     number-sections: true
-  pdf:
-    documentclass: scrbook
-    colorlinks: true
-    toc: true
-    number-sections: true
-    toc-depth: 3
-    cover-image: images/cover.png
-  epub:
-    toc: true
-    toc-depth: 3
-    cover-image: images/cover.png
 
 execute:
   enabled: false
   freeze: auto
-
