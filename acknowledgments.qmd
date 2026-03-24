@@ -1,30 +1,11 @@
 # Acknowledgments {.unnumbered}
 
-This book represents a collaborative effort involving both human creativity and artificial intelligence assistance. I would like to acknowledge the contributions of various individuals and tools that made this work possible.
+This book started as a personal quest: find a sane Python development workflow that could target multiple platforms without drowning in complexity. The practices in these pages were tested on real projects before they were written up, and the ones that survived are the ones that actually worked under pressure.
 
-## Author
+Students who used earlier versions of these workflows — in project templates, lab exercises, and assignment scaffolding — provided the practical feedback that separated good ideas from impractical ones. When a workflow looked elegant in documentation but caused confusion in practice, they said so.
 
-**Michael Borck** (michael@borck.me) - Lead author and creator. Michael developed the core concepts, structured the book, and wrote the original content for "From Zero to Production: A Practical Python Development Pipeline."
+The Python community deserves particular credit. The developers behind uv, ruff, mypy, pytest, and the broader ecosystem of tools covered in this book have made professional Python development accessible in ways that were not possible even a few years ago. Their work is the foundation this book builds on.
 
-## AI Assistance
+The open source community behind Quarto, GitHub, and GitHub Pages made it possible to write, build, and publish across multiple formats. The cookiecutter and template ecosystems made it possible to turn the book's recommendations into something readers can use immediately.
 
-This book was developed with assistance from several AI tools:
-
-- **Claude by Anthropic** - Provided editorial suggestions, helped refine concepts, and assisted with book structure and content development.
-- **Midjourney AI** - Generated the cover artwork based on prompts describing the book's themes of Python development pipelines.
-
-## Technical Production
-
-- **Quarto** - Used for document formatting and book generation
-- **GitHub** - Used for version control and collaboration
-- **GitHub Pages** - Hosts the online version of the book
-
-## Special Thanks
-
-Special thanks to the Python development community whose tools, frameworks, and best practices form the foundation of this book. The vibrant ecosystem of Python developers continually pushing the boundaries of what's possible with the language has been an inspiration.
-
-Also thanks to the educators and mentors who emphasize practical, sustainable development practices over quick-but-fragile solutions.
-
----
-
-*Note: While AI tools were used in the production of this book, all content reflects the author's intentions and has been reviewed by humans. The Python development practices presented aim to balance simplicity with robustness - embracing the book's theme of "Simple but not Simplistic."*
+AI tools were used throughout the writing process. Claude (Anthropic) served as a conversation partner for drafting, iterating, and refining. The process was the same one the book advocates: orchestrate the AI, but own the decisions. Every recommendation, every tool choice, every architectural opinion reflects the author's judgement. The AI made the work faster. It did not make the decisions.

@@ -1,120 +1,63 @@
 # Preface {.unnumbered}
 
-The Python ecosystem has grown tremendously over the past decade, bringing with it an explosion of tools, frameworks, and practices. While this rich ecosystem offers powerful capabilities, it often leaves developers—especially those new to Python—feeling overwhelmed by choice paralysis. Which virtual environment tool should I use? How should I format my code? What's the best way to manage dependencies? How do I set up testing? The questions seem endless.
+## Why This Book Exists
 
-This guide aims to cut through the noise by presenting a comprehensive, end-to-end development pipeline that strikes a deliberate balance between simplicity and effectiveness. Rather than showcasing every possible tool, we focus on the vital 80/20 solution: the 20% of practices that yield 80% of the benefits.
+You can write Python. Now what?
 
-Whether you're a beginner taking your first steps beyond basic scripts, an intermediate developer looking to professionalize your workflow, or an educator teaching best practices, this guide provides a clear path forward. We'll build this pipeline in stages:
+The gap between writing scripts that work on your machine and shipping software that other people can use is enormous. The Python ecosystem offers hundreds of tools to bridge that gap — and that is exactly the problem. Which virtual environment tool? Which formatter? Which testing framework? How do you manage dependencies? How do you structure a project? The questions feel endless, and every answer leads to three more.
 
-1. **Setting the Foundation**: Establishing clean project structure, version control, and basic isolation
-2. **Advancing Your Workflow**: Implementing robust dependency management, code quality tools, testing, and type checking
-3. **Documentation and Deployment**: Creating documentation and automating workflows with CI/CD
+This book grew out of my own search for a sane, repeatable workflow for Python projects. I needed a pipeline that could target multiple platforms — web apps, PWAs, Docker containers, Windows, Linux, Mac — from a single codebase. I wanted something that was simple by default but could scale when needed, without bolting on complexity for edge cases that did not yet exist. The result is what you will find in these pages: a deliberate 80/20 approach. The 20% of practices that yield 80% of the benefits.
 
-Throughout this journey, we'll introduce tools and practices that scale with your needs. We'll start with simpler approaches and progress to more robust solutions, letting you decide when to adopt more advanced techniques based on your project's complexity. A theme throughout the book is 'Simple but no Simplistic'.
+We settle on specific tools — uv, ruff, mypy, pytest — not because they are the only options, but because making a decision and committing to it is more productive than endlessly evaluating alternatives. If you are working in a large team with established conventions, you may choose differently. This book is for everyone else: solo developers, small teams, prototypers, and anyone who wants a professional workflow without the overhead.
 
-To help you quickly apply these practices, we've created companion templates that automatically set up new Python projects with the recommended structure and configurations:
+## Who This Book Is For
 
-- **Cookiecutter template**: `cookiecutter gh:michael-borck/ship-python-cookiecutter` for full customisation
-- **GitHub template**: [ship-python-template](https://github.com/michael-borck/ship-python-template) for quick starts
-- **Example project**: [ship-python-example](https://github.com/michael-borck/ship-python-example) showing all features in action
+- Python developers ready to move beyond scripts to professional projects
+- Solo developers and small teams who need a complete workflow without enterprise overhead
+- Prototypers who want to ship to multiple platforms from one codebase
+- Anyone overwhelmed by Python tooling choices who wants someone to just make the decisions
 
-We'll discuss how to use and customise these templates throughout the guide.
+You should be comfortable writing Python. If you are still learning the language itself, start with *Code Python, Consult AI*. This book assumes you can write functions, use data structures, and debug basic errors. It teaches you what to do with that skill.
 
-Importantly, this isn't just about tools—it's about building habits and workflows that make development more enjoyable and productive. The practices we'll explore enhance code quality and team collaboration without unnecessary complexity, creating a foundation you can build upon as your skills and projects grow.
+## What This Book Is Not
 
-## The Evolving Python Ecosystem: AI as a Development Partner
+This is not a Python tutorial. It does not teach the language. It teaches the professional practices around the language: project structure, version control, dependency management, testing, documentation, and deployment.
 
-The Python development landscape has expanded to include AI-powered tools that enhance developer productivity. These tools - ranging from code completion systems to large language models (LLMs) that can answer complex questions - don't replace traditional development practices but rather augment them.
+It is not an enterprise DevOps guide. It does not cover large-team workflows, complex CI/CD orchestration, or Kubernetes. It covers what a solo developer or small team needs to ship reliable software. The practices scale, but the book does not add complexity for situations that may never apply to you.
 
-As you progress through this guide, you'll notice references to how AI assistants can support various aspects of the development process. Whether generating boilerplate code, suggesting test cases, or helping troubleshoot complex errors, these tools represent a significant shift in how developers work. While AI assistance brings substantial benefits, it works best when paired with strong fundamentals and critical evaluation - exactly the skills this guide aims to build.
+It is not a tool comparison. It does not present five options for every choice and leave you to decide. It picks one, explains why, and moves on. Simple but not simplistic — that is the guiding principle.
 
-The practices we cover remain essential regardless of whether you use AI tools. Understanding project structure, testing principles, and code quality isn't obsolete - if anything, these fundamentals become more important as you leverage AI to accelerate your workflow.
+And it is not a book that ignores AI. AI tools can accelerate every part of the development pipeline, from generating boilerplate to suggesting tests to troubleshooting errors. But AI works best when you have strong fundamentals and can critically evaluate its output. This book builds those fundamentals.
 
-## The Human Role: Architect and Orchestrator
+## If You Are Feeling Overwhelmed
 
-This book is built on a key insight: **AI has fundamentally changed what developers do, but not what they need to know.**
+That is the normal response to the Python ecosystem. The number of tools, frameworks, and opinions about "the right way" to do things is genuinely staggering. This book exists to cut through that noise. You do not need to evaluate every option. You need one good workflow that works, and the understanding to adapt it when your needs change.
 
-AI tools can now write functional code quickly. What they cannot do is:
+## How This Book Is Structured
 
-- Design architecture that scales
-- Choose appropriate tools and patterns
-- Verify that code does what it should
-- Manage the workflow from idea to shipped product
-- Make judgment calls about tradeoffs
+The book builds a complete development pipeline in stages:
 
-This shifts the human role from **code writer** to **architect and orchestrator**:
+1. **Setting the Foundation** — project structure, version control, virtual environments
+2. **Advancing Your Workflow** — dependency management, code quality (ruff), testing (pytest), type checking (mypy)
+3. **Documentation and Deployment** — documentation, CI/CD automation
+4. **Case Study** — applying everything to a real project (SimpleBot)
+5. **Multi-Platform Distribution** — shipping to web, desktop, PWA, and containers from one codebase
 
-| Traditional Role | AI-Era Role |
-|-----------------|-------------|
-| Write code line by line | Design structures AI fills in |
-| Debug syntax errors | Verify AI output through tests |
-| Memorize APIs | Understand patterns and architectures |
-| Manual repetitive tasks | Orchestrate automated workflows |
+Companion templates let you start new projects with the recommended structure immediately:
 
-The practices in this book—project structure, testing, type checking, CI/CD—become **verification infrastructure**. They're how you ensure AI-generated code actually works.
+- **Cookiecutter template**: `cookiecutter gh:michael-borck/ship-python-cookiecutter`
+- **GitHub template**: [ship-python-template](https://github.com/michael-borck/ship-python-template)
+- **Example project**: [ship-python-example](https://github.com/michael-borck/ship-python-example)
 
-### Simple Structures for AI Collaboration
+## The Series
 
-Throughout this book, we emphasize patterns that work well with AI assistance:
+This book is the third in a Python learning path:
 
-1. **Clear project structure**: AI can navigate and modify organised code
-2. **Type hints**: AI generates more accurate code with type information
-3. **Comprehensive tests**: You verify AI output without reading every line
-4. **Documented conventions**: AI follows patterns when you specify them
-5. **API-first design**: Clean interfaces let AI work on isolated components
+1. **Think Python, Direct AI** — computational thinking for absolute beginners
+2. **Code Python, Consult AI** — focused Python fundamentals
+3. **Ship Python, Orchestrate AI** (this book) — professional development practices and tooling
 
-The goal isn't to replace your judgment with AI—it's to leverage AI for implementation while you focus on architecture, verification, and delivery.
-
-## Development Environments and Editor Choice
-
-Throughout this guide, we focus on practices and workflows that remain consistent regardless of your chosen development environment. Whether you prefer a full-featured IDE like PyCharm, a lightweight but extensible editor like VS Code, or keyboard-centric tools like Vim or Emacs, the principles we cover apply universally.
-
-While your choice of editor can significantly impact your productivity, the fundamental aspects of Python development—project structure, version control, dependency management, testing, and deployment—remain consistent across environments. Most modern editors provide integration with the tools we'll discuss, such as virtual environments, linters, formatters, and testing frameworks. Rather than prescribing specific editor configurations, this guide emphasizes the underlying practices that make for effective Python development.
-
-For readers interested in editor-specific setups, Appendix J provides an overview of popular Python development environments and how they integrate with the tools covered in this book. This appendix includes configuration examples for common editors and tips for maximising productivity in each environment.
-
-
-## How to Use This Guide
-
-This guide is designed to accommodate different learning styles and experience levels. Depending on your preferences and needs, you might approach this document in different ways:
-
-- **Sequential learners** can work through Parts 1-3 in order, building their development pipeline step by step
-- **Practical learners** might want to jump straight to Part 4 (the SimpleBot case study) and refer back to earlier sections as needed
-- **Reference-oriented learners** can use the appendices and workflow checklist as their primary resources
-- **Visual thinkers** will find the workflow checklist particularly helpful for understanding the big picture
-
-While this guide focuses on Python, it's worth noting that many of the core principles and practices discussed—version control, testing, documentation, CI/CD, code quality—apply across software development in general. We've chosen to demonstrate these concepts through Python due to its popularity and approachable syntax, but the workflow philosophy transcends any specific language. Developers working in other languages will find much of this guidance transferable to their environments, with adjustments for language-specific tools.
-
-The guide is structured into five main parts, followed by appendices for quick reference:
-
-- **Part 1: Setting the Foundation** - Covers project structure, version control, and virtual environments
-- **Part 2: Advancing Your Workflow** - Explores dependency management, code quality tools, testing, and type checking
-- **Part 3: Documentation and Deployment** - Discusses documentation options and CI/CD automation
-- **Part 4: Case Study - Building SimpleBot** - Demonstrates applying these practices to a real project
-- **Part 5: Multi-Platform Distribution** - Ship to web, desktop (Windows, macOS, Linux), and PWA from a single codebase
-- **Beyond Scripts** - Notebooks, dashboards, and interactive Python—because scripts aren't the only way to ship
-- **Appendices** - Provide workflow checklists, tools reference, distribution templates, and glossary of terms
-
-Whether you're starting your first serious Python project or looking to professionalize an existing workflow, you'll find relevant guidance throughout. Feel free to focus on the sections most applicable to your current needs and revisit others as your projects evolve.
-
-## Related Resources
-
-This guide is part of a 5-book series designed to help you master modern software development in the AI era:
-
-### Foundational Methodology
-**Converse Python, Partner AI: The Python Edition** - A methodology for effective AI collaboration (human oversight + methodology + LLM = success)
-
-### Python Track
-**Think Python, Direct AI: Computational Thinking for Beginners** - An innovative programming textbook that embraces AI as a learning partner. Perfect for absolute beginners in the age of AI.
-
-**Code Python, Consult AI: Python Fundamentals for the AI Era** - Learn fundamental Python with AI integration - ideal for those who want a focused introduction to Python fundamentals
-
-**Ship Python, Orchestrate AI: Professional Python in the AI Era** (this book) - Professional development with modern tools (uv, ruff, mypy, pytest) and multi-platform distribution
-
-### Web Track
-**Build Web, Guide AI: Business Web Development with AI** - A practical guide to modern web development with AI as your development partner.
-
-**Book Progression**: Start with "Think Python, Direct AI" if you're a complete beginner, or jump into "Code Python, Consult AI" if you want a more focused approach to Python fundamentals. Both books prepare you for the production-focused content in "Ship Python, Orchestrate AI." For web development, see "Build Web, Guide AI." The methodology from "Converse Python, Partner AI" enhances all your development work.
+The methodology behind all three comes from *Conversation, Not Delegation: How to Think With AI, Not Just Use It*. All titles are available at [books.borck.education](https://books.borck.education).
 
 ## Ways to Engage with This Book
 
@@ -131,7 +74,6 @@ The online version is always the most current.
 
 ## Source Code & Feedback
 
-**Source Code**
 All code examples, templates, and supplementary materials are available at:
 
 - **This book's repository**: https://github.com/michael-borck/ship-python-orchestrate-ai
@@ -139,14 +81,7 @@ All code examples, templates, and supplementary materials are available at:
 - **GitHub template**: https://github.com/michael-borck/ship-python-template
 - **Example project**: https://github.com/michael-borck/ship-python-example
 
-**Feedback and Errata**
-Found an error? Have a suggestion? We welcome your feedback:
+Found an error? Have a suggestion?
 
 - Open an issue: https://github.com/michael-borck/ship-python-orchestrate-ai/issues
 - Email: michael@borck.me
-
-Your input helps improve this book for future readers.
-
----
-
-Let's begin by setting up a solid foundation for your Python projects.
