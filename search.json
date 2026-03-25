@@ -4,57 +4,77 @@
     "href": "index.html",
     "title": "Ship Python, Orchestrate AI",
     "section": "",
-    "text": "Preface\nThe Python ecosystem has grown tremendously over the past decade, bringing with it an explosion of tools, frameworks, and practices. While this rich ecosystem offers powerful capabilities, it often leaves developers—especially those new to Python—feeling overwhelmed by choice paralysis. Which virtual environment tool should I use? How should I format my code? What’s the best way to manage dependencies? How do I set up testing? The questions seem endless.\nThis guide aims to cut through the noise by presenting a comprehensive, end-to-end development pipeline that strikes a deliberate balance between simplicity and effectiveness. Rather than showcasing every possible tool, we focus on the vital 80/20 solution: the 20% of practices that yield 80% of the benefits.\nWhether you’re a beginner taking your first steps beyond basic scripts, an intermediate developer looking to professionalize your workflow, or an educator teaching best practices, this guide provides a clear path forward. We’ll build this pipeline in stages:\nThroughout this journey, we’ll introduce tools and practices that scale with your needs. We’ll start with simpler approaches and progress to more robust solutions, letting you decide when to adopt more advanced techniques based on your project’s complexity. A theme throughout the book is ‘Simple but no Simplistic’.\nTo help you quickly apply these practices, we’ve created companion templates that automatically set up new Python projects with the recommended structure and configurations:\nWe’ll discuss how to use and customise these templates throughout the guide.\nImportantly, this isn’t just about tools—it’s about building habits and workflows that make development more enjoyable and productive. The practices we’ll explore enhance code quality and team collaboration without unnecessary complexity, creating a foundation you can build upon as your skills and projects grow.",
+    "text": "Preface",
     "crumbs": [
       "Preface"
     ]
   },
   {
-    "objectID": "index.html#the-evolving-python-ecosystem-ai-as-a-development-partner",
-    "href": "index.html#the-evolving-python-ecosystem-ai-as-a-development-partner",
+    "objectID": "index.html#why-this-book-exists",
+    "href": "index.html#why-this-book-exists",
     "title": "Ship Python, Orchestrate AI",
-    "section": "The Evolving Python Ecosystem: AI as a Development Partner",
-    "text": "The Evolving Python Ecosystem: AI as a Development Partner\nThe Python development landscape has expanded to include AI-powered tools that enhance developer productivity. These tools - ranging from code completion systems to large language models (LLMs) that can answer complex questions - don’t replace traditional development practices but rather augment them.\nAs you progress through this guide, you’ll notice references to how AI assistants can support various aspects of the development process. Whether generating boilerplate code, suggesting test cases, or helping troubleshoot complex errors, these tools represent a significant shift in how developers work. While AI assistance brings substantial benefits, it works best when paired with strong fundamentals and critical evaluation - exactly the skills this guide aims to build.\nThe practices we cover remain essential regardless of whether you use AI tools. Understanding project structure, testing principles, and code quality isn’t obsolete - if anything, these fundamentals become more important as you leverage AI to accelerate your workflow.",
+    "section": "Why This Book Exists",
+    "text": "Why This Book Exists\nYou can write Python. Now what?\nThe gap between writing scripts that work on your machine and shipping software that other people can use is enormous. The Python ecosystem offers hundreds of tools to bridge that gap — and that is exactly the problem. Which virtual environment tool? Which formatter? Which testing framework? How do you manage dependencies? How do you structure a project? The questions feel endless, and every answer leads to three more.\nThis book grew out of my own search for a sane, repeatable workflow for Python projects. I needed a pipeline that could target multiple platforms — web apps, PWAs, Docker containers, Windows, Linux, Mac — from a single codebase. I wanted something that was simple by default but could scale when needed, without bolting on complexity for edge cases that did not yet exist. The result is what you will find in these pages: a deliberate 80/20 approach. The 20% of practices that yield 80% of the benefits.\nWe settle on specific tools — uv, ruff, mypy, pytest — not because they are the only options, but because making a decision and committing to it is more productive than endlessly evaluating alternatives. If you are working in a large team with established conventions, you may choose differently. This book is for everyone else: solo developers, small teams, prototypers, and anyone who wants a professional workflow without the overhead.",
     "crumbs": [
       "Preface"
     ]
   },
   {
-    "objectID": "index.html#the-human-role-architect-and-orchestrator",
-    "href": "index.html#the-human-role-architect-and-orchestrator",
+    "objectID": "index.html#who-this-book-is-for",
+    "href": "index.html#who-this-book-is-for",
     "title": "Ship Python, Orchestrate AI",
-    "section": "The Human Role: Architect and Orchestrator",
-    "text": "The Human Role: Architect and Orchestrator\nThis book is built on a key insight: AI has fundamentally changed what developers do, but not what they need to know.\nAI tools can now write functional code quickly. What they cannot do is:\n\nDesign architecture that scales\nChoose appropriate tools and patterns\nVerify that code does what it should\nManage the workflow from idea to shipped product\nMake judgment calls about tradeoffs\n\nThis shifts the human role from code writer to architect and orchestrator:\n\n\n\nTraditional Role\nAI-Era Role\n\n\n\n\nWrite code line by line\nDesign structures AI fills in\n\n\nDebug syntax errors\nVerify AI output through tests\n\n\nMemorize APIs\nUnderstand patterns and architectures\n\n\nManual repetitive tasks\nOrchestrate automated workflows\n\n\n\nThe practices in this book—project structure, testing, type checking, CI/CD—become verification infrastructure. They’re how you ensure AI-generated code actually works.\n\nSimple Structures for AI Collaboration\nThroughout this book, we emphasize patterns that work well with AI assistance:\n\nClear project structure: AI can navigate and modify organised code\nType hints: AI generates more accurate code with type information\nComprehensive tests: You verify AI output without reading every line\nDocumented conventions: AI follows patterns when you specify them\nAPI-first design: Clean interfaces let AI work on isolated components\n\nThe goal isn’t to replace your judgment with AI—it’s to leverage AI for implementation while you focus on architecture, verification, and delivery.",
+    "section": "Who This Book Is For",
+    "text": "Who This Book Is For\n\nPython developers ready to move beyond scripts to professional projects\nSolo developers and small teams who need a complete workflow without enterprise overhead\nPrototypers who want to ship to multiple platforms from one codebase\nAnyone overwhelmed by Python tooling choices who wants someone to just make the decisions\n\nYou should be comfortable writing Python. If you are still learning the language itself, start with Code Python, Consult AI. This book assumes you can write functions, use data structures, and debug basic errors. It teaches you what to do with that skill.",
     "crumbs": [
       "Preface"
     ]
   },
   {
-    "objectID": "index.html#development-environments-and-editor-choice",
-    "href": "index.html#development-environments-and-editor-choice",
+    "objectID": "index.html#what-this-book-is-not",
+    "href": "index.html#what-this-book-is-not",
     "title": "Ship Python, Orchestrate AI",
-    "section": "Development Environments and Editor Choice",
-    "text": "Development Environments and Editor Choice\nThroughout this guide, we focus on practices and workflows that remain consistent regardless of your chosen development environment. Whether you prefer a full-featured IDE like PyCharm, a lightweight but extensible editor like VS Code, or keyboard-centric tools like Vim or Emacs, the principles we cover apply universally.\nWhile your choice of editor can significantly impact your productivity, the fundamental aspects of Python development—project structure, version control, dependency management, testing, and deployment—remain consistent across environments. Most modern editors provide integration with the tools we’ll discuss, such as virtual environments, linters, formatters, and testing frameworks. Rather than prescribing specific editor configurations, this guide emphasizes the underlying practices that make for effective Python development.\nFor readers interested in editor-specific setups, Appendix J provides an overview of popular Python development environments and how they integrate with the tools covered in this book. This appendix includes configuration examples for common editors and tips for maximising productivity in each environment.",
+    "section": "What This Book Is Not",
+    "text": "What This Book Is Not\nThis is not a Python tutorial. It does not teach the language. It teaches the professional practices around the language: project structure, version control, dependency management, testing, documentation, and deployment.\nIt is not an enterprise DevOps guide. It does not cover large-team workflows, complex CI/CD orchestration, or Kubernetes. It covers what a solo developer or small team needs to ship reliable software. The practices scale, but the book does not add complexity for situations that may never apply to you.\nIt is not a tool comparison. It does not present five options for every choice and leave you to decide. It picks one, explains why, and moves on. Simple but not simplistic — that is the guiding principle.\nAnd it is not a book that ignores AI. AI tools can accelerate every part of the development pipeline, from generating boilerplate to suggesting tests to troubleshooting errors. But AI works best when you have strong fundamentals and can critically evaluate its output. This book builds those fundamentals.",
     "crumbs": [
       "Preface"
     ]
   },
   {
-    "objectID": "index.html#how-to-use-this-guide",
-    "href": "index.html#how-to-use-this-guide",
+    "objectID": "index.html#if-you-are-feeling-overwhelmed",
+    "href": "index.html#if-you-are-feeling-overwhelmed",
     "title": "Ship Python, Orchestrate AI",
-    "section": "How to Use This Guide",
-    "text": "How to Use This Guide\nThis guide is designed to accommodate different learning styles and experience levels. Depending on your preferences and needs, you might approach this document in different ways:\n\nSequential learners can work through Parts 1-3 in order, building their development pipeline step by step\nPractical learners might want to jump straight to Part 4 (the SimpleBot case study) and refer back to earlier sections as needed\nReference-oriented learners can use the appendices and workflow checklist as their primary resources\nVisual thinkers will find the workflow checklist particularly helpful for understanding the big picture\n\nWhile this guide focuses on Python, it’s worth noting that many of the core principles and practices discussed—version control, testing, documentation, CI/CD, code quality—apply across software development in general. We’ve chosen to demonstrate these concepts through Python due to its popularity and approachable syntax, but the workflow philosophy transcends any specific language. Developers working in other languages will find much of this guidance transferable to their environments, with adjustments for language-specific tools.\nThe guide is structured into five main parts, followed by appendices for quick reference:\n\nPart 1: Setting the Foundation - Covers project structure, version control, and virtual environments\nPart 2: Advancing Your Workflow - Explores dependency management, code quality tools, testing, and type checking\nPart 3: Documentation and Deployment - Discusses documentation options and CI/CD automation\nPart 4: Case Study - Building SimpleBot - Demonstrates applying these practices to a real project\nPart 5: Multi-Platform Distribution - Ship to web, desktop (Windows, macOS, Linux), and PWA from a single codebase\nBeyond Scripts - Notebooks, dashboards, and interactive Python—because scripts aren’t the only way to ship\nAppendices - Provide workflow checklists, tools reference, distribution templates, and glossary of terms\n\nWhether you’re starting your first serious Python project or looking to professionalize an existing workflow, you’ll find relevant guidance throughout. Feel free to focus on the sections most applicable to your current needs and revisit others as your projects evolve.",
+    "section": "If You Are Feeling Overwhelmed",
+    "text": "If You Are Feeling Overwhelmed\nThat is the normal response to the Python ecosystem. The number of tools, frameworks, and opinions about “the right way” to do things is genuinely staggering. This book exists to cut through that noise. You do not need to evaluate every option. You need one good workflow that works, and the understanding to adapt it when your needs change.",
     "crumbs": [
       "Preface"
     ]
   },
   {
-    "objectID": "index.html#related-resources",
-    "href": "index.html#related-resources",
+    "objectID": "index.html#how-this-book-is-structured",
+    "href": "index.html#how-this-book-is-structured",
     "title": "Ship Python, Orchestrate AI",
-    "section": "Related Resources",
-    "text": "Related Resources\nThis guide is part of a 5-book series designed to help you master modern software development in the AI era:\n\nFoundational Methodology\nConverse Python, Partner AI: The Python Edition - A methodology for effective AI collaboration (human oversight + methodology + LLM = success)\n\n\nPython Track\nThink Python, Direct AI: Computational Thinking for Beginners - An innovative programming textbook that embraces AI as a learning partner. Perfect for absolute beginners in the age of AI.\nCode Python, Consult AI: Python Fundamentals for the AI Era - Learn fundamental Python with AI integration - ideal for those who want a focused introduction to Python fundamentals\nShip Python, Orchestrate AI: Professional Python in the AI Era (this book) - Professional development with modern tools (uv, ruff, mypy, pytest) and multi-platform distribution\n\n\nWeb Track\nBuild Web, Guide AI: Business Web Development with AI - A practical guide to modern web development with AI as your development partner.\nBook Progression: Start with “Think Python, Direct AI” if you’re a complete beginner, or jump into “Code Python, Consult AI” if you want a more focused approach to Python fundamentals. Both books prepare you for the production-focused content in “Ship Python, Orchestrate AI.” For web development, see “Build Web, Guide AI.” The methodology from “Converse Python, Partner AI” enhances all your development work.",
+    "section": "How This Book Is Structured",
+    "text": "How This Book Is Structured\nThe book builds a complete development pipeline in stages:\n\nSetting the Foundation — project structure, version control, virtual environments\nAdvancing Your Workflow — dependency management, code quality (ruff), testing (pytest), type checking (mypy)\nDocumentation and Deployment — documentation, CI/CD automation\nCase Study — applying everything to a real project (SimpleBot)\nMulti-Platform Distribution — shipping to web, desktop, PWA, and containers from one codebase\n\nCompanion templates let you start new projects with the recommended structure immediately:\n\nCookiecutter template: cookiecutter gh:michael-borck/ship-python-cookiecutter\nGitHub template: ship-python-template\nExample project: ship-python-example",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#the-series",
+    "href": "index.html#the-series",
+    "title": "Ship Python, Orchestrate AI",
+    "section": "The Series",
+    "text": "The Series\nThis book is the third in a Python learning path:\n\nThink Python, Direct AI — computational thinking for absolute beginners\nCode Python, Consult AI — focused Python fundamentals\nShip Python, Orchestrate AI (this book) — professional development practices and tooling\n\nThe methodology behind all three comes from Conversation, Not Delegation: How to Think With AI, Not Just Use It. All titles are available at books.borck.education.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#ways-to-engage-with-this-book",
+    "href": "index.html#ways-to-engage-with-this-book",
+    "title": "Ship Python, Orchestrate AI",
+    "section": "Ways to Engage with This Book",
+    "text": "Ways to Engage with This Book\nThis book is available in several formats. Pick whichever fits how you work and learn.\n\nRead it online. The full book is freely available at the companion website, with dark mode, search, and navigation.\nRead it on paper or e-reader. Available as a paperback and ebook through Amazon KDP.\nConverse with it. The online edition includes a chatbot grounded in the book’s content.\nFeed it to your own AI. The llm.txt file provides a clean text version of the entire book, ready to paste into ChatGPT, Claude, or any AI tool.\nRun the code. All code examples and templates are available on GitHub. DeepWiki provides an AI-navigable view of the repository.\nBrowse all books. This book is part of a series. See all titles at books.borck.education.\n\nThe online version is always the most current.",
     "crumbs": [
       "Preface"
     ]
@@ -64,7 +84,7 @@
     "href": "index.html#source-code-feedback",
     "title": "Ship Python, Orchestrate AI",
     "section": "Source Code & Feedback",
-    "text": "Source Code & Feedback\nSource Code All code examples, templates, and supplementary materials are available at:\n\nThis book’s repository: https://github.com/michael-borck/ship-python-orchestrate-ai\nCookiecutter template: cookiecutter gh:michael-borck/ship-python-cookiecutter\nGitHub template: https://github.com/michael-borck/ship-python-template\nExample project: https://github.com/michael-borck/ship-python-example\n\nFeedback and Errata Found an error? Have a suggestion? We welcome your feedback:\n\nOpen an issue: https://github.com/michael-borck/ship-python-orchestrate-ai/issues\nEmail: michael@borck.me\n\nYour input helps improve this book for future readers.\n\nLet’s begin by setting up a solid foundation for your Python projects.",
+    "text": "Source Code & Feedback\nAll code examples, templates, and supplementary materials are available at:\n\nThis book’s repository: https://github.com/michael-borck/ship-python-orchestrate-ai\nCookiecutter template: cookiecutter gh:michael-borck/ship-python-cookiecutter\nGitHub template: https://github.com/michael-borck/ship-python-template\nExample project: https://github.com/michael-borck/ship-python-example\n\nFound an error? Have a suggestion?\n\nOpen an issue: https://github.com/michael-borck/ship-python-orchestrate-ai/issues\nEmail: michael@borck.me",
     "crumbs": [
       "Preface"
     ]
@@ -1054,37 +1074,7 @@
     "href": "acknowledgments.html",
     "title": "Acknowledgments",
     "section": "",
-    "text": "Author\nThis book represents a collaborative effort involving both human creativity and artificial intelligence assistance. I would like to acknowledge the contributions of various individuals and tools that made this work possible.\nMichael Borck (michael@borck.me) - Lead author and creator. Michael developed the core concepts, structured the book, and wrote the original content for “From Zero to Production: A Practical Python Development Pipeline.”",
-    "crumbs": [
-      "Acknowledgments"
-    ]
-  },
-  {
-    "objectID": "acknowledgments.html#ai-assistance",
-    "href": "acknowledgments.html#ai-assistance",
-    "title": "Acknowledgments",
-    "section": "AI Assistance",
-    "text": "AI Assistance\nThis book was developed with assistance from several AI tools:\n\nClaude by Anthropic - Provided editorial suggestions, helped refine concepts, and assisted with book structure and content development.\nMidjourney AI - Generated the cover artwork based on prompts describing the book’s themes of Python development pipelines.",
-    "crumbs": [
-      "Acknowledgments"
-    ]
-  },
-  {
-    "objectID": "acknowledgments.html#technical-production",
-    "href": "acknowledgments.html#technical-production",
-    "title": "Acknowledgments",
-    "section": "Technical Production",
-    "text": "Technical Production\n\nQuarto - Used for document formatting and book generation\nGitHub - Used for version control and collaboration\nGitHub Pages - Hosts the online version of the book",
-    "crumbs": [
-      "Acknowledgments"
-    ]
-  },
-  {
-    "objectID": "acknowledgments.html#special-thanks",
-    "href": "acknowledgments.html#special-thanks",
-    "title": "Acknowledgments",
-    "section": "Special Thanks",
-    "text": "Special Thanks\nSpecial thanks to the Python development community whose tools, frameworks, and best practices form the foundation of this book. The vibrant ecosystem of Python developers continually pushing the boundaries of what’s possible with the language has been an inspiration.\nAlso thanks to the educators and mentors who emphasize practical, sustainable development practices over quick-but-fragile solutions.\n\nNote: While AI tools were used in the production of this book, all content reflects the author’s intentions and has been reviewed by humans. The Python development practices presented aim to balance simplicity with robustness - embracing the book’s theme of “Simple but not Simplistic.”",
+    "text": "This book started as a personal quest: find a sane Python development workflow that could target multiple platforms without drowning in complexity. The practices in these pages were tested on real projects before they were written up, and the ones that survived are the ones that actually worked under pressure.\nStudents who used earlier versions of these workflows — in project templates, lab exercises, and assignment scaffolding — provided the practical feedback that separated good ideas from impractical ones. When a workflow looked elegant in documentation but caused confusion in practice, they said so.\nThe Python community deserves particular credit. The developers behind uv, ruff, mypy, pytest, and the broader ecosystem of tools covered in this book have made professional Python development accessible in ways that were not possible even a few years ago. Their work is the foundation this book builds on.\nThe open source community behind Quarto, GitHub, and GitHub Pages made it possible to write, build, and publish across multiple formats. The cookiecutter and template ecosystems made it possible to turn the book’s recommendations into something readers can use immediately.\nAI tools were used throughout the writing process. Claude (Anthropic) served as a conversation partner for drafting, iterating, and refining. The process was the same one the book advocates: orchestrate the AI, but own the decisions. Every recommendation, every tool choice, every architectural opinion reflects the author’s judgement. The AI made the work faster. It did not make the decisions.",
     "crumbs": [
       "Acknowledgments"
     ]
