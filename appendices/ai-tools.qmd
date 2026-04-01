@@ -75,7 +75,7 @@ The quality of AI output depends significantly on how you formulate your request
 
 1. **Be specific and detailed**: Include relevant context about your project, such as Python version, frameworks used, and existing patterns to follow.
 
-    ```
+    ```text
     # Less effective
     "Write a function to process user data."
 
@@ -90,7 +90,7 @@ The quality of AI output depends significantly on how you formulate your request
 
 2. **Provide examples**: When you need code that follows certain patterns or styles, provide examples.
 
-    ```
+    ```text
     "Here's how we write API handler functions in our project:
 
     async def get_user(user_id: int) -> Dict[str, Any]:
@@ -106,7 +106,7 @@ The quality of AI output depends significantly on how you formulate your request
 
 3. **Use iterative refinement**: Start with a basic request, then refine the results.
 
-    ```
+    ```text
     # Initial prompt
     "Write a function to parse CSV files with pandas."
 
@@ -118,7 +118,7 @@ The quality of AI output depends significantly on how you formulate your request
 
 4. **Specify output format**: Clarify how you want information presented.
 
-    ```
+    ```text
     "Explain the difference between @classmethod and @staticmethod in Python.
     Format your response with:
     1. A brief definition of each
@@ -130,25 +130,25 @@ The quality of AI output depends significantly on how you formulate your request
 
 1. **Request specific Python versions or features**: Clarify which Python version you're targeting.
 
-    ```
+    ```text
     "Write this function using Python 3.9+ features like the new dictionary merge operator."
     ```
 
 2. **Specify testing frameworks**: When requesting tests, mention your preferred framework.
 
-    ```
+    ```text
     "Generate pytest test cases for this function, using fixtures and parametrize for the test scenarios."
     ```
 
 3. **Ask for alternative approaches**: Python often offers multiple solutions to problems.
 
-    ```
+    ```text
     "Show three different ways to implement this list filtering function, explaining the tradeoffs between readability, performance, and memory usage."
     ```
 
 4. **Request educational explanations**: For learning purposes, ask the AI to explain its reasoning.
 
-    ```
+    ```text
     "Write a function to efficiently find duplicate elements in a list, then explain why the algorithm you chose is efficient and what its time complexity is."
     ```
 
@@ -156,7 +156,7 @@ The quality of AI output depends significantly on how you formulate your request
 
 When using AI to review your Python code, structured prompts yield better results:
 
-```
+```text
 "Review this Python code for:
 1. Potential bugs or edge cases
 2. Performance issues
@@ -164,10 +164,8 @@ When using AI to review your Python code, structured prompts yield better result
 4. PEP 8 compliance
 5. Possible security concerns
 
-```python
 def process_user_input(data):
     # [your code here]
-```
 
 For each issue found, please:
 - Describe the problem
@@ -179,16 +177,14 @@ For each issue found, please:
 
 When debugging problems, provide context systematically:
 
-```
+```text
 "I'm getting this error when running my Python script:
 
 [Error message]
 
 Here's the relevant code:
 
-```python
 # [your code here]
-```
 
 I've already tried:
 1. [attempted solution 1]

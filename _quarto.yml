@@ -34,7 +34,7 @@ book:
     - appendices/checklist.qmd
     - appendices/editors.qmd
     - appendices/tools.qmd
-    - appendices/tool-comparision.qmd
+    - appendices/tool-comparison.qmd
     - appendices/bash-scaffold-script.qmd
     - appendices/cookiecutter.qmd
     - appendices/hatch.qmd
@@ -42,7 +42,6 @@ book:
     - appendices/venv.qmd
     - appendices/uv.qmd
     - appendices/poetry.qmd
-    - appendices/pdm.qmd
   repo-url: https://github.com/michael-borck/ship-python-orchestrate-ai
   repo-actions: [edit, issue]
   other-links:
@@ -61,6 +60,15 @@ book:
     - text: DeepWiki
       icon: search
       href: https://deepwiki.com/michael-borck/ship-python-orchestrate-ai
+    - text: Cookiecutter Template
+      icon: box
+      href: https://github.com/michael-borck/ship-python-cookiecutter
+    - text: GitHub Template
+      icon: file-code
+      href: https://github.com/michael-borck/ship-python-template
+    - text: Example Project
+      icon: code-square
+      href: https://github.com/michael-borck/ship-python-example
     - text: All Books
       icon: collection
       href: https://books.borck.education

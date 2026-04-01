@@ -1,4 +1,4 @@
-# Case Study: Building SimpleBot - A Python Development Workflow Example
+# Case Study: Building SimpleBot - A Python Development Workflow Example {#sec-case-study}
 
 This case study demonstrates how to apply the Python development pipeline practices to a real project. We'll walk through the development of SimpleBot, a lightweight wrapper for Large Language Models (LLMs) designed for educational settings.
 
@@ -16,7 +16,7 @@ This project is ideal for our case study because:
 - It's small enough to understand quickly but complex enough to demonstrate real workflow practices
 - It includes both pure Python and compiled Cython components
 
-Let's see how we can develop this project using our Python development pipeline.
+Let's see how we can develop this project using our Python development pipeline. Along the way, we will see how AI can accelerate each phase — from scaffolding the project structure to generating tests and documentation.
 
 ::: {.callout-tip}
 ## Prefer Notebooks?
@@ -29,7 +29,7 @@ If you develop primarily in Jupyter notebooks, see @sec-notebook-case-study for 
 
 We'll set up the project using the recommended `src` layout:
 
-```
+```text
 simplebot/
 ├── src/
 │   └── simplebot/
@@ -407,7 +407,9 @@ Let's set up the package configuration in `pyproject.toml`:
 # Create pyproject.toml directory
 ```
 
-> **Note on Modern Packaging**: This case study uses the newer `pyproject.toml`-only approach for simplicity and to follow current best practices. Many existing Python projects still use `setup.py`, either alongside `pyproject.toml` or as their primary configuration. The `setup.py` approach remains valuable for packages with complex build requirements, custom build steps, or when supporting older tools and Python versions. For SimpleBot, our straightforward package requirements allow us to use the cleaner, declarative `pyproject.toml` approach.
+::: {.callout-note title="Modern Packaging"}
+This case study uses the newer `pyproject.toml`-only approach for simplicity and to follow current best practices. Many existing Python projects still use `setup.py`, either alongside `pyproject.toml` or as their primary configuration. The `setup.py` approach remains valuable for packages with complex build requirements, custom build steps, or when supporting older tools and Python versions. For SimpleBot, our straightforward package requirements allow us to use the cleaner, declarative `pyproject.toml` approach.
+:::
 
 ## Create a file named pyproject.toml with the following contents:
 
@@ -959,4 +961,8 @@ If we were to continue developing SimpleBot, potential next steps might include:
    - Add API key management
    - Implement content filtering for educational settings
 
-This case study demonstrates how following a structured Python development workflow leads to a high-quality, maintainable, and distributable package—even for relatively small projects.
+::: {.callout-tip title="AI Tip: Using AI Throughout the Pipeline"}
+Notice how AI could have accelerated every phase of this case study. You could ask AI to generate the initial project structure, draft the core module, write pytest tests, create the pyproject.toml configuration, generate GitHub Actions workflows, and draft the README. The pipeline you learned in earlier chapters gives you the knowledge to evaluate everything AI produces. Without that knowledge, you would accept AI output uncritically. With it, you orchestrate AI as a force multiplier.
+:::
+
+This case study demonstrates how following a structured Python development workflow leads to a high-quality, maintainable, and distributable package — even for relatively small projects.

@@ -6,7 +6,7 @@ A well-organised project structure is the cornerstone of maintainable Python cod
 
 The structure we recommend follows modern Python conventions, prioritizing clarity and separation of concerns:
 
-```
+```text
 my_project/
 ├── src/                    # Main source code directory
 │   └── my_package/         # Your actual Python package
@@ -34,6 +34,10 @@ The `src` layout (placing your package inside a `src` directory rather than at t
 3. **Clarifies package boundaries**: Makes it explicit which code is part of your distributable package.
 
 While simpler projects might skip this layout, adopting it early builds good habits and makes future growth easier.
+
+::: {.callout-tip title="AI Tip: Scaffolding with AI"}
+Ask your AI assistant to generate a project structure tailored to your needs: *"I'm building a CLI tool that processes CSV files. Generate the directory structure and initial files for a Python project using the src layout, including tests and a pyproject.toml."* AI is excellent at generating boilerplate — the value you add is knowing whether the structure it suggests follows the conventions in this chapter.
+:::
 
 ### Key Components Explained
 
@@ -104,7 +108,9 @@ Understanding whether you're building an **application** or a **package** influe
 
 **Most projects start as applications** and may later extract reusable components into packages. Our recommended structure accommodates both paths—you can begin with application-focused development and naturally evolve toward package-like modularity as your codebase matures.
 
-> **Note**: This chapter focuses on script-based projects, but notebooks (Jupyter, Colab) are also a legitimate way to ship Python work. For data scientists, educators, and researchers, a well-structured notebook with a sharing link *is* shipping. We cover notebooks, dashboards, and interactive tools in @sec-notebooks.
+::: {.callout-note}
+This chapter focuses on script-based projects, but notebooks (Jupyter, Colab) are also a legitimate way to ship Python work. For data scientists, educators, and researchers, a well-structured notebook with a sharing link *is* shipping. We cover notebooks, dashboards, and interactive tools in @sec-notebooks.
+:::
 
 **Practical example**: A data analysis script (application) might extract its core algorithms into a separate analytics package, while keeping the command-line interface and configuration handling in the main application.
 
@@ -133,7 +139,7 @@ git init
 
 A good `.gitignore` file is essential for Python projects. Here's a simplified version to start with:
 
-```
+```text
 # Virtual environments
 .venv/
 venv/
@@ -198,7 +204,7 @@ Good commit messages are vital for understanding project history. Follow these s
 4. Explain *why* a change was made, not just *what* changed
 
 Example of a good commit message:
-```
+```text
 Add password validation function
 
 - Implements minimum length of 8 characters
@@ -251,6 +257,10 @@ git push -u origin main
 3. **Pull before pushing**: Always integrate others' changes before pushing your own
 4. **Use meaningful branch names**: Names like `feature/user-login` or `fix/validation-bug` explain the purpose
 
+::: {.callout-tip title="AI Tip: Git and AI Work Well Together"}
+AI assistants can help you write commit messages, generate `.gitignore` files for specific frameworks, and explain Git commands you are unsure about. Try: *"I just added user authentication with Flask-Login. Write a commit message following conventional commit format."* But always review what AI generates — it does not know your project's commit history or conventions unless you provide them.
+:::
+
 Version control may seem like an overhead for very small projects, but establishing these habits early will pay dividends as your projects grow in size and complexity. It's much easier to start with good practices than to retrofit them later.
 
 In the next section, we'll set up a virtual environment and explore basic dependency management to isolate your project and manage its requirements.
@@ -291,7 +301,9 @@ Once activated, any packages you install will be confined to this environment. W
 deactivate
 ```
 
-> **Tip**: Using `.venv` as the environment name (with the leading dot) makes it hidden in many file browsers, reducing clutter. Make sure `.venv/` is in your `.gitignore` file - you never want to commit this directory.
+::: {.callout-tip}
+Using `.venv` as the environment name (with the leading dot) makes it hidden in many file browsers, reducing clutter. Make sure `.venv/` is in your `.gitignore` file — you never want to commit this directory.
+:::
 
 ### Basic Dependency Management
 
@@ -322,7 +334,9 @@ This approach works well for simple projects, especially when you're just gettin
 * It doesn't distinguish between your project's requirements and development tools
 * It doesn't provide version locking for reproducible environments
 
-> **Looking Ahead**: In Part 2, we'll explore more robust dependency management with tools like pip-tools and uv, which solve these limitations by creating proper "lock files" while maintaining a clean list of direct dependencies. We'll also see how these tools help ensure deterministic builds - a crucial feature as your projects grow in complexity.
+::: {.callout-note title="Looking Ahead"}
+In Part 2, we'll explore more robust dependency management with tools like pip-tools and uv, which solve these limitations by creating proper "lock files" while maintaining a clean list of direct dependencies. We'll also see how these tools help ensure deterministic builds — a crucial feature as your projects grow in complexity.
+:::
 
 ### Practical Example: Setting Up a New Project
 
@@ -433,22 +447,4 @@ This approach is ideal for quickly starting new projects when you don't want to 
 
 All these options—the simple script, the cookiecutter template—embody, and GitHub repository templates embody our philosophy of "Simple but not Simplistic." Choose the option that best fits your current needs and comfort level. As your projects grow in complexity, you can gradually adopt more sophisticated practices while maintaining the solid foundation established here.
 
-## Related Materials
-
-This book is part of a comprehensive series for mastering modern software development in the AI era:
-
-**Foundational Methodology**
-
-- [Converse Python, Partner AI: The Python Edition](https://michael-borck.github.io/converse-python-partner-ai)
-
-**Python Track**
-
-- [Think Python, Direct AI: Computational Thinking for Beginners](https://michael-borck.github.io/think-python-direct-ai) - Perfect for absolute beginners
-- [Code Python, Consult AI: Python Fundamentals for the AI Era](https://michael-borck.github.io/code-python-consult-ai) - Core Python knowledge
-- [Ship Python, Orchestrate AI: Professional Python in the AI Era](https://michael-borck.github.io/ship-python-orchestrate-ai) (this book) - Professional tools and workflows
-
-**Web Track**
-
-- [Build Web, Guide AI: Business Web Development with AI](https://michael-borck.github.io/build-web-guide-ai) - HTML, CSS, JavaScript, WordPress, React
-
-In Part 2, we'll build on this foundation by exploring robust dependency management, code quality tools, testing strategies, and type checking—the next layers in our Python development pipeline.
+In Part 2, we'll build on this foundation by exploring robust dependency management, code quality tools, testing strategies, and type checking — the next layers in our Python development pipeline.

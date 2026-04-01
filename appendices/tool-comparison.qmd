@@ -1,4 +1,4 @@
-# Comparision of Python Environment and Package Management Tools
+# Comparison of Python Environment and Package Management Tools
 
 This appendix provides a side-by-side comparison of the major Python environment and package management tools covered throughout this book.
 

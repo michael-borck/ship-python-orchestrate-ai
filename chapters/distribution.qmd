@@ -56,7 +56,7 @@ This maturity translates directly to better AI assistance.
 
 The API-first approach creates natural boundaries:
 
-```
+```text
 ┌─────────────────┐         ┌─────────────────┐
 │  React Frontend │  ←───→  │ FastAPI Backend │
 │  (TypeScript)   │   API   │    (Python)     │
@@ -76,7 +76,7 @@ This separation means:
 
 Here's the recommended structure for a multi-platform application:
 
-```
+```text
 my-app/
 ├── backend/                    # FastAPI backend (Python)
 │   ├── src/

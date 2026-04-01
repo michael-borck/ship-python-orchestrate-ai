@@ -63,7 +63,7 @@ Viewers see rendered output without running code. Limitations: large notebooks m
 
 [nbviewer.org](https://nbviewer.org) provides cleaner rendering:
 
-```
+```text
 https://nbviewer.org/github/username/repo/blob/main/notebook.ipynb
 ```
 
@@ -209,7 +209,7 @@ For more complex dashboards:
 
 [nbdev](https://nbdev.fast.ai/) flips the script: develop libraries FROM notebooks.
 
-```
+```text
 notebook.ipynb → Python package + docs + tests
 ```
 
@@ -293,7 +293,7 @@ def button_click(self, **event_args):
 
 ### Structure Your Notebooks
 
-```
+```text
 1. Title and Overview (Markdown)
 2. Setup and Imports
 3. Data Loading
@@ -372,7 +372,11 @@ Or use nbdev to keep working in notebooks while generating proper packages.
 - Choose based on your audience: viewers, runners, or users
 - Know when to graduate to scripts (or use nbdev to avoid the choice)
 
-**Next**: In @sec-notebook-case-study, we'll build TextKit—a complete Python package developed entirely in notebooks using nbdev.
+::: {.callout-tip title="AI Tip: Notebooks and AI Assistants"}
+Many notebook environments now include built-in AI assistants. Google Colab has Gemini, and JupyterLab supports extensions for Copilot and other AI tools. These are particularly useful for exploratory data analysis — ask AI to generate plotting code, explain error messages, or suggest the next analysis step. The interactive, cell-by-cell nature of notebooks makes AI collaboration especially natural: generate code in one cell, review and modify it, then run it immediately.
+:::
+
+**Next**: In @sec-notebook-case-study, we'll build TextKit — a complete Python package developed entirely in notebooks using nbdev.
 
 ## Exercises
 

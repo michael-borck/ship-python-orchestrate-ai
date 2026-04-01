@@ -264,7 +264,7 @@ A recommended workflow using uv for dependency management:
 
 A simple project structure that works well with uv:
 
-```
+```text
 my_project/
 ├── .venv/                    # Created by uv venv
 ├── src/                      # Source code

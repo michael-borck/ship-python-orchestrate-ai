@@ -169,7 +169,7 @@ nav:
 
 MkDocs uses Markdown files for content. Create `docs/user-guide/installation.md`:
 
-```markdown
+```text
 # Installation
 
 ## Prerequisites
@@ -181,15 +181,11 @@ MkDocs uses Markdown files for content. Create `docs/user-guide/installation.md`
 
 1. Install from PyPI:
 
-   ```bash
    pip install my-package
-   ```
 
 2. Verify installation:
 
-   ```bash
    python -c "import my_package; print(my_package.__version__)"
-   ```
 ```
 
 #### Testing Documentation Locally
@@ -409,6 +405,10 @@ Regardless of which documentation tool you choose, follow these best practices:
 | Sphinx | Large, complex projects, especially with scientific or mathematical content |
 
 For most applications, the journey often progresses from simple docstrings to MkDocs as the project grows. By starting with good docstrings from the beginning, you make each subsequent step easier.
+
+::: {.callout-tip title="AI Tip: Documentation Generation"}
+AI is excellent at writing docstrings and README content. Try: *"Write Google-style docstrings for all the public functions in this module"* and paste your code. For project-level documentation, ask AI to draft a README based on your pyproject.toml and source code. The key is providing AI with your actual code — generic documentation prompts produce generic results. Always review for accuracy, especially around installation steps and API descriptions.
+:::
 
 In the next section, we'll explore how to automate your workflow with CI/CD using GitHub Actions.
 
@@ -851,6 +851,10 @@ This comprehensive workflow:
 
 With these CI/CD practices in place, your development workflow becomes more reliable and automatic. Quality checks run on every change, documentation stays up to date, and releases happen smoothly and consistently.
 
+::: {.callout-tip title="AI Tip: CI/CD Workflows"}
+GitHub Actions YAML can be fiddly to get right. Ask AI to generate workflow files: *"Write a GitHub Actions workflow that runs pytest, ruff, and mypy on push to main and on pull requests, for a Python project using uv."* AI handles the YAML syntax and action versions well, but always test the workflow — AI may reference outdated action versions or miss environment-specific details.
+:::
+
 In the final section, we'll explore how to publish and distribute Python packages to make your work available to others.
 
 ## Package Publishing and Distribution
@@ -865,7 +869,7 @@ Before publishing, your project needs the right structure. Let's ensure everythi
 
 A distributable package should have this basic structure:
 
-```
+```text
 my_project/
 ├── src/
 │   └── my_package/
@@ -1174,7 +1178,7 @@ include-package-data = true
 ```
 
 Create a `MANIFEST.in` file:
-```
+```text
 include src/my_package/data/*.json
 include src/my_package/templates/*.html
 ```

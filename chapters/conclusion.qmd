@@ -70,6 +70,23 @@ Only after mastering the fundamentals:
 - **Advanced architecture**: When code complexity impedes development
 - **Containerization**: When environment consistency becomes problematic
 
+## AI as Your Development Partner
+
+Throughout this book, we have built a professional Python development pipeline. AI amplifies every part of it:
+
+- **Project scaffolding**: AI generates directory structures, configuration files, and boilerplate
+- **Code quality**: AI explains linting errors, suggests type annotations, and writes docstrings
+- **Testing**: AI generates test cases, including edge cases you might miss
+- **Documentation**: AI drafts READMEs, API docs, and contributing guides
+- **CI/CD**: AI generates GitHub Actions workflows and Dockerfile configurations
+- **Debugging**: AI analyses error messages and suggests fixes
+
+The critical insight is that AI works best when you understand what it produces. The pipeline practices in this book give you that understanding. Without knowing what a good `pyproject.toml` looks like, you cannot evaluate AI-generated configuration. Without understanding pytest fixtures, you cannot judge AI-generated tests. The fundamentals make AI useful rather than dangerous.
+
+::: {.callout-important title="Orchestrate, Don't Delegate"}
+The title of this book is deliberate. *Orchestrate* AI means you direct the work, review the output, and make the decisions. AI generates code faster than you can type it — but you still need to know whether that code is correct, secure, and maintainable. The pipeline you have built is your quality gate. Everything AI produces passes through it: linted by Ruff, checked by mypy, tested by pytest, reviewed by you.
+:::
+
 ## Beyond Tools: Engineering Culture
 
 The most important outcome isn't just using specific tools—it's developing habits and values that lead to better software:

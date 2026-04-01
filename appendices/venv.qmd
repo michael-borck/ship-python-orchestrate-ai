@@ -58,7 +58,7 @@ source .venv/bin/activate
 
 After activation, your shell prompt typically changes to indicate the active environment:
 
-```
+```text
 (.venv) user@computer:~/project$
 ```
 
@@ -174,7 +174,7 @@ The `.venv` name is increasingly popular as it:
 
 Never commit virtual environment directories to version control. Add them to `.gitignore`:
 
-```
+```text
 # .gitignore
 .venv/
 venv/

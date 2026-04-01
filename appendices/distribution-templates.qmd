@@ -1099,7 +1099,7 @@ jobs:
 
 ## CLAUDE.md Template
 
-```markdown
+```text
 # Project: [Your Project Name]
 
 ## Overview
@@ -1108,14 +1108,13 @@ jobs:
 ## Architecture
 
 ### Stack
-- **Backend**: FastAPI (Python 3.11+)
-- **Frontend**: React 18 + TypeScript + Vite
-- **Desktop**: Electron 28
-- **Database**: SQLite (dev) / PostgreSQL (prod)
-- **Deployment**: Docker, GitHub Actions
+- Backend: FastAPI (Python 3.11+)
+- Frontend: React 18 + TypeScript + Vite
+- Desktop: Electron 28
+- Database: SQLite (dev) / PostgreSQL (prod)
+- Deployment: Docker, GitHub Actions
 
 ### Directory Structure
-```
 project/
 ├── backend/          # FastAPI application
 │   ├── src/my_app/   # Source code
@@ -1125,12 +1124,11 @@ project/
 ├── electron/         # Desktop wrapper
 ├── docker/           # Container configs
 └── .github/          # CI/CD workflows
-```
 
 ## Conventions
 
 ### Backend
-- All API routes under `/api/` prefix
+- All API routes under /api/ prefix
 - Pydantic models for all request/response schemas
 - SQLAlchemy for database operations
 - Async handlers where beneficial
@@ -1149,39 +1147,33 @@ project/
 ## Development Commands
 
 ### Backend
-```bash
 cd backend
 uv run uvicorn my_app.main:app --reload
 uv run pytest
 uv run ruff check .
-```
 
 ### Frontend
-```bash
 cd frontend
 npm run dev
 npm test
 npm run lint
-```
 
 ### Docker
-```bash
 docker-compose -f docker/docker-compose.yml up
-```
 
 ## API Endpoints
-- `GET /api/health` - Health check
-- `GET /api/items` - List items
-- `POST /api/items` - Create item
-- `GET /api/items/{id}` - Get item
-- `PUT /api/items/{id}` - Update item
-- `DELETE /api/items/{id}` - Delete item
+- GET /api/health - Health check
+- GET /api/items - List items
+- POST /api/items - Create item
+- GET /api/items/{id} - Get item
+- PUT /api/items/{id} - Update item
+- DELETE /api/items/{id} - Delete item
 
 ## Environment Variables
-- `DEBUG` - Enable debug mode (default: false)
-- `DATABASE_URL` - Database connection string
-- `SECRET_KEY` - Application secret key
-- `CORS_ORIGINS` - Allowed CORS origins
+- DEBUG - Enable debug mode (default: false)
+- DATABASE_URL - Database connection string
+- SECRET_KEY - Application secret key
+- CORS_ORIGINS - Allowed CORS origins
 
 ## Key Decisions
 1. Using uv for Python dependency management (fast, reliable)
@@ -1193,20 +1185,20 @@ docker-compose -f docker/docker-compose.yml up
 ## Common Tasks
 
 ### Adding a new API endpoint
-1. Define Pydantic models in `backend/src/my_app/models/`
-2. Create route handler in `backend/src/my_app/api/`
-3. Add tests in `backend/tests/`
-4. Update TypeScript types in `frontend/src/services/api.ts`
+1. Define Pydantic models in backend/src/my_app/models/
+2. Create route handler in backend/src/my_app/api/
+3. Add tests in backend/tests/
+4. Update TypeScript types in frontend/src/services/api.ts
 
 ### Adding a new React component
-1. Create component in `frontend/src/components/`
+1. Create component in frontend/src/components/
 2. Use React Query hooks for data fetching
 3. Add to relevant pages/routes
 
 ### Creating a release
 1. Update version in relevant package files
-2. Create git tag: `git tag v1.2.3`
-3. Push tag: `git push origin v1.2.3`
+2. Create git tag: git tag v1.2.3
+3. Push tag: git push origin v1.2.3
 4. GitHub Actions builds and publishes automatically
 ```
 

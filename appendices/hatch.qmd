@@ -87,7 +87,7 @@ hatch new my-project --init
 
 The project structure might look like:
 
-```
+```text
 my-project/
 ├── src/
 │   └── my_project/
@@ -303,7 +303,7 @@ path = "my_custom_build_hook.py"
 
 A recommended structure for Hatch projects:
 
-```
+```text
 my_project/
 ├── src/
 │   └── my_package/      # Main package code

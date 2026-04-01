@@ -129,7 +129,11 @@ repos:
   run: uv run poe check
 ```
 
-This approach eliminates the disconnect between local development and automated systems—everyone uses the same commands.
+This approach eliminates the disconnect between local development and automated systems — everyone uses the same commands.
+
+::: {.callout-tip title="AI Tip: Task Automation"}
+AI can generate Poe the Poet task definitions, Makefiles, and shell scripts from natural language descriptions. Try: *"Write Poe the Poet tasks for: formatting with ruff, linting, running tests with coverage, and a 'check' task that runs all three in sequence."* Since these are configuration files with well-defined syntax, AI output is usually accurate. But test each task before committing it — path assumptions and tool flags can vary between projects.
+:::
 
 ## Project Setup and Structure
 
@@ -139,7 +143,7 @@ Consistent project structure is fundamental to maintainable Python development. 
 
 Our recommended project structure balances simplicity with scalability:
 
-```
+```text
 my-project/
 ├── pyproject.toml          # Project configuration and dependencies
 ├── README.md               # Project overview and setup instructions  
@@ -301,6 +305,10 @@ doctor = { shell = """
 ```
 
 New team members can quickly verify their setup with `uv run poe doctor`.
+
+::: {.callout-tip title="AI Tip: Onboarding Documentation"}
+AI can help you write contributing guides, development setup instructions, and team conventions documents. Provide your pyproject.toml and project structure, then ask: *"Write a CONTRIBUTING.md that explains how to set up the development environment, run tests, and submit a pull request for this project."* This is documentation that benefits everyone on the team and that AI can draft well from your project's configuration.
+:::
 
 This chapter has established the foundation for scalable project management through automation, consistent structure, and collaborative workflows. These practices become increasingly valuable as projects grow in size and complexity, ensuring that good habits established early continue to serve the project throughout its lifecycle.
 

@@ -168,7 +168,11 @@ Consider containerization when you encounter:
 - **Deployment environment differences** from development
 - **Service integration challenges** (databases, message queues, etc.)
 
-Don't containerize simply because it's trendy—use it to solve specific reproducibility problems.
+Don't containerize simply because it's trendy — use it to solve specific reproducibility problems.
+
+::: {.callout-tip title="AI Tip: Dockerfile Generation"}
+Dockerfiles are perfect candidates for AI generation. Try: *"Write a multi-stage Dockerfile for a Python FastAPI application using uv for dependency management. The final image should be minimal."* AI handles the syntax and layer ordering well. But always review the base images it suggests (are they up to date? are they the slim variants?) and test the build — AI often gets volume mounts and port mappings wrong in docker-compose files.
+:::
 
 ## Scaling Your Development Process
 
@@ -528,3 +532,7 @@ The key to advanced techniques is **selective adoption based on actual needs**:
 The most important principle for advanced techniques: **they should enhance, not replace, your core development practices**. Your testing, code quality, documentation, and automation should continue to work as you adopt more sophisticated approaches.
 
 Advanced techniques are tools for solving specific problems, not goals in themselves. Focus on delivering value through your software while maintaining the solid development foundation you've established.
+
+::: {.callout-tip title="AI Tip: Architecture Decisions"}
+When deciding whether to adopt an advanced technique, describe your situation to your AI assistant: *"My Flask app handles 50 requests per second and response times are around 200ms. Users are complaining about slow page loads. Should I add caching, switch to async, or look at the database queries first?"* AI can help you reason through trade-offs, but the decision is yours — AI does not know your team's capacity or your deployment constraints.
+:::

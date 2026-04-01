@@ -107,7 +107,7 @@ The template offers several customisation options during generation:
 
 The generated project follows this structure:
 
-```
+```text
 your_project/
 ├── .github/                        # GitHub specific configuration
 │   └── workflows/                  # GitHub Actions workflows

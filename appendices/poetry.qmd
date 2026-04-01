@@ -262,7 +262,7 @@ These commands become available through `poetry run` or when the package is inst
 
 A recommended project structure for Poetry projects:
 
-```
+```text
 my_project/
 ├── src/
 │   └── my_package/         # Main package code

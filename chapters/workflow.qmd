@@ -174,6 +174,10 @@ Regardless of which tool you choose:
 
 4. **Always use `pip-sync` or `uv pip sync`** instead of `pip install -r requirements.txt` to ensure your environment exactly matches the lock file.
 
+::: {.callout-tip title="AI Tip: Dependency Decisions"}
+When choosing between packages that serve similar purposes, ask your AI assistant for a comparison: *"Compare requests vs httpx for making HTTP calls in a Python 3.11 project. I need async support and type hints."* AI can surface trade-offs quickly, but verify its claims about package popularity and maintenance status — check PyPI download stats and GitHub activity yourself.
+:::
+
 In the next section, we'll explore how to maintain code quality through automated formatting and linting with Ruff, taking your workflow to the next professional level.
 
 ## Code Quality Tools with Ruff
@@ -317,7 +321,7 @@ uv run ruff check example.py
 ```
 
 This will show output like:
-```
+```text
 example.py:2:1: E401 Multiple imports on one line
 example.py:2:8: F401 `sys` imported but unused
 example.py:4:1: F401 `json` imported but unused
@@ -495,6 +499,10 @@ While Ruff covers a wide range of code quality checks, some specific needs might
 
 However, Ruff's rule set continues to expand, potentially reducing the need for these additional tools over time.
 
+::: {.callout-tip title="AI Tip: Understanding Linting Errors"}
+When Ruff flags an error you do not understand, paste the rule code into your AI assistant: *"What does Ruff rule B006 mean, and how do I fix it in this code?"* AI is particularly good at explaining why a pattern is problematic and suggesting the idiomatic alternative. This turns linting errors into learning opportunities.
+:::
+
 By incorporating Ruff into your workflow, you'll catch many common errors before they reach production and maintain a consistent, readable codebase. In the next section, we'll explore how to ensure your code works as expected through automated testing with pytest.
 
 ## Automated Testing with pytest
@@ -537,7 +545,7 @@ touch tests/conftest.py  # pytest configuration file
 
 Your project structure should look like:
 
-```
+```text
 my-project/
 ├── src/
 │   └── my_package/
@@ -689,7 +697,7 @@ pytest --cov=src/my_package --cov-report=html
 
 A coverage report helps identify untested code:
 
-```
+```text
 ----------- coverage: platform linux, python 3.9.5-final-0 -----------
 Name                             Stmts   Miss  Cover
 ----------------------------------------------------
@@ -814,6 +822,10 @@ As your project grows, organise tests into different categories:
 
 Most projects should have a pyramid shape: many unit tests, fewer integration tests, and even fewer functional/E2E tests.
 
+::: {.callout-tip title="AI Tip: Generating Tests"}
+AI excels at generating test cases, especially edge cases you might miss. Try: *"Write pytest tests for this function, including edge cases for empty input, None values, and boundary conditions."* Then paste your function. The key is reviewing what AI generates — it often writes tests that pass trivially or miss the actual business logic. Use AI-generated tests as a starting point, not a finished product.
+:::
+
 ::: {.callout-tip}
 ## GUI and End-to-End Testing with Playwright
 
@@ -878,7 +890,7 @@ mypy example.py
 ```
 
 Output:
-```
+```text
 example.py:8: error: Argument 1 to "double" has incompatible type "str"; expected "int"
 ```
 
@@ -1132,6 +1144,10 @@ Type hints are particularly valuable for:
 - Large codebases with multiple contributors
 
 Type checking isn't an all-or-nothing proposition. Even partial type coverage can significantly improve code quality and catch common errors. Start small, focus on interfaces, and expand your type coverage as your team becomes comfortable with the system.
+
+::: {.callout-tip title="AI Tip: Adding Type Hints to Existing Code"}
+AI is excellent at adding type hints to untyped code. Paste a function and ask: *"Add type hints to this function, including the return type."* AI can also help you understand complex type annotations like `Optional[dict[str, list[int]]]`. For larger codebases, use AI to type-annotate one module at a time rather than trying to do everything at once.
+:::
 
 ## Security Analysis with Bandit
 

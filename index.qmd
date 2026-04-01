@@ -49,15 +49,61 @@ Companion templates let you start new projects with the recommended structure im
 - **GitHub template**: [ship-python-template](https://github.com/michael-borck/ship-python-template)
 - **Example project**: [ship-python-example](https://github.com/michael-borck/ship-python-example)
 
+## Conventions Used in This Book
+
+Code examples appear with syntax highlighting:
+
+```python
+uv run pytest --cov=src
+```
+
+Terminal output and configuration content appear as plain text blocks:
+
+```text
+my_project/
+├── src/
+│   └── my_package/
+└── tests/
+```
+
+Throughout the chapters you will find:
+
+- **AI Tips** — practical advice for using AI with the practice being taught
+- **Callout boxes** — important notes, tips, and warnings highlighted for reference
+
 ## The Series
 
-This book is the third in a Python learning path:
+This book is part of a series designed to help you master modern software development in the AI era.
 
-1. **Think Python, Direct AI** — computational thinking for absolute beginners
-2. **Code Python, Consult AI** — focused Python fundamentals
-3. **Ship Python, Orchestrate AI** (this book) — professional development practices and tooling
+```{mermaid}
+%%| fig-width: 4
+flowchart TD
+    CND["Conversation,<br/>Not Delegation"]
+    CPPA["Converse Python,<br/>Partner AI"]
+    Think["Think Python,<br/>Direct AI"]
+    Code["Code Python,<br/>Consult AI"]
+    Ship["Ship Python,<br/>Orchestrate AI"]
+    Web["Build Web,<br/>Guide AI"]
+    CND --> CPPA
+    CND --> Web
+    CPPA --> Think
+    Think --> Code
+    Code --> Ship
+```
 
-The methodology behind all three comes from *Conversation, Not Delegation: How to Think With AI, Not Just Use It*. All titles are available at [books.borck.education](https://books.borck.education).
+**Conversation, Not Delegation** — the general methodology for working with AI across any discipline.
+
+**Converse Python, Partner AI** — intentional prompting methodology applied to software development.
+
+**Think Python, Direct AI** — computational thinking for absolute beginners.
+
+**Code Python, Consult AI** — focused Python fundamentals with AI integration.
+
+**Ship Python, Orchestrate AI** (this book) — professional Python development practices and tooling.
+
+**Build Web, Guide AI** — web development with AI as your development partner.
+
+All titles are available at [books.borck.education](https://books.borck.education).
 
 ## Ways to Engage with This Book
 
