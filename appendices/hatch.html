@@ -446,8 +446,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendices/tool-comparision.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparision of Python Environment and Package Management Tools</span></span></a>
+  <a href="../appendices/tool-comparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparison of Python Environment and Package Management Tools</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -490,12 +490,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../appendices/poetry.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">Poetry - Modern Python Packaging and Dependency Management</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendices/pdm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">PDM</span></span></a>
   </div>
 </li>
       </ul>
@@ -565,7 +559,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#when-to-use-hatch" id="toc-when-to-use-hatch" class="nav-link" data-scroll-target="#when-to-use-hatch"><span class="header-section-number">J.10</span> When to Use Hatch</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">J.11</span> Conclusion</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/appendices/hatch.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/appendices/hatch.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -669,7 +663,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># With specific options</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">hatch</span> new my-project <span class="at">--init</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The project structure might look like:</p>
-<pre><code>my-project/
+<pre class="text"><code>my-project/
 ├── src/
 │   └── my_project/
 │       └── __init__.py
@@ -854,7 +848,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="project-structure" class="level3" data-number="J.6.1">
 <h3 data-number="J.6.1" class="anchored" data-anchor-id="project-structure"><span class="header-section-number">J.6.1</span> Project Structure</h3>
 <p>A recommended structure for Hatch projects:</p>
-<pre><code>my_project/
+<pre class="text"><code>my_project/
 ├── src/
 │   └── my_package/      # Main package code
 │       ├── __init__.py

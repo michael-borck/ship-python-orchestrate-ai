@@ -65,7 +65,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../appendices/pdm.html" rel="next">
 <link href="../appendices/uv.html" rel="prev">
 <link href="../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -446,8 +445,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendices/tool-comparision.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparision of Python Environment and Package Management Tools</span></span></a>
+  <a href="../appendices/tool-comparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparison of Python Environment and Package Management Tools</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -490,12 +489,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../appendices/poetry.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">Poetry - Modern Python Packaging and Dependency Management</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendices/pdm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">PDM</span></span></a>
   </div>
 </li>
       </ul>
@@ -565,7 +558,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#when-to-use-poetry" id="toc-when-to-use-poetry" class="nav-link" data-scroll-target="#when-to-use-poetry"><span class="header-section-number">N.10</span> When to Use Poetry</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">N.11</span> Conclusion</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/appendices/poetry.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/appendices/poetry.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -818,7 +811,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="project-structure" class="level3" data-number="N.6.1">
 <h3 data-number="N.6.1" class="anchored" data-anchor-id="project-structure"><span class="header-section-number">N.6.1</span> Project Structure</h3>
 <p>A recommended project structure for Poetry projects:</p>
-<pre><code>my_project/
+<pre class="text"><code>my_project/
 ├── src/
 │   └── my_package/         # Main package code
 │       ├── __init__.py
@@ -1472,9 +1465,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../appendices/pdm.html" class="pagination-link" aria-label="PDM">
-        <span class="nav-page-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">PDM</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

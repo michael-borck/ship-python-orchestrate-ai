@@ -446,8 +446,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendices/tool-comparision.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparision of Python Environment and Package Management Tools</span></span></a>
+  <a href="../appendices/tool-comparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparison of Python Environment and Package Management Tools</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -492,12 +492,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">Poetry - Modern Python Packaging and Dependency Management</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendices/pdm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">PDM</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -518,30 +512,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#for-team-environments-month-2-3" id="toc-for-team-environments-month-2-3" class="nav-link" data-scroll-target="#for-team-environments-month-2-3"><span class="header-section-number">10.2.3</span> For Team Environments (Month 2-3)</a></li>
   <li><a href="#advanced-techniques-month-3" id="toc-advanced-techniques-month-3" class="nav-link" data-scroll-target="#advanced-techniques-month-3"><span class="header-section-number">10.2.4</span> Advanced Techniques (Month 3+)</a></li>
   </ul></li>
-  <li><a href="#beyond-tools-engineering-culture" id="toc-beyond-tools-engineering-culture" class="nav-link" data-scroll-target="#beyond-tools-engineering-culture"><span class="header-section-number">10.3</span> Beyond Tools: Engineering Culture</a></li>
-  <li><a href="#when-to-consider-more-advanced-tools" id="toc-when-to-consider-more-advanced-tools" class="nav-link" data-scroll-target="#when-to-consider-more-advanced-tools"><span class="header-section-number">10.4</span> When to Consider More Advanced Tools</a></li>
-  <li><a href="#common-implementation-challenges-and-solutions" id="toc-common-implementation-challenges-and-solutions" class="nav-link" data-scroll-target="#common-implementation-challenges-and-solutions"><span class="header-section-number">10.5</span> Common Implementation Challenges and Solutions</a>
+  <li><a href="#ai-as-your-development-partner" id="toc-ai-as-your-development-partner" class="nav-link" data-scroll-target="#ai-as-your-development-partner"><span class="header-section-number">10.3</span> AI as Your Development Partner</a></li>
+  <li><a href="#beyond-tools-engineering-culture" id="toc-beyond-tools-engineering-culture" class="nav-link" data-scroll-target="#beyond-tools-engineering-culture"><span class="header-section-number">10.4</span> Beyond Tools: Engineering Culture</a></li>
+  <li><a href="#when-to-consider-more-advanced-tools" id="toc-when-to-consider-more-advanced-tools" class="nav-link" data-scroll-target="#when-to-consider-more-advanced-tools"><span class="header-section-number">10.5</span> When to Consider More Advanced Tools</a></li>
+  <li><a href="#common-implementation-challenges-and-solutions" id="toc-common-implementation-challenges-and-solutions" class="nav-link" data-scroll-target="#common-implementation-challenges-and-solutions"><span class="header-section-number">10.6</span> Common Implementation Challenges and Solutions</a>
   <ul class="collapse">
-  <li><a href="#this-seems-like-too-much-overhead" id="toc-this-seems-like-too-much-overhead" class="nav-link" data-scroll-target="#this-seems-like-too-much-overhead"><span class="header-section-number">10.5.1</span> “This Seems Like Too Much Overhead”</a></li>
-  <li><a href="#my-team-resists-new-processes" id="toc-my-team-resists-new-processes" class="nav-link" data-scroll-target="#my-team-resists-new-processes"><span class="header-section-number">10.5.2</span> “My Team Resists New Processes”</a></li>
-  <li><a href="#tool-configuration-is-confusing" id="toc-tool-configuration-is-confusing" class="nav-link" data-scroll-target="#tool-configuration-is-confusing"><span class="header-section-number">10.5.3</span> “Tool Configuration is Confusing”</a></li>
-  <li><a href="#i-dont-know-when-to-add-advanced-practices" id="toc-i-dont-know-when-to-add-advanced-practices" class="nav-link" data-scroll-target="#i-dont-know-when-to-add-advanced-practices"><span class="header-section-number">10.5.4</span> “I Don’t Know When to Add Advanced Practices”</a></li>
+  <li><a href="#this-seems-like-too-much-overhead" id="toc-this-seems-like-too-much-overhead" class="nav-link" data-scroll-target="#this-seems-like-too-much-overhead"><span class="header-section-number">10.6.1</span> “This Seems Like Too Much Overhead”</a></li>
+  <li><a href="#my-team-resists-new-processes" id="toc-my-team-resists-new-processes" class="nav-link" data-scroll-target="#my-team-resists-new-processes"><span class="header-section-number">10.6.2</span> “My Team Resists New Processes”</a></li>
+  <li><a href="#tool-configuration-is-confusing" id="toc-tool-configuration-is-confusing" class="nav-link" data-scroll-target="#tool-configuration-is-confusing"><span class="header-section-number">10.6.3</span> “Tool Configuration is Confusing”</a></li>
+  <li><a href="#i-dont-know-when-to-add-advanced-practices" id="toc-i-dont-know-when-to-add-advanced-practices" class="nav-link" data-scroll-target="#i-dont-know-when-to-add-advanced-practices"><span class="header-section-number">10.6.4</span> “I Don’t Know When to Add Advanced Practices”</a></li>
   </ul></li>
-  <li><a href="#staying-updated-and-growing" id="toc-staying-updated-and-growing" class="nav-link" data-scroll-target="#staying-updated-and-growing"><span class="header-section-number">10.6</span> Staying Updated and Growing</a>
+  <li><a href="#staying-updated-and-growing" id="toc-staying-updated-and-growing" class="nav-link" data-scroll-target="#staying-updated-and-growing"><span class="header-section-number">10.7</span> Staying Updated and Growing</a>
   <ul class="collapse">
-  <li><a href="#following-core-development-principles" id="toc-following-core-development-principles" class="nav-link" data-scroll-target="#following-core-development-principles"><span class="header-section-number">10.6.1</span> Following Core Development Principles</a></li>
-  <li><a href="#practical-learning-approach" id="toc-practical-learning-approach" class="nav-link" data-scroll-target="#practical-learning-approach"><span class="header-section-number">10.6.2</span> Practical Learning Approach</a></li>
-  <li><a href="#continuous-improvement-mindset" id="toc-continuous-improvement-mindset" class="nav-link" data-scroll-target="#continuous-improvement-mindset"><span class="header-section-number">10.6.3</span> Continuous Improvement Mindset</a></li>
+  <li><a href="#following-core-development-principles" id="toc-following-core-development-principles" class="nav-link" data-scroll-target="#following-core-development-principles"><span class="header-section-number">10.7.1</span> Following Core Development Principles</a></li>
+  <li><a href="#practical-learning-approach" id="toc-practical-learning-approach" class="nav-link" data-scroll-target="#practical-learning-approach"><span class="header-section-number">10.7.2</span> Practical Learning Approach</a></li>
+  <li><a href="#continuous-improvement-mindset" id="toc-continuous-improvement-mindset" class="nav-link" data-scroll-target="#continuous-improvement-mindset"><span class="header-section-number">10.7.3</span> Continuous Improvement Mindset</a></li>
   </ul></li>
-  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts"><span class="header-section-number">10.7</span> Final Thoughts</a>
+  <li><a href="#final-thoughts" id="toc-final-thoughts" class="nav-link" data-scroll-target="#final-thoughts"><span class="header-section-number">10.8</span> Final Thoughts</a>
   <ul class="collapse">
-  <li><a href="#the-universal-principles-behind-the-tools" id="toc-the-universal-principles-behind-the-tools" class="nav-link" data-scroll-target="#the-universal-principles-behind-the-tools"><span class="header-section-number">10.7.1</span> The Universal Principles Behind the Tools</a></li>
-  <li><a href="#your-development-journey-continues" id="toc-your-development-journey-continues" class="nav-link" data-scroll-target="#your-development-journey-continues"><span class="header-section-number">10.7.2</span> Your Development Journey Continues</a></li>
-  <li><a href="#starting-your-next-project" id="toc-starting-your-next-project" class="nav-link" data-scroll-target="#starting-your-next-project"><span class="header-section-number">10.7.3</span> Starting Your Next Project</a></li>
-  <li><a href="#a-personal-note" id="toc-a-personal-note" class="nav-link" data-scroll-target="#a-personal-note"><span class="header-section-number">10.7.4</span> A Personal Note</a></li>
+  <li><a href="#the-universal-principles-behind-the-tools" id="toc-the-universal-principles-behind-the-tools" class="nav-link" data-scroll-target="#the-universal-principles-behind-the-tools"><span class="header-section-number">10.8.1</span> The Universal Principles Behind the Tools</a></li>
+  <li><a href="#your-development-journey-continues" id="toc-your-development-journey-continues" class="nav-link" data-scroll-target="#your-development-journey-continues"><span class="header-section-number">10.8.2</span> Your Development Journey Continues</a></li>
+  <li><a href="#starting-your-next-project" id="toc-starting-your-next-project" class="nav-link" data-scroll-target="#starting-your-next-project"><span class="header-section-number">10.8.3</span> Starting Your Next Project</a></li>
+  <li><a href="#a-personal-note" id="toc-a-personal-note" class="nav-link" data-scroll-target="#a-personal-note"><span class="header-section-number">10.8.4</span> A Personal Note</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/chapters/conclusion.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/chapters/conclusion.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -615,8 +610,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Only after mastering the fundamentals: - <strong>Performance optimisation</strong>: When benchmarks indicate actual problems - <strong>Advanced architecture</strong>: When code complexity impedes development - <strong>Containerization</strong>: When environment consistency becomes problematic</p>
 </section>
 </section>
-<section id="beyond-tools-engineering-culture" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="beyond-tools-engineering-culture"><span class="header-section-number">10.3</span> Beyond Tools: Engineering Culture</h2>
+<section id="ai-as-your-development-partner" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="ai-as-your-development-partner"><span class="header-section-number">10.3</span> AI as Your Development Partner</h2>
+<p>Throughout this book, we have built a professional Python development pipeline. AI amplifies every part of it:</p>
+<ul>
+<li><strong>Project scaffolding</strong>: AI generates directory structures, configuration files, and boilerplate</li>
+<li><strong>Code quality</strong>: AI explains linting errors, suggests type annotations, and writes docstrings</li>
+<li><strong>Testing</strong>: AI generates test cases, including edge cases you might miss</li>
+<li><strong>Documentation</strong>: AI drafts READMEs, API docs, and contributing guides</li>
+<li><strong>CI/CD</strong>: AI generates GitHub Actions workflows and Dockerfile configurations</li>
+<li><strong>Debugging</strong>: AI analyses error messages and suggests fixes</li>
+</ul>
+<p>The critical insight is that AI works best when you understand what it produces. The pipeline practices in this book give you that understanding. Without knowing what a good <code>pyproject.toml</code> looks like, you cannot evaluate AI-generated configuration. Without understanding pytest fixtures, you cannot judge AI-generated tests. The fundamentals make AI useful rather than dangerous.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Orchestrate, Don't Delegate">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Orchestrate, Don’t Delegate
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The title of this book is deliberate. <em>Orchestrate</em> AI means you direct the work, review the output, and make the decisions. AI generates code faster than you can type it — but you still need to know whether that code is correct, secure, and maintainable. The pipeline you have built is your quality gate. Everything AI produces passes through it: linted by Ruff, checked by mypy, tested by pytest, reviewed by you.</p>
+</div>
+</div>
+</section>
+<section id="beyond-tools-engineering-culture" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="beyond-tools-engineering-culture"><span class="header-section-number">10.4</span> Beyond Tools: Engineering Culture</h2>
 <p>The most important outcome isn’t just using specific tools—it’s developing habits and values that lead to better software:</p>
 <ul>
 <li><strong>Think defensively</strong>: Use tools that catch mistakes early</li>
@@ -626,8 +647,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Share knowledge</strong>: Document not just what code does, but why</li>
 </ul>
 </section>
-<section id="when-to-consider-more-advanced-tools" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="when-to-consider-more-advanced-tools"><span class="header-section-number">10.4</span> When to Consider More Advanced Tools</h2>
+<section id="when-to-consider-more-advanced-tools" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="when-to-consider-more-advanced-tools"><span class="header-section-number">10.5</span> When to Consider More Advanced Tools</h2>
 <p>As your projects grow more complex, you might explore more sophisticated tools:</p>
 <ul>
 <li><strong>Containerization</strong> with Docker for consistent environments</li>
@@ -638,39 +659,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>However, the core practices we’ve covered will remain valuable regardless of the scale you reach.</p>
 </section>
-<section id="common-implementation-challenges-and-solutions" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="common-implementation-challenges-and-solutions"><span class="header-section-number">10.5</span> Common Implementation Challenges and Solutions</h2>
+<section id="common-implementation-challenges-and-solutions" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="common-implementation-challenges-and-solutions"><span class="header-section-number">10.6</span> Common Implementation Challenges and Solutions</h2>
 <p>As you implement these practices, you’ll likely encounter some common obstacles. Here’s how to address them:</p>
-<section id="this-seems-like-too-much-overhead" class="level3" data-number="10.5.1">
-<h3 data-number="10.5.1" class="anchored" data-anchor-id="this-seems-like-too-much-overhead"><span class="header-section-number">10.5.1</span> “This Seems Like Too Much Overhead”</h3>
+<section id="this-seems-like-too-much-overhead" class="level3" data-number="10.6.1">
+<h3 data-number="10.6.1" class="anchored" data-anchor-id="this-seems-like-too-much-overhead"><span class="header-section-number">10.6.1</span> “This Seems Like Too Much Overhead”</h3>
 <p><strong>Symptom</strong>: Tools feel burdensome and slow down development <strong>Solution</strong>: Start smaller and focus on automation - Begin with just <code>ruff format</code> and <code>pytest</code> - Use pre-commit hooks to make quality checks automatic - Remember: 5 minutes of setup saves hours of debugging later</p>
 </section>
-<section id="my-team-resists-new-processes" class="level3" data-number="10.5.2">
-<h3 data-number="10.5.2" class="anchored" data-anchor-id="my-team-resists-new-processes"><span class="header-section-number">10.5.2</span> “My Team Resists New Processes”</h3>
+<section id="my-team-resists-new-processes" class="level3" data-number="10.6.2">
+<h3 data-number="10.6.2" class="anchored" data-anchor-id="my-team-resists-new-processes"><span class="header-section-number">10.6.2</span> “My Team Resists New Processes”</h3>
 <p><strong>Symptom</strong>: Team members bypass or ignore new practices <strong>Solution</strong>: Lead by example and demonstrate value - Start with your own projects and show improved outcomes - Introduce practices that solve existing pain points - Make adherence easy with good tooling and clear documentation</p>
 </section>
-<section id="tool-configuration-is-confusing" class="level3" data-number="10.5.3">
-<h3 data-number="10.5.3" class="anchored" data-anchor-id="tool-configuration-is-confusing"><span class="header-section-number">10.5.3</span> “Tool Configuration is Confusing”</h3>
+<section id="tool-configuration-is-confusing" class="level3" data-number="10.6.3">
+<h3 data-number="10.6.3" class="anchored" data-anchor-id="tool-configuration-is-confusing"><span class="header-section-number">10.6.3</span> “Tool Configuration is Confusing”</h3>
 <p><strong>Symptom</strong>: Conflicting configurations or unclear settings <strong>Solution</strong>: Use our recommended starting templates - Copy configuration from successful projects - Use the companion templates to bootstrap correctly - Focus on standard configurations before customising</p>
 </section>
-<section id="i-dont-know-when-to-add-advanced-practices" class="level3" data-number="10.5.4">
-<h3 data-number="10.5.4" class="anchored" data-anchor-id="i-dont-know-when-to-add-advanced-practices"><span class="header-section-number">10.5.4</span> “I Don’t Know When to Add Advanced Practices”</h3>
+<section id="i-dont-know-when-to-add-advanced-practices" class="level3" data-number="10.6.4">
+<h3 data-number="10.6.4" class="anchored" data-anchor-id="i-dont-know-when-to-add-advanced-practices"><span class="header-section-number">10.6.4</span> “I Don’t Know When to Add Advanced Practices”</h3>
 <p><strong>Symptom</strong>: Uncertainty about when complexity is justified <strong>Solution</strong>: Let pain points guide your decisions - Add testing when manual verification becomes tedious - Add CI/CD when manual releases cause errors - Add advanced architecture when code becomes hard to maintain - Never add complexity that doesn’t solve an actual problem</p>
 </section>
 </section>
-<section id="staying-updated-and-growing" class="level2" data-number="10.6">
-<h2 data-number="10.6" class="anchored" data-anchor-id="staying-updated-and-growing"><span class="header-section-number">10.6</span> Staying Updated and Growing</h2>
+<section id="staying-updated-and-growing" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="staying-updated-and-growing"><span class="header-section-number">10.7</span> Staying Updated and Growing</h2>
 <p>Python’s ecosystem continues to evolve. Maintain relevance by:</p>
-<section id="following-core-development-principles" class="level3" data-number="10.6.1">
-<h3 data-number="10.6.1" class="anchored" data-anchor-id="following-core-development-principles"><span class="header-section-number">10.6.1</span> Following Core Development Principles</h3>
+<section id="following-core-development-principles" class="level3" data-number="10.7.1">
+<h3 data-number="10.7.1" class="anchored" data-anchor-id="following-core-development-principles"><span class="header-section-number">10.7.1</span> Following Core Development Principles</h3>
 <ul>
 <li><strong>Python Enhancement Proposals (PEPs)</strong>: Understand the direction of the language</li>
 <li><strong>Community discussions</strong>: Participate in forums like Python Discourse or Reddit r/Python</li>
 <li><strong>Release notes</strong>: Read updates for your core dependencies (pytest, ruff, uv, etc.)</li>
 </ul>
 </section>
-<section id="practical-learning-approach" class="level3" data-number="10.6.2">
-<h3 data-number="10.6.2" class="anchored" data-anchor-id="practical-learning-approach"><span class="header-section-number">10.6.2</span> Practical Learning Approach</h3>
+<section id="practical-learning-approach" class="level3" data-number="10.7.2">
+<h3 data-number="10.7.2" class="anchored" data-anchor-id="practical-learning-approach"><span class="header-section-number">10.7.2</span> Practical Learning Approach</h3>
 <ul>
 <li><strong>Test new tools in small projects</strong> before adopting them in production</li>
 <li><strong>Attend conferences or meetups</strong> (virtual or in-person) for broader perspective</li>
@@ -678,8 +699,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Contribute to open source</strong> to deepen understanding of development practices</li>
 </ul>
 </section>
-<section id="continuous-improvement-mindset" class="level3" data-number="10.6.3">
-<h3 data-number="10.6.3" class="anchored" data-anchor-id="continuous-improvement-mindset"><span class="header-section-number">10.6.3</span> Continuous Improvement Mindset</h3>
+<section id="continuous-improvement-mindset" class="level3" data-number="10.7.3">
+<h3 data-number="10.7.3" class="anchored" data-anchor-id="continuous-improvement-mindset"><span class="header-section-number">10.7.3</span> Continuous Improvement Mindset</h3>
 <ul>
 <li><strong>Regular retrospectives</strong>: What’s working well? What’s causing friction?</li>
 <li><strong>Experiment with alternatives</strong>: Try new tools when they solve specific problems</li>
@@ -687,11 +708,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="final-thoughts" class="level2" data-number="10.7">
-<h2 data-number="10.7" class="anchored" data-anchor-id="final-thoughts"><span class="header-section-number">10.7</span> Final Thoughts</h2>
+<section id="final-thoughts" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="final-thoughts"><span class="header-section-number">10.8</span> Final Thoughts</h2>
 <p>This book represents more than a collection of Python tools—it’s a philosophy of development that prioritizes sustainability, maintainability, and developer happiness. The practices we’ve explored create a foundation that serves projects from first prototype to production scale.</p>
-<section id="the-universal-principles-behind-the-tools" class="level3" data-number="10.7.1">
-<h3 data-number="10.7.1" class="anchored" data-anchor-id="the-universal-principles-behind-the-tools"><span class="header-section-number">10.7.1</span> The Universal Principles Behind the Tools</h3>
+<section id="the-universal-principles-behind-the-tools" class="level3" data-number="10.8.1">
+<h3 data-number="10.8.1" class="anchored" data-anchor-id="the-universal-principles-behind-the-tools"><span class="header-section-number">10.8.1</span> The Universal Principles Behind the Tools</h3>
 <p>While we’ve used Python tooling as our examples, the core concepts transfer across languages and domains:</p>
 <ul>
 <li><strong>Clear project structure</strong> reduces cognitive load in any language</li>
@@ -703,8 +724,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>These principles remain constant even as specific tools evolve.</p>
 </section>
-<section id="your-development-journey-continues" class="level3" data-number="10.7.2">
-<h3 data-number="10.7.2" class="anchored" data-anchor-id="your-development-journey-continues"><span class="header-section-number">10.7.2</span> Your Development Journey Continues</h3>
+<section id="your-development-journey-continues" class="level3" data-number="10.8.2">
+<h3 data-number="10.8.2" class="anchored" data-anchor-id="your-development-journey-continues"><span class="header-section-number">10.8.2</span> Your Development Journey Continues</h3>
 <p>The practices in this book form a foundation, not a destination. As you apply these concepts:</p>
 <ul>
 <li><strong>Trust the process</strong>: Initially, some practices may feel like overhead, but their value becomes clear as projects grow</li>
@@ -712,13 +733,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Share your knowledge</strong>: Teaching others these practices deepens your own understanding and improves the broader development community</li>
 </ul>
 </section>
-<section id="starting-your-next-project" class="level3" data-number="10.7.3">
-<h3 data-number="10.7.3" class="anchored" data-anchor-id="starting-your-next-project"><span class="header-section-number">10.7.3</span> Starting Your Next Project</h3>
+<section id="starting-your-next-project" class="level3" data-number="10.8.3">
+<h3 data-number="10.8.3" class="anchored" data-anchor-id="starting-your-next-project"><span class="header-section-number">10.8.3</span> Starting Your Next Project</h3>
 <p>You now have everything needed to begin any Python project with professional practices from day one. Whether you use our bash script for transparency, GitHub templates for convenience, or cookiecutter templates for customisation, you can establish solid foundations in minutes rather than hours.</p>
 <p>More importantly, you understand <strong>why</strong> these practices matter and <strong>when</strong> to apply them. This knowledge will serve you well as you encounter new challenges and evaluate new tools.</p>
 </section>
-<section id="a-personal-note" class="level3" data-number="10.7.4">
-<h3 data-number="10.7.4" class="anchored" data-anchor-id="a-personal-note"><span class="header-section-number">10.7.4</span> A Personal Note</h3>
+<section id="a-personal-note" class="level3" data-number="10.8.4">
+<h3 data-number="10.8.4" class="anchored" data-anchor-id="a-personal-note"><span class="header-section-number">10.8.4</span> A Personal Note</h3>
 <p>Remember that perfect is the enemy of good. Start with the basics, improve incrementally, and focus on delivering value through your code. The best development pipeline is one that you’ll actually use consistently.</p>
 <p>The Python ecosystem will continue evolving—new tools will emerge, and current tools will improve—but the underlying principles of clear structure, automated quality, comprehensive testing, and thoughtful automation will remain valuable throughout your development career.</p>
 <p>We hope this guide helps you build software that not only works but is also maintainable, reliable, and enjoyable to develop. The investment you make in better development practices pays dividends for years to come.</p>

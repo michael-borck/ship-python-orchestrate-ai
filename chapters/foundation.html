@@ -446,8 +446,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendices/tool-comparision.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparision of Python Environment and Package Management Tools</span></span></a>
+  <a href="../appendices/tool-comparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparison of Python Environment and Package Management Tools</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -492,12 +492,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">Poetry - Modern Python Packaging and Dependency Management</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendices/pdm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">PDM</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -539,9 +533,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#cookiecutter-template-for-more-comprehensive-setup" id="toc-cookiecutter-template-for-more-comprehensive-setup" class="nav-link" data-scroll-target="#cookiecutter-template-for-more-comprehensive-setup"><span class="header-section-number">1.4.2</span> Cookiecutter Template (For More Comprehensive Setup)</a></li>
   <li><a href="#github-repository-templates-for-no-installation-simplicity" id="toc-github-repository-templates-for-no-installation-simplicity" class="nav-link" data-scroll-target="#github-repository-templates-for-no-installation-simplicity"><span class="header-section-number">1.4.3</span> GitHub Repository Templates (For No-Installation Simplicity)</a></li>
   </ul></li>
-  <li><a href="#related-materials" id="toc-related-materials" class="nav-link" data-scroll-target="#related-materials"><span class="header-section-number">1.5</span> Related Materials</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/chapters/foundation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/chapters/foundation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -570,7 +563,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1.1" class="anchored" data-anchor-id="python-project-structure-best-practices"><span class="header-section-number">1.1</span> Python Project Structure Best Practices</h2>
 <p>A well-organised project structure is the cornerstone of maintainable Python code. Even before writing a single line of code, decisions about how to organise your files will impact how easily you can test, document, and expand your project.</p>
 <p>The structure we recommend follows modern Python conventions, prioritizing clarity and separation of concerns:</p>
-<pre><code>my_project/
+<pre class="text"><code>my_project/
 ├── src/                    # Main source code directory
 │   └── my_package/         # Your actual Python package
 │       ├── __init__.py     # Makes the directory a package
@@ -595,6 +588,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Clarifies package boundaries</strong>: Makes it explicit which code is part of your distributable package.</li>
 </ol>
 <p>While simpler projects might skip this layout, adopting it early builds good habits and makes future growth easier.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="AI Tip: Scaffolding with AI">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>AI Tip: Scaffolding with AI
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ask your AI assistant to generate a project structure tailored to your needs: <em>“I’m building a CLI tool that processes CSV files. Generate the directory structure and initial files for a Python project using the src layout, including tests and a pyproject.toml.”</em> AI is excellent at generating boilerplate — the value you add is knowing whether the structure it suggests follows the conventions in this chapter.</p>
+</div>
+</div>
 </section>
 <section id="key-components-explained" class="level3" data-number="1.1.2">
 <h3 data-number="1.1.2" class="anchored" data-anchor-id="key-components-explained"><span class="header-section-number">1.1.2</span> Key Components Explained</h3>
@@ -681,9 +687,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p><strong>Most projects start as applications</strong> and may later extract reusable components into packages. Our recommended structure accommodates both paths—you can begin with application-focused development and naturally evolve toward package-like modularity as your codebase matures.</p>
-<blockquote class="blockquote">
-<p><strong>Note</strong>: This chapter focuses on script-based projects, but notebooks (Jupyter, Colab) are also a legitimate way to ship Python work. For data scientists, educators, and researchers, a well-structured notebook with a sharing link <em>is</em> shipping. We cover notebooks, dashboards, and interactive tools in <a href="notebooks.html" class="quarto-xref"><span>Chapter 8</span></a>.</p>
-</blockquote>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This chapter focuses on script-based projects, but notebooks (Jupyter, Colab) are also a legitimate way to ship Python work. For data scientists, educators, and researchers, a well-structured notebook with a sharing link <em>is</em> shipping. We cover notebooks, dashboards, and interactive tools in <a href="notebooks.html" class="quarto-xref"><span>Chapter 8</span></a>.</p>
+</div>
+</div>
 <p><strong>Practical example</strong>: A data analysis script (application) might extract its core algorithms into a separate analytics package, while keeping the command-line interface and configuration handling in the main application.</p>
 <p>This structure promotes maintainability and follows Python’s conventions. It might seem like overkill for tiny scripts, but as your project grows, you’ll appreciate having this organisation from the start.</p>
 <p>In the next section, we’ll build on this foundation by implementing version control best practices.</p>
@@ -704,7 +720,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a .gitignore file to exclude unnecessary files</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>A good <code>.gitignore</code> file is essential for Python projects. Here’s a simplified version to start with:</p>
-<pre><code># Virtual environments
+<pre class="text"><code># Virtual environments
 .venv/
 venv/
 env/
@@ -764,7 +780,7 @@ site/</code></pre>
 <li>Explain <em>why</em> a change was made, not just <em>what</em> changed</li>
 </ol>
 <p>Example of a good commit message:</p>
-<pre><code>Add password validation function
+<pre class="text"><code>Add password validation function
 
 - Implements minimum length of 8 characters
 - Requires at least one special character
@@ -809,6 +825,19 @@ site/</code></pre>
 <li><strong>Pull before pushing</strong>: Always integrate others’ changes before pushing your own</li>
 <li><strong>Use meaningful branch names</strong>: Names like <code>feature/user-login</code> or <code>fix/validation-bug</code> explain the purpose</li>
 </ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="AI Tip: Git and AI Work Well Together">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>AI Tip: Git and AI Work Well Together
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>AI assistants can help you write commit messages, generate <code>.gitignore</code> files for specific frameworks, and explain Git commands you are unsure about. Try: <em>“I just added user authentication with Flask-Login. Write a commit message following conventional commit format.”</em> But always review what AI generates — it does not know your project’s commit history or conventions unless you provide them.</p>
+</div>
+</div>
 <p>Version control may seem like an overhead for very small projects, but establishing these habits early will pay dividends as your projects grow in size and complexity. It’s much easier to start with good practices than to retrofit them later.</p>
 <p>In the next section, we’ll set up a virtual environment and explore basic dependency management to isolate your project and manage its requirements.</p>
 </section>
@@ -841,9 +870,19 @@ site/</code></pre>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span> <span class="ex">$</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Once activated, any packages you install will be confined to this environment. When you’re done working on the project, you can deactivate the environment:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">deactivate</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<blockquote class="blockquote">
-<p><strong>Tip</strong>: Using <code>.venv</code> as the environment name (with the leading dot) makes it hidden in many file browsers, reducing clutter. Make sure <code>.venv/</code> is in your <code>.gitignore</code> file - you never want to commit this directory.</p>
-</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using <code>.venv</code> as the environment name (with the leading dot) makes it hidden in many file browsers, reducing clutter. Make sure <code>.venv/</code> is in your <code>.gitignore</code> file — you never want to commit this directory.</p>
+</div>
+</div>
 </section>
 <section id="basic-dependency-management" class="level3" data-number="1.3.3">
 <h3 data-number="1.3.3" class="anchored" data-anchor-id="basic-dependency-management"><span class="header-section-number">1.3.3</span> Basic Dependency Management</h3>
@@ -866,9 +905,19 @@ site/</code></pre>
 <li>It doesn’t distinguish between your project’s requirements and development tools</li>
 <li>It doesn’t provide version locking for reproducible environments</li>
 </ul>
-<blockquote class="blockquote">
-<p><strong>Looking Ahead</strong>: In Part 2, we’ll explore more robust dependency management with tools like pip-tools and uv, which solve these limitations by creating proper “lock files” while maintaining a clean list of direct dependencies. We’ll also see how these tools help ensure deterministic builds - a crucial feature as your projects grow in complexity.</p>
-</blockquote>
+<div class="callout callout-style-default callout-note callout-titled" title="Looking Ahead">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Looking Ahead
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In Part 2, we’ll explore more robust dependency management with tools like pip-tools and uv, which solve these limitations by creating proper “lock files” while maintaining a clean list of direct dependencies. We’ll also see how these tools help ensure deterministic builds — a crucial feature as your projects grow in complexity.</p>
+</div>
+</div>
 </section>
 <section id="practical-example-setting-up-a-new-project" class="level3" data-number="1.3.4">
 <h3 data-number="1.3.4" class="anchored" data-anchor-id="practical-example-setting-up-a-new-project"><span class="header-section-number">1.3.4</span> Practical Example: Setting Up a New Project</h3>
@@ -943,28 +992,10 @@ site/</code></pre>
 <p>The GitHub template includes: - The recommended <code>src</code> layout - Basic test structure - <code>.gitignore</code> and <code>pyproject.toml</code> configuration - Documentation structure - Example code and tests</p>
 <p>This approach is ideal for quickly starting new projects when you don’t want to install additional tools or when you’re introducing others to Python best practices with minimal setup overhead.</p>
 <p>All these options—the simple script, the cookiecutter template—embody, and GitHub repository templates embody our philosophy of “Simple but not Simplistic.” Choose the option that best fits your current needs and comfort level. As your projects grow in complexity, you can gradually adopt more sophisticated practices while maintaining the solid foundation established here.</p>
-</section>
-</section>
-<section id="related-materials" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="related-materials"><span class="header-section-number">1.5</span> Related Materials</h2>
-<p>This book is part of a comprehensive series for mastering modern software development in the AI era:</p>
-<p><strong>Foundational Methodology</strong></p>
-<ul>
-<li><a href="https://michael-borck.github.io/converse-python-partner-ai">Converse Python, Partner AI: The Python Edition</a></li>
-</ul>
-<p><strong>Python Track</strong></p>
-<ul>
-<li><a href="https://michael-borck.github.io/think-python-direct-ai">Think Python, Direct AI: Computational Thinking for Beginners</a> - Perfect for absolute beginners</li>
-<li><a href="https://michael-borck.github.io/code-python-consult-ai">Code Python, Consult AI: Python Fundamentals for the AI Era</a> - Core Python knowledge</li>
-<li><a href="https://michael-borck.github.io/ship-python-orchestrate-ai">Ship Python, Orchestrate AI: Professional Python in the AI Era</a> (this book) - Professional tools and workflows</li>
-</ul>
-<p><strong>Web Track</strong></p>
-<ul>
-<li><a href="https://michael-borck.github.io/build-web-guide-ai">Build Web, Guide AI: Business Web Development with AI</a> - HTML, CSS, JavaScript, WordPress, React</li>
-</ul>
-<p>In Part 2, we’ll build on this foundation by exploring robust dependency management, code quality tools, testing strategies, and type checking—the next layers in our Python development pipeline.</p>
+<p>In Part 2, we’ll build on this foundation by exploring robust dependency management, code quality tools, testing strategies, and type checking — the next layers in our Python development pipeline.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

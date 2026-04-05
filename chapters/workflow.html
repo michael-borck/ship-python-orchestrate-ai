@@ -446,8 +446,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendices/tool-comparision.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparision of Python Environment and Package Management Tools</span></span></a>
+  <a href="../appendices/tool-comparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparison of Python Environment and Package Management Tools</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -490,12 +490,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../appendices/poetry.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">Poetry - Modern Python Packaging and Dependency Management</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendices/pdm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">PDM</span></span></a>
   </div>
 </li>
       </ul>
@@ -583,7 +577,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#when-to-run-vulture" id="toc-when-to-run-vulture" class="nav-link" data-scroll-target="#when-to-run-vulture"><span class="header-section-number">2.6.7</span> When to Run Vulture</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/chapters/workflow.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/chapters/workflow.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -793,6 +787,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Regularly update dependencies</strong> to get security fixes, using <code>--upgrade</code> or <code>--upgrade-package</code>.</p></li>
 <li><p><strong>Always use <code>pip-sync</code> or <code>uv pip sync</code></strong> instead of <code>pip install -r requirements.txt</code> to ensure your environment exactly matches the lock file.</p></li>
 </ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="AI Tip: Dependency Decisions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>AI Tip: Dependency Decisions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When choosing between packages that serve similar purposes, ask your AI assistant for a comparison: <em>“Compare requests vs httpx for making HTTP calls in a Python 3.11 project. I need async support and type hints.”</em> AI can surface trade-offs quickly, but verify its claims about package popularity and maintenance status — check PyPI download stats and GitHub activity yourself.</p>
+</div>
+</div>
 <p>In the next section, we’ll explore how to maintain code quality through automated formatting and linting with Ruff, taking your workflow to the next professional level.</p>
 </section>
 </section>
@@ -898,7 +905,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Run Ruff to identify issues:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run ruff check example.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This will show output like:</p>
-<pre><code>example.py:2:1: E401 Multiple imports on one line
+<pre class="text"><code>example.py:2:1: E401 Multiple imports on one line
 example.py:2:8: F401 `sys` imported but unused
 example.py:4:1: F401 `json` imported but unused
 example.py:15:5: F841 Local variable `unused_var` is assigned to but never used</code></pre>
@@ -1038,6 +1045,19 @@ example.py:15:5: F841 Local variable `unused_var` is assigned to but never used<
 <li><strong>vulture</strong> for finding dead code</li>
 </ul>
 <p>However, Ruff’s rule set continues to expand, potentially reducing the need for these additional tools over time.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="AI Tip: Understanding Linting Errors">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>AI Tip: Understanding Linting Errors
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When Ruff flags an error you do not understand, paste the rule code into your AI assistant: <em>“What does Ruff rule B006 mean, and how do I fix it in this code?”</em> AI is particularly good at explaining why a pattern is problematic and suggesting the idiomatic alternative. This turns linting errors into learning opportunities.</p>
+</div>
+</div>
 <p>By incorporating Ruff into your workflow, you’ll catch many common errors before they reach production and maintain a consistent, readable codebase. In the next section, we’ll explore how to ensure your code works as expected through automated testing with pytest.</p>
 </section>
 </section>
@@ -1073,7 +1093,7 @@ example.py:15:5: F841 Local variable `unused_var` is assigned to but never used<
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> tests/__init__.py</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> tests/conftest.py  <span class="co"># pytest configuration file</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Your project structure should look like:</p>
-<pre><code>my-project/
+<pre class="text"><code>my-project/
 ├── src/
 │   └── my_package/
 │       ├── __init__.py
@@ -1196,7 +1216,7 @@ example.py:15:5: F841 Local variable `unused_var` is assigned to but never used<
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> <span class="at">--cov</span><span class="op">=</span>src/my_package <span class="at">--cov-report</span><span class="op">=</span>html</span>
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Then open htmlcov/index.html in your browser</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>A coverage report helps identify untested code:</p>
-<pre><code>----------- coverage: platform linux, python 3.9.5-final-0 -----------
+<pre class="text"><code>----------- coverage: platform linux, python 3.9.5-final-0 -----------
 Name                             Stmts   Miss  Cover
 ----------------------------------------------------
 src/my_package/__init__.py           1      0   100%
@@ -1304,6 +1324,19 @@ TOTAL                               56     17    70%</code></pre>
 <li><strong>End-to-end (E2E) tests</strong>: Test the full application as a user would interact with it</li>
 </ol>
 <p>Most projects should have a pyramid shape: many unit tests, fewer integration tests, and even fewer functional/E2E tests.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="AI Tip: Generating Tests">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>AI Tip: Generating Tests
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>AI excels at generating test cases, especially edge cases you might miss. Try: <em>“Write pytest tests for this function, including edge cases for empty input, None values, and boundary conditions.”</em> Then paste your function. The key is reviewing what AI generates — it often writes tests that pass trivially or miss the actual business logic. Use AI-generated tests as a starting point, not a finished product.</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1358,7 +1391,7 @@ TOTAL                               56     17    70%</code></pre>
 <p>Run mypy to check:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mypy</span> example.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Output:</p>
-<pre><code>example.py:8: error: Argument 1 to "double" has incompatible type "str"; expected "int"</code></pre>
+<pre class="text"><code>example.py:8: error: Argument 1 to "double" has incompatible type "str"; expected "int"</code></pre>
 <p>mypy caught the type mismatch without running the code!</p>
 </section>
 <section id="configuring-mypy" class="level3" data-number="2.4.3">
@@ -1577,6 +1610,19 @@ TOTAL                               56     17    70%</code></pre>
 <li>Large codebases with multiple contributors</li>
 </ul>
 <p>Type checking isn’t an all-or-nothing proposition. Even partial type coverage can significantly improve code quality and catch common errors. Start small, focus on interfaces, and expand your type coverage as your team becomes comfortable with the system.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="AI Tip: Adding Type Hints to Existing Code">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>AI Tip: Adding Type Hints to Existing Code
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>AI is excellent at adding type hints to untyped code. Paste a function and ask: <em>“Add type hints to this function, including the return type.”</em> AI can also help you understand complex type annotations like <code>Optional[dict[str, list[int]]]</code>. For larger codebases, use AI to type-annotate one module at a time rather than trying to do everything at once.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="security-analysis-with-bandit" class="level2" data-number="2.5">

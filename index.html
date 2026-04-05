@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Michael Borck">
-<meta name="dcterms.date" content="2026-03-24">
+<meta name="dcterms.date" content="2026-04-01">
 
 <title>Ship Python, Orchestrate AI</title>
 <style>
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -76,6 +111,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -412,8 +450,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices/tool-comparision.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparision of Python Environment and Package Management Tools</span></span></a>
+  <a href="./appendices/tool-comparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparison of Python Environment and Package Management Tools</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -458,12 +496,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">Poetry - Modern Python Packaging and Dependency Management</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./appendices/pdm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">PDM</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -483,12 +515,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#what-this-book-is-not" id="toc-what-this-book-is-not" class="nav-link" data-scroll-target="#what-this-book-is-not">What This Book Is Not</a></li>
   <li><a href="#if-you-are-feeling-overwhelmed" id="toc-if-you-are-feeling-overwhelmed" class="nav-link" data-scroll-target="#if-you-are-feeling-overwhelmed">If You Are Feeling Overwhelmed</a></li>
   <li><a href="#how-this-book-is-structured" id="toc-how-this-book-is-structured" class="nav-link" data-scroll-target="#how-this-book-is-structured">How This Book Is Structured</a></li>
+  <li><a href="#conventions-used-in-this-book" id="toc-conventions-used-in-this-book" class="nav-link" data-scroll-target="#conventions-used-in-this-book">Conventions Used in This Book</a></li>
   <li><a href="#the-series" id="toc-the-series" class="nav-link" data-scroll-target="#the-series">The Series</a></li>
   <li><a href="#ways-to-engage-with-this-book" id="toc-ways-to-engage-with-this-book" class="nav-link" data-scroll-target="#ways-to-engage-with-this-book">Ways to Engage with This Book</a></li>
   <li><a href="#source-code-feedback" id="toc-source-code-feedback" class="nav-link" data-scroll-target="#source-code-feedback">Source Code &amp; Feedback</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -514,7 +547,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 24, 2026</p>
+      <p class="date">April 1, 2026</p>
     </div>
   </div>
   
@@ -574,15 +607,54 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Example project</strong>: <a href="https://github.com/michael-borck/ship-python-example">ship-python-example</a></li>
 </ul>
 </section>
+<section id="conventions-used-in-this-book" class="level2">
+<h2 class="anchored" data-anchor-id="conventions-used-in-this-book">Conventions Used in This Book</h2>
+<p>Code examples appear with syntax highlighting:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uv run pytest <span class="op">--</span>cov<span class="op">=</span>src</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Terminal output and configuration content appear as plain text blocks:</p>
+<pre class="text"><code>my_project/
+├── src/
+│   └── my_package/
+└── tests/</code></pre>
+<p>Throughout the chapters you will find:</p>
+<ul>
+<li><strong>AI Tips</strong> — practical advice for using AI with the practice being taught</li>
+<li><strong>Callout boxes</strong> — important notes, tips, and warnings highlighted for reference</li>
+</ul>
+</section>
 <section id="the-series" class="level2">
 <h2 class="anchored" data-anchor-id="the-series">The Series</h2>
-<p>This book is the third in a Python learning path:</p>
-<ol type="1">
-<li><strong>Think Python, Direct AI</strong> — computational thinking for absolute beginners</li>
-<li><strong>Code Python, Consult AI</strong> — focused Python fundamentals</li>
-<li><strong>Ship Python, Orchestrate AI</strong> (this book) — professional development practices and tooling</li>
-</ol>
-<p>The methodology behind all three comes from <em>Conversation, Not Delegation: How to Think With AI, Not Just Use It</em>. All titles are available at <a href="https://books.borck.education">books.borck.education</a>.</p>
+<p>This book is part of a series designed to help you master modern software development in the AI era.</p>
+<div class="cell" data-fig-width="4" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    CND["Conversation,&lt;br/&gt;Not Delegation"]
+    CPPA["Converse Python,&lt;br/&gt;Partner AI"]
+    Think["Think Python,&lt;br/&gt;Direct AI"]
+    Code["Code Python,&lt;br/&gt;Consult AI"]
+    Ship["Ship Python,&lt;br/&gt;Orchestrate AI"]
+    Web["Build Web,&lt;br/&gt;Guide AI"]
+    CND --&gt; CPPA
+    CND --&gt; Web
+    CPPA --&gt; Think
+    Think --&gt; Code
+    Code --&gt; Ship
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Conversation, Not Delegation</strong> — the general methodology for working with AI across any discipline.</p>
+<p><strong>Converse Python, Partner AI</strong> — intentional prompting methodology applied to software development.</p>
+<p><strong>Think Python, Direct AI</strong> — computational thinking for absolute beginners.</p>
+<p><strong>Code Python, Consult AI</strong> — focused Python fundamentals with AI integration.</p>
+<p><strong>Ship Python, Orchestrate AI</strong> (this book) — professional Python development practices and tooling.</p>
+<p><strong>Build Web, Guide AI</strong> — web development with AI as your development partner.</p>
+<p>All titles are available at <a href="https://books.borck.education">books.borck.education</a>.</p>
 </section>
 <section id="ways-to-engage-with-this-book" class="level2">
 <h2 class="anchored" data-anchor-id="ways-to-engage-with-this-book">Ways to Engage with This Book</h2>

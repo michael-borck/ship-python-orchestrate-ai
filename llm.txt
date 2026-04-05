@@ -58,15 +58,34 @@ Companion templates let you start new projects with the recommended structure im
 - GitHub template: ship-python-template
 - Example project: ship-python-example
 
+## Conventions Used in This Book
+
+Code examples appear with syntax highlighting:
+
+Terminal output and configuration content appear as plain text blocks:
+
+Throughout the chapters you will find:
+
+- AI Tips — practical advice for using AI with the practice being taught
+- Callout boxes — important notes, tips, and warnings highlighted for reference
+
 ## The Series
 
-This book is the third in a Python learning path:
+This book is part of a series designed to help you master modern software development in the AI era.
 
-1. Think Python, Direct AI — computational thinking for absolute beginners
-2. Code Python, Consult AI — focused Python fundamentals
-3. Ship Python, Orchestrate AI (this book) — professional development practices and tooling
+Conversation, Not Delegation — the general methodology for working with AI across any discipline.
 
-The methodology behind all three comes from Conversation, Not Delegation: How to Think With AI, Not Just Use It. All titles are available at books.borck.education.
+Converse Python, Partner AI — intentional prompting methodology applied to software development.
+
+Think Python, Direct AI — computational thinking for absolute beginners.
+
+Code Python, Consult AI — focused Python fundamentals with AI integration.
+
+Ship Python, Orchestrate AI (this book) — professional Python development practices and tooling.
+
+Build Web, Guide AI — web development with AI as your development partner.
+
+All titles are available at books.borck.education.
 
 ## Ways to Engage with This Book
 
@@ -157,6 +176,8 @@ The `src` layout (placing your package inside a `src` directory rather than at t
 
 While simpler projects might skip this layout, adopting it early builds good habits and makes future growth easier.
 
+Ask your AI assistant to generate a project structure tailored to your needs: "I'm building a CLI tool that processes CSV files. Generate the directory structure and initial files for a Python project using the src layout, including tests and a pyproject.toml." AI is excellent at generating boilerplate — the value you add is knowing whether the structure it suggests follows the conventions in this chapter.
+
 ### Key Components Explained
 
 - src/my_package/: Contains your actual Python code. The package name should be unique and descriptive.
@@ -202,7 +223,7 @@ Key Differences in Practice:
 
 Most projects start as applications and may later extract reusable components into packages. Our recommended structure accommodates both paths—you can begin with application-focused development and naturally evolve toward package-like modularity as your codebase matures.
 
-> Note: This chapter focuses on script-based projects, but notebooks (Jupyter, Colab) are also a legitimate way to ship Python work. For data scientists, educators, and researchers, a well-structured notebook with a sharing link is shipping. We cover notebooks, dashboards, and interactive tools in .
+This chapter focuses on script-based projects, but notebooks (Jupyter, Colab) are also a legitimate way to ship Python work. For data scientists, educators, and researchers, a well-structured notebook with a sharing link is shipping. We cover notebooks, dashboards, and interactive tools in .
 
 Practical example: A data analysis script (application) might extract its core algorithms into a separate analytics package, while keeping the command-line interface and configuration handling in the main application.
 
@@ -266,6 +287,8 @@ To connect your local repository to GitHub:
 3. Pull before pushing: Always integrate others' changes before pushing your own
 4. Use meaningful branch names: Names like `feature/user-login` or `fix/validation-bug` explain the purpose
 
+AI assistants can help you write commit messages, generate `.gitignore` files for specific frameworks, and explain Git commands you are unsure about. Try: "I just added user authentication with Flask-Login. Write a commit message following conventional commit format." But always review what AI generates — it does not know your project's commit history or conventions unless you provide them.
+
 Version control may seem like an overhead for very small projects, but establishing these habits early will pay dividends as your projects grow in size and complexity. It's much easier to start with good practices than to retrofit them later.
 
 In the next section, we'll set up a virtual environment and explore basic dependency management to isolate your project and manage its requirements.
@@ -288,7 +311,7 @@ Python comes with `venv` built in, making it the simplest way to create virtual 
 
 Once activated, any packages you install will be confined to this environment. When you're done working on the project, you can deactivate the environment:
 
-> Tip: Using `.venv` as the environment name (with the leading dot) makes it hidden in many file browsers, reducing clutter. Make sure `.venv/` is in your `.gitignore` file - you never want to commit this directory.
+Using `.venv` as the environment name (with the leading dot) makes it hidden in many file browsers, reducing clutter. Make sure `.venv/` is in your `.gitignore` file — you never want to commit this directory.
 
 ### Basic Dependency Management
 
@@ -302,7 +325,7 @@ This approach works well for simple projects, especially when you're just gettin
 * It doesn't distinguish between your project's requirements and development tools
 * It doesn't provide version locking for reproducible environments
 
-> Looking Ahead: In Part 2, we'll explore more robust dependency management with tools like pip-tools and uv, which solve these limitations by creating proper "lock files" while maintaining a clean list of direct dependencies. We'll also see how these tools help ensure deterministic builds - a crucial feature as your projects grow in complexity.
+In Part 2, we'll explore more robust dependency management with tools like pip-tools and uv, which solve these limitations by creating proper "lock files" while maintaining a clean list of direct dependencies. We'll also see how these tools help ensure deterministic builds — a crucial feature as your projects grow in complexity.
 
 ### Practical Example: Setting Up a New Project
 
@@ -361,25 +384,7 @@ This approach is ideal for quickly starting new projects when you don't want to 
 
 All these options—the simple script, the cookiecutter template—embody, and GitHub repository templates embody our philosophy of "Simple but not Simplistic." Choose the option that best fits your current needs and comfort level. As your projects grow in complexity, you can gradually adopt more sophisticated practices while maintaining the solid foundation established here.
 
-## Related Materials
-
-This book is part of a comprehensive series for mastering modern software development in the AI era:
-
-Foundational Methodology
-
-- Converse Python, Partner AI: The Python Edition
-
-Python Track
-
-- Think Python, Direct AI: Computational Thinking for Beginners - Perfect for absolute beginners
-- Code Python, Consult AI: Python Fundamentals for the AI Era - Core Python knowledge
-- Ship Python, Orchestrate AI: Professional Python in the AI Era (this book) - Professional tools and workflows
-
-Web Track
-
-- Build Web, Guide AI: Business Web Development with AI - HTML, CSS, JavaScript, WordPress, React
-
-In Part 2, we'll build on this foundation by exploring robust dependency management, code quality tools, testing strategies, and type checking—the next layers in our Python development pipeline.
+In Part 2, we'll build on this foundation by exploring robust dependency management, code quality tools, testing strategies, and type checking — the next layers in our Python development pipeline.
 
 ============================================================
 SOURCE: chapters/workflow.qmd
@@ -470,6 +475,8 @@ Regardless of which tool you choose:
 
 4. Always use `pip-sync` or `uv pip sync` instead of `pip install -r requirements.txt` to ensure your environment exactly matches the lock file.
 
+When choosing between packages that serve similar purposes, ask your AI assistant for a comparison: "Compare requests vs httpx for making HTTP calls in a Python 3.11 project. I need async support and type hints." AI can surface trade-offs quickly, but verify its claims about package popularity and maintenance status — check PyPI download stats and GitHub activity yourself.
+
 In the next section, we'll explore how to maintain code quality through automated formatting and linting with Ruff, taking your workflow to the next professional level.
 
 ## Code Quality Tools with Ruff
@@ -534,7 +541,7 @@ Now configure Ruff in your `pyproject.toml`:
 Run Ruff to identify issues:
 
 This will show output like:
-```
+```text
 example.py:2:1: E401 Multiple imports on one line
 example.py:2:8: F401 `sys` imported but unused
 example.py:4:1: F401 `json` imported but unused
@@ -612,6 +619,8 @@ While Ruff covers a wide range of code quality checks, some specific needs might
 - vulture for finding dead code
 
 However, Ruff's rule set continues to expand, potentially reducing the need for these additional tools over time.
+
+When Ruff flags an error you do not understand, paste the rule code into your AI assistant: "What does Ruff rule B006 mean, and how do I fix it in this code?" AI is particularly good at explaining why a pattern is problematic and suggesting the idiomatic alternative. This turns linting errors into learning opportunities.
 
 By incorporating Ruff into your workflow, you'll catch many common errors before they reach production and maintain a consistent, readable codebase. In the next section, we'll explore how to ensure your code works as expected through automated testing with pytest.
 
@@ -726,6 +735,8 @@ As your project grows, organise tests into different categories:
 4. End-to-end (E2E) tests: Test the full application as a user would interact with it
 
 Most projects should have a pyramid shape: many unit tests, fewer integration tests, and even fewer functional/E2E tests.
+
+AI excels at generating test cases, especially edge cases you might miss. Try: "Write pytest tests for this function, including edge cases for empty input, None values, and boundary conditions." Then paste your function. The key is reviewing what AI generates — it often writes tests that pass trivially or miss the actual business logic. Use AI-generated tests as a starting point, not a finished product.
 
 ## GUI and End-to-End Testing with Playwright
 
@@ -865,6 +876,8 @@ Type hints are particularly valuable for:
 - Large codebases with multiple contributors
 
 Type checking isn't an all-or-nothing proposition. Even partial type coverage can significantly improve code quality and catch common errors. Start small, focus on interfaces, and expand your type coverage as your team becomes comfortable with the system.
+
+AI is excellent at adding type hints to untyped code. Paste a function and ask: "Add type hints to this function, including the return type." AI can also help you understand complex type annotations like `Optional[dict[str, list[int]]]`. For larger codebases, use AI to type-annotate one module at a time rather than trying to do everything at once.
 
 ## Security Analysis with Bandit
 
@@ -1065,12 +1078,6 @@ Edit `mkdocs.yml`:
 
 MkDocs uses Markdown files for content. Create `docs/user-guide/installation.md`:
 
-bash
-   pip install my-package
-   bash
-   python -c "import my_package; print(my_package.__version__)"
-   
-
 #### Testing Documentation Locally
 
 Preview your documentation while writing:
@@ -1189,6 +1196,8 @@ Regardless of which documentation tool you choose, follow these best practices:
 | Sphinx | Large, complex projects, especially with scientific or mathematical content |
 
 For most applications, the journey often progresses from simple docstrings to MkDocs as the project grows. By starting with good docstrings from the beginning, you make each subsequent step easier.
+
+AI is excellent at writing docstrings and README content. Try: "Write Google-style docstrings for all the public functions in this module" and paste your code. For project-level documentation, ask AI to draft a README based on your pyproject.toml and source code. The key is providing AI with your actual code — generic documentation prompts produce generic results. Always review for accuracy, especially around installation steps and API descriptions.
 
 In the next section, we'll explore how to automate your workflow with CI/CD using GitHub Actions.
 
@@ -1309,6 +1318,8 @@ This comprehensive workflow:
 7. Monitor performance: Watch workflow execution times and optimise slow steps
 
 With these CI/CD practices in place, your development workflow becomes more reliable and automatic. Quality checks run on every change, documentation stays up to date, and releases happen smoothly and consistently.
+
+GitHub Actions YAML can be fiddly to get right. Ask AI to generate workflow files: "Write a GitHub Actions workflow that runs pytest, ruff, and mypy on push to main and on pull requests, for a Python project using uv." AI handles the YAML syntax and action versions well, but always test the workflow — AI may reference outdated action versions or miss environment-specific details.
 
 In the final section, we'll explore how to publish and distribute Python packages to make your work available to others.
 
@@ -1483,7 +1494,7 @@ Many projects use a hybrid approach, with basic metadata in `pyproject.toml` and
 SOURCE: chapters/case-study.qmd
 ============================================================
 
-# Case Study: Building SimpleBot - A Python Development Workflow Example
+# Case Study: Building SimpleBot - A Python Development Workflow Example 
 
 This case study demonstrates how to apply the Python development pipeline practices to a real project. We'll walk through the development of SimpleBot, a lightweight wrapper for Large Language Models (LLMs) designed for educational settings.
 
@@ -1501,7 +1512,7 @@ This project is ideal for our case study because:
 - It's small enough to understand quickly but complex enough to demonstrate real workflow practices
 - It includes both pure Python and compiled Cython components
 
-Let's see how we can develop this project using our Python development pipeline.
+Let's see how we can develop this project using our Python development pipeline. Along the way, we will see how AI can accelerate each phase — from scaffolding the project structure to generating tests and documentation.
 
 ## Prefer Notebooks?
 If you develop primarily in Jupyter notebooks, see  for a parallel case study that builds TextKit using nbdev—same destination (published package), different workflow.
@@ -1812,7 +1823,7 @@ git commit -m "Add core SimpleBot functionality"
 
 Let's set up the package configuration in `pyproject.toml`:
 
-> Note on Modern Packaging: This case study uses the newer `pyproject.toml`-only approach for simplicity and to follow current best practices. Many existing Python projects still use `setup.py`, either alongside `pyproject.toml` or as their primary configuration. The `setup.py` approach remains valuable for packages with complex build requirements, custom build steps, or when supporting older tools and Python versions. For SimpleBot, our straightforward package requirements allow us to use the cleaner, declarative `pyproject.toml` approach.
+This case study uses the newer `pyproject.toml`-only approach for simplicity and to follow current best practices. Many existing Python projects still use `setup.py`, either alongside `pyproject.toml` or as their primary configuration. The `setup.py` approach remains valuable for packages with complex build requirements, custom build steps, or when supporting older tools and Python versions. For SimpleBot, our straightforward package requirements allow us to use the cleaner, declarative `pyproject.toml` approach.
 
 ## Create a file named pyproject.toml with the following contents:
 
@@ -2155,7 +2166,9 @@ If we were to continue developing SimpleBot, potential next steps might include:
    - Add API key management
    - Implement content filtering for educational settings
 
-This case study demonstrates how following a structured Python development workflow leads to a high-quality, maintainable, and distributable package—even for relatively small projects.
+Notice how AI could have accelerated every phase of this case study. You could ask AI to generate the initial project structure, draft the core module, write pytest tests, create the pyproject.toml configuration, generate GitHub Actions workflows, and draft the README. The pipeline you learned in earlier chapters gives you the knowledge to evaluate everything AI produces. Without that knowledge, you would accept AI output uncritically. With it, you orchestrate AI as a force multiplier.
+
+This case study demonstrates how following a structured Python development workflow leads to a high-quality, maintainable, and distributable package — even for relatively small projects.
 
 ============================================================
 SOURCE: chapters/advanced-techniques.qmd
@@ -2224,7 +2237,9 @@ Consider containerization when you encounter:
 - Deployment environment differences from development
 - Service integration challenges (databases, message queues, etc.)
 
-Don't containerize simply because it's trendy—use it to solve specific reproducibility problems.
+Don't containerize simply because it's trendy — use it to solve specific reproducibility problems.
+
+Dockerfiles are perfect candidates for AI generation. Try: "Write a multi-stage Dockerfile for a Python FastAPI application using uv for dependency management. The final image should be minimal." AI handles the syntax and layer ordering well. But always review the base images it suggests (are they up to date? are they the slim variants?) and test the build — AI often gets volume mounts and port mappings wrong in docker-compose files.
 
 ## Scaling Your Development Process
 
@@ -2320,6 +2335,8 @@ The most important principle for advanced techniques: they should enhance, not r
 
 Advanced techniques are tools for solving specific problems, not goals in themselves. Focus on delivering value through your software while maintaining the solid development foundation you've established.
 
+When deciding whether to adopt an advanced technique, describe your situation to your AI assistant: "My Flask app handles 50 requests per second and response times are around 200ms. Users are complaining about slow page loads. Should I add caching, switch to async, or look at the database queries first?" AI can help you reason through trade-offs, but the decision is yours — AI does not know your team's capacity or your deployment constraints.
+
 ============================================================
 SOURCE: chapters/project-management.qmd
 ============================================================
@@ -2367,7 +2384,9 @@ Pre-commit hooks can reference your Poe tasks:
 
 IDE integration allows running tasks directly from your editor, while CI/CD pipelines can use the same task definitions:
 
-This approach eliminates the disconnect between local development and automated systems—everyone uses the same commands.
+This approach eliminates the disconnect between local development and automated systems — everyone uses the same commands.
+
+AI can generate Poe the Poet task definitions, Makefiles, and shell scripts from natural language descriptions. Try: "Write Poe the Poet tasks for: formatting with ruff, linting, running tests with coverage, and a 'check' task that runs all three in sequence." Since these are configuration files with well-defined syntax, AI output is usually accurate. But test each task before committing it — path assumptions and tool flags can vary between projects.
 
 ## Project Setup and Structure
 
@@ -2441,6 +2460,8 @@ This configuration works automatically with VS Code, PyCharm, Vim, Emacs, and ot
 Ensure consistent development environments across team members:
 
 New team members can quickly verify their setup with `uv run poe doctor`.
+
+AI can help you write contributing guides, development setup instructions, and team conventions documents. Provide your pyproject.toml and project structure, then ask: "Write a CONTRIBUTING.md that explains how to set up the development environment, run tests, and submit a pull request for this project." This is documentation that benefits everyone on the team and that AI can draft well from your project's configuration.
 
 This chapter has established the foundation for scalable project management through automation, consistent structure, and collaborative workflows. These practices become increasingly valuable as projects grow in size and complexity, ensuring that good habits established early continue to serve the project throughout its lifecycle.
 
@@ -3590,7 +3611,9 @@ Or use nbdev to keep working in notebooks while generating proper packages.
 - Choose based on your audience: viewers, runners, or users
 - Know when to graduate to scripts (or use nbdev to avoid the choice)
 
-Next: In , we'll build TextKit—a complete Python package developed entirely in notebooks using nbdev.
+Many notebook environments now include built-in AI assistants. Google Colab has Gemini, and JupyterLab supports extensions for Copilot and other AI tools. These are particularly useful for exploratory data analysis — ask AI to generate plotting code, explain error messages, or suggest the next analysis step. The interactive, cell-by-cell nature of notebooks makes AI collaboration especially natural: generate code in one cell, review and modify it, then run it immediately.
+
+Next: In , we'll build TextKit — a complete Python package developed entirely in notebooks using nbdev.
 
 ## Exercises
 
@@ -3949,6 +3972,21 @@ Only after mastering the fundamentals:
 - Performance optimisation: When benchmarks indicate actual problems
 - Advanced architecture: When code complexity impedes development
 - Containerization: When environment consistency becomes problematic
+
+## AI as Your Development Partner
+
+Throughout this book, we have built a professional Python development pipeline. AI amplifies every part of it:
+
+- Project scaffolding: AI generates directory structures, configuration files, and boilerplate
+- Code quality: AI explains linting errors, suggests type annotations, and writes docstrings
+- Testing: AI generates test cases, including edge cases you might miss
+- Documentation: AI drafts READMEs, API docs, and contributing guides
+- CI/CD: AI generates GitHub Actions workflows and Dockerfile configurations
+- Debugging: AI analyses error messages and suggests fixes
+
+The critical insight is that AI works best when you understand what it produces. The pipeline practices in this book give you that understanding. Without knowing what a good `pyproject.toml` looks like, you cannot evaluate AI-generated configuration. Without understanding pytest fixtures, you cannot judge AI-generated tests. The fundamentals make AI useful rather than dangerous.
+
+The title of this book is deliberate. Orchestrate AI means you direct the work, review the output, and make the decisions. AI generates code faster than you can type it — but you still need to know whether that code is correct, secure, and maintainable. The pipeline you have built is your quality gate. Everything AI produces passes through it: linted by Ruff, checked by mypy, tested by pytest, reviewed by you.
 
 ## Beyond Tools: Engineering Culture
 
@@ -4952,7 +4990,7 @@ jobs:
           generate_release_notes: true
           draft: false
           prerelease: ${{ contains(github.ref, '-') }}
-markdown
+text
 # Project: [Your Project Name]
 
 ## Overview
@@ -4968,11 +5006,20 @@ markdown
 - Deployment: Docker, GitHub Actions
 
 ### Directory Structure
+project/
+├── backend/          # FastAPI application
+│   ├── src/my_app/   # Source code
+│   └── tests/        # Backend tests
+├── frontend/         # React application
+│   └── src/          # Source code
+├── electron/         # Desktop wrapper
+├── docker/           # Container configs
+└── .github/          # CI/CD workflows
 
 ## Conventions
 
 ### Backend
-- All API routes under `/api/` prefix
+- All API routes under /api/ prefix
 - Pydantic models for all request/response schemas
 - SQLAlchemy for database operations
 - Async handlers where beneficial
@@ -4991,24 +5038,33 @@ markdown
 ## Development Commands
 
 ### Backend
+cd backend
+uv run uvicorn my_app.main:app --reload
+uv run pytest
+uv run ruff check .
 
 ### Frontend
+cd frontend
+npm run dev
+npm test
+npm run lint
 
 ### Docker
+docker-compose -f docker/docker-compose.yml up
 
 ## API Endpoints
-- `GET /api/health` - Health check
-- `GET /api/items` - List items
-- `POST /api/items` - Create item
-- `GET /api/items/{id}` - Get item
-- `PUT /api/items/{id}` - Update item
-- `DELETE /api/items/{id}` - Delete item
+- GET /api/health - Health check
+- GET /api/items - List items
+- POST /api/items - Create item
+- GET /api/items/{id} - Get item
+- PUT /api/items/{id} - Update item
+- DELETE /api/items/{id} - Delete item
 
 ## Environment Variables
-- `DEBUG` - Enable debug mode (default: false)
-- `DATABASE_URL` - Database connection string
-- `SECRET_KEY` - Application secret key
-- `CORS_ORIGINS` - Allowed CORS origins
+- DEBUG - Enable debug mode (default: false)
+- DATABASE_URL - Database connection string
+- SECRET_KEY - Application secret key
+- CORS_ORIGINS - Allowed CORS origins
 
 ## Key Decisions
 1. Using uv for Python dependency management (fast, reliable)
@@ -5020,20 +5076,20 @@ markdown
 ## Common Tasks
 
 ### Adding a new API endpoint
-1. Define Pydantic models in `backend/src/my_app/models/`
-2. Create route handler in `backend/src/my_app/api/`
-3. Add tests in `backend/tests/`
-4. Update TypeScript types in `frontend/src/services/api.ts`
+1. Define Pydantic models in backend/src/my_app/models/
+2. Create route handler in backend/src/my_app/api/
+3. Add tests in backend/tests/
+4. Update TypeScript types in frontend/src/services/api.ts
 
 ### Adding a new React component
-1. Create component in `frontend/src/components/`
+1. Create component in frontend/src/components/
 2. Use React Query hooks for data fetching
 3. Add to relevant pages/routes
 
 ### Creating a release
 1. Update version in relevant package files
-2. Create git tag: `git tag v1.2.3`
-3. Push tag: `git push origin v1.2.3`
+2. Create git tag: git tag v1.2.3
+3. Push tag: git push origin v1.2.3
 4. GitHub Actions builds and publishes automatically
 ```
 
@@ -5156,16 +5212,9 @@ The quality of AI output depends significantly on how you formulate your request
 
 When using AI to review your Python code, structured prompts yield better results:
 
-python
-def process_user_input(data):
-    # [your code here]
-
 ### Troubleshooting with AI
 
 When debugging problems, provide context systematically:
-
-python
-# [your code here]
 
 ## Ethical Considerations and Limitations
 
@@ -5597,10 +5646,10 @@ This reference provides brief descriptions of the development tools mentioned th
 - Pants/Bazel: Build systems designed for monorepos and large codebases.
 
 ============================================================
-SOURCE: appendices/tool-comparision.qmd
+SOURCE: appendices/tool-comparison.qmd
 ============================================================
 
-# Comparision of Python Environment and Package Management Tools
+# Comparison of Python Environment and Package Management Tools
 
 This appendix provides a side-by-side comparison of the major Python environment and package management tools covered throughout this book.
 
@@ -7042,9 +7091,3 @@ Poetry might not be ideal for:
 Poetry represents a significant evolution in Python package management, offering a more integrated and user-friendly approach to dependencies, environments, and packaging. Its focus on deterministic builds through the lock file mechanism and simplified workflow commands addresses many pain points in traditional Python development.
 
 While Poetry introduces its own conventions and may require adaptation for teams used to traditional tools, the benefits in terms of reproducibility and developer experience make it worth considering for both new and existing Python projects. As the tool continues to mature and the ecosystem around it grows, Poetry is establishing itself as a standard part of the modern Python development toolkit.
-
-============================================================
-SOURCE: appendices/pdm.qmd
-============================================================
-
-# PDM

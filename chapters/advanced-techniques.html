@@ -446,8 +446,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendices/tool-comparision.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparision of Python Environment and Package Management Tools</span></span></a>
+  <a href="../appendices/tool-comparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparison of Python Environment and Package Management Tools</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -490,12 +490,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../appendices/poetry.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">Poetry - Modern Python Packaging and Dependency Management</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendices/pdm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">PDM</span></span></a>
   </div>
 </li>
       </ul>
@@ -546,7 +540,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#maintaining-development-velocity" id="toc-maintaining-development-velocity" class="nav-link" data-scroll-target="#maintaining-development-velocity"><span class="header-section-number">5.7</span> Maintaining Development Velocity</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/chapters/advanced-techniques.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/chapters/advanced-techniques.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -704,7 +698,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="when-to-containerize" class="level3" data-number="5.2.3">
 <h3 data-number="5.2.3" class="anchored" data-anchor-id="when-to-containerize"><span class="header-section-number">5.2.3</span> When to Containerize</h3>
 <p>Consider containerization when you encounter: - <strong>Environment inconsistencies</strong> between team members - <strong>Complex system dependencies</strong> that are difficult to install - <strong>Deployment environment differences</strong> from development - <strong>Service integration challenges</strong> (databases, message queues, etc.)</p>
-<p>Don’t containerize simply because it’s trendy—use it to solve specific reproducibility problems.</p>
+<p>Don’t containerize simply because it’s trendy — use it to solve specific reproducibility problems.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="AI Tip: Dockerfile Generation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>AI Tip: Dockerfile Generation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dockerfiles are perfect candidates for AI generation. Try: <em>“Write a multi-stage Dockerfile for a Python FastAPI application using uv for dependency management. The final image should be minimal.”</em> AI handles the syntax and layer ordering well. But always review the base images it suggests (are they up to date? are they the slim variants?) and test the build — AI often gets volume mounts and port mappings wrong in docker-compose files.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="scaling-your-development-process" class="level2" data-number="5.3">
@@ -1035,6 +1042,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="5.7" class="anchored" data-anchor-id="maintaining-development-velocity"><span class="header-section-number">5.7</span> Maintaining Development Velocity</h2>
 <p>The most important principle for advanced techniques: <strong>they should enhance, not replace, your core development practices</strong>. Your testing, code quality, documentation, and automation should continue to work as you adopt more sophisticated approaches.</p>
 <p>Advanced techniques are tools for solving specific problems, not goals in themselves. Focus on delivering value through your software while maintaining the solid development foundation you’ve established.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="AI Tip: Architecture Decisions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>AI Tip: Architecture Decisions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When deciding whether to adopt an advanced technique, describe your situation to your AI assistant: <em>“My Flask app handles 50 requests per second and response times are around 200ms. Users are complaining about slow page loads. Should I add caching, switch to async, or look at the database queries first?”</em> AI can help you reason through trade-offs, but the decision is yours — AI does not know your team’s capacity or your deployment constraints.</p>
+</div>
+</div>
 
 
 </section>

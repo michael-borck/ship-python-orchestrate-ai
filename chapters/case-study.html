@@ -446,8 +446,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendices/tool-comparision.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparision of Python Environment and Package Management Tools</span></span></a>
+  <a href="../appendices/tool-comparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparison of Python Environment and Package Management Tools</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -492,12 +492,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">Poetry - Modern Python Packaging and Dependency Management</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendices/pdm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">PDM</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -529,7 +523,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#project-summary" id="toc-project-summary" class="nav-link" data-scroll-target="#project-summary"><span class="header-section-number">4.11</span> 9. Project Summary</a></li>
   <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps"><span class="header-section-number">4.12</span> 10. Next Steps</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/chapters/case-study.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/chapters/case-study.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -537,7 +531,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Case Study: Building SimpleBot - A Python Development Workflow Example</span></h1>
+<h1 class="title"><span id="sec-case-study" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Case Study: Building SimpleBot - A Python Development Workflow Example</span></span></h1>
 </div>
 
 
@@ -565,7 +559,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Support for local LLM servers like Ollama</li>
 </ul>
 <p>This project is ideal for our case study because: - It solves a real problem (making LLMs accessible in educational settings) - It’s small enough to understand quickly but complex enough to demonstrate real workflow practices - It includes both pure Python and compiled Cython components</p>
-<p>Let’s see how we can develop this project using our Python development pipeline.</p>
+<p>Let’s see how we can develop this project using our Python development pipeline. Along the way, we will see how AI can accelerate each phase — from scaffolding the project structure to generating tests and documentation.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -585,7 +579,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="project-structure" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="project-structure"><span class="header-section-number">4.2.1</span> Project Structure</h3>
 <p>We’ll set up the project using the recommended <code>src</code> layout:</p>
-<pre><code>simplebot/
+<pre class="text"><code>simplebot/
 ├── src/
 │   └── simplebot/
 │       ├── __init__.py
@@ -943,9 +937,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="4.4" class="anchored" data-anchor-id="package-configuration"><span class="header-section-number">4.4</span> 3. Package Configuration</h2>
 <p>Let’s set up the package configuration in <code>pyproject.toml</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create pyproject.toml directory</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<blockquote class="blockquote">
-<p><strong>Note on Modern Packaging</strong>: This case study uses the newer <code>pyproject.toml</code>-only approach for simplicity and to follow current best practices. Many existing Python projects still use <code>setup.py</code>, either alongside <code>pyproject.toml</code> or as their primary configuration. The <code>setup.py</code> approach remains valuable for packages with complex build requirements, custom build steps, or when supporting older tools and Python versions. For SimpleBot, our straightforward package requirements allow us to use the cleaner, declarative <code>pyproject.toml</code> approach.</p>
-</blockquote>
+<div class="callout callout-style-default callout-note callout-titled" title="Modern Packaging">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Modern Packaging
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This case study uses the newer <code>pyproject.toml</code>-only approach for simplicity and to follow current best practices. Many existing Python projects still use <code>setup.py</code>, either alongside <code>pyproject.toml</code> or as their primary configuration. The <code>setup.py</code> approach remains valuable for packages with complex build requirements, custom build steps, or when supporting older tools and Python versions. For SimpleBot, our straightforward package requirements allow us to use the cleaner, declarative <code>pyproject.toml</code> approach.</p>
+</div>
+</div>
 </section>
 <section id="create-a-file-named-pyproject.toml-with-the-following-contents" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="create-a-file-named-pyproject.toml-with-the-following-contents"><span class="header-section-number">4.5</span> Create a file named pyproject.toml with the following contents:</h2>
@@ -1489,7 +1493,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Implement content filtering for educational settings</li>
 </ul></li>
 </ol>
-<p>This case study demonstrates how following a structured Python development workflow leads to a high-quality, maintainable, and distributable package—even for relatively small projects.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="AI Tip: Using AI Throughout the Pipeline">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>AI Tip: Using AI Throughout the Pipeline
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Notice how AI could have accelerated every phase of this case study. You could ask AI to generate the initial project structure, draft the core module, write pytest tests, create the pyproject.toml configuration, generate GitHub Actions workflows, and draft the README. The pipeline you learned in earlier chapters gives you the knowledge to evaluate everything AI produces. Without that knowledge, you would accept AI output uncritically. With it, you orchestrate AI as a force multiplier.</p>
+</div>
+</div>
+<p>This case study demonstrates how following a structured Python development workflow leads to a high-quality, maintainable, and distributable package — even for relatively small projects.</p>
 
 
 </section>

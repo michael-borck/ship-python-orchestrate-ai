@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -446,8 +411,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendices/tool-comparision.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparision of Python Environment and Package Management Tools</span></span></a>
+  <a href="../appendices/tool-comparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Comparison of Python Environment and Package Management Tools</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -492,12 +457,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">Poetry - Modern Python Packaging and Dependency Management</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../appendices/pdm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">PDM</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -522,6 +481,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#general-prompting-principles" id="toc-general-prompting-principles" class="nav-link" data-scroll-target="#general-prompting-principles"><span class="header-section-number">C.2.1</span> General Prompting Principles</a></li>
   <li><a href="#python-specific-prompting-strategies" id="toc-python-specific-prompting-strategies" class="nav-link" data-scroll-target="#python-specific-prompting-strategies"><span class="header-section-number">C.2.2</span> Python-Specific Prompting Strategies</a></li>
   <li><a href="#using-ai-for-code-review" id="toc-using-ai-for-code-review" class="nav-link" data-scroll-target="#using-ai-for-code-review"><span class="header-section-number">C.2.3</span> Using AI for Code Review</a></li>
+  <li><a href="#troubleshooting-with-ai" id="toc-troubleshooting-with-ai" class="nav-link" data-scroll-target="#troubleshooting-with-ai"><span class="header-section-number">C.2.4</span> Troubleshooting with AI</a></li>
   </ul></li>
   <li><a href="#ethical-considerations-and-limitations" id="toc-ethical-considerations-and-limitations" class="nav-link" data-scroll-target="#ethical-considerations-and-limitations"><span class="header-section-number">C.3</span> Ethical Considerations and Limitations</a>
   <ul class="collapse">
@@ -531,7 +491,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#the-future-of-ai-in-python-development" id="toc-the-future-of-ai-in-python-development" class="nav-link" data-scroll-target="#the-future-of-ai-in-python-development"><span class="header-section-number">C.4</span> The Future of AI in Python Development</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/appendices/ai-tools.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/appendices/ai-tools.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -653,7 +613,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="C.2.1" class="anchored" data-anchor-id="general-prompting-principles"><span class="header-section-number">C.2.1</span> General Prompting Principles</h3>
 <ol type="1">
 <li><p><strong>Be specific and detailed</strong>: Include relevant context about your project, such as Python version, frameworks used, and existing patterns to follow.</p>
-<pre><code># Less effective
+<pre class="text"><code># Less effective
 "Write a function to process user data."
 
 # More effective
@@ -664,7 +624,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 - Follows our project's error handling pattern of raising ValueError with descriptive messages
 - Uses type hints"</code></pre></li>
 <li><p><strong>Provide examples</strong>: When you need code that follows certain patterns or styles, provide examples.</p>
-<pre><code>"Here's how we write API handler functions in our project:
+<pre class="text"><code>"Here's how we write API handler functions in our project:
 
 async def get_user(user_id: int) -&gt; Dict[str, Any]:
     try:
@@ -676,7 +636,7 @@ async def get_user(user_id: int) -&gt; Dict[str, Any]:
 
 Please write a similar function for fetching user orders."</code></pre></li>
 <li><p><strong>Use iterative refinement</strong>: Start with a basic request, then refine the results.</p>
-<pre><code># Initial prompt
+<pre class="text"><code># Initial prompt
 "Write a function to parse CSV files with pandas."
 
 # Follow-up refinements
@@ -684,7 +644,7 @@ Please write a similar function for fetching user orders."</code></pre></li>
 "Update it to support both comma and semicolon delimiters."
 "Add type hints to the function."</code></pre></li>
 <li><p><strong>Specify output format</strong>: Clarify how you want information presented.</p>
-<pre><code>"Explain the difference between @classmethod and @staticmethod in Python.
+<pre class="text"><code>"Explain the difference between @classmethod and @staticmethod in Python.
 Format your response with:
 1. A brief definition of each
 2. Code examples showing typical use cases
@@ -695,41 +655,51 @@ Format your response with:
 <h3 data-number="C.2.2" class="anchored" data-anchor-id="python-specific-prompting-strategies"><span class="header-section-number">C.2.2</span> Python-Specific Prompting Strategies</h3>
 <ol type="1">
 <li><p><strong>Request specific Python versions or features</strong>: Clarify which Python version you’re targeting.</p>
-<pre><code>"Write this function using Python 3.9+ features like the new dictionary merge operator."</code></pre></li>
+<pre class="text"><code>"Write this function using Python 3.9+ features like the new dictionary merge operator."</code></pre></li>
 <li><p><strong>Specify testing frameworks</strong>: When requesting tests, mention your preferred framework.</p>
-<pre><code>"Generate pytest test cases for this function, using fixtures and parametrize for the test scenarios."</code></pre></li>
+<pre class="text"><code>"Generate pytest test cases for this function, using fixtures and parametrize for the test scenarios."</code></pre></li>
 <li><p><strong>Ask for alternative approaches</strong>: Python often offers multiple solutions to problems.</p>
-<pre><code>"Show three different ways to implement this list filtering function, explaining the tradeoffs between readability, performance, and memory usage."</code></pre></li>
+<pre class="text"><code>"Show three different ways to implement this list filtering function, explaining the tradeoffs between readability, performance, and memory usage."</code></pre></li>
 <li><p><strong>Request educational explanations</strong>: For learning purposes, ask the AI to explain its reasoning.</p>
-<pre><code>"Write a function to efficiently find duplicate elements in a list, then explain why the algorithm you chose is efficient and what its time complexity is."</code></pre></li>
+<pre class="text"><code>"Write a function to efficiently find duplicate elements in a list, then explain why the algorithm you chose is efficient and what its time complexity is."</code></pre></li>
 </ol>
 </section>
 <section id="using-ai-for-code-review" class="level3" data-number="C.2.3">
 <h3 data-number="C.2.3" class="anchored" data-anchor-id="using-ai-for-code-review"><span class="header-section-number">C.2.3</span> Using AI for Code Review</h3>
 <p>When using AI to review your Python code, structured prompts yield better results:</p>
-<pre><code>"Review this Python code for:
+<pre class="text"><code>"Review this Python code for:
 1. Potential bugs or edge cases
 2. Performance issues
 3. Pythonic improvements
 4. PEP 8 compliance
 5. Possible security concerns
 
-```python
 def process_user_input(data):
-    # [your code here]</code></pre>
-<p>For each issue found, please: - Describe the problem - Explain why it’s problematic - Suggest a specific improvement with code”</p>
-<pre><code>
-### Troubleshooting with AI
+    # [your code here]
 
-When debugging problems, provide context systematically:
-</code></pre>
-<p>“I’m getting this error when running my Python script:</p>
-<p>[Error message]</p>
-<p>Here’s the relevant code:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># [your code here]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>I’ve already tried: 1. [attempted solution 1] 2. [attempted solution 2]</p>
-<p>I’m using Python 3.9 with packages: pandas 1.5.3, numpy 1.23.0</p>
-<p>What might be causing this error and how can I fix it?” ```</p>
+For each issue found, please:
+- Describe the problem
+- Explain why it's problematic
+- Suggest a specific improvement with code"</code></pre>
+</section>
+<section id="troubleshooting-with-ai" class="level3" data-number="C.2.4">
+<h3 data-number="C.2.4" class="anchored" data-anchor-id="troubleshooting-with-ai"><span class="header-section-number">C.2.4</span> Troubleshooting with AI</h3>
+<p>When debugging problems, provide context systematically:</p>
+<pre class="text"><code>"I'm getting this error when running my Python script:
+
+[Error message]
+
+Here's the relevant code:
+
+# [your code here]
+
+I've already tried:
+1. [attempted solution 1]
+2. [attempted solution 2]
+
+I'm using Python 3.9 with packages: pandas 1.5.3, numpy 1.23.0
+
+What might be causing this error and how can I fix it?"</code></pre>
 </section>
 </section>
 <section id="ethical-considerations-and-limitations" class="level2" data-number="C.3">
