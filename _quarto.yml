@@ -7,7 +7,6 @@ project:
 book:
   title: "Ship Python, Orchestrate AI"
   subtitle: "Professional Python in the AI Era"
-  cover-image: cover.png
   favicon: favicon.svg
   author: "Michael Borck"
   date: "last-modified"
@@ -79,6 +78,7 @@ format:
       light: cosmo
       dark: darkly
     css: styles.css
+    cover-image: cover.png
     include-after-body: chatbot.html
     code-copy: true
     highlight-style: github
