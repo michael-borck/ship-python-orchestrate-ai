@@ -190,6 +190,14 @@ The practices in this book form a foundation, not a destination. As you apply th
 - **Adapt to your context**: Not every practice fits every project, but understanding the principles helps you make informed decisions
 - **Share your knowledge**: Teaching others these practices deepens your own understanding and improves the broader development community
 
+### Your Pipeline Is Agent-Ready Infrastructure
+
+AI coding agents, tools like Cursor, Claude Code, and OpenHands, are getting remarkably capable. They can generate code, run tests, fix errors, and iterate. But they work best when they have structure to work within.
+
+Everything in this book builds that structure. A test suite gives an agent a way to verify its own output. A CI pipeline catches mistakes before they reach users. A clear project layout gives an agent context about where code belongs. Pre-commit hooks enforce quality standards automatically.
+
+Without this infrastructure, an agent is generating code into a void. With it, an agent has guardrails, feedback loops, and a deployment path. The pipeline you have built is what turns AI from a code generator into a reliable development partner. That is what orchestration means.
+
 ### Starting Your Next Project
 
 You now have everything needed to begin any Python project with professional practices from day one. Whether you use our bash script for transparency, GitHub templates for convenience, or cookiecutter templates for customisation, you can establish solid foundations in minutes rather than hours.
