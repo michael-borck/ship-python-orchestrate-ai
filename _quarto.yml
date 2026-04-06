@@ -68,6 +68,9 @@ book:
     - text: Example Project
       icon: code-square
       href: https://github.com/michael-borck/ship-python-example
+    - text: SimpleBot Case Study
+      icon: robot
+      href: https://github.com/michael-borck/simplebot
     - text: All Books
       icon: collection
       href: https://books.borck.education
