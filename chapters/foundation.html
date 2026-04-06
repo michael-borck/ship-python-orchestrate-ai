@@ -958,11 +958,13 @@ Tip
 <h3 data-number="1.4.1" class="anchored" data-anchor-id="simple-scaffolding-script"><span class="header-section-number">1.4.1</span> Simple Scaffolding Script</h3>
 <p>For those who prefer a transparent, straightforward approach, we’ve created a simple bash script that creates the basic project structure we’ve discussed:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download the script</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-O</span> https://raw.githubusercontent.com/michael-borck/ship-python-template/main/scripts/scaffold_python_project.sh</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x scaffold_python_project.sh</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new project</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ex">./scaffold_python_project.sh</span> my_project</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="va">REPO</span><span class="op">=</span><span class="st">"michael-borck/ship-python-template"</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="va">URL</span><span class="op">=</span><span class="st">"https://raw.githubusercontent.com"</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-O</span> <span class="va">$URL</span>/<span class="va">$REPO</span>/main/scripts/scaffold_python_project.sh</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x scaffold_python_project.sh</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new project</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="ex">./scaffold_python_project.sh</span> my_project</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This script creates a minimal but well-structured Python project with: - The recommended <code>src</code> layout - Basic test setup - Simple <code>pyproject.toml</code> configuration - Version control initialization - Placeholder documentation</p>
 <p>The script is intentionally simple and readable, allowing you to understand exactly what’s happening and modify it for your specific needs. This approach is ideal for learning or for smaller projects where you want maximum visibility into the setup process.</p>
 </section>
