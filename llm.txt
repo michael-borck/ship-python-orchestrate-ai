@@ -36,7 +36,7 @@ It is not an enterprise DevOps guide. It does not cover large-team workflows, co
 
 It is not a tool comparison. It does not present five options for every choice and leave you to decide. It picks one, explains why, and moves on. Simple but not simplistic — that is the guiding principle.
 
-And it is not a book that ignores AI. AI tools can accelerate every part of the development pipeline, from generating boilerplate to suggesting tests to troubleshooting errors. But AI works best when you have strong fundamentals and can critically evaluate its output. This book builds those fundamentals.
+And it is not a book that ignores AI. But it uses AI differently from the other books in this series. Code Python, Consult AI teaches you to think with AI, to explore concepts and build understanding through conversation. This book teaches you to orchestrate AI, to set up the project structure, testing, and automation so that AI-generated code has somewhere safe to land. Without a proper pipeline, AI produces code you cannot test, cannot deploy, and cannot maintain. With one, AI becomes a force multiplier. The pipeline is what makes the difference.
 
 ## If You Are Feeling Overwhelmed
 
@@ -4090,6 +4090,14 @@ The practices in this book form a foundation, not a destination. As you apply th
 - Trust the process: Initially, some practices may feel like overhead, but their value becomes clear as projects grow
 - Adapt to your context: Not every practice fits every project, but understanding the principles helps you make informed decisions
 - Share your knowledge: Teaching others these practices deepens your own understanding and improves the broader development community
+
+### Your Pipeline Is Agent-Ready Infrastructure
+
+AI coding agents, tools like Cursor, Claude Code, and OpenHands, are getting remarkably capable. They can generate code, run tests, fix errors, and iterate. But they work best when they have structure to work within.
+
+Everything in this book builds that structure. A test suite gives an agent a way to verify its own output. A CI pipeline catches mistakes before they reach users. A clear project layout gives an agent context about where code belongs. Pre-commit hooks enforce quality standards automatically.
+
+Without this infrastructure, an agent is generating code into a void. With it, an agent has guardrails, feedback loops, and a deployment path. The pipeline you have built is what turns AI from a code generator into a reliable development partner. That is what orchestration means.
 
 ### Starting Your Next Project
 
