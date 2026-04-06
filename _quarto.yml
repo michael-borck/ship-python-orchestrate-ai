@@ -68,6 +68,9 @@ book:
     - text: Example Project
       icon: code-square
       href: https://github.com/michael-borck/ship-python-example
+    - text: Scaffold Script
+      icon: terminal
+      href: https://github.com/michael-borck/ship-python-template/blob/main/scripts/scaffold_python_project.sh
     - text: SimpleBot Case Study
       icon: robot
       href: https://github.com/michael-borck/simplebot
