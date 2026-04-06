@@ -382,7 +382,9 @@ For those who prefer a transparent, straightforward approach, we've created a si
 
 ```bash
 # Download the script
-curl -O https://raw.githubusercontent.com/michael-borck/ship-python-template/main/scripts/scaffold_python_project.sh
+REPO="michael-borck/ship-python-template"
+URL="https://raw.githubusercontent.com"
+curl -O $URL/$REPO/main/scripts/scaffold_python_project.sh
 chmod +x scaffold_python_project.sh
 
 # Create a new project

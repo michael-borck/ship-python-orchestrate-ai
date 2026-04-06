@@ -87,8 +87,14 @@ The power of notebooks: viewers can RUN your code without installing anything.
 
 The most accessible option. Add a badge to your README:
 
-```markdown
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/username/repo/blob/main/notebook.ipynb)
+```text
+[![Open In Colab](BADGE_URL)](COLAB_URL)
+
+Where:
+  BADGE_URL = https://colab.research.google.com
+              /assets/colab-badge.svg
+  COLAB_URL = https://colab.research.google.com
+              /github/USER/REPO/blob/main/FILE
 ```
 
 **Colab advantages:**
