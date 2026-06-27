@@ -159,9 +159,9 @@ Cursor (formerly Warp AI) is built on top of VS Code but focused on AI-assisted 
 - AI features that understand Python code context
 - Assistance with complex Python patterns and libraries
 
-### Whisper (Anthropic)
+### Claude Code (Anthropic)
 
-Claude Code (Whisper) from Anthropic is an AI-enhanced development environment:
+Claude Code, from Anthropic, is an AI-enhanced, terminal-based development environment:
 
 #### Key Features
 
@@ -175,6 +175,10 @@ Claude Code (Whisper) from Anthropic is an AI-enhanced development environment:
 - Works alongside existing development environments
 - Can assist with tool configuration and integration
 - Helps debug issues with Python tooling
+
+### Model Context Protocol (MCP)
+
+Agents and editors do not work in isolation — they need to reach your code, your tests, your data, and your tools. The Model Context Protocol (MCP) is an open standard that gives an AI assistant a consistent way to connect to those external resources: a database, a file system, an API, or your project's own tooling. In practice, MCP is the plumbing that lets an agent *use* the pipeline you have built rather than merely talk about it. The specific tools change; the principle does not — an agent is only as useful as the context and tools it can reach.
 
 ## Choosing the Right Environment
 

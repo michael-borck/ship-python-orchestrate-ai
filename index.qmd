@@ -29,6 +29,8 @@ It is not a tool comparison. It does not present five options for every choice a
 
 And it is not a book that ignores AI. But it uses AI differently from the other books in this series. *Code Python, Consult AI* teaches you to think with AI, to explore concepts and build understanding through conversation. This book teaches you to orchestrate AI, to set up the project structure, testing, and automation so that AI-generated code has somewhere safe to land. Without a proper pipeline, AI produces code you cannot test, cannot deploy, and cannot maintain. With one, AI becomes a force multiplier. The pipeline is what makes the difference.
 
+And it is not a book about vibe coding. Vibe coding — prompting AI until something runs, without understanding it — is fine for a throwaway script. It collapses the moment you try to *ship*. You cannot vibe a CI pipeline that catches real bugs, a package other people can install, a build that targets web, desktop, and containers from one codebase, or a test suite trustworthy enough to let an agent verify its own work. Deployment is where "it works on my machine" meets reality, and reality does not accept vibes. This book builds the structure that makes AI-generated code safe to ship — and with it, the one part of your work that does not commoditise: the judgement that decides what to ship and why. The deeper argument for staying in control of AI is in *Conversation, Not Delegation*.
+
 ## If You Are Feeling Overwhelmed
 
 That is the normal response to the Python ecosystem. The number of tools, frameworks, and opinions about "the right way" to do things is genuinely staggering. This book exists to cut through that noise. You do not need to evaluate every option. You need one good workflow that works, and the understanding to adapt it when your needs change.
@@ -78,30 +80,28 @@ This book is part of a series designed to help you master modern software develo
 ```{mermaid}
 %%| fig-width: 4
 flowchart TD
-    CND["Conversation,<br/>Not Delegation"]
-    CPPA["Converse Python,<br/>Partner AI"]
-    Think["Think Python,<br/>Direct AI"]
+    CND["Conversation,<br/>Not Delegation<br/>(no code needed)"]
+    Think["Think Python,<br/>Direct AI<br/>(complete beginners)"]
+    CPPA["Converse Python,<br/>Partner AI<br/>(methodology)"]
     Code["Code Python,<br/>Consult AI"]
     Ship["Ship Python,<br/>Orchestrate AI"]
     Web["Build Web,<br/>Guide AI"]
     CND --> CPPA
-    CND --> Web
-    CPPA --> Think
     Think --> Code
+    CPPA -. read alongside .-> Code
     Code --> Ship
+    CND --> Web
+    Think --> Web
 ```
 
-**Conversation, Not Delegation** — the general methodology for working with AI across any discipline.
+Two ways in: start with *Conversation, Not Delegation* if you want the ideas before (or without) code, or start with *Think Python, Direct AI* if you want to code from your first page. The methodology in *Converse Python, Partner AI* enhances every path.
 
-**Converse Python, Partner AI** — intentional prompting methodology applied to software development.
-
-**Think Python, Direct AI** — computational thinking for absolute beginners.
-
-**Code Python, Consult AI** — focused Python fundamentals with AI integration.
-
-**Ship Python, Orchestrate AI** (this book) — professional Python development practices and tooling.
-
-**Build Web, Guide AI** — web development with AI as your development partner.
+- **Conversation, Not Delegation** — the general methodology for working with AI across any discipline. No code required; the broadest entry point.
+- **Think Python, Direct AI** — computational thinking for absolute beginners. The entry point if you want to code from the start.
+- **Converse Python, Partner AI** — the intentional prompting methodology applied to software development. A companion you can read alongside any Python book.
+- **Code Python, Consult AI** — focused Python fundamentals through AI conversation.
+- **Ship Python, Orchestrate AI** (this book) — professional Python development practices and tooling.
+- **Build Web, Guide AI** — web development with AI as your development partner.
 
 All titles are available at [books.borck.education](https://books.borck.education).
 

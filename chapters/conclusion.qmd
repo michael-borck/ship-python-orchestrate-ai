@@ -198,6 +198,8 @@ Everything in this book builds that structure. A test suite gives an agent a way
 
 Without this infrastructure, an agent is generating code into a void. With it, an agent has guardrails, feedback loops, and a deployment path. The pipeline you have built is what turns AI from a code generator into a reliable development partner. That is what orchestration means.
 
+But notice what is *not* in that list. The pipeline is infrastructure; it can be templated, scaffolded, and increasingly run by an agent itself. As that happens, the pipeline commoditises — everyone gets the same competent setup. What does not commoditise is the judgement steering it: which test actually matters, which failure is a real bug and which is noise, when the agent's confident output is subtly wrong, and what is worth shipping at all. That judgement is built by understanding what the pipeline does and why, not by running it blindly. An agent can generate code into your repository. It cannot decide, on your behalf, what good looks like. For the full argument — why the variation only you bring is the durable edge — see *Conversation, Not Delegation*.
+
 ### Starting Your Next Project
 
 You now have everything needed to begin any Python project with professional practices from day one. Whether you use our bash script for transparency, GitHub templates for convenience, or cookiecutter templates for customisation, you can establish solid foundations in minutes rather than hours.
