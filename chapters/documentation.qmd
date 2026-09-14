@@ -407,7 +407,7 @@ Regardless of which documentation tool you choose, follow these best practices:
 For most applications, the journey often progresses from simple docstrings to MkDocs as the project grows. By starting with good docstrings from the beginning, you make each subsequent step easier.
 
 ::: {.callout-tip title="AI Tip: Documentation Generation"}
-AI is excellent at writing docstrings and README content. Try: *"Write Google-style docstrings for all the public functions in this module"* and paste your code. For project-level documentation, ask AI to draft a README based on your pyproject.toml and source code. The key is providing AI with your actual code — generic documentation prompts produce generic results. Always review for accuracy, especially around installation steps and API descriptions.
+AI is excellent at writing docstrings and README content. Try: *"Write Google-style docstrings for all the public functions in this module"* and paste your code. For project-level documentation, ask AI to draft a README based on your pyproject.toml and source code. The key is providing AI with your actual code, because generic documentation prompts produce generic results. Always review for accuracy, especially around installation steps and API descriptions.
 :::
 
 In the next section, we'll explore how to automate your workflow with CI/CD using GitHub Actions.
@@ -852,7 +852,7 @@ This comprehensive workflow:
 With these CI/CD practices in place, your development workflow becomes more reliable and automatic. Quality checks run on every change, documentation stays up to date, and releases happen smoothly and consistently.
 
 ::: {.callout-tip title="AI Tip: CI/CD Workflows"}
-GitHub Actions YAML can be fiddly to get right. Ask AI to generate workflow files: *"Write a GitHub Actions workflow that runs pytest, ruff, and mypy on push to main and on pull requests, for a Python project using uv."* AI handles the YAML syntax and action versions well, but always test the workflow — AI may reference outdated action versions or miss environment-specific details.
+GitHub Actions YAML can be fiddly to get right. Ask AI to generate workflow files: *"Write a GitHub Actions workflow that runs pytest, ruff, and mypy on push to main and on pull requests, for a Python project using uv."* AI handles the YAML syntax and action versions well, but always test the workflow, because AI may reference outdated action versions or miss environment-specific details.
 :::
 
 In the final section, we'll explore how to publish and distribute Python packages to make your work available to others.
@@ -1183,7 +1183,7 @@ include src/my_package/data/*.json
 include src/my_package/templates/*.html
 ```
 
-By following these practices, you'll create a professional, well-maintained package that others can easily discover, install, and use. Publishing your work to PyPI is not just about sharing code—it's about participating in the Python ecosystem and contributing back to the community.
+By following these practices, you'll create a professional, well-maintained package that others can easily discover, install, and use. Publishing your work to PyPI is not just about sharing code. It is about participating in the Python ecosystem and contributing back to the community.
 
 
 ### Modern vs. Traditional Python Packaging
@@ -1245,3 +1245,25 @@ This declarative approach is recommended for new projects because it:
 - For maintaining existing packages: Consider gradually migrating to `pyproject.toml`
 
 Many projects use a hybrid approach, with basic metadata in `pyproject.toml` and complex build logic in `setup.py`.
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask for a GitHub Actions workflow, then ask what it would cost you in runner minutes per month at your actual commit rate. Workflows are cheap to generate and not cheap to run.
+2. Ask it to write docstrings for a module you paste, then check whether any docstring describes behaviour the code does not have. Confident documentation for imagined behaviour is worse than no documentation at all.
+3. Ask what its workflow would do on a pull request from a fork. Secrets and permissions are where generated CI quietly breaks, or quietly over-permits.
+
+**Keywords to steer with.** docstring conventions (Google, NumPy) · `pydoc` · MkDocs · mkdocstrings · GitHub Pages · workflow triggers · matrix builds · dependency caching · `permissions:` · trusted publishing · Test PyPI · semantic versioning · setuptools-scm
+
+**A starting prompt.**
+
+> **Role:** You are a release engineer who has debugged other people's GitHub Actions at two in the morning.
+>
+> **Task:** Write the CI workflow I describe, then review your own YAML for the three things that most often break on somebody else's repository.
+>
+> **Context:** I have read a chapter on GitHub Actions, dependency caching, matrix builds and publishing to PyPI. My project is [describe it: Python versions, test tool, whether it publishes]. Assume the repository accepts pull requests from forks.
+>
+> **Format:** The workflow YAML, then a review section covering permissions, secret availability on fork pull requests, and whether the cache key is actually correct. End with what this workflow does *not* check that it probably should.
+
+**How to check what comes back.** A workflow you have only read is a workflow you have not tested. Push it on a branch and open a real pull request against your own repository, then open a second one from a fork if you can. Passing on `main` and failing on a fork PR is the classic generated-CI failure, and nothing but an actual run will show it to you. Then read the `permissions:` block: if the AI did not write one, you have inherited the default, which is broader than you want. For the docs half, build the site locally with `mkdocs serve` and click the API reference. A mkdocstrings symbol that fails to resolve is silent in the source and obvious in the browser.

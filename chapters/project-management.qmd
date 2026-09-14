@@ -129,10 +129,10 @@ repos:
   run: uv run poe check
 ```
 
-This approach eliminates the disconnect between local development and automated systems — everyone uses the same commands.
+This approach eliminates the disconnect between local development and automated systems, because everyone uses the same commands.
 
 ::: {.callout-tip title="AI Tip: Task Automation"}
-AI can generate Poe the Poet task definitions, Makefiles, and shell scripts from natural language descriptions. Try: *"Write Poe the Poet tasks for: formatting with ruff, linting, running tests with coverage, and a 'check' task that runs all three in sequence."* Since these are configuration files with well-defined syntax, AI output is usually accurate. But test each task before committing it — path assumptions and tool flags can vary between projects.
+AI can generate Poe the Poet task definitions, Makefiles, and shell scripts from natural language descriptions. Try: *"Write Poe the Poet tasks for: formatting with ruff, linting, running tests with coverage, and a 'check' task that runs all three in sequence."* Since these are configuration files with well-defined syntax, AI output is usually accurate. But test each task before committing it, because path assumptions and tool flags can vary between projects.
 :::
 
 ## Project Setup and Structure
@@ -311,4 +311,26 @@ AI can help you write contributing guides, development setup instructions, and t
 :::
 
 This chapter has established the foundation for scalable project management through automation, consistent structure, and collaborative workflows. These practices become increasingly valuable as projects grow in size and complexity, ensuring that good habits established early continue to serve the project throughout its lifecycle.
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask the AI to write your Poe task list from your README's contributing instructions. Anything you currently tell contributors to do by hand is a task you have not automated yet.
+2. Ask what happens when two of your tasks run in the wrong order. Task runners hide their dependencies until the day someone runs them out of sequence.
+3. Ask it to name the technical debt in a project you describe, then ask which item it would deliberately leave alone. The second answer requires judgement; the first only requires a list.
+
+**Keywords to steer with.** Poe the Poet · task composition · task parameters · sequenced tasks · pre-commit · release preparation · setuptools-scm · conventional commits · code review standards · `.editorconfig` · reproducible development environments · technical debt triage
+
+**A starting prompt.**
+
+> **Role:** You are a build engineer who believes any instruction written in a README should have been a task.
+>
+> **Task:** Read my contributing instructions and convert every manual step into a task definition, then tell me which steps should deliberately *not* be automated.
+>
+> **Context:** I have read a chapter on task automation with Poe the Poet, release management and team workflows. Here are my current instructions: [paste your README's development section]. My tools are [list your linter, test runner, type checker and docs builder].
+>
+> **Format:** The task table for `pyproject.toml`, then a short list of steps you left manual with the reason for each. End with the task ordering you would enforce and what breaks if somebody runs them out of order.
+
+**How to check what comes back.** Run `poe` with no arguments and read the task list back as though you were a new contributor on day one. A task whose name does not tell you what it does will not get used, and an unused task is worse than no task because it rots silently. Then run the full chain against a clean checkout in a fresh directory rather than your working copy. Tasks that depend on files only your machine has are the most common failure here, and they never surface on your own copy. They surface on somebody else's clone, or in CI.
 

@@ -1,11 +1,11 @@
 # Multi-Platform Distribution
 
-Moving beyond traditional Python package publishing, this chapter explores how to distribute complete applications to users across web, desktop, and mobile platforms—all from a single codebase. We'll focus on an architecture pattern that works exceptionally well with AI-assisted development: FastAPI backend + React frontend + multiple distribution targets.
+Moving beyond traditional Python package publishing, this chapter explores how to distribute complete applications to users across web, desktop, and mobile platforms, all from a single codebase. We'll focus on an architecture pattern that works exceptionally well with AI-assisted development: FastAPI backend + React frontend + multiple distribution targets.
 
 ::: {.callout-note}
 ## A Note on Technologies Beyond Python
 
-This chapter introduces React and Electron—technologies outside Python's ecosystem. Don't worry: the goal isn't to master these tools, but to understand the architecture that lets you ship to multiple platforms. Your Python skills remain central (the backend is still FastAPI), and the companion templates handle the frontend implementation details. With AI assistance, you can work effectively with React and Electron by understanding their role in the architecture rather than memorizing their APIs.
+This chapter introduces React and Electron, technologies outside Python's ecosystem. Don't worry: the goal isn't to master these tools, but to understand the architecture that lets you ship to multiple platforms. Your Python skills remain central (the backend is still FastAPI), and the companion templates handle the frontend implementation details. With AI assistance, you can work effectively with React and Electron by understanding their role in the architecture rather than memorizing their APIs.
 :::
 
 ## The Modern Distribution Challenge
@@ -30,7 +30,7 @@ All from a single codebase, with automated builds through GitHub Actions.
 
 ## Why FastAPI + React?
 
-This isn't about which technologies are theoretically "best"—it's about which combination is most practical for AI-assisted development in 2025 and beyond.
+This isn't about which technologies are theoretically "best." It is about which combination is most practical for AI-assisted development in 2025 and beyond.
 
 ### Training Data Density
 
@@ -1016,7 +1016,7 @@ Playwright is a browser automation framework with first-class Python support. Co
 - **Multi-browser**: Tests run against Chromium, Firefox, and WebKit from a single API
 - **Python-native**: Integrates directly with pytest via `pytest-playwright`
 - **Electron support**: Can test desktop apps, not just web pages
-- **Auto-waiting**: No manual sleep statements—Playwright waits for elements to be ready
+- **Auto-waiting**: No manual sleep statements; Playwright waits for elements to be ready
 - **Trace viewer**: Built-in debugging tool that records screenshots, DOM snapshots, and network activity
 
 ### Installation
@@ -1141,7 +1141,7 @@ Add Playwright to your existing GitHub Actions workflow:
 1. **Test user workflows, not implementation details**: Click buttons by their text, not by CSS selectors that change with refactors
 2. **Keep E2E tests focused**: A handful of critical path tests is worth more than exhaustive UI coverage
 3. **Use the trace viewer for debugging**: Run `playwright show-trace trace.zip` to step through failures visually
-4. **Run against a real backend**: E2E tests should exercise the full stack—mocking defeats the purpose
+4. **Run against a real backend**: E2E tests should exercise the full stack, because mocking defeats the purpose
 5. **Mark E2E tests separately**: Use `@pytest.mark.e2e` so you can run them independently of unit tests
 
 ```python
@@ -1176,7 +1176,7 @@ With this architecture in place, the human developer's role shifts to:
 - Understanding user needs and requirements
 - Testing across platforms and environments
 
-The AI handles implementation details—writing the FastAPI routes, React components, Docker configurations—while you focus on the architecture, verification, and delivery.
+The AI handles implementation details (writing the FastAPI routes, React components, Docker configurations) while you focus on the architecture, verification, and delivery.
 
 ## Summary
 
@@ -1188,6 +1188,28 @@ Multi-platform distribution is achievable for indie developers through:
 4. **Electron packaging**: Native desktop apps for Windows, macOS, and Linux
 5. **Automated CI/CD**: GitHub Actions for multi-platform builds
 
-This architecture is deliberately simple—"simple but not simplistic"—because simplicity enables effective AI collaboration. Clear structures, typed interfaces, and well-defined boundaries let you leverage AI for implementation while maintaining control over the architecture and delivery.
+This architecture is deliberately simple, "simple but not simplistic," because simplicity enables effective AI collaboration. Clear structures, typed interfaces, and well-defined boundaries let you leverage AI for implementation while maintaining control over the architecture and delivery.
 
 In the next chapter, we'll explore how to structure these templates and configurations for maximum reusability across projects.
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Write the context file for a project you already have, then ask a fresh session to make a small change using nothing but that file. What it gets wrong is what the file failed to say, not what the model failed to know.
+2. Ask it to design your API contract before any code exists, then ask which endpoint it would regret in six months. Contracts are cheap to change now and expensive later.
+3. Ask what your Electron or Docker build does differently on the platform you do not own. The target you cannot test locally is the one that breaks.
+
+**Keywords to steer with.** API-first architecture · Pydantic models · CORS · context file (`CLAUDE.md`) · multi-stage Dockerfile · PWA service worker · Electron main and preload · context isolation · matrix build · code signing · Playwright traces · testing user workflows rather than selectors
+
+**A starting prompt.**
+
+> **Role:** You are a technical writer who writes the context file an AI agent reads before touching a codebase, and you have watched agents wreck repositories whose file was vague.
+>
+> **Task:** Draft a project context file for what I describe, then tell me which of your own sections an agent would most likely ignore or misread.
+>
+> **Context:** I have read a chapter on the `CLAUDE.md` pattern, API-first architecture and multi-platform builds. My project is [describe the stack, the directory layout, the build commands and the conventions you actually enforce rather than the ones you wish you did]. Prefer specific commands over principles.
+>
+> **Format:** The context file in full. Then a critique section naming the vaguest instruction in it, what an agent would plausibly do with that vagueness, and the concrete rewrite.
+
+**How to check what comes back.** There is only one honest test. Open a session with no history, give it the context file and nothing else, and ask for a small change. Everything it gets wrong is a gap in your file rather than a failure of the model, and you now have a list of specific sentences to write. Then run the Playwright suite, because a change that satisfies mypy and breaks the user's first click is exactly what this architecture exists to catch, and the trace viewer will show you the moment it went wrong.

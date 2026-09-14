@@ -175,7 +175,7 @@ Regardless of which tool you choose:
 4. **Always use `pip-sync` or `uv pip sync`** instead of `pip install -r requirements.txt` to ensure your environment exactly matches the lock file.
 
 ::: {.callout-tip title="AI Tip: Dependency Decisions"}
-When choosing between packages that serve similar purposes, ask your AI assistant for a comparison: *"Compare requests vs httpx for making HTTP calls in a Python 3.11 project. I need async support and type hints."* AI can surface trade-offs quickly, but verify its claims about package popularity and maintenance status — check PyPI download stats and GitHub activity yourself.
+When choosing between packages that serve similar purposes, ask your AI assistant for a comparison: *"Compare requests vs httpx for making HTTP calls in a Python 3.11 project. I need async support and type hints."* AI can surface trade-offs quickly, but verify its claims about package popularity and maintenance status, so check PyPI download stats and GitHub activity yourself.
 :::
 
 In the next section, we'll explore how to maintain code quality through automated formatting and linting with Ruff, taking your workflow to the next professional level.
@@ -823,13 +823,13 @@ As your project grows, organise tests into different categories:
 Most projects should have a pyramid shape: many unit tests, fewer integration tests, and even fewer functional/E2E tests.
 
 ::: {.callout-tip title="AI Tip: Generating Tests"}
-AI excels at generating test cases, especially edge cases you might miss. Try: *"Write pytest tests for this function, including edge cases for empty input, None values, and boundary conditions."* Then paste your function. The key is reviewing what AI generates — it often writes tests that pass trivially or miss the actual business logic. Use AI-generated tests as a starting point, not a finished product.
+AI excels at generating test cases, especially edge cases you might miss. Try: *"Write pytest tests for this function, including edge cases for empty input, None values, and boundary conditions."* Then paste your function. The key is reviewing what AI generates, because it often writes tests that pass trivially or miss the actual business logic. Use AI-generated tests as a starting point, not a finished product.
 :::
 
 ::: {.callout-tip}
 ## GUI and End-to-End Testing with Playwright
 
-When your project has a web frontend or a desktop interface (such as an Electron app), consider adding end-to-end tests using [Playwright](https://playwright.dev/python/). Playwright lets you automate real browser interactions—clicking buttons, filling forms, verifying that pages render correctly—giving you confidence that your application works as users will actually experience it.
+When your project has a web frontend or a desktop interface (such as an Electron app), consider adding end-to-end tests using [Playwright](https://playwright.dev/python/). Playwright lets you automate real browser interactions (clicking buttons, filling forms, verifying that pages render correctly) giving you confidence that your application works as users will actually experience it.
 
 We cover Playwright in detail in the [Multi-Platform Distribution](distribution.qmd) chapter, where we show how to test web deployments, PWAs, and Electron desktop applications.
 :::
@@ -859,7 +859,7 @@ def greeting(name: str) -> str:
     return f"Hello, {name}!"
 ```
 
-These annotations don't change how Python runs—they're ignored by the interpreter at runtime. However, tools like mypy can analyse them statically to catch potential type errors.
+These annotations do not change how Python runs; they are ignored by the interpreter at runtime. However, tools like mypy can analyse them statically to catch potential type errors.
 
 ### Getting Started with mypy
 
@@ -941,7 +941,7 @@ warn_unreachable = true
 
 ### Gradual Typing
 
-One major advantage of Python's type system is gradual typing—you can add types incrementally:
+One major advantage of Python's type system is gradual typing, so you can add types incrementally:
 
 1. Start with critical or error-prone modules
 2. Add types to public interfaces first
@@ -1453,3 +1453,25 @@ vulture src/ --exclude "test_*.py"
 Regularly checking for and removing dead code keeps your codebase lean and maintainable. It also provides insights into how your application has evolved and may highlight areas where design improvements could be made.
 
 With these additional security and code quality tools in place, your Python development workflow is now even more robust. Let's move on to Part 3, where we'll explore documentation and deployment options.
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Paste a function you wrote and ask for pytest tests. Then check whether any of them would still pass if you deleted the function body. Tests that pass trivially are the standard failure mode, and the AI Tip earlier in this chapter warns about it for good reason.
+2. Ask it to explain a Ruff rule you have been quietly suppressing, then ask what would break if you stopped suppressing it. Most suppressions outlive the reason for them.
+3. Ask it to add type annotations to a module, then run mypy in strict mode and count what it missed. The gap between "annotated" and "type-checks" is the number worth knowing.
+
+**Keywords to steer with.** `requirements.in` and the lockfile · `uv pip compile` · Ruff rule codes · `--fix` · pytest fixtures · `parametrize` · markers · coverage percentage · mypy strict mode · gradual typing · Bandit severity and confidence · Vulture confidence · pre-commit hooks
+
+**A starting prompt.**
+
+> **Role:** You are a Python reviewer who assumes generated tests are trivially passing until proved otherwise.
+>
+> **Task:** Write pytest tests for the function I paste, then attack your own tests: tell me which of them would still pass if the function were replaced by a stub returning a constant.
+>
+> **Context:** I have read a chapter on pytest, coverage, mypy, Bandit and Vulture, and on why AI-generated tests often exercise nothing. Here is the function: [paste it]. It is part of a project that [describe what it does and who depends on it].
+>
+> **Format:** The test file, then a table: test name | what it actually asserts | would it survive the function being stubbed out. End with the edge case you believe I care about most and did not think to ask for.
+
+**How to check what comes back.** Run them, then break the code on purpose. Comment out the body of the function, make it return a constant, and run `pytest` again. Every test that still passes is decoration, and you have just done by hand what mutation testing does automatically. Then put the generated file through the rest of the gate: `ruff check` will find the unused imports that collect in generated code, and `mypy` will find the annotations that were written to look right rather than to be right. A test file that fails your own linter is not ready to commit.

@@ -4,11 +4,11 @@
 
 You can write Python. Now what?
 
-The gap between writing scripts that work on your machine and shipping software that other people can use is enormous. The Python ecosystem offers hundreds of tools to bridge that gap — and that is exactly the problem. Which virtual environment tool? Which formatter? Which testing framework? How do you manage dependencies? How do you structure a project? The questions feel endless, and every answer leads to three more.
+The gap between writing scripts that work on your machine and shipping software that other people can use is enormous. The Python ecosystem offers hundreds of tools to bridge that gap, and that is exactly the problem. Which virtual environment tool? Which formatter? Which testing framework? How do you manage dependencies? How do you structure a project? The questions feel endless, and every answer leads to three more.
 
-This book grew out of my own search for a sane, repeatable workflow for Python projects. I needed a pipeline that could target multiple platforms — web apps, PWAs, Docker containers, Windows, Linux, Mac — from a single codebase. I wanted something that was simple by default but could scale when needed, without bolting on complexity for edge cases that did not yet exist. The result is what you will find in these pages: a deliberate 80/20 approach. The 20% of practices that yield 80% of the benefits.
+This book grew out of my own search for a sane, repeatable workflow for Python projects. I needed a pipeline that could target multiple platforms (web apps, PWAs, Docker containers, Windows, Linux, Mac) from a single codebase. I wanted something that was simple by default but could scale when needed, without bolting on complexity for edge cases that did not yet exist. The result is what you will find in these pages: a deliberate 80/20 approach. The 20% of practices that yield 80% of the benefits.
 
-We settle on specific tools — uv, ruff, mypy, pytest — not because they are the only options, but because making a decision and committing to it is more productive than endlessly evaluating alternatives. If you are working in a large team with established conventions, you may choose differently. This book is for everyone else: solo developers, small teams, prototypers, and anyone who wants a professional workflow without the overhead.
+We settle on specific tools (uv, ruff, mypy, pytest) not because they are the only options, but because making a decision and committing to it is more productive than endlessly evaluating alternatives. If you are working in a large team with established conventions, you may choose differently. This book is for everyone else: solo developers, small teams, prototypers, and anyone who wants a professional workflow without the overhead.
 
 ## Who This Book Is For
 
@@ -25,11 +25,11 @@ This is not a Python tutorial. It does not teach the language. It teaches the pr
 
 It is not an enterprise DevOps guide. It does not cover large-team workflows, complex CI/CD orchestration, or Kubernetes. It covers what a solo developer or small team needs to ship reliable software. The practices scale, but the book does not add complexity for situations that may never apply to you.
 
-It is not a tool comparison. It does not present five options for every choice and leave you to decide. It picks one, explains why, and moves on. Simple but not simplistic — that is the guiding principle.
+It is not a tool comparison. It does not present five options for every choice and leave you to decide. It picks one, explains why, and moves on. Simple but not simplistic: that is the guiding principle.
 
 And it is not a book that ignores AI. But it uses AI differently from the other books in this series. *Code Python, Consult AI* teaches you to think with AI, to explore concepts and build understanding through conversation. This book teaches you to orchestrate AI, to set up the project structure, testing, and automation so that AI-generated code has somewhere safe to land. Without a proper pipeline, AI produces code you cannot test, cannot deploy, and cannot maintain. With one, AI becomes a force multiplier. The pipeline is what makes the difference.
 
-And it is not a book about vibe coding. Vibe coding — prompting AI until something runs, without understanding it — is fine for a throwaway script. It collapses the moment you try to *ship*. You cannot vibe a CI pipeline that catches real bugs, a package other people can install, a build that targets web, desktop, and containers from one codebase, or a test suite trustworthy enough to let an agent verify its own work. Deployment is where "it works on my machine" meets reality, and reality does not accept vibes. This book builds the structure that makes AI-generated code safe to ship — and with it, the one part of your work that does not commoditise: the judgement that decides what to ship and why. The deeper argument for staying in control of AI is in *Conversation, Not Delegation*.
+And it is not a book about vibe coding. Vibe coding, which is prompting AI until something runs without understanding it, is fine for a throwaway script. It collapses the moment you try to *ship*. You cannot vibe a CI pipeline that catches real bugs, a package other people can install, a build that targets web, desktop, and containers from one codebase, or a test suite trustworthy enough to let an agent verify its own work. Deployment is where "it works on my machine" meets reality, and reality does not accept vibes. This book builds the structure that makes AI-generated code safe to ship, and with it the one part of your work that does not commoditise: the judgement that decides what to ship and why. The deeper argument for staying in control of AI is in *Conversation, Not Delegation*.
 
 ## If You Are Feeling Overwhelmed
 
@@ -39,11 +39,11 @@ That is the normal response to the Python ecosystem. The number of tools, framew
 
 The book builds a complete development pipeline in stages:
 
-1. **Setting the Foundation** — project structure, version control, virtual environments
-2. **Advancing Your Workflow** — dependency management, code quality (ruff), testing (pytest), type checking (mypy)
-3. **Documentation and Deployment** — documentation, CI/CD automation
-4. **Case Study** — applying everything to a real project (SimpleBot)
-5. **Multi-Platform Distribution** — shipping to web, desktop, PWA, and containers from one codebase
+1. **Setting the Foundation**: project structure, version control, virtual environments
+2. **Advancing Your Workflow**: dependency management, code quality (ruff), testing (pytest), type checking (mypy)
+3. **Documentation and Deployment**: documentation and CI/CD automation
+4. **Case Study**: applying everything to a real project (SimpleBot)
+5. **Multi-Platform Distribution**: shipping to web, desktop, PWA, and containers from one codebase
 
 Companion templates let you start new projects with the recommended structure immediately:
 
@@ -70,8 +70,13 @@ my_project/
 
 Throughout the chapters you will find:
 
-- **AI Tips** — practical advice for using AI with the practice being taught
-- **Callout boxes** — important notes, tips, and warnings highlighted for reference
+- **AI Tips**: practical advice for using AI with the practice being taught
+- **Callout boxes**: important notes, tips, and warnings highlighted for reference
+- **Take it to the AI**: an end-of-chapter section that puts the chapter's practice to work
+
+That last section has four parts, and the fourth is the one that matters. You get a few questions worth arguing about, the keywords that let you steer a conversation you cannot yet phrase, a starting prompt written out in full, and then **how to check what comes back**, using the pipeline the chapter just taught you to build. That order is deliberate. AI will generate a `pyproject.toml`, a workflow file, or a test suite faster than you can type one, and none of it is worth anything until it has been through the gate. Generating without checking is vibe coding with extra steps, which is the one thing this book is against.
+
+The prompts spell out four things: the role the assistant should take, the task, the context it needs, and the format you want back. Write all four if you are running a small model on your own machine, the kind with a few billion parameters that fits on a laptop; its defaults come from a narrower range, and the structure is doing work the model will not do for you. On a current frontier model the task and context lines are usually enough on their own, and the rest is a checklist for your own thinking. Either way, the first answer is the draft. The pipeline is what decides whether it ships.
 
 ## The Series
 
@@ -96,12 +101,12 @@ flowchart TD
 
 Two ways in: start with *Conversation, Not Delegation* if you want the ideas before (or without) code, or start with *Think Python, Direct AI* if you want to code from your first page. The methodology in *Converse Python, Partner AI* enhances every path.
 
-- **Conversation, Not Delegation** — the general methodology for working with AI across any discipline. No code required; the broadest entry point.
-- **Think Python, Direct AI** — computational thinking for absolute beginners. The entry point if you want to code from the start.
-- **Converse Python, Partner AI** — the intentional prompting methodology applied to software development. A companion you can read alongside any Python book.
-- **Code Python, Consult AI** — focused Python fundamentals through AI conversation.
-- **Ship Python, Orchestrate AI** (this book) — professional Python development practices and tooling.
-- **Build Web, Guide AI** — web development with AI as your development partner.
+- **Conversation, Not Delegation**: the general methodology for working with AI across any discipline. No code required; the broadest entry point.
+- **Think Python, Direct AI**: computational thinking for absolute beginners. The entry point if you want to code from the start.
+- **Converse Python, Partner AI**: the intentional prompting methodology applied to software development. A companion you can read alongside any Python book.
+- **Code Python, Consult AI**: focused Python fundamentals through AI conversation.
+- **Ship Python, Orchestrate AI** (this book): professional Python development practices and tooling.
+- **Build Web, Guide AI**: web development with AI as your development partner.
 
 All titles are available at [books.borck.education](https://books.borck.education).
 

@@ -84,12 +84,12 @@ Throughout this book, we have built a professional Python development pipeline. 
 The critical insight is that AI works best when you understand what it produces. The pipeline practices in this book give you that understanding. Without knowing what a good `pyproject.toml` looks like, you cannot evaluate AI-generated configuration. Without understanding pytest fixtures, you cannot judge AI-generated tests. The fundamentals make AI useful rather than dangerous.
 
 ::: {.callout-important title="Orchestrate, Don't Delegate"}
-The title of this book is deliberate. *Orchestrate* AI means you direct the work, review the output, and make the decisions. AI generates code faster than you can type it — but you still need to know whether that code is correct, secure, and maintainable. The pipeline you have built is your quality gate. Everything AI produces passes through it: linted by Ruff, checked by mypy, tested by pytest, reviewed by you.
+The title of this book is deliberate. *Orchestrate* AI means you direct the work, review the output, and make the decisions. AI generates code faster than you can type it, but you still need to know whether that code is correct, secure, and maintainable. The pipeline you have built is your quality gate. Everything AI produces passes through it: linted by Ruff, checked by mypy, tested by pytest, reviewed by you.
 :::
 
 ## Beyond Tools: Engineering Culture
 
-The most important outcome isn't just using specific tools—it's developing habits and values that lead to better software:
+The most important outcome is not just using specific tools. It is developing habits and values that lead to better software:
 
 - **Think defensively**: Use tools that catch mistakes early
 - **Value maintainability**: Write code for humans, not just computers
@@ -168,7 +168,7 @@ Python's ecosystem continues to evolve. Maintain relevance by:
 
 ## Final Thoughts
 
-This book represents more than a collection of Python tools—it's a philosophy of development that prioritizes sustainability, maintainability, and developer happiness. The practices we've explored create a foundation that serves projects from first prototype to production scale.
+This book represents more than a collection of Python tools. It is a philosophy of development that prioritizes sustainability, maintainability, and developer happiness. The practices we've explored create a foundation that serves projects from first prototype to production scale.
 
 ### The Universal Principles Behind the Tools
 
@@ -198,7 +198,7 @@ Everything in this book builds that structure. A test suite gives an agent a way
 
 Without this infrastructure, an agent is generating code into a void. With it, an agent has guardrails, feedback loops, and a deployment path. The pipeline you have built is what turns AI from a code generator into a reliable development partner. That is what orchestration means.
 
-But notice what is *not* in that list. The pipeline is infrastructure; it can be templated, scaffolded, and increasingly run by an agent itself. As that happens, the pipeline commoditises — everyone gets the same competent setup. What does not commoditise is the judgement steering it: which test actually matters, which failure is a real bug and which is noise, when the agent's confident output is subtly wrong, and what is worth shipping at all. That judgement is built by understanding what the pipeline does and why, not by running it blindly. An agent can generate code into your repository. It cannot decide, on your behalf, what good looks like. For the full argument — why the variation only you bring is the durable edge — see *Conversation, Not Delegation*.
+But notice what is *not* in that list. The pipeline is infrastructure; it can be templated, scaffolded, and increasingly run by an agent itself. As that happens, the pipeline commoditises, so everyone gets the same competent setup. What does not commoditise is the judgement steering it: which test actually matters, which failure is a real bug and which is noise, when the agent's confident output is subtly wrong, and what is worth shipping at all. That judgement is built by understanding what the pipeline does and why, not by running it blindly. An agent can generate code into your repository. It cannot decide, on your behalf, what good looks like. For the full argument, and why the variation only you bring is the durable edge, see *Conversation, Not Delegation*.
 
 ### Starting Your Next Project
 
@@ -210,9 +210,31 @@ More importantly, you understand **why** these practices matter and **when** to 
 
 Remember that perfect is the enemy of good. Start with the basics, improve incrementally, and focus on delivering value through your code. The best development pipeline is one that you'll actually use consistently.
 
-The Python ecosystem will continue evolving—new tools will emerge, and current tools will improve—but the underlying principles of clear structure, automated quality, comprehensive testing, and thoughtful automation will remain valuable throughout your development career.
+The Python ecosystem will continue evolving, with new tools emerging and current tools improving, but the underlying principles of clear structure, automated quality, comprehensive testing, and thoughtful automation will remain valuable throughout your development career.
 
 We hope this guide helps you build software that not only works but is also maintainable, reliable, and enjoyable to develop. The investment you make in better development practices pays dividends for years to come.
 
 Happy coding, and may your development pipeline serve you well!
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up. They are the last the book asks, so pick a real project for them:
+
+1. Ask the AI to audit one of your actual repositories against the pipeline this book describes, then ask which missing piece it would add first. Then ask what that piece costs you *every week*, not once.
+2. Ask what your pipeline would let an agent do unsupervised, and what it would not catch. The second list is the one worth keeping on a wall.
+3. Ask what part of your work does not commoditise. Reject the first answer, which will be flattering, and the second, which will be generic.
+
+**Keywords to steer with.** the quality gate · orchestrate versus delegate · agent-ready infrastructure · guardrails and feedback loops · adoption sequence · incremental adoption · pain-point-driven complexity · maintenance cost · what does not commoditise · judgement
+
+**A starting prompt.**
+
+> **Role:** You are a staff engineer doing a one-hour audit of a repository you have never seen, and you only get to recommend three changes.
+>
+> **Task:** Ask me what you need to know about my project, then name the three changes you would make and, more importantly, everything you would deliberately leave alone.
+>
+> **Context:** I have finished a book on building a professional Python pipeline: structure, dependency locking, linting, testing, typing, documentation, CI, packaging and distribution. My project is [describe it honestly, including what it is missing and why]. Do not recommend the whole pipeline. Recommend what *this* project needs next.
+>
+> **Format:** Your questions first, one at a time. Then three changes ranked by payoff per hour of work, each with its ongoing maintenance cost. Then the list of things you would not add, with the reason each would be overhead rather than value.
+
+**How to check what comes back.** The recommendation is a hypothesis about your project, and the pipeline is how you test it. Apply the first change on a real branch and run the whole gate: `ruff`, `mypy`, `pytest`, the CI workflow. If the change made the gate slower without catching anything new, you have bought overhead, and the honest move is to say so and take it out again. That decision (what a practice is worth *in this project*, against what it costs you every week) is the one thing in this book that no agent can make on your behalf. It is also, as the last few pages argued, the part of your work that does not commoditise.
 

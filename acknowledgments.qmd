@@ -2,7 +2,7 @@
 
 This book started as a personal quest: find a sane Python development workflow that could target multiple platforms without drowning in complexity. The practices in these pages were tested on real projects before they were written up, and the ones that survived are the ones that actually worked under pressure.
 
-Students who used earlier versions of these workflows — in project templates, lab exercises, and assignment scaffolding — provided the practical feedback that separated good ideas from impractical ones. When a workflow looked elegant in documentation but caused confusion in practice, they said so.
+Students who used earlier versions of these workflows (in project templates, lab exercises, and assignment scaffolding) provided the practical feedback that separated good ideas from impractical ones. When a workflow looked elegant in documentation but caused confusion in practice, they said so.
 
 The Python community deserves particular credit. The developers behind uv, ruff, mypy, pytest, and the broader ecosystem of tools covered in this book have made professional Python development accessible in ways that were not possible even a few years ago. Their work is the foundation this book builds on.
 

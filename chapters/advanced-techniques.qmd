@@ -168,10 +168,10 @@ Consider containerization when you encounter:
 - **Deployment environment differences** from development
 - **Service integration challenges** (databases, message queues, etc.)
 
-Don't containerize simply because it's trendy — use it to solve specific reproducibility problems.
+Don't containerize simply because it's trendy. Use it to solve specific reproducibility problems.
 
 ::: {.callout-tip title="AI Tip: Dockerfile Generation"}
-Dockerfiles are perfect candidates for AI generation. Try: *"Write a multi-stage Dockerfile for a Python FastAPI application using uv for dependency management. The final image should be minimal."* AI handles the syntax and layer ordering well. But always review the base images it suggests (are they up to date? are they the slim variants?) and test the build — AI often gets volume mounts and port mappings wrong in docker-compose files.
+Dockerfiles are perfect candidates for AI generation. Try: *"Write a multi-stage Dockerfile for a Python FastAPI application using uv for dependency management. The final image should be minimal."* AI handles the syntax and layer ordering well. But always review the base images it suggests (are they up to date? are they the slim variants?) and test the build, because AI often gets volume mounts and port mappings wrong in docker-compose files.
 :::
 
 ## Scaling Your Development Process
@@ -534,5 +534,27 @@ The most important principle for advanced techniques: **they should enhance, not
 Advanced techniques are tools for solving specific problems, not goals in themselves. Focus on delivering value through your software while maintaining the solid development foundation you've established.
 
 ::: {.callout-tip title="AI Tip: Architecture Decisions"}
-When deciding whether to adopt an advanced technique, describe your situation to your AI assistant: *"My Flask app handles 50 requests per second and response times are around 200ms. Users are complaining about slow page loads. Should I add caching, switch to async, or look at the database queries first?"* AI can help you reason through trade-offs, but the decision is yours — AI does not know your team's capacity or your deployment constraints.
+When deciding whether to adopt an advanced technique, describe your situation to your AI assistant: *"My Flask app handles 50 requests per second and response times are around 200ms. Users are complaining about slow page loads. Should I add caching, switch to async, or look at the database queries first?"* AI can help you reason through trade-offs, but the decision is yours, because AI does not know your team's capacity or your deployment constraints.
 :::
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask the AI where your code is slow, then profile it and compare. Its guess and the profiler will disagree, which is this chapter's "measure first" argument arriving on your own machine rather than in a paragraph.
+2. Ask it to justify containerising your project. If the justification would apply equally to any project, you do not yet have a reason.
+3. Ask what your configuration does when an environment variable is missing. Silent defaults are how production incidents begin, and they are invisible until the day they are not.
+
+**Keywords to steer with.** profiling · `cProfile` · benchmark baseline · premature optimisation · multi-stage Docker build · development versus production containers · modular architecture · configuration precedence · environment variables · connection pooling · `pathlib` versus string paths · cross-platform testing
+
+**A starting prompt.**
+
+> **Role:** You are a performance engineer who does not accept an optimisation proposal without a measurement behind it.
+>
+> **Task:** I will describe code I believe is slow. Refuse to suggest any optimisation until you have told me how to measure it and what number would prove me wrong.
+>
+> **Context:** I have read a chapter arguing that you measure first and optimise second, and that most guesses about bottlenecks are wrong. The code does [describe it]. I think the slow part is [state your guess]. Do not agree with me to be agreeable.
+>
+> **Format:** The measurement first: what to profile, with which tool, and what to record. Then, only after I report a number back to you, up to three optimisations ranked by expected gain against implementation cost.
+
+**How to check what comes back.** Run the profiler *before* you read the suggestions. If you read them first you will find the bottleneck it predicted, because that is how attention works, and you will have confirmed a guess rather than measured a system. Record the baseline, apply exactly one change, and measure again. A change that does not move the number goes back out however sensible the reasoning was. If a suggestion made the code slower, say so in the commit message. That is the most useful thing anyone will read in six months.

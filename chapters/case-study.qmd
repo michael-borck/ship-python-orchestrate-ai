@@ -16,11 +16,11 @@ This project is ideal for our case study because:
 - It's small enough to understand quickly but complex enough to demonstrate real workflow practices
 - It includes both pure Python and compiled Cython components
 
-Let's see how we can develop this project using our Python development pipeline. Along the way, we will see how AI can accelerate each phase — from scaffolding the project structure to generating tests and documentation.
+Let's see how we can develop this project using our Python development pipeline. Along the way, we will see how AI can accelerate each phase, from scaffolding the project structure to generating tests and documentation.
 
 ::: {.callout-tip}
 ## Prefer Notebooks?
-If you develop primarily in Jupyter notebooks, see @sec-notebook-case-study for a parallel case study that builds TextKit using nbdev—same destination (published package), different workflow.
+If you develop primarily in Jupyter notebooks, see @sec-notebook-case-study for a parallel case study that builds TextKit using nbdev: same destination (a published package), different workflow.
 :::
 
 ## 1. Setting the Foundation
@@ -965,4 +965,26 @@ If we were to continue developing SimpleBot, potential next steps might include:
 Notice how AI could have accelerated every phase of this case study. You could ask AI to generate the initial project structure, draft the core module, write pytest tests, create the pyproject.toml configuration, generate GitHub Actions workflows, and draft the README. The pipeline you learned in earlier chapters gives you the knowledge to evaluate everything AI produces. Without that knowledge, you would accept AI output uncritically. With it, you orchestrate AI as a force multiplier.
 :::
 
-This case study demonstrates how following a structured Python development workflow leads to a high-quality, maintainable, and distributable package — even for relatively small projects.
+This case study demonstrates how following a structured Python development workflow leads to a high-quality, maintainable, and distributable package, even for relatively small projects.
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Build SimpleBot yourself first, then ask the AI to critique your version against the chapter's. Where the two differ, make it say which choice is better and why, rather than accepting that both are fine.
+2. Ask it to add one feature without breaking the existing tests. Then run the tests. Its prediction and the result diverge more often than the confident tone suggests.
+3. Ask what SimpleBot would need before you could hand it to a stranger. The gap between "it works" and "it ships" is what the whole book is about.
+
+**Keywords to steer with.** `src` package layout · `__init__.py` exports · console entry point · `pyproject.toml` dependencies · dev dependencies · test fixtures · CI workflow · release workflow · `pip install -e .` · `python -m build` · `twine check`
+
+**A starting prompt.**
+
+> **Role:** You are a maintainer reviewing a first-time contributor's package before it goes anywhere near PyPI.
+>
+> **Task:** Review the project I describe and list what a stranger would hit in the first ten minutes of trying to use it.
+>
+> **Context:** I have followed a chapter that builds a small package end to end, with tests, docs, CI and a release workflow. My project is [describe it, and paste your `pyproject.toml` and README]. Assume the reader has never seen it and will not read the source.
+>
+> **Format:** A numbered list of first-ten-minute failures, ordered by how likely each is. For each: what they would try, what would happen, and the smallest fix. End with the one thing that would stop you approving the release.
+
+**How to check what comes back.** Test the review rather than reading it. Build the package with `python -m build`, then create a fresh virtual environment somewhere outside the project directory and `pip install` the wheel rather than the source tree. Now run the quick-start from your own README verbatim, copying and pasting rather than typing from memory. Anything that only works from inside the project directory is a packaging bug, and it is invisible from the files alone, which is exactly why the AI could not have told you about it.

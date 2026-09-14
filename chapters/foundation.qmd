@@ -36,7 +36,7 @@ The `src` layout (placing your package inside a `src` directory rather than at t
 While simpler projects might skip this layout, adopting it early builds good habits and makes future growth easier.
 
 ::: {.callout-tip title="AI Tip: Scaffolding with AI"}
-Ask your AI assistant to generate a project structure tailored to your needs: *"I'm building a CLI tool that processes CSV files. Generate the directory structure and initial files for a Python project using the src layout, including tests and a pyproject.toml."* AI is excellent at generating boilerplate — the value you add is knowing whether the structure it suggests follows the conventions in this chapter.
+Ask your AI assistant to generate a project structure tailored to your needs: *"I'm building a CLI tool that processes CSV files. Generate the directory structure and initial files for a Python project using the src layout, including tests and a pyproject.toml."* AI is excellent at generating boilerplate; the value you add is knowing whether the structure it suggests follows the conventions in this chapter.
 :::
 
 ### Key Components Explained
@@ -45,7 +45,7 @@ Ask your AI assistant to generate a project structure tailored to your needs: *"
 - **tests/**: Keeps tests separate from implementation but adjacent in the repository.
 - **docs/**: Houses documentation, starting simple and growing as needed.
 - **.gitignore**: Tells Git which files to ignore (like virtual environments, cache files, etc.).
-- **README.md**: The first document anyone will see—provide clear instructions on installation and basic usage.
+- **README.md**: The first document anyone will see, so provide clear instructions on installation and basic usage.
 - **requirements.txt**: Lists your project's dependencies. We'll explore more advanced dependency management techniques in Part 2.
 - **pyproject.toml**: Configuration for development tools like Ruff and mypy, following modern standards.
 
@@ -106,7 +106,7 @@ Understanding whether you're building an **application** or a **package** influe
 | **Testing focus** | End-to-end workflows | Unit tests, edge cases |
 | **Configuration** | Settings files, env vars | Initialization parameters |
 
-**Most projects start as applications** and may later extract reusable components into packages. Our recommended structure accommodates both paths—you can begin with application-focused development and naturally evolve toward package-like modularity as your codebase matures.
+**Most projects start as applications** and may later extract reusable components into packages. Our recommended structure accommodates both paths, so you can begin with application-focused development and naturally evolve toward package-like modularity as your codebase matures.
 
 ::: {.callout-note}
 This chapter focuses on script-based projects, but notebooks (Jupyter, Colab) are also a legitimate way to ship Python work. For data scientists, educators, and researchers, a well-structured notebook with a sharing link *is* shipping. We cover notebooks, dashboards, and interactive tools in @sec-notebooks.
@@ -258,7 +258,7 @@ git push -u origin main
 4. **Use meaningful branch names**: Names like `feature/user-login` or `fix/validation-bug` explain the purpose
 
 ::: {.callout-tip title="AI Tip: Git and AI Work Well Together"}
-AI assistants can help you write commit messages, generate `.gitignore` files for specific frameworks, and explain Git commands you are unsure about. Try: *"I just added user authentication with Flask-Login. Write a commit message following conventional commit format."* But always review what AI generates — it does not know your project's commit history or conventions unless you provide them.
+AI assistants can help you write commit messages, generate `.gitignore` files for specific frameworks, and explain Git commands you are unsure about. Try: *"I just added user authentication with Flask-Login. Write a commit message following conventional commit format."* But always review what AI generates, because it does not know your project's commit history or conventions unless you provide them.
 :::
 
 Version control may seem like an overhead for very small projects, but establishing these habits early will pay dividends as your projects grow in size and complexity. It's much easier to start with good practices than to retrofit them later.
@@ -302,7 +302,7 @@ deactivate
 ```
 
 ::: {.callout-tip}
-Using `.venv` as the environment name (with the leading dot) makes it hidden in many file browsers, reducing clutter. Make sure `.venv/` is in your `.gitignore` file — you never want to commit this directory.
+Using `.venv` as the environment name (with the leading dot) makes it hidden in many file browsers, reducing clutter. Make sure `.venv/` is in your `.gitignore` file, because you never want to commit this directory.
 :::
 
 ### Basic Dependency Management
@@ -335,7 +335,7 @@ This approach works well for simple projects, especially when you're just gettin
 * It doesn't provide version locking for reproducible environments
 
 ::: {.callout-note title="Looking Ahead"}
-In Part 2, we'll explore more robust dependency management with tools like pip-tools and uv, which solve these limitations by creating proper "lock files" while maintaining a clean list of direct dependencies. We'll also see how these tools help ensure deterministic builds — a crucial feature as your projects grow in complexity.
+In Part 2, we'll explore more robust dependency management with tools like pip-tools and uv, which solve these limitations by creating proper "lock files" while maintaining a clean list of direct dependencies. We'll also see how these tools help ensure deterministic builds, a crucial feature as your projects grow in complexity.
 :::
 
 ### Practical Example: Setting Up a New Project
@@ -447,6 +447,28 @@ The GitHub template includes:
 
 This approach is ideal for quickly starting new projects when you don't want to install additional tools or when you're introducing others to Python best practices with minimal setup overhead.
 
-All these options—the simple script, the cookiecutter template—embody, and GitHub repository templates embody our philosophy of "Simple but not Simplistic." Choose the option that best fits your current needs and comfort level. As your projects grow in complexity, you can gradually adopt more sophisticated practices while maintaining the solid foundation established here.
+All these options (the simple script, the cookiecutter template, and the GitHub repository template) embody our philosophy of "Simple but not Simplistic." Choose the option that best fits your current needs and comfort level. As your projects grow in complexity, you can gradually adopt more sophisticated practices while maintaining the solid foundation established here.
 
-In Part 2, we'll build on this foundation by exploring robust dependency management, code quality tools, testing strategies, and type checking — the next layers in our Python development pipeline.
+In Part 2, we'll build on this foundation by exploring robust dependency management, code quality tools, testing strategies, and type checking: the next layers in our Python development pipeline.
+
+## Take it to the AI
+
+**Where to start.** Three questions worth arguing about rather than looking up:
+
+1. Ask the AI to scaffold a project for something you actually want to build, then ask it to justify every directory. The ones it cannot justify are cargo cult, and it will have included at least one.
+2. Ask whether your project is an application or a package, then ask what it would change if the answer were the other one. If nothing changes, one of you has not understood the distinction.
+3. Ask it to defend the flat layout over `src/`. There is a real case, and hearing it argued properly is how you find out whether you *chose* `src/` or just copied it.
+
+**Keywords to steer with.** src layout · flat layout · editable install · `pyproject.toml` · PEP 621 · entry points · `.gitignore` · virtual environment · `requirements.in` versus `requirements.txt` · application versus package · cookiecutter
+
+**A starting prompt.**
+
+> **Role:** You are a Python maintainer who has inherited a lot of badly structured repositories.
+>
+> **Task:** Scaffold a project for what I describe, then tell me which choices are conventional, which are your own preference, and which I could reasonably do differently.
+>
+> **Context:** I have read a chapter on the src layout, `pyproject.toml`, version control and the distinction between applications and packages. I am building [describe what it does, who runs it, and whether anyone will ever `pip install` it].
+>
+> **Format:** The directory tree, then a table: path | why it exists | convention, preference, or optional. End with the one decision you would revisit if the project grew tenfold.
+
+**How to check what comes back.** Do not accept the tree because it looks right on the page. Create it, then run `pip install -e .` and import your package from a shell opened somewhere else entirely. If that import fails, the layout or the `pyproject.toml` is wrong however tidy the diagram was, and this is precisely the failure the `src` layout exists to surface. Then delete one file the AI called essential and see what actually breaks. Boilerplate that nothing depends on is boilerplate you have just agreed to maintain for free.

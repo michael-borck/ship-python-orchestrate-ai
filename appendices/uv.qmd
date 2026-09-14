@@ -4,7 +4,7 @@
 
 `uv` is a modern, high-performance Python package installer and resolver written in Rust. Developed by Astral, it represents a significant evolution in Python tooling, designed to address the performance limitations of traditional Python package management tools while maintaining compatibility with the existing Python packaging ecosystem.
 
-Unlike older tools that are written in Python itself, uv's implementation in Rust gives it exceptional speed advantages—often 10-100x faster than traditional tools for common operations. This performance boost is particularly noticeable in larger projects with complex dependency graphs.
+Unlike older tools that are written in Python itself, uv's implementation in Rust gives it exceptional speed advantages, often 10-100x faster than traditional tools for common operations. This performance boost is particularly noticeable in larger projects with complex dependency graphs.
 
 ## Key Features and Benefits
 
@@ -338,4 +338,4 @@ uv represents an exciting advancement in Python tooling, offering significant pe
 
 While newer than some traditional tools, uv's compatibility with standard Python packaging conventions makes it a relatively low-risk adoption with potentially high rewards in terms of productivity and performance. As it continues to mature, uv is positioned to become an increasingly important part of the Python development ecosystem.
 
-For most projects, uv can be a drop-in replacement for pip and pip-tools, offering an immediate performance boost without requiring significant workflow changes—a rare combination of revolutionary performance with evolutionary adoption requirements.
+For most projects, uv can be a drop-in replacement for pip and pip-tools, offering an immediate performance boost without requiring significant workflow changes, a rare combination of revolutionary performance with evolutionary adoption requirements.
