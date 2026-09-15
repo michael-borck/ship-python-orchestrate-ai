@@ -80,9 +80,15 @@ While this book is primarily maintained by Michael Borck, suggestions and correc
 1. File an issue describing the problem or enhancement
 2. For minor corrections, feel free to submit a pull request
 
-## License
+## Licence
 
-This project uses a dual licensing approach:
+Book content is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0 International)](https://creativecommons.org/licenses/by/4.0/). Original code examples and accompanying software are licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+These grants cover material the author has authority to license. Separately credited third-party material retains its stated terms. Give appropriate credit, link the content licence and indicate changes; retain the MIT notice when reusing code.
+
+See [LICENSE](LICENSE), [LICENSE-CONTENT.md](LICENSE-CONTENT.md) and [LICENSE-CODE.md](LICENSE-CODE.md) for scope and full terms.
+
+
 
 - **Book Content**: Licensed under [Creative Commons Attribution 4.0 International License (CC BY 4.0)](LICENSE-CONTENT.md). You can freely share, adapt, and build upon the material for any purpose, even commercially, with attribution.
 
