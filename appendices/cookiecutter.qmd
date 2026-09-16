@@ -1,4 +1,4 @@
-# Cookiecutter Template
+# Cookiecutter Template {#sec-cookiecutter}
 
 This appendix introduces and explains the companion cookiecutter template for the Python Development Pipeline described in this book. The template allows you to quickly scaffold new Python projects that follow all the recommended practices, saving you time and ensuring consistency across your projects.
 

@@ -56,6 +56,8 @@ profile = "python -m cProfile -o profile.stats src/my_package/main.py"
 profile-view = "python -c 'import pstats; pstats.Stats(\"profile.stats\").sort_stats(\"cumulative\").print_stats(20)'"
 ```
 
+These are [Poe the Poet](https://github.com/nat-n/poethepoet) task definitions — a task runner that lives in `pyproject.toml` and is introduced properly in the next chapter. `pytest --benchmark-only` assumes the `pytest-benchmark` plugin, which provides the `benchmark` fixture used above; add it with `uv add --dev pytest-benchmark`.
+
 This approach integrates performance measurement into your existing development workflow rather than introducing entirely new tools.
 
 ### Performance optimisation Strategy

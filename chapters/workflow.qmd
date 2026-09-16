@@ -87,6 +87,10 @@ pip-sync requirements.txt
 
 `uv` is a newer, Rust-based tool that provides significant speed improvements while maintaining compatibility with existing Python packaging standards. It combines environment management, package installation, and dependency resolution in one tool.
 
+::: {.callout-note title="Two Ways to Drive uv"}
+uv has two interfaces, and this book uses both. The **pip interface** (`uv pip compile`, `uv pip sync`, `uv pip install`) mirrors pip-tools and works with the `requirements.in`/`.txt` files shown here. The **project interface** (`uv init`, `uv add`, `uv sync`, `uv run`, `uv build`) manages everything through a `pyproject.toml` and a `uv.lock` lockfile, and appears later in this book — in the Docker and CI examples and in the project-management chapter. Use the pip interface for requirements-file workflows like this one; prefer project mode once your project has a `pyproject.toml` with its dependencies declared.
+:::
+
 #### Getting Started with uv
 
 ```bash
@@ -367,7 +371,7 @@ To automatically apply these fixes before each commit, add this to your `.pre-co
 ```yaml
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.11
+    rev: v0.16.7
     hooks:
       - id: ruff
         args: [--fix]
@@ -1279,7 +1283,7 @@ Configure a pre-commit hook to run Bandit before commits:
 ```yaml
 # In .pre-commit-config.yaml
 - repo: https://github.com/PyCQA/bandit
-  rev: 1.7.5
+  rev: 1.9.4
   hooks:
     - id: bandit
       args: ["-r", "src"]
@@ -1452,7 +1456,7 @@ vulture src/ --exclude "test_*.py"
 
 Regularly checking for and removing dead code keeps your codebase lean and maintainable. It also provides insights into how your application has evolved and may highlight areas where design improvements could be made.
 
-With these additional security and code quality tools in place, your Python development workflow is now even more robust. Let's move on to Part 3, where we'll explore documentation and deployment options.
+With these additional security and code quality tools in place, your Python development workflow is now even more robust. Let's move on to the next chapter, where we'll explore documentation and deployment options.
 
 ## Take it to the AI
 

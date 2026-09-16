@@ -26,7 +26,7 @@ book:
     - chapters/project-management.qmd
     - chapters/distribution.qmd
     - chapters/notebooks.qmd
-    - chapters/notebook-case-study.ipynb
+    - chapters/notebook-case-study.qmd
     - chapters/conclusion.qmd
     - acknowledgments.qmd
     - about-author.qmd
@@ -52,10 +52,10 @@ book:
   other-links:
     - text: Download PDF
       icon: file-pdf
-      href: ship-python-orchestrate-ai.pdf
+      href: /ship-python-orchestrate-ai.pdf
     - text: Download EPUB
       icon: book
-      href: ship-python-orchestrate-ai.epub
+      href: /ship-python-orchestrate-ai.epub
     - text: Download llm.txt
       icon: robot
       href: llm.txt

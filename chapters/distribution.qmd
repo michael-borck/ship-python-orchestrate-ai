@@ -284,7 +284,7 @@ async def delete_item(item_id: int):
 """Pydantic models for API request/response validation."""
 
 from pydantic import BaseModel, Field
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 
 
@@ -310,7 +310,9 @@ class ItemUpdate(BaseModel):
 class Item(ItemBase):
     """Schema for item responses."""
     id: int
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(
+        default_factory=lambda: datetime.now(timezone.utc)
+    )
 
     class Config:
         from_attributes = True
@@ -536,8 +538,6 @@ CMD ["uv", "run", "uvicorn", "my_app.main:app", "--host", "0.0.0.0", "--port", "
 
 ```yaml
 # docker/docker-compose.yml
-version: '3.8'
-
 services:
   backend:
     build:

@@ -14,7 +14,6 @@ SimpleBot is an educational tool that makes it easy for students to interact wit
 This project is ideal for our case study because:
 - It solves a real problem (making LLMs accessible in educational settings)
 - It's small enough to understand quickly but complex enough to demonstrate real workflow practices
-- It includes both pure Python and compiled Cython components
 
 Let's see how we can develop this project using our Python development pipeline. Along the way, we will see how AI can accelerate each phase, from scaffolding the project structure to generating tests and documentation.
 
@@ -57,8 +56,11 @@ First, we initialize a Git repository and create a `.gitignore` file:
 ```bash
 # Initialize Git repository
 git init
+```
 
-# Create a file named README.md with the following contents:d .gitignore with the following contents:
+Create a file named `.gitignore` with the following contents:
+
+```text
 # Virtual environments
 .venv/
 venv/
@@ -75,10 +77,6 @@ dist/
 build/
 *.egg-info/
 
-# Cython generated files
-*.c
-*.so
-
 # Local development settings
 .env
 .vscode/
@@ -86,22 +84,27 @@ build/
 # Coverage reports
 htmlcov/
 .coverage
-EOF
+```
 
-# Initial commit
+Then commit it:
+
+```bash
 git add .gitignore
 git commit -m "Initial commit: Add .gitignore"
 ```
 
 ### Creating Essential Files
 
-Let's create the basic files:
+Now we create the project skeleton and the essential files:
 
 ```bash
 # Create the project structure
 mkdir -p src/simplebot tests docs
+```
 
-# Create a file name
+Create a file named `README.md` with the following contents:
+
+````markdown
 # SimpleBot
 
 > LLMs made simple for students and educators
@@ -110,13 +113,13 @@ SimpleBot is a lightweight Python wrapper that simplifies interactions with Larg
 
 ## Installation
 
-\`\`\`bash
+```bash
 pip install simplebot
-\`\`\`
+```
 
 ## Quick Start
 
-\`\`\`python
+```python
 from simplebot import get_response, pirate_bot
 
 # Basic usage
@@ -126,14 +129,16 @@ print(response)
 # Use a personality bot
 pirate_response = pirate_bot("Tell me about sailing ships")
 print(pirate_response)
-\`\`\`
+```
 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-EOF
+````
 
-# Create a file named LICENSE with the following contents:
+Create a file named `LICENSE` with the following contents:
+
+```text
 MIT License
 
 Copyright (c) 2025 SimpleBot Authors
@@ -155,8 +160,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-EOF
+```
 
+Commit both files:
+
+```bash
 git add README.md LICENSE
 git commit -m "Add README and LICENSE"
 ```
@@ -186,9 +194,9 @@ Let's start with the core module implementation:
 mkdir -p src/simplebot
 ```
 
-```bash
-# Create the package __init__.py
-# Create a file named src/simplebot/__init__.py with the following contents:
+Create a file named `src/simplebot/__init__.py` with the following contents:
+
+```python
 """SimpleBot - LLMs made simple for students and educators."""
 
 from .core import get_response
@@ -210,9 +218,11 @@ __all__ = [
     "emoji_bot",
     "coder_bot",
 ]
+```
 
-# Create the core module
-# Create a file named src/simplebot/core.py with the following contents:
+Create a file named `src/simplebot/core.py` with the following contents:
+
+```python
 """Core functionality for SimpleBot."""
 
 import requests
@@ -290,10 +300,11 @@ def get_response(
         return f"❌ Connection Error: {str(e)}"
     except Exception as e:
         return f"❌ Error: {str(e)}"
-EOF
+```
 
-# Create the personalities module
-# Create a file named src/simplebot/personalities.py with the following contents:
+Create a file named `src/simplebot/personalities.py` with the following contents:
+
+```python
 """Pre-defined personality bots for SimpleBot."""
 
 from .core import get_response
@@ -380,11 +391,11 @@ def coder_bot(prompt: str, model: Optional[str] = None) -> str:
     Generate a response from a coding assistant optimised for programming help.
 
     Args:
-        prompt: The user's input programming question or request
-        model: Optional model override (defaults to a coding-specific model)
+        prompt: The user's input text/question
+        model: Optional model override
 
     Returns:
-        A technical response focused on code-related assistance
+        A response focused on programming assistance
     """
     return get_response(
         prompt,
@@ -393,8 +404,11 @@ def coder_bot(prompt: str, model: Optional[str] = None) -> str:
                "readability, and proper error handling.",
         model=model or "codellama"
     )
-EOF
+```
 
+Commit the package code:
+
+```bash
 git add src/
 git commit -m "Add core SimpleBot functionality"
 ```
@@ -403,21 +417,13 @@ git commit -m "Add core SimpleBot functionality"
 
 Let's set up the package configuration in `pyproject.toml`:
 
-```bash
-# Create pyproject.toml directory
-```
-
 ::: {.callout-note title="Modern Packaging"}
 This case study uses the newer `pyproject.toml`-only approach for simplicity and to follow current best practices. Many existing Python projects still use `setup.py`, either alongside `pyproject.toml` or as their primary configuration. The `setup.py` approach remains valuable for packages with complex build requirements, custom build steps, or when supporting older tools and Python versions. For SimpleBot, our straightforward package requirements allow us to use the cleaner, declarative `pyproject.toml` approach.
 :::
 
-## Create a file named pyproject.toml with the following contents:
+Create a file named `pyproject.toml` with the following contents:
 
-
-Let's set up the package configuration in `pyproject.toml`:
-
-```bash
-# Create a file named pyproject.toml with the following contents:
+```toml
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
@@ -427,7 +433,7 @@ name = "simplebot"
 version = "0.1.0"
 description = "LLMs made simple for students and educators"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [
     {name = "SimpleBot Team", email = "example@example.com"}
@@ -464,7 +470,7 @@ line-length = 88
 "__init__.py" = ["F401"]
 
 [tool.mypy]
-python_version = "3.7"
+python_version = "3.10"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
@@ -476,16 +482,18 @@ disallow_untyped_defs = false
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-EOF
+```
 
-# Create requirements.in file
-# Create a file named requirements.in with the following contents:
+Create a file named `requirements.in` with the following contents:
+
+```text
 # Direct dependencies
 requests>=2.25.0
-EOF
+```
 
-# Create requirements-dev.in
-# Create a file named requirements-dev.in with the following contents:
+Create a file named `requirements-dev.in` with the following contents:
+
+```text
 # Development dependencies
 pytest>=7.0.0
 pytest-cov
@@ -493,25 +501,28 @@ ruff
 mypy
 build
 twine
-EOF
+```
 
+Commit the configuration:
+
+```bash
 git add pyproject.toml requirements*.in
 git commit -m "Add package configuration and dependency files"
 ```
 
-
-
 ## 4. Writing Tests
 
-Let's create some tests for our SimpleBot functionality:
+Let's create some tests for our SimpleBot functionality.
 
-```bash
-# Create test files
-# Create a file named tests/__init__.py with the following contents:
+Create a file named `tests/__init__.py` with the following contents:
+
+```python
 """SimpleBot test package."""
-EOF
+```
 
-# Create a file named tests/test_core.py with the following contents:
+Create a file named `tests/test_core.py` with the following contents:
+
+```python
 """Tests for the SimpleBot core module."""
 
 import pytest
@@ -552,9 +563,11 @@ def test_api_error(mock_post):
     # Assertions
     assert "Error" in result
     assert "Test error" in result
-EOF
+```
 
-# Create a file named tests/test_personalities.py with the following contents:
+Create a file named `tests/test_personalities.py` with the following contents:
+
+```python
 """Tests for the SimpleBot personalities module."""
 
 import pytest
@@ -589,13 +602,16 @@ def test_custom_model(mock_get_response):
     # Setup
     mock_get_response.return_value = "Custom model response"
 
-    # Call functions with custom model
+    # Call function with custom model
     shakespeare_bot("Test", model="custom-model")
 
     # Assertions
     assert mock_get_response.call_args[1]["model"] == "custom-model"
-EOF
+```
 
+Commit the tests:
+
+```bash
 git add tests/
 git commit -m "Add unit tests for SimpleBot"
 ```
@@ -627,9 +643,11 @@ Let's create basic documentation:
 ```bash
 # Create docs directory
 mkdir -p docs
+```
 
-# Create main documentation file
-# Create a file named docs/index.md with the following contents:
+Create a file named `docs/index.md` with the following contents:
+
+````markdown
 # SimpleBot Documentation
 
 > LLMs made simple for students and educators
@@ -638,25 +656,25 @@ SimpleBot is a lightweight Python wrapper that simplifies interactions with Larg
 
 ## Installation
 
-\`\`\`bash
+```bash
 pip install simplebot
-\`\`\`
+```
 
 ## Basic Usage
 
-\`\`\`python
+```python
 from simplebot import get_response
 
 # Basic usage with default model
 response = get_response("Tell me about planets")
 print(response)
-\`\`\`
+```
 
 ## Personality Bots
 
 SimpleBot comes with several pre-defined personality bots:
 
-\`\`\`python
+```python
 from simplebot import pirate_bot, shakespeare_bot, emoji_bot, teacher_bot, coder_bot
 
 # Get a response in pirate speak
@@ -678,13 +696,13 @@ print(teacher_response)
 # Get coding help
 code_response = coder_bot("Write a Python function to check if a string is a palindrome")
 print(code_response)
-\`\`\`
+```
 
 ## API Reference
 
 ### get_response()
 
-\`\`\`python
+```python
 def get_response(
     prompt: str,
     model: str = "llama3",
@@ -692,7 +710,7 @@ def get_response(
     stream: bool = False,
     api_url: Optional[str] = None,
 ) -> str:
-\`\`\`
+```
 
 The core function for sending prompts to an LLM and getting responses.
 
@@ -707,10 +725,11 @@ The core function for sending prompts to an LLM and getting responses.
 #### Returns:
 
 - A string containing the model's response or an error message
-EOF
+````
 
-# Create examples file
-# Create a file named docs/examples.md with the following contents:
+Create a file named `docs/examples.md` with the following contents:
+
+````markdown
 # SimpleBot Examples
 
 Here are some examples of using SimpleBot in educational settings.
@@ -719,7 +738,7 @@ Here are some examples of using SimpleBot in educational settings.
 
 You can create custom bot personalities:
 
-\`\`\`python
+```python
 from simplebot import get_response
 
 def scientist_bot(prompt):
@@ -733,11 +752,11 @@ def scientist_bot(prompt):
 
 result = scientist_bot("What happens during photosynthesis?")
 print(result)
-\`\`\`
+```
 
 ## Building a Simple Quiz System
 
-\`\`\`python
+```python
 from simplebot import teacher_bot
 
 quiz_questions = [
@@ -762,11 +781,11 @@ def generate_quiz():
 
 # Run the quiz
 generate_quiz()
-\`\`\`
+```
 
 ## Simulating a Conversation Between Bots
 
-\`\`\`python
+```python
 from simplebot import pirate_bot, shakespeare_bot
 
 def bot_conversation(topic, turns=3):
@@ -792,23 +811,28 @@ def bot_conversation(topic, turns=3):
 
 # Run a conversation about the ocean
 bot_conversation("the ocean", turns=4)
-\`\`\`
-EOF
+```
+````
 
+Commit the documentation:
+
+```bash
 git add docs/
 git commit -m "Add documentation"
 ```
 
 ## 7. Setup CI/CD with GitHub Actions
 
-Now let's set up continuous integration:
+Now let's set up continuous integration. First, create the workflows directory:
 
 ```bash
 # Create GitHub Actions workflow directory
 mkdir -p .github/workflows
+```
 
-# Create CI workflow file
-# Create a file named .github/workflows/ci.yml with the following contents:
+Create a file named `.github/workflows/ci.yml` with the following contents:
+
+```yaml
 name: Python CI
 
 on:
@@ -822,15 +846,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
+        python-version: ["3.10", "3.11", "3.12"]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
-    - name: Set up Python \${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
       with:
-        python-version: \${{ matrix.python-version }}
+        python-version: ${{ matrix.python-version }}
         cache: pip
 
     - name: Install dependencies
@@ -852,10 +876,11 @@ jobs:
 
     - name: Build package
       run: python -m build
-EOF
+```
 
-# Create release workflow
-# Create a file named .github/workflows/release.yml with the following contents:
+Create a file named `.github/workflows/release.yml` with the following contents:
+
+```yaml
 name: Publish to PyPI
 
 on:
@@ -866,12 +891,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
-        python-version: "3.10"
+        python-version: "3.12"
 
     - name: Install dependencies
       run: |
@@ -880,14 +905,17 @@ jobs:
 
     - name: Build and publish
       env:
-        TWINE_USERNAME: \${{ secrets.PYPI_USERNAME }}
-        TWINE_PASSWORD: \${{ secrets.PYPI_PASSWORD }}
+        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
         python -m build
         twine check dist/*
         twine upload dist/*
-EOF
+```
 
+Commit the workflows:
+
+```bash
 git add .github/
 git commit -m "Add CI/CD workflows"
 ```

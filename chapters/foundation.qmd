@@ -46,7 +46,7 @@ Ask your AI assistant to generate a project structure tailored to your needs: *"
 - **docs/**: Houses documentation, starting simple and growing as needed.
 - **.gitignore**: Tells Git which files to ignore (like virtual environments, cache files, etc.).
 - **README.md**: The first document anyone will see, so provide clear instructions on installation and basic usage.
-- **requirements.txt**: Lists your project's dependencies. We'll explore more advanced dependency management techniques in Part 2.
+- **requirements.txt**: Lists your project's dependencies. The next four chapters cover more advanced dependency management techniques.
 - **pyproject.toml**: Configuration for development tools like Ruff and mypy, following modern standards.
 
 ### Getting Started
@@ -69,7 +69,7 @@ touch tests/__init__.py
 touch tests/test_main.py
 
 # Create essential files
-echo "# My Project\nA short description of my project." > README.md
+printf '# My Project\n\nA short description of my project.\n' > README.md
 touch requirements.in
 touch pyproject.toml
 
@@ -292,7 +292,7 @@ python -m venv .venv
 source .venv/bin/activate
 
 # Your prompt should change to indicate the active environment
-(venv) $
+(.venv) $
 ```
 
 Once activated, any packages you install will be confined to this environment. When you're done working on the project, you can deactivate the environment:
@@ -328,14 +328,14 @@ echo "pytest" >> requirements.txt
 pip install -r requirements.txt
 ```
 
-This approach works well for simple projects, especially when you're just getting started. However, as we'll see in Part 2, there are limitations to this basic method:
+This approach works well for simple projects, especially when you're just getting started. However, as we'll see in the next chapter, there are limitations to this basic method:
 
 * It doesn't handle indirect dependencies (dependencies of your dependencies) automatically
 * It doesn't distinguish between your project's requirements and development tools
 * It doesn't provide version locking for reproducible environments
 
 ::: {.callout-note title="Looking Ahead"}
-In Part 2, we'll explore more robust dependency management with tools like pip-tools and uv, which solve these limitations by creating proper "lock files" while maintaining a clean list of direct dependencies. We'll also see how these tools help ensure deterministic builds, a crucial feature as your projects grow in complexity.
+In the next chapter, we'll explore more robust dependency management with tools like pip-tools and uv, which solve these limitations by creating proper "lock files" while maintaining a clean list of direct dependencies. We'll also see how these tools help ensure deterministic builds, a crucial feature as your projects grow in complexity.
 :::
 
 ### Practical Example: Setting Up a New Project
@@ -349,10 +349,10 @@ cd my_project
 
 # Initialize Git repository
 git init
-echo "*.pyc\n__pycache__/\n.venv/\n*.egg-info/" > .gitignore
+printf '*.pyc\n__pycache__/\n.venv/\n*.egg-info/\n' > .gitignore
 
 # Create basic files
-echo "# My Project\n\nA description of my project." > README.md
+printf '# My Project\n\nA description of my project.\n' > README.md
 touch src/my_package/__init__.py
 touch src/my_package/main.py
 touch tests/__init__.py
@@ -420,7 +420,7 @@ The cookiecutter template offers more customisation options and includes:
 - Advanced dependency management
 - Security scanning integration
 
-This approach is covered in detail in Appendix C and is recommended when you're ready to adopt more advanced practices or when working with larger teams.
+This approach is covered in detail in @sec-cookiecutter and is recommended when you're ready to adopt more advanced practices or when working with larger teams.
 
 ### GitHub Repository Templates (For No-Installation Simplicity)
 
@@ -449,7 +449,7 @@ This approach is ideal for quickly starting new projects when you don't want to 
 
 All these options (the simple script, the cookiecutter template, and the GitHub repository template) embody our philosophy of "Simple but not Simplistic." Choose the option that best fits your current needs and comfort level. As your projects grow in complexity, you can gradually adopt more sophisticated practices while maintaining the solid foundation established here.
 
-In Part 2, we'll build on this foundation by exploring robust dependency management, code quality tools, testing strategies, and type checking: the next layers in our Python development pipeline.
+In the next chapter, we'll build on this foundation by exploring robust dependency management, code quality tools, testing strategies, and type checking: the next layers in our Python development pipeline.
 
 ## Take it to the AI
 

@@ -267,9 +267,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
       - name: Install dependencies
@@ -463,10 +463,10 @@ jobs:
         python-version: ["3.8", "3.9", "3.10"]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
         cache: pip
@@ -493,7 +493,7 @@ jobs:
       run: pytest --cov=src/ --cov-report=xml
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
+      uses: codecov/codecov-action@v4
       with:
         file: ./coverage.xml
         fail_ci_if_error: true
@@ -514,7 +514,7 @@ To speed up your workflow, GitHub Actions provides caching capabilities:
 
 ```yaml
 - name: Set up Python ${{ matrix.python-version }}
-  uses: actions/setup-python@v4
+  uses: actions/setup-python@v5
   with:
     python-version: ${{ matrix.python-version }}
     cache: pip  # Enable pip caching
@@ -553,10 +553,10 @@ Add a job to build documentation with MkDocs:
 docs:
   runs-on: ubuntu-latest
   steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: "3.10"
 
@@ -570,7 +570,7 @@ docs:
 
     - name: Deploy to GitHub Pages
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./site
@@ -589,10 +589,10 @@ publish:
   # Only publish on tagged releases
   if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
   steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: "3.10"
 
@@ -704,10 +704,10 @@ jobs:
     name: Code Quality
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
           cache: pip
@@ -747,10 +747,10 @@ jobs:
             python-version: "3.10"
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
@@ -764,7 +764,7 @@ jobs:
         run: pytest --cov=src/ --cov-report=xml
 
       - name: Upload coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           file: ./coverage.xml
 
@@ -773,10 +773,10 @@ jobs:
     needs: quality
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
@@ -790,7 +790,7 @@ jobs:
 
       - name: Deploy docs
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
@@ -801,10 +801,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
@@ -826,7 +826,7 @@ jobs:
           password: ${{ secrets.PYPI_API_TOKEN }}
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: dist/*
           generate_release_notes: true
@@ -943,6 +943,10 @@ This configuration:
 - Sets up entry points for command-line scripts
 - Specifies the package location (src layout)
 
+::: {.callout-note title="Licence Field Formats"}
+The listing uses the long-standing table form, `license = {text = "MIT"}`, which works with any setuptools from 61.0. Newer setuptools (77+) also accept the PEP 639 SPDX string form, `license = "MIT"`, which is where the ecosystem is heading. Either is fine today; pick one and be consistent.
+:::
+
 #### 3. Include Essential Files
 
 Ensure you have these files:
@@ -1038,9 +1042,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
     - name: Install dependencies
