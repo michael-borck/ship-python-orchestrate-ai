@@ -16,7 +16,7 @@ While `pip freeze` is convenient, it has several drawbacks:
 
 4. **No explicit dependency specification**: You can't easily specify version ranges (e.g., "I need any Django 4.x version") or extras.
 
-Let's explore two powerful solutions: `pip-tools` and `uv`.
+Two solutions are `pip-tools` and `uv`.
 
 ### Solution 1: pip-tools
 
@@ -88,7 +88,7 @@ pip-sync requirements.txt
 `uv` is a newer, Rust-based tool that provides significant speed improvements while maintaining compatibility with existing Python packaging standards. It combines environment management, package installation, and dependency resolution in one tool.
 
 ::: {.callout-note title="Two Ways to Drive uv"}
-uv has two interfaces, and this book uses both. The **pip interface** (`uv pip compile`, `uv pip sync`, `uv pip install`) mirrors pip-tools and works with the `requirements.in`/`.txt` files shown here. The **project interface** (`uv init`, `uv add`, `uv sync`, `uv run`, `uv build`) manages everything through a `pyproject.toml` and a `uv.lock` lockfile, and appears later in this book — in the Docker and CI examples and in the project-management chapter. Use the pip interface for requirements-file workflows like this one; prefer project mode once your project has a `pyproject.toml` with its dependencies declared.
+uv has two interfaces, and this book uses both. The **pip interface** (`uv pip compile`, `uv pip sync`, `uv pip install`) mirrors pip-tools and works with the `requirements.in`/`.txt` files shown here. The **project interface** (`uv init`, `uv add`, `uv sync`, `uv run`, `uv build`) manages everything through a `pyproject.toml` and a `uv.lock` lockfile, and appears later in this book, in the Docker and CI examples and in the project-management chapter. Use the pip interface for requirements-file workflows like this one; prefer project mode once your project has a `pyproject.toml` with its dependencies declared.
 :::
 
 #### Getting Started with uv
@@ -197,7 +197,7 @@ Traditionally, Python developers used multiple specialized tools:
 - **Flake8** for linting (style checks)
 - **Pylint** for deeper static analysis
 
-While effective, maintaining configuration for all these tools was cumbersome. Enter Ruff – a modern, Rust-based tool that combines formatting and linting in one incredibly fast package.
+While effective, maintaining configuration for all these tools was cumbersome. Enter Ruff: a modern, Rust-based tool that combines formatting and linting in one incredibly fast package.
 
 ### Why Ruff?
 
@@ -511,7 +511,7 @@ By incorporating Ruff into your workflow, you'll catch many common errors before
 
 ## Automated Testing with pytest
 
-Testing is a crucial aspect of software development that ensures your code works as intended and continues to work as you make changes. Python's testing ecosystem offers numerous frameworks, but pytest has emerged as the most popular and powerful choice for most projects.
+Testing checks that your code works as intended and keeps working as you make changes. Python's testing ecosystem offers numerous frameworks, but pytest has emerged as the most popular choice for most projects.
 
 ### Why Testing Matters
 
@@ -1312,11 +1312,11 @@ import pickle  # nosec
 # Or configure globally in pyproject.toml
 ```
 
-By incorporating security scanning with Bandit, you add an essential layer of protection against common security vulnerabilities, helping to ensure that your code is not just functional but also secure.
+By incorporating security scanning with Bandit, you add an essential layer of protection against common security vulnerabilities, helping to keep your code secure as well as functional.
 
 ## Finding Dead Code with Vulture
 
-As projects evolve, code can become obsolete but remain in the codebase, creating maintenance burdens and confusion. Vulture is a static analysis tool that identifies unused code – functions, classes, and variables that are defined but never used.
+As projects evolve, code can become obsolete but remain in the codebase, creating maintenance burdens and confusion. Vulture is a static analysis tool that identifies unused code: functions, classes, and variables that are defined but never used.
 
 ### The Problem of Dead Code
 

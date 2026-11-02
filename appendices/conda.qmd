@@ -13,7 +13,7 @@ Conda is particularly well-suited for:
 - **Data science projects** requiring scientific packages (NumPy, pandas, scikit-learn, etc.)
 - **Research environments** with mixed-language requirements (Python, R, C/C++ libraries)
 - **Projects with complex binary dependencies** that are difficult to compile
-- **Cross-platform development** where consistent environments across operating systems are crucial
+- **Cross-platform development** where consistent environments across operating systems are needed
 - **GPU-accelerated computing** requiring specific CUDA versions
 - **Bioinformatics, computational physics, and other specialized scientific domains**
 

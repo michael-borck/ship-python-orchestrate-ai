@@ -30,7 +30,7 @@ All from a single codebase, with automated builds through GitHub Actions.
 
 ## Why FastAPI + React?
 
-This isn't about which technologies are theoretically "best." It is about which combination is most practical for AI-assisted development in 2025 and beyond.
+Which combination is most practical for AI-assisted development in 2025 and beyond matters more here than which technologies are theoretically "best."
 
 ### Training Data Density
 
@@ -166,7 +166,7 @@ A key practice for AI-assisted development is maintaining a `CLAUDE.md` file (or
 - Single Docker container for deployment (backend serves frontend static files)
 ```
 
-This file serves as a "briefing document" for AI assistants, reducing the need to repeatedly explain project context.
+This file is a "briefing document" for AI assistants, reducing the need to repeatedly explain project context.
 
 ## Building the Backend: FastAPI
 

@@ -2,7 +2,7 @@
 
 ::: {.callout-note}
 ## Chapter Overview
-This case study parallels @sec-case-study (SimpleBot), but follows a notebook-first workflow. We'll build TextKit—a text analysis library—entirely in Jupyter notebooks, then ship it as a published Python package using nbdev.
+This case study parallels @sec-case-study (SimpleBot), but follows a notebook-first workflow. We'll build TextKit, a text analysis library, entirely in Jupyter notebooks, then ship it as a published Python package using nbdev.
 :::
 
 ## Project Overview
@@ -21,7 +21,7 @@ This project is ideal for our notebook case study because:
 - **Real utility**: Functions you'd actually use in data analysis
 - **Right size**: Small enough to complete, complex enough to demonstrate the workflow
 
-By the end of this chapter, you'll have a package published to PyPI—built entirely from notebooks.
+By the end of this chapter, you'll have a package published to PyPI, built entirely from notebooks.
 
 ## Why nbdev for This Project?
 
@@ -284,7 +284,7 @@ samples = {
 visualize_readability(samples)
 ```
 
-This visualization appears in your generated documentation—showing users what the library can do.
+This visualization appears in your generated documentation, showing users what the library can do.
 
 ## 6. Building the Text Analyzer Class
 
@@ -343,7 +343,7 @@ class TextAnalyzer:
 
 ## 7. Adding an Interactive Widget
 
-End with something users can interact with—demonstrating the notebook as an application:
+End with something users can interact with, demonstrating the notebook as an application:
 
 ```python
 # Interactive demo (not exported - for notebook/docs only)
@@ -410,7 +410,7 @@ nbdev_prepare
 
 ### The Generated Code
 
-Look at `textkit/core.py`—it contains clean Python code generated from your notebooks, with proper imports and structure.
+Look at `textkit/core.py`: it contains clean Python code generated from your notebooks, with proper imports and structure.
 
 ## 9. Documentation
 
@@ -482,7 +482,7 @@ twine upload dist/*
 pip install textkit
 ```
 
-You've shipped a Python package—developed entirely in notebooks.
+You've shipped a Python package developed entirely in notebooks.
 
 ## 11. Sharing the Notebook Itself
 

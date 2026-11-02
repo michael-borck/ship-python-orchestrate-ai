@@ -89,7 +89,7 @@ The title of this book is deliberate. *Orchestrate* AI means you direct the work
 
 ## Beyond Tools: Engineering Culture
 
-The most important outcome is not just using specific tools. It is developing habits and values that lead to better software:
+The most important outcome is developing habits and values that lead to better software, beyond using specific tools:
 
 - **Think defensively**: Use tools that catch mistakes early
 - **Value maintainability**: Write code for humans, not just computers
@@ -212,7 +212,7 @@ Remember that perfect is the enemy of good. Start with the basics, improve incre
 
 The Python ecosystem will continue evolving, with new tools emerging and current tools improving, but the underlying principles of clear structure, automated quality, comprehensive testing, and thoughtful automation will remain valuable throughout your development career.
 
-We hope this guide helps you build software that not only works but is also maintainable, reliable, and enjoyable to develop. The investment you make in better development practices pays dividends for years to come.
+We hope this guide helps you build software that works and is maintainable, reliable, and enjoyable to develop. Better development practices pay off over the life of a project.
 
 Happy coding, and may your development pipeline serve you well!
 

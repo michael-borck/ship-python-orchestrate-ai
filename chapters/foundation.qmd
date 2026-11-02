@@ -340,7 +340,7 @@ In the next chapter, we'll explore more robust dependency management with tools 
 
 ### Practical Example: Setting Up a New Project
 
-Let's combine what we've learned so far with a practical example. Here's how to set up a new project with good practices:
+Here's how to set up a new project with good practices:
 
 ```bash
 # Create project structure

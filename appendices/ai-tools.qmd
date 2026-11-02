@@ -245,7 +245,7 @@ As you integrate AI tools into your Python development workflow, consider these 
 
 4. **Understanding Project-Specific Context**
    - AI lacks full understanding of your project architecture and requirements
-   - Generated code may not align with your established patterns or constraints
+   - Generated code may not fit your established patterns or constraints
    - Always review for compatibility with your broader codebase
 
 5. **Time-Sensitive Information**

@@ -1,0 +1,13 @@
+version: 1
+style: editorial-c
+art: cover-art.png
+family: PROGRAMMING / PYTHON 03
+accent: '#4C527F'
+background: '#E4E5F0'
+title_lines:
+- Ship Python,
+- Orchestrate AI
+dark: false
+pixel: false
+scene: pipeline
+art_origin: Locally constructed editable vector illustration.

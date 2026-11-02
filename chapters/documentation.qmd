@@ -2,7 +2,7 @@
 
 ## Documentation Options: From pydoc to MkDocs
 
-Documentation is often neglected in software development, yet it's crucial for ensuring others (including your future self) can understand and use your code effectively. Python offers a spectrum of documentation options, from simple built-in tools to sophisticated documentation generators.
+Documentation is often neglected in software development, yet others (including your future self) need it to understand and use your code effectively. Python offers a spectrum of documentation options, from simple built-in tools to sophisticated documentation generators.
 
 ### Starting Simple with Docstrings
 
@@ -414,7 +414,7 @@ In the next section, we'll explore how to automate your workflow with CI/CD usin
 
 ## CI/CD Workflows with GitHub Actions
 
-Continuous Integration (CI) and Continuous Deployment (CD) automate the process of testing, building, and deploying your code, ensuring quality and consistency throughout the development lifecycle. GitHub Actions provides a powerful and flexible way to implement CI/CD workflows directly within your GitHub repository.
+Continuous Integration (CI) and Continuous Deployment (CD) automate testing, building, and deploying your code. GitHub Actions provides a flexible way to implement CI/CD workflows directly within your GitHub repository.
 
 ### Understanding CI/CD Basics
 
@@ -1187,7 +1187,7 @@ include src/my_package/data/*.json
 include src/my_package/templates/*.html
 ```
 
-By following these practices, you'll create a professional, well-maintained package that others can easily discover, install, and use. Publishing your work to PyPI is not just about sharing code. It is about participating in the Python ecosystem and contributing back to the community.
+By following these practices, you'll create a professional, well-maintained package that others can easily discover, install, and use. Publishing your work to PyPI shares your code, and it also means participating in the Python ecosystem and contributing back to the community.
 
 
 ### Modern vs. Traditional Python Packaging

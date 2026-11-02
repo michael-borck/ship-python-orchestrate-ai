@@ -15,7 +15,7 @@ This project is ideal for our case study because:
 - It solves a real problem (making LLMs accessible in educational settings)
 - It's small enough to understand quickly but complex enough to demonstrate real workflow practices
 
-Let's see how we can develop this project using our Python development pipeline. Along the way, we will see how AI can accelerate each phase, from scaffolding the project structure to generating tests and documentation.
+Along the way, we will see how AI can accelerate each phase, from scaffolding the project structure to generating tests and documentation.
 
 ::: {.callout-tip}
 ## Prefer Notebooks?

@@ -183,7 +183,7 @@ params:
 
 ### Streamlit (Notebook-Adjacent)
 
-Not notebooks, but similar rapid-development workflow:
+Streamlit offers a similar rapid-development workflow without notebooks:
 
 ```python
 # app.py

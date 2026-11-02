@@ -489,7 +489,7 @@ Poetry is particularly well-suited for:
 
 1. **Library Development**: Its packaging and publishing tools shine for creating distributable packages
 2. **Team Projects**: The lock file ensures consistent environments across team members
-3. **Projects with Complex Dependencies**: The resolver helps manage intricate dependency requirements
+3. **Projects with Complex Dependencies**: The resolver helps manage complex dependency requirements
 4. **Developers Wanting an All-in-One Solution**: The unified interface simplifies the development workflow
 
 Poetry might not be ideal for:
@@ -500,6 +500,6 @@ Poetry might not be ideal for:
 
 ## Conclusion
 
-Poetry represents a significant evolution in Python package management, offering a more integrated and user-friendly approach to dependencies, environments, and packaging. Its focus on deterministic builds through the lock file mechanism and simplified workflow commands addresses many pain points in traditional Python development.
+Poetry is a significant evolution in Python package management, offering a more integrated and user-friendly approach to dependencies, environments, and packaging. Its focus on deterministic builds through the lock file mechanism and simplified workflow commands addresses many pain points in traditional Python development.
 
 While Poetry introduces its own conventions and may require adaptation for teams used to traditional tools, the benefits in terms of reproducibility and developer experience make it worth considering for both new and existing Python projects. As the tool continues to mature and the ecosystem around it grows, Poetry is establishing itself as a standard part of the modern Python development toolkit.
