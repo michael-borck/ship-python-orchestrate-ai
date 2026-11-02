@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -77,14 +80,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-23bbe8b5e4efc1e257f6d59dce478b08.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-5c1318cf63eba56dbef7ba16bc7d56f5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-6453f418aeef366c23116eb9cb0b6816.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-5c1318cf63eba56dbef7ba16bc7d56f5.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d05bf2c3428979ef9cb136ebd9d2bc87.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-512512a359692b6a4a631bfed0d4ecc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-d05bf2c3428979ef9cb136ebd9d2bc87.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-a0c208db2eb124d1f96df216fe31c4f9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-67bea543f22db4742c43a9439edb3419.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-a0c208db2eb124d1f96df216fe31c4f9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -115,6 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -498,7 +502,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
     </ul>
     </div>
-</nav>
+<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
+<p>Paperback ISBN 979-8-255-16785-2</p>
+</div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -578,8 +584,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#best-practices-for-dead-code-removal" id="toc-best-practices-for-dead-code-removal" class="nav-link" data-scroll-target="#best-practices-for-dead-code-removal"><span class="header-section-number">2.6.6</span> Best Practices for Dead Code Removal</a></li>
   <li><a href="#when-to-run-vulture" id="toc-when-to-run-vulture" class="nav-link" data-scroll-target="#when-to-run-vulture"><span class="header-section-number">2.6.7</span> When to Run Vulture</a></li>
   </ul></li>
+  <li><a href="#take-it-to-the-ai" id="toc-take-it-to-the-ai" class="nav-link" data-scroll-target="#take-it-to-the-ai"><span class="header-section-number">2.7</span> Take it to the AI</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/chapters/workflow.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://github.com/michael-borck/ship-python-template/blob/main/scripts/scaffold_python_project.sh"><i class="bi bi-terminal"></i>Scaffold Script</a></li><li><a href="https://github.com/michael-borck/simplebot"><i class="bi bi-robot"></i>SimpleBot Case Study</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/chapters/workflow.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://github.com/michael-borck/ship-python-template/blob/main/scripts/scaffold_python_project.sh"><i class="bi bi-terminal"></i>Scaffold Script</a></li><li><a href="https://github.com/michael-borck/simplebot"><i class="bi bi-robot"></i>SimpleBot Case Study</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -616,7 +623,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>No environment synchronization</strong>: Installing from a requirements.txt file adds packages but doesn’t remove packages that are no longer needed.</p></li>
 <li><p><strong>No explicit dependency specification</strong>: You can’t easily specify version ranges (e.g., “I need any Django 4.x version”) or extras.</p></li>
 </ol>
-<p>Let’s explore two powerful solutions: <code>pip-tools</code> and <code>uv</code>.</p>
+<p>Two solutions are <code>pip-tools</code> and <code>uv</code>.</p>
 </section>
 <section id="solution-1-pip-tools" class="level3" data-number="2.1.2">
 <h3 data-number="2.1.2" class="anchored" data-anchor-id="solution-1-pip-tools"><span class="header-section-number">2.1.2</span> Solution 1: pip-tools</h3>
@@ -678,6 +685,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="solution-2-uv" class="level3" data-number="2.1.3">
 <h3 data-number="2.1.3" class="anchored" data-anchor-id="solution-2-uv"><span class="header-section-number">2.1.3</span> Solution 2: uv</h3>
 <p><code>uv</code> is a newer, Rust-based tool that provides significant speed improvements while maintaining compatibility with existing Python packaging standards. It combines environment management, package installation, and dependency resolution in one tool.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Two Ways to Drive uv">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Two Ways to Drive uv
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>uv has two interfaces, and this book uses both. The <strong>pip interface</strong> (<code>uv pip compile</code>, <code>uv pip sync</code>, <code>uv pip install</code>) mirrors pip-tools and works with the <code>requirements.in</code>/<code>.txt</code> files shown here. The <strong>project interface</strong> (<code>uv init</code>, <code>uv add</code>, <code>uv sync</code>, <code>uv run</code>, <code>uv build</code>) manages everything through a <code>pyproject.toml</code> and a <code>uv.lock</code> lockfile, and appears later in this book, in the Docker and CI examples and in the project-management chapter. Use the pip interface for requirements-file workflows like this one; prefer project mode once your project has a <code>pyproject.toml</code> with its dependencies declared.</p>
+</div>
+</div>
 <section id="getting-started-with-uv" class="level4" data-number="2.1.3.1">
 <h4 data-number="2.1.3.1" class="anchored" data-anchor-id="getting-started-with-uv"><span class="header-section-number">2.1.3.1</span> Getting Started with uv</h4>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install uv (globally with pipx or in your current environment)</span></span>
@@ -799,7 +819,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>When choosing between packages that serve similar purposes, ask your AI assistant for a comparison: <em>“Compare requests vs httpx for making HTTP calls in a Python 3.11 project. I need async support and type hints.”</em> AI can surface trade-offs quickly, but verify its claims about package popularity and maintenance status — check PyPI download stats and GitHub activity yourself.</p>
+<p>When choosing between packages that serve similar purposes, ask your AI assistant for a comparison: <em>“Compare requests vs httpx for making HTTP calls in a Python 3.11 project. I need async support and type hints.”</em> AI can surface trade-offs quickly, but verify its claims about package popularity and maintenance status, so check PyPI download stats and GitHub activity yourself.</p>
 </div>
 </div>
 <p>In the next section, we’ll explore how to maintain code quality through automated formatting and linting with Ruff, taking your workflow to the next professional level.</p>
@@ -817,7 +837,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Flake8</strong> for linting (style checks)</li>
 <li><strong>Pylint</strong> for deeper static analysis</li>
 </ul>
-<p>While effective, maintaining configuration for all these tools was cumbersome. Enter Ruff – a modern, Rust-based tool that combines formatting and linting in one incredibly fast package.</p>
+<p>While effective, maintaining configuration for all these tools was cumbersome. Enter Ruff: a modern, Rust-based tool that combines formatting and linting in one incredibly fast package.</p>
 </section>
 <section id="why-ruff" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="why-ruff"><span class="header-section-number">2.2.2</span> Why Ruff?</h3>
@@ -935,7 +955,7 @@ example.py:15:5: F841 Local variable `unused_var` is assigned to but never used<
 <p>To automatically apply these fixes before each commit, add this to your <code>.pre-commit-config.yaml</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">repos</span><span class="kw">:</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">repo</span><span class="kw">:</span><span class="at"> https://github.com/astral-sh/ruff-pre-commit</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">rev</span><span class="kw">:</span><span class="at"> v0.1.11</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">rev</span><span class="kw">:</span><span class="at"> v0.16.7</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">hooks</span><span class="kw">:</span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">id</span><span class="kw">:</span><span class="at"> ruff</span></span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">args</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">--fix</span><span class="kw">]</span></span>
@@ -1065,7 +1085,7 @@ example.py:15:5: F841 Local variable `unused_var` is assigned to but never used<
 </section>
 <section id="automated-testing-with-pytest" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="automated-testing-with-pytest"><span class="header-section-number">2.3</span> Automated Testing with pytest</h2>
-<p>Testing is a crucial aspect of software development that ensures your code works as intended and continues to work as you make changes. Python’s testing ecosystem offers numerous frameworks, but pytest has emerged as the most popular and powerful choice for most projects.</p>
+<p>Testing checks that your code works as intended and keeps working as you make changes. Python’s testing ecosystem offers numerous frameworks, but pytest has emerged as the most popular choice for most projects.</p>
 <section id="why-testing-matters" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="why-testing-matters"><span class="header-section-number">2.3.1</span> Why Testing Matters</h3>
 <p>Automated tests provide several key benefits:</p>
@@ -1336,7 +1356,7 @@ TOTAL                               56     17    70%</code></pre>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>AI excels at generating test cases, especially edge cases you might miss. Try: <em>“Write pytest tests for this function, including edge cases for empty input, None values, and boundary conditions.”</em> Then paste your function. The key is reviewing what AI generates — it often writes tests that pass trivially or miss the actual business logic. Use AI-generated tests as a starting point, not a finished product.</p>
+<p>AI excels at generating test cases, especially edge cases you might miss. Try: <em>“Write pytest tests for this function, including edge cases for empty input, None values, and boundary conditions.”</em> Then paste your function. The key is reviewing what AI generates, because it often writes tests that pass trivially or miss the actual business logic. Use AI-generated tests as a starting point, not a finished product.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1349,7 +1369,7 @@ TOTAL                               56     17    70%</code></pre>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>When your project has a web frontend or a desktop interface (such as an Electron app), consider adding end-to-end tests using <a href="https://playwright.dev/python/">Playwright</a>. Playwright lets you automate real browser interactions—clicking buttons, filling forms, verifying that pages render correctly—giving you confidence that your application works as users will actually experience it.</p>
+<p>When your project has a web frontend or a desktop interface (such as an Electron app), consider adding end-to-end tests using <a href="https://playwright.dev/python/">Playwright</a>. Playwright lets you automate real browser interactions (clicking buttons, filling forms, verifying that pages render correctly) giving you confidence that your application works as users will actually experience it.</p>
 <p>We cover Playwright in detail in the <a href="../chapters/distribution.html">Multi-Platform Distribution</a> chapter, where we show how to test web deployments, PWAs, and Electron desktop applications.</p>
 </div>
 </div>
@@ -1374,7 +1394,7 @@ TOTAL                               56     17    70%</code></pre>
 <p>Python 3.5+ supports type hints, which are annotations indicating what types of values functions expect and return:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greeting(name: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"Hello, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>These annotations don’t change how Python runs—they’re ignored by the interpreter at runtime. However, tools like mypy can analyse them statically to catch potential type errors.</p>
+<p>These annotations do not change how Python runs; they are ignored by the interpreter at runtime. However, tools like mypy can analyse them statically to catch potential type errors.</p>
 </section>
 <section id="getting-started-with-mypy" class="level3" data-number="2.4.2">
 <h3 data-number="2.4.2" class="anchored" data-anchor-id="getting-started-with-mypy"><span class="header-section-number">2.4.2</span> Getting Started with mypy</h3>
@@ -1434,7 +1454,7 @@ TOTAL                               56     17    70%</code></pre>
 </section>
 <section id="gradual-typing" class="level3" data-number="2.4.4">
 <h3 data-number="2.4.4" class="anchored" data-anchor-id="gradual-typing"><span class="header-section-number">2.4.4</span> Gradual Typing</h3>
-<p>One major advantage of Python’s type system is gradual typing—you can add types incrementally:</p>
+<p>One major advantage of Python’s type system is gradual typing, so you can add types incrementally:</p>
 <ol type="1">
 <li>Start with critical or error-prone modules</li>
 <li>Add types to public interfaces first</li>
@@ -1728,7 +1748,7 @@ TOTAL                               56     17    70%</code></pre>
 <p>Configure a pre-commit hook to run Bandit before commits:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb68"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In .pre-commit-config.yaml</span></span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">repo</span><span class="kw">:</span><span class="at"> https://github.com/PyCQA/bandit</span></span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">rev</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.7.5</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">rev</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.9.4</span></span>
 <span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">hooks</span><span class="kw">:</span></span>
 <span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">id</span><span class="kw">:</span><span class="at"> bandit</span></span>
 <span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">args</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"-r"</span><span class="kw">,</span><span class="at"> </span><span class="st">"src"</span><span class="kw">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1754,12 +1774,12 @@ TOTAL                               56     17    70%</code></pre>
 <span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="co"># nosec</span></span>
 <span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Or configure globally in pyproject.toml</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>By incorporating security scanning with Bandit, you add an essential layer of protection against common security vulnerabilities, helping to ensure that your code is not just functional but also secure.</p>
+<p>By incorporating security scanning with Bandit, you add an essential layer of protection against common security vulnerabilities, helping to keep your code secure as well as functional.</p>
 </section>
 </section>
 <section id="finding-dead-code-with-vulture" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="finding-dead-code-with-vulture"><span class="header-section-number">2.6</span> Finding Dead Code with Vulture</h2>
-<p>As projects evolve, code can become obsolete but remain in the codebase, creating maintenance burdens and confusion. Vulture is a static analysis tool that identifies unused code – functions, classes, and variables that are defined but never used.</p>
+<p>As projects evolve, code can become obsolete but remain in the codebase, creating maintenance burdens and confusion. Vulture is a static analysis tool that identifies unused code: functions, classes, and variables that are defined but never used.</p>
 <section id="the-problem-of-dead-code" class="level3" data-number="2.6.1">
 <h3 data-number="2.6.1" class="anchored" data-anchor-id="the-problem-of-dead-code"><span class="header-section-number">2.6.1</span> The Problem of Dead Code</h3>
 <p>Dead code creates several issues:</p>
@@ -1875,10 +1895,28 @@ TOTAL                               56     17    70%</code></pre>
 <li>When onboarding new team members (helps them focus on what matters)</li>
 </ul>
 <p>Regularly checking for and removing dead code keeps your codebase lean and maintainable. It also provides insights into how your application has evolved and may highlight areas where design improvements could be made.</p>
-<p>With these additional security and code quality tools in place, your Python development workflow is now even more robust. Let’s move on to Part 3, where we’ll explore documentation and deployment options.</p>
-
-
+<p>With these additional security and code quality tools in place, your Python development workflow is now even more robust. Let’s move on to the next chapter, where we’ll explore documentation and deployment options.</p>
 </section>
+</section>
+<section id="take-it-to-the-ai" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="take-it-to-the-ai"><span class="header-section-number">2.7</span> Take it to the AI</h2>
+<p><strong>Where to start.</strong> Three questions worth arguing about rather than looking up:</p>
+<ol type="1">
+<li>Paste a function you wrote and ask for pytest tests. Then check whether any of them would still pass if you deleted the function body. Tests that pass trivially are the standard failure mode, and the AI Tip earlier in this chapter warns about it for good reason.</li>
+<li>Ask it to explain a Ruff rule you have been quietly suppressing, then ask what would break if you stopped suppressing it. Most suppressions outlive the reason for them.</li>
+<li>Ask it to add type annotations to a module, then run mypy in strict mode and count what it missed. The gap between “annotated” and “type-checks” is the number worth knowing.</li>
+</ol>
+<p><strong>Keywords to steer with.</strong> <code>requirements.in</code> and the lockfile · <code>uv pip compile</code> · Ruff rule codes · <code>--fix</code> · pytest fixtures · <code>parametrize</code> · markers · coverage percentage · mypy strict mode · gradual typing · Bandit severity and confidence · Vulture confidence · pre-commit hooks</p>
+<p><strong>A starting prompt.</strong></p>
+<blockquote class="blockquote">
+<p><strong>Role:</strong> You are a Python reviewer who assumes generated tests are trivially passing until proved otherwise.</p>
+<p><strong>Task:</strong> Write pytest tests for the function I paste, then attack your own tests: tell me which of them would still pass if the function were replaced by a stub returning a constant.</p>
+<p><strong>Context:</strong> I have read a chapter on pytest, coverage, mypy, Bandit and Vulture, and on why AI-generated tests often exercise nothing. Here is the function: [paste it]. It is part of a project that [describe what it does and who depends on it].</p>
+<p><strong>Format:</strong> The test file, then a table: test name | what it actually asserts | would it survive the function being stubbed out. End with the edge case you believe I care about most and did not think to ask for.</p>
+</blockquote>
+<p><strong>How to check what comes back.</strong> Run them, then break the code on purpose. Comment out the body of the function, make it return a constant, and run <code>pytest</code> again. Every test that still passes is decoration, and you have just done by hand what mutation testing does automatically. Then put the generated file through the rest of the gate: <code>ruff check</code> will find the unused imports that collect in generated code, and <code>mypy</code> will find the annotations that were written to look right rather than to be right. A test file that fails your own linter is not ready to commit.</p>
+
+
 </section>
 
 </main> <!-- /main -->

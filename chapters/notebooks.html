@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -77,14 +80,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-23bbe8b5e4efc1e257f6d59dce478b08.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-5c1318cf63eba56dbef7ba16bc7d56f5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-6453f418aeef366c23116eb9cb0b6816.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-5c1318cf63eba56dbef7ba16bc7d56f5.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d05bf2c3428979ef9cb136ebd9d2bc87.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-512512a359692b6a4a631bfed0d4ecc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-d05bf2c3428979ef9cb136ebd9d2bc87.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-a0c208db2eb124d1f96df216fe31c4f9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-67bea543f22db4742c43a9439edb3419.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-a0c208db2eb124d1f96df216fe31c4f9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -115,6 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -498,7 +502,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
     </ul>
     </div>
-</nav>
+<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
+<p>Paperback ISBN 979-8-255-16785-2</p>
+</div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -545,8 +551,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#when-to-graduate-from-notebooks" id="toc-when-to-graduate-from-notebooks" class="nav-link" data-scroll-target="#when-to-graduate-from-notebooks"><span class="header-section-number">8.11</span> When to Graduate from Notebooks</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">8.12</span> Summary</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">8.13</span> Exercises</a></li>
+  <li><a href="#take-it-to-the-ai" id="toc-take-it-to-the-ai" class="nav-link" data-scroll-target="#take-it-to-the-ai"><span class="header-section-number">8.14</span> Take it to the AI</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/chapters/notebooks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://github.com/michael-borck/ship-python-template/blob/main/scripts/scaffold_python_project.sh"><i class="bi bi-terminal"></i>Scaffold Script</a></li><li><a href="https://github.com/michael-borck/simplebot"><i class="bi bi-robot"></i>SimpleBot Case Study</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/chapters/notebooks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://github.com/michael-borck/ship-python-template/blob/main/scripts/scaffold_python_project.sh"><i class="bi bi-terminal"></i>Scaffold Script</a></li><li><a href="https://github.com/michael-borck/simplebot"><i class="bi bi-robot"></i>SimpleBot Case Study</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -581,14 +588,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Scripts aren’t the only way to ship Python. This chapter explores notebooks, dashboards, and interactive tools—legitimate ways to share, deploy, and deliver Python work.</p>
+<p>Scripts aren’t the only way to ship Python. This chapter explores notebooks, dashboards, and interactive tools, which are all legitimate ways to share, deploy, and deliver Python work.</p>
 </div>
 </div>
 <section id="why-this-chapter-appears-late-but-isnt-an-afterthought" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="why-this-chapter-appears-late-but-isnt-an-afterthought"><span class="header-section-number">8.1</span> Why This Chapter Appears Late (But Isn’t an Afterthought)</h2>
-<p>This chapter comes near the end of the book, but that’s intentional—not because notebooks are less important. We wanted you to first understand the complete script-based workflow: project structure, testing, documentation, packaging, and distribution. These fundamentals apply whether you’re writing scripts OR notebooks.</p>
+<p>This chapter comes near the end of the book, but that is intentional, and not because notebooks are less important. We wanted you to first understand the complete script-based workflow: project structure, testing, documentation, packaging, and distribution. These fundamentals apply whether you’re writing scripts OR notebooks.</p>
 <p>Now that you understand the “full” workflow, you can appreciate both when notebooks simplify things and when they create limitations. You’ll recognise that a <code>requirements.txt</code> matters for Binder just as it does for pip installs, that documentation practices transfer to notebook markdown cells, and that nbdev’s testing approach builds on pytest concepts you already know.</p>
-<p>Notebooks are a first-class citizen in the Python ecosystem—not an alternative for people who can’t handle “real” development. Many professional data scientists, researchers, and educators ship exclusively through notebooks. This chapter gives you the complete picture.</p>
+<p>Notebooks are a first-class citizen in the Python ecosystem, not an alternative for people who can’t handle “real” development. Many professional data scientists, researchers, and educators ship exclusively through notebooks. This chapter gives you the complete picture.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -599,7 +606,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Notebooks are often <strong>easier to share</strong> than packaged scripts—a Colab link gives anyone instant access with zero installation. But they <strong>expose your code</strong> by default, which creates friction for some audiences. Not everyone wants to scroll past Python cells to see results. Tools like Voilà and Mercury address this, but it’s worth knowing: the simplicity of notebooks comes with visibility trade-offs.</p>
+<p>Notebooks are often <strong>easier to share</strong> than packaged scripts, because a Colab link gives anyone instant access with zero installation. But they <strong>expose your code</strong> by default, which creates friction for some audiences. Not everyone wants to scroll past Python cells to see results. Tools like Voilà and Mercury address this, but it’s worth knowing: the simplicity of notebooks comes with visibility trade-offs.</p>
 </div>
 </div>
 </section>
@@ -611,7 +618,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Scripts</strong> - Traditional apps, packages, CLI tools (this book’s main focus)</li>
 <li><strong>Notebooks</strong> - Data analysis, reports, teaching, prototypes</li>
 </ol>
-<p>This book has focused primarily on scripts. But for many Python practitioners—especially in data science, education, and research—notebooks ARE the deliverable. A well-structured notebook with a sharing link is shipping.</p>
+<p>This book has focused primarily on scripts. But for many Python practitioners, especially in data science, education, and research, notebooks ARE the deliverable. A well-structured notebook with a sharing link is shipping.</p>
 </section>
 <section id="when-notebooks-make-sense" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="when-notebooks-make-sense"><span class="header-section-number">8.3</span> When Notebooks Make Sense</h2>
@@ -688,7 +695,7 @@ Where:
 <li>Share Colab link that opens from GitHub</li>
 <li>Viewers get latest version automatically</li>
 </ol>
-<p>This gives you version control (GitHub) with zero-install execution (Colab)—a “clunky Dropbox” that’s actually better because it’s versioned.</p>
+<p>This gives you version control (GitHub) with zero-install execution (Colab), a “clunky Dropbox” that is actually better because it’s versioned.</p>
 </section>
 <section id="binder" class="level3" data-number="8.5.2">
 <h3 data-number="8.5.2" class="anchored" data-anchor-id="binder"><span class="header-section-number">8.5.2</span> Binder</h3>
@@ -754,7 +761,7 @@ Where:
 </section>
 <section id="streamlit-notebook-adjacent" class="level3" data-number="8.6.3">
 <h3 data-number="8.6.3" class="anchored" data-anchor-id="streamlit-notebook-adjacent"><span class="header-section-number">8.6.3</span> Streamlit (Notebook-Adjacent)</h3>
-<p>Not notebooks, but similar rapid-development workflow:</p>
+<p>Streamlit offers a similar rapid-development workflow without notebooks:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># app.py</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -793,7 +800,7 @@ Where:
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We dedicate <a href="notebook-case-study.html" class="quarto-xref"><span>Chapter 9</span></a> to building a complete package with nbdev—TextKit, a text analysis library. That case study parallels the SimpleBot chapter (<a href="case-study.html" class="quarto-xref"><span>Chapter 4</span></a>) but follows the notebook-first workflow. Think of nbdev as an <strong>alternative path to the same destination</strong>: instead of writing <code>.py</code> files and separate docs, you write notebooks that generate both. The end result—a published package—is the same.</p>
+<p>We dedicate <a href="notebook-case-study.html" class="quarto-xref"><span>Chapter 9</span></a> to building a complete package with nbdev: TextKit, a text analysis library. That case study parallels the SimpleBot chapter (<a href="case-study.html" class="quarto-xref"><span>Chapter 4</span></a>) but follows the notebook-first workflow. Think of nbdev as an <strong>alternative path to the same destination</strong>: instead of writing <code>.py</code> files and separate docs, you write notebooks that generate both. The end result, a published package, is the same.</p>
 </div>
 </div>
 <p><strong>The nbdev philosophy:</strong></p>
@@ -1009,10 +1016,10 @@ Where:
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Many notebook environments now include built-in AI assistants. Google Colab has Gemini, and JupyterLab supports extensions for Copilot and other AI tools. These are particularly useful for exploratory data analysis — ask AI to generate plotting code, explain error messages, or suggest the next analysis step. The interactive, cell-by-cell nature of notebooks makes AI collaboration especially natural: generate code in one cell, review and modify it, then run it immediately.</p>
+<p>Many notebook environments now include built-in AI assistants. Google Colab has Gemini, and JupyterLab supports extensions for Copilot and other AI tools. These are particularly useful for exploratory data analysis: ask AI to generate plotting code, explain error messages, or suggest the next analysis step. The interactive, cell-by-cell nature of notebooks makes AI collaboration especially natural: generate code in one cell, review and modify it, then run it immediately.</p>
 </div>
 </div>
-<p><strong>Next</strong>: In <a href="notebook-case-study.html" class="quarto-xref"><span>Chapter 9</span></a>, we’ll build TextKit — a complete Python package developed entirely in notebooks using nbdev.</p>
+<p><strong>Next</strong>: In <a href="notebook-case-study.html" class="quarto-xref"><span>Chapter 9</span></a>, we’ll build TextKit, a complete Python package developed entirely in notebooks using nbdev.</p>
 </section>
 <section id="exercises" class="level2" data-number="8.13">
 <h2 data-number="8.13" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.13</span> Exercises</h2>
@@ -1022,6 +1029,24 @@ Where:
 <li><p><strong>Build a dashboard</strong>: Take an analysis notebook and convert it to a Voilà dashboard.</p></li>
 <li><p><strong>Explore nbdev</strong>: Create a simple function in a notebook and export it to a Python module using nbdev.</p></li>
 </ol>
+</section>
+<section id="take-it-to-the-ai" class="level2" data-number="8.14">
+<h2 data-number="8.14" class="anchored" data-anchor-id="take-it-to-the-ai"><span class="header-section-number">8.14</span> Take it to the AI</h2>
+<p><strong>Where to start.</strong> Three questions worth arguing about rather than looking up:</p>
+<ol type="1">
+<li>Ask the AI to review a notebook of yours for reproducibility, then restart the kernel and run all cells. Its list and the actual failures will differ, and the difference is instructive about what a model can and cannot see.</li>
+<li>Ask when your notebook should become a package. Push back on any answer that does not mention who else has to run it, because that is the only variable that really decides.</li>
+<li>Ask it to convert one notebook cell into a tested function. The friction you feel doing that is the honest cost of graduating, and it is worth feeling before you commit to it.</li>
+</ol>
+<p><strong>Keywords to steer with.</strong> restart and run all · hidden state · execution order · pinned requirements · nbviewer · Binder · Colab badge · Voilà · nbdev · <code>#| export</code> · notebook diffs · parameterised notebooks · when to graduate</p>
+<p><strong>A starting prompt.</strong></p>
+<blockquote class="blockquote">
+<p><strong>Role:</strong> You are a reviewer who keeps being handed notebooks that only ran on the author’s machine, and you are tired of it.</p>
+<p><strong>Task:</strong> Review the notebook I describe for reproducibility and tell me, in order, what would fail for somebody else.</p>
+<p><strong>Context:</strong> I have read a chapter on sharing notebooks, zero-install execution and when to graduate to a package. My notebook does [describe it, its inputs, and where the data actually lives]. Assume the reader clicks a Binder link and does nothing else.</p>
+<p><strong>Format:</strong> An ordered list of failures with the fix for each. Then a verdict: should this stay a notebook or become a package, and name the specific thing that tipped the decision.</p>
+</blockquote>
+<p><strong>How to check what comes back.</strong> The only honest test is the one the AI cannot run for you. Restart the kernel and run every cell top to bottom. Hidden state from a cell you deleted an hour ago is invisible in the file and fatal on someone else’s machine. Then clone your own repository into a fresh directory and do it again there, because the cell that quietly reads a file from your desktop will not announce itself until the path is gone. Where the AI’s list and the kernel disagree, trust the kernel.</p>
 
 
 </section>

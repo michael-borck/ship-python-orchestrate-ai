@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -77,14 +80,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-23bbe8b5e4efc1e257f6d59dce478b08.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-5c1318cf63eba56dbef7ba16bc7d56f5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-6453f418aeef366c23116eb9cb0b6816.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-5c1318cf63eba56dbef7ba16bc7d56f5.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d05bf2c3428979ef9cb136ebd9d2bc87.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-512512a359692b6a4a631bfed0d4ecc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-d05bf2c3428979ef9cb136ebd9d2bc87.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-a0c208db2eb124d1f96df216fe31c4f9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-67bea543f22db4742c43a9439edb3419.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-a0c208db2eb124d1f96df216fe31c4f9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -115,6 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -498,7 +502,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
     </ul>
     </div>
-</nav>
+<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
+<p>Paperback ISBN 979-8-255-16785-2</p>
+</div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -541,8 +547,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#dont-adopt-advanced-techniques-when" id="toc-dont-adopt-advanced-techniques-when" class="nav-link" data-scroll-target="#dont-adopt-advanced-techniques-when"><span class="header-section-number">5.6.4</span> Don’t Adopt Advanced Techniques When:</a></li>
   </ul></li>
   <li><a href="#maintaining-development-velocity" id="toc-maintaining-development-velocity" class="nav-link" data-scroll-target="#maintaining-development-velocity"><span class="header-section-number">5.7</span> Maintaining Development Velocity</a></li>
+  <li><a href="#take-it-to-the-ai" id="toc-take-it-to-the-ai" class="nav-link" data-scroll-target="#take-it-to-the-ai"><span class="header-section-number">5.8</span> Take it to the AI</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/chapters/advanced-techniques.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://github.com/michael-borck/ship-python-template/blob/main/scripts/scaffold_python_project.sh"><i class="bi bi-terminal"></i>Scaffold Script</a></li><li><a href="https://github.com/michael-borck/simplebot"><i class="bi bi-robot"></i>SimpleBot Case Study</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/chapters/advanced-techniques.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="../llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://github.com/michael-borck/ship-python-template/blob/main/scripts/scaffold_python_project.sh"><i class="bi bi-terminal"></i>Scaffold Script</a></li><li><a href="https://github.com/michael-borck/simplebot"><i class="bi bi-robot"></i>SimpleBot Case Study</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -612,6 +619,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">benchmark</span> <span class="op">=</span> <span class="st">"pytest --benchmark-only performance/"</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">profile</span> <span class="op">=</span> <span class="st">"python -m cProfile -o profile.stats src/my_package/main.py"</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dt">profile-view</span> <span class="op">=</span> <span class="st">"python -c 'import pstats; pstats.Stats(</span><span class="sc">\"</span><span class="st">profile.stats</span><span class="sc">\"</span><span class="st">).sort_stats(</span><span class="sc">\"</span><span class="st">cumulative</span><span class="sc">\"</span><span class="st">).print_stats(20)'"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>These are <a href="https://github.com/nat-n/poethepoet">Poe the Poet</a> task definitions, a task runner that lives in <code>pyproject.toml</code> and is introduced properly in the next chapter. <code>pytest --benchmark-only</code> assumes the <code>pytest-benchmark</code> plugin, which provides the <code>benchmark</code> fixture used above; add it with <code>uv add --dev pytest-benchmark</code>.</p>
 <p>This approach integrates performance measurement into your existing development workflow rather than introducing entirely new tools.</p>
 </section>
 <section id="performance-optimisation-strategy" class="level3" data-number="5.1.2">
@@ -700,7 +708,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="when-to-containerize" class="level3" data-number="5.2.3">
 <h3 data-number="5.2.3" class="anchored" data-anchor-id="when-to-containerize"><span class="header-section-number">5.2.3</span> When to Containerize</h3>
 <p>Consider containerization when you encounter: - <strong>Environment inconsistencies</strong> between team members - <strong>Complex system dependencies</strong> that are difficult to install - <strong>Deployment environment differences</strong> from development - <strong>Service integration challenges</strong> (databases, message queues, etc.)</p>
-<p>Don’t containerize simply because it’s trendy — use it to solve specific reproducibility problems.</p>
+<p>Don’t containerize simply because it’s trendy. Use it to solve specific reproducibility problems.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="AI Tip: Dockerfile Generation">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -711,7 +719,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Dockerfiles are perfect candidates for AI generation. Try: <em>“Write a multi-stage Dockerfile for a Python FastAPI application using uv for dependency management. The final image should be minimal.”</em> AI handles the syntax and layer ordering well. But always review the base images it suggests (are they up to date? are they the slim variants?) and test the build — AI often gets volume mounts and port mappings wrong in docker-compose files.</p>
+<p>Dockerfiles are perfect candidates for AI generation. Try: <em>“Write a multi-stage Dockerfile for a Python FastAPI application using uv for dependency management. The final image should be minimal.”</em> AI handles the syntax and layer ordering well. But always review the base images it suggests (are they up to date? are they the slim variants?) and test the build, because AI often gets volume mounts and port mappings wrong in docker-compose files.</p>
 </div>
 </div>
 </section>
@@ -1054,9 +1062,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>When deciding whether to adopt an advanced technique, describe your situation to your AI assistant: <em>“My Flask app handles 50 requests per second and response times are around 200ms. Users are complaining about slow page loads. Should I add caching, switch to async, or look at the database queries first?”</em> AI can help you reason through trade-offs, but the decision is yours — AI does not know your team’s capacity or your deployment constraints.</p>
+<p>When deciding whether to adopt an advanced technique, describe your situation to your AI assistant: <em>“My Flask app handles 50 requests per second and response times are around 200ms. Users are complaining about slow page loads. Should I add caching, switch to async, or look at the database queries first?”</em> AI can help you reason through trade-offs, but the decision is yours, because AI does not know your team’s capacity or your deployment constraints.</p>
 </div>
 </div>
+</section>
+<section id="take-it-to-the-ai" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="take-it-to-the-ai"><span class="header-section-number">5.8</span> Take it to the AI</h2>
+<p><strong>Where to start.</strong> Three questions worth arguing about rather than looking up:</p>
+<ol type="1">
+<li>Ask the AI where your code is slow, then profile it and compare. Its guess and the profiler will disagree, which is this chapter’s “measure first” argument arriving on your own machine rather than in a paragraph.</li>
+<li>Ask it to justify containerising your project. If the justification would apply equally to any project, you do not yet have a reason.</li>
+<li>Ask what your configuration does when an environment variable is missing. Silent defaults are how production incidents begin, and they are invisible until the day they are not.</li>
+</ol>
+<p><strong>Keywords to steer with.</strong> profiling · <code>cProfile</code> · benchmark baseline · premature optimisation · multi-stage Docker build · development versus production containers · modular architecture · configuration precedence · environment variables · connection pooling · <code>pathlib</code> versus string paths · cross-platform testing</p>
+<p><strong>A starting prompt.</strong></p>
+<blockquote class="blockquote">
+<p><strong>Role:</strong> You are a performance engineer who does not accept an optimisation proposal without a measurement behind it.</p>
+<p><strong>Task:</strong> I will describe code I believe is slow. Refuse to suggest any optimisation until you have told me how to measure it and what number would prove me wrong.</p>
+<p><strong>Context:</strong> I have read a chapter arguing that you measure first and optimise second, and that most guesses about bottlenecks are wrong. The code does [describe it]. I think the slow part is [state your guess]. Do not agree with me to be agreeable.</p>
+<p><strong>Format:</strong> The measurement first: what to profile, with which tool, and what to record. Then, only after I report a number back to you, up to three optimisations ranked by expected gain against implementation cost.</p>
+</blockquote>
+<p><strong>How to check what comes back.</strong> Run the profiler <em>before</em> you read the suggestions. If you read them first you will find the bottleneck it predicted, because that is how attention works, and you will have confirmed a guess rather than measured a system. Record the baseline, apply exactly one change, and measure again. A change that does not move the number goes back out however sensible the reasoning was. If a suggestion made the code slower, say so in the commit message. That is the most useful thing anyone will read in six months.</p>
 
 
 </section>

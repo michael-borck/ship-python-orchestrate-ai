@@ -2,22 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Michael Borck">
-<meta name="dcterms.date" content="2026-04-06">
+<meta name="dcterms.date" content="2026-11-02">
 
 <title>Ship Python, Orchestrate AI</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -78,14 +81,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-23bbe8b5e4efc1e257f6d59dce478b08.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-5c1318cf63eba56dbef7ba16bc7d56f5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-6453f418aeef366c23116eb9cb0b6816.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-5c1318cf63eba56dbef7ba16bc7d56f5.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d05bf2c3428979ef9cb136ebd9d2bc87.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-512512a359692b6a4a631bfed0d4ecc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-d05bf2c3428979ef9cb136ebd9d2bc87.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a0c208db2eb124d1f96df216fe31c4f9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-67bea543f22db4742c43a9439edb3419.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-a0c208db2eb124d1f96df216fe31c4f9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -113,12 +116,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="book-design.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -502,7 +503,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
     </ul>
     </div>
-</nav>
+<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
+<p>Paperback ISBN 979-8-255-16785-2</p>
+</div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -523,7 +526,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#source-code-feedback" id="toc-source-code-feedback" class="nav-link" data-scroll-target="#source-code-feedback">Source Code &amp; Feedback</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://github.com/michael-borck/ship-python-template/blob/main/scripts/scaffold_python_project.sh"><i class="bi bi-terminal"></i>Scaffold Script</a></li><li><a href="https://github.com/michael-borck/simplebot"><i class="bi bi-robot"></i>SimpleBot Case Study</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="/ship-python-orchestrate-ai.pdf"><i class="bi bi-file-pdf"></i>Download PDF</a></li><li><a href="/ship-python-orchestrate-ai.epub"><i class="bi bi-book"></i>Download EPUB</a></li><li><a href="llm.txt"><i class="bi bi-robot"></i>Download llm.txt</a></li><li><a href="https://github.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-github"></i>GitHub</a></li><li><a href="https://deepwiki.com/michael-borck/ship-python-orchestrate-ai"><i class="bi bi-search"></i>DeepWiki</a></li><li><a href="https://github.com/michael-borck/ship-python-cookiecutter"><i class="bi bi-box"></i>Cookiecutter Template</a></li><li><a href="https://github.com/michael-borck/ship-python-template"><i class="bi bi-file-code"></i>GitHub Template</a></li><li><a href="https://github.com/michael-borck/ship-python-example"><i class="bi bi-code-square"></i>Example Project</a></li><li><a href="https://github.com/michael-borck/ship-python-template/blob/main/scripts/scaffold_python_project.sh"><i class="bi bi-terminal"></i>Scaffold Script</a></li><li><a href="https://github.com/michael-borck/simplebot"><i class="bi bi-robot"></i>SimpleBot Case Study</a></li><li><a href="https://books.borck.education"><i class="bi bi-collection"></i>All Books</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -549,7 +552,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 6, 2026</p>
+      <p class="date">November 2, 2026</p>
     </div>
   </div>
   
@@ -567,9 +570,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="why-this-book-exists" class="level2">
 <h2 class="anchored" data-anchor-id="why-this-book-exists">Why This Book Exists</h2>
 <p>You can write Python. Now what?</p>
-<p>The gap between writing scripts that work on your machine and shipping software that other people can use is enormous. The Python ecosystem offers hundreds of tools to bridge that gap — and that is exactly the problem. Which virtual environment tool? Which formatter? Which testing framework? How do you manage dependencies? How do you structure a project? The questions feel endless, and every answer leads to three more.</p>
-<p>This book grew out of my own search for a sane, repeatable workflow for Python projects. I needed a pipeline that could target multiple platforms — web apps, PWAs, Docker containers, Windows, Linux, Mac — from a single codebase. I wanted something that was simple by default but could scale when needed, without bolting on complexity for edge cases that did not yet exist. The result is what you will find in these pages: a deliberate 80/20 approach. The 20% of practices that yield 80% of the benefits.</p>
-<p>We settle on specific tools — uv, ruff, mypy, pytest — not because they are the only options, but because making a decision and committing to it is more productive than endlessly evaluating alternatives. If you are working in a large team with established conventions, you may choose differently. This book is for everyone else: solo developers, small teams, prototypers, and anyone who wants a professional workflow without the overhead.</p>
+<p>The gap between writing scripts that work on your machine and shipping software that other people can use is enormous. The Python ecosystem offers hundreds of tools to bridge that gap, and that is exactly the problem. Which virtual environment tool? Which formatter? Which testing framework? How do you manage dependencies? How do you structure a project? The questions feel endless, and every answer leads to three more.</p>
+<p>This book grew out of my own search for a sane, repeatable workflow for Python projects. I needed a pipeline that could target multiple platforms (web apps, PWAs, Docker containers, Windows, Linux, Mac) from a single codebase. I wanted something that was simple by default but could scale when needed, without bolting on complexity for edge cases that did not yet exist. The result is what you will find in these pages: a deliberate 80/20 approach. The 20% of practices that yield 80% of the benefits.</p>
+<p>We settle on specific tools (uv, ruff, mypy, pytest) not because they are the only options, but because making a decision and committing to it is more productive than endlessly evaluating alternatives. If you are working in a large team with established conventions, you may choose differently. This book is for everyone else: solo developers, small teams, prototypers, and anyone who wants a professional workflow without the overhead.</p>
 </section>
 <section id="who-this-book-is-for" class="level2">
 <h2 class="anchored" data-anchor-id="who-this-book-is-for">Who This Book Is For</h2>
@@ -585,8 +588,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="what-this-book-is-not">What This Book Is Not</h2>
 <p>This is not a Python tutorial. It does not teach the language. It teaches the professional practices around the language: project structure, version control, dependency management, testing, documentation, and deployment.</p>
 <p>It is not an enterprise DevOps guide. It does not cover large-team workflows, complex CI/CD orchestration, or Kubernetes. It covers what a solo developer or small team needs to ship reliable software. The practices scale, but the book does not add complexity for situations that may never apply to you.</p>
-<p>It is not a tool comparison. It does not present five options for every choice and leave you to decide. It picks one, explains why, and moves on. Simple but not simplistic — that is the guiding principle.</p>
+<p>It is not a tool comparison. It does not present five options for every choice and leave you to decide. It picks one, explains why, and moves on. Simple but not simplistic: that is the guiding principle.</p>
 <p>And it is not a book that ignores AI. But it uses AI differently from the other books in this series. <em>Code Python, Consult AI</em> teaches you to think with AI, to explore concepts and build understanding through conversation. This book teaches you to orchestrate AI, to set up the project structure, testing, and automation so that AI-generated code has somewhere safe to land. Without a proper pipeline, AI produces code you cannot test, cannot deploy, and cannot maintain. With one, AI becomes a force multiplier. The pipeline is what makes the difference.</p>
+<p>And it is not a book about vibe coding. Vibe coding, which is prompting AI until something runs without understanding it, is fine for a throwaway script. It collapses the moment you try to <em>ship</em>. You cannot vibe a CI pipeline that catches real bugs, a package other people can install, a build that targets web, desktop, and containers from one codebase, or a test suite trustworthy enough to let an agent verify its own work. Deployment is where “it works on my machine” meets reality, and reality does not accept vibes. This book builds the structure that makes AI-generated code safe to ship, and with it the one part of your work that does not commoditise: the judgement that decides what to ship and why. The deeper argument for staying in control of AI is in <em>Conversation, Not Delegation</em>.</p>
 </section>
 <section id="if-you-are-feeling-overwhelmed" class="level2">
 <h2 class="anchored" data-anchor-id="if-you-are-feeling-overwhelmed">If You Are Feeling Overwhelmed</h2>
@@ -596,11 +600,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="how-this-book-is-structured">How This Book Is Structured</h2>
 <p>The book builds a complete development pipeline in stages:</p>
 <ol type="1">
-<li><strong>Setting the Foundation</strong> — project structure, version control, virtual environments</li>
-<li><strong>Advancing Your Workflow</strong> — dependency management, code quality (ruff), testing (pytest), type checking (mypy)</li>
-<li><strong>Documentation and Deployment</strong> — documentation, CI/CD automation</li>
-<li><strong>Case Study</strong> — applying everything to a real project (SimpleBot)</li>
-<li><strong>Multi-Platform Distribution</strong> — shipping to web, desktop, PWA, and containers from one codebase</li>
+<li><strong>Setting the Foundation</strong>: project structure, version control, virtual environments</li>
+<li><strong>Advancing Your Workflow</strong>: dependency management, code quality (ruff), testing (pytest), type checking (mypy)</li>
+<li><strong>Documentation and Deployment</strong>: documentation and CI/CD automation</li>
+<li><strong>Case Study</strong>: applying everything to a real project (SimpleBot)</li>
+<li><strong>Multi-Platform Distribution</strong>: shipping to web, desktop, PWA, and containers from one codebase</li>
 </ol>
 <p>Companion templates let you start new projects with the recommended structure immediately:</p>
 <ul>
@@ -620,42 +624,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 └── tests/</code></pre>
 <p>Throughout the chapters you will find:</p>
 <ul>
-<li><strong>AI Tips</strong> — practical advice for using AI with the practice being taught</li>
-<li><strong>Callout boxes</strong> — important notes, tips, and warnings highlighted for reference</li>
+<li><strong>AI Tips</strong>: practical advice for using AI with the practice being taught</li>
+<li><strong>Callout boxes</strong>: important notes, tips, and warnings highlighted for reference</li>
+<li><strong>Take it to the AI</strong>: an end-of-chapter section that puts the chapter’s practice to work</li>
 </ul>
+<p>That last section has four parts, and the fourth is the one that matters. You get a few questions worth arguing about, the keywords that let you steer a conversation you cannot yet phrase, a starting prompt written out in full, and then <strong>how to check what comes back</strong>, using the pipeline the chapter just taught you to build. That order is deliberate. AI will generate a <code>pyproject.toml</code>, a workflow file, or a test suite faster than you can type one, and none of it is worth anything until it has been through the gate. Generating without checking is vibe coding with extra steps, which is the one thing this book is against.</p>
+<p>The prompts spell out four things: the role the assistant should take, the task, the context it needs, and the format you want back. Write all four if you are running a small model on your own machine, the kind with a few billion parameters that fits on a laptop; its defaults come from a narrower range, and the structure is doing work the model will not do for you. On a current frontier model the task and context lines are usually enough on their own, and the rest is a checklist for your own thinking. Either way, the first answer is the draft. The pipeline is what decides whether it ships.</p>
 </section>
 <section id="the-series" class="level2">
 <h2 class="anchored" data-anchor-id="the-series">The Series</h2>
 <p>This book is part of a series designed to help you master modern software development in the AI era.</p>
-<div class="cell" data-fig-width="4" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-    CND["Conversation,&lt;br/&gt;Not Delegation"]
-    CPPA["Converse Python,&lt;br/&gt;Partner AI"]
-    Think["Think Python,&lt;br/&gt;Direct AI"]
-    Code["Code Python,&lt;br/&gt;Consult AI"]
-    Ship["Ship Python,&lt;br/&gt;Orchestrate AI"]
-    Web["Build Web,&lt;br/&gt;Guide AI"]
-    CND --&gt; CPPA
-    CND --&gt; Web
-    CPPA --&gt; Think
-    Think --&gt; Code
-    Code --&gt; Ship
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p><strong>Conversation, Not Delegation</strong> — the general methodology for working with AI across any discipline.</p>
-<p><strong>Converse Python, Partner AI</strong> — intentional prompting methodology applied to software development.</p>
-<p><strong>Think Python, Direct AI</strong> — computational thinking for absolute beginners.</p>
-<p><strong>Code Python, Consult AI</strong> — focused Python fundamentals with AI integration.</p>
-<p><strong>Ship Python, Orchestrate AI</strong> (this book) — professional Python development practices and tooling.</p>
-<p><strong>Build Web, Guide AI</strong> — web development with AI as your development partner.</p>
+<p>Two ways in:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Start with</th>
+<th>Continue with</th>
+<th>Because</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Conversation, Not Delegation</em></td>
+<td><em>Build Web, Guide AI</em>, or <em>Converse Python, Partner AI</em></td>
+<td>You want the ideas before (or without) code</td>
+</tr>
+<tr class="even">
+<td><em>Think Python, Direct AI</em></td>
+<td><em>Code Python, Consult AI</em>, then <em>Ship Python, Orchestrate AI</em> (this book)</td>
+<td>You want to code from your first page</td>
+</tr>
+</tbody>
+</table>
+<p><em>Converse Python, Partner AI</em> can be read alongside either path; its methodology enhances every one.</p>
+<ul>
+<li><strong>Conversation, Not Delegation</strong>: the general methodology for working with AI across any discipline. No code required; the broadest entry point.</li>
+<li><strong>Think Python, Direct AI</strong>: computational thinking for absolute beginners. The entry point if you want to code from the start.</li>
+<li><strong>Converse Python, Partner AI</strong>: the intentional prompting methodology applied to software development. A companion you can read alongside any Python book.</li>
+<li><strong>Code Python, Consult AI</strong>: focused Python fundamentals through AI conversation.</li>
+<li><strong>Ship Python, Orchestrate AI</strong> (this book): professional Python development practices and tooling.</li>
+<li><strong>The Absolute Minimum You Must Know</strong>: the free, always-current web companion at <a href="https://minimum.borck.education">minimum.borck.education</a>, quick primers on every topic this series covers in depth.</li>
+<li><strong>Build Web, Guide AI</strong>: web development with AI as your development partner.</li>
+</ul>
 <p>All titles are available at <a href="https://books.borck.education">books.borck.education</a>.</p>
 </section>
 <section id="ways-to-engage-with-this-book" class="level2">
